@@ -24,9 +24,9 @@ import za.co.mmagon.jwebswing.base.html.interfaces.*;
 import za.co.mmagon.jwebswing.base.html.interfaces.children.NoChildren;
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * This class incorporates the JQPlot library from http://www.jqplot.com
@@ -113,6 +113,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
      * <p>
      * @return
      */
+    @Override
     public JQPlotOptions<O> getOptions()
     {
         if (options == null)
