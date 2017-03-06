@@ -5,6 +5,7 @@
         <group name="JWebswing Static"/>
         <group name="JWebSwing"/>
         <group name="JWebSwing Plugins">
+            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JQPlotPlugin/src/za/co/mmagon/jwebswing/plugins/jqplot/JQPlotGraphFeatures.java</file>
             <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JQPlotPlugin/src/za/co/mmagon/jwebswing/plugins/jqplot/JQPlotPageConfigurator.java</file>
         </group>
     </open-files>

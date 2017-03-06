@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,8 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
  * @since 27 Feb 2017
  *
  */
-@PluginInformation(pluginName = "JqPlot", pluginUniqueName = "jq-plot",
+@PluginInformation(pluginName = "JqPlot",
+                   pluginUniqueName = "jq-plot",
                    pluginDescription = "Computation and drawing of lines, axes, shadows even the grid itself is handled by pluggable \"renderers\". Not only are the plot elements customizable, plugins can expand functionality of the plot too! There are plenty of hooks into the core jqPlot code allowing for custom event handlers, creation of new plot types, adding canvases to the plot, and more!",
                    pluginVersion = "1.9.1",
                    pluginDependancyUniqueIDs = "jquery",
@@ -39,7 +40,7 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
                    pluginSourceDonateUrl = "http://www.jqplot.com/donate.php",
                    pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/JQPlotPlugin.jar/download",
                    pluginIconUrl = "bower_components/jqplot-jwebswing/jqplot_icon.jpg",
-                   pluginIconImageUrl = "bower_components/jqplot-jwebswing/jqplot_logo.jpg",
+                   pluginIconImageUrl = "bower_components/jqplot-jwebswing/jqplot_logo.png",
                    pluginLastUpdatedDate = "2017/03/04"
 )
 public class JQPlotPageConfigurator extends PageConfigurator
