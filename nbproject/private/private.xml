@@ -4,9 +4,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="JWebswing Static"/>
         <group name="JWebSwing"/>
-        <group name="JWebSwing Plugins">
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JQPlotPlugin/src/za/co/mmagon/jwebswing/plugins/jqplot/JQPlotGraphFeatures.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JQPlotPlugin/src/za/co/mmagon/jwebswing/plugins/jqplot/JQPlotPageConfigurator.java</file>
-        </group>
+        <group name="JWebSwing Plugins"/>
     </open-files>
 </project-private>
