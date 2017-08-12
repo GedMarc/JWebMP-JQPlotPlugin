@@ -16,113 +16,113 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.options.axis;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
- *
  * @author GedMarc
  * @since 29 Feb 2016
  */
 public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPart & JQPlotTickRenderer> extends JavaScriptPart
-        implements JQPlotAxisLabelRenderer
+		implements JQPlotAxisLabelRenderer
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
+	/**
+	 * True to sort tick labels when labels are created by merging x axis values from multiple series.
+	 */
+	private Boolean sortMergedLabels;
+	/**
+	 * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
+	 */
+	private O tickRenderer;
 
-    /**
-     * The Default Axis Label Renderer Options
-     *
-     * @param linkedGraph
-     */
-    public JQPlotAxisLabelRendererOptionsCategoryLabels(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CategoryAxisRenderer.getReference());
-    }
+	/**
+	 * The Default Axis Label Renderer Options
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotAxisLabelRendererOptionsCategoryLabels(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CategoryAxisRenderer.getReference());
+	}
 
-    @JsonProperty("renderer")
-    @JsonRawValue
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.CategoryAxisRenderer";
-    }
+	@JsonProperty("renderer")
+	@JsonRawValue
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.CategoryAxisRenderer";
+	}
 
-    /**
-     * Gets the linked graph
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    /**
-     * Sets the linked graph
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    /**
-     * True to sort tick labels when labels are created by merging x axis values from multiple series.
-     */
-    private Boolean sortMergedLabels;
-    /**
-     * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
-     */
-    private O tickRenderer;
+	/**
+	 * True to sort tick labels when labels are created by merging x axis values from multiple series.
+	 *
+	 * @return
+	 */
+	public Boolean getSortMergedLabels()
+	{
+		return sortMergedLabels;
+	}
 
-    /**
-     * True to sort tick labels when labels are created by merging x axis values from multiple series.
-     *
-     * @return
-     */
-    public Boolean getSortMergedLabels()
-    {
-        return sortMergedLabels;
-    }
+	/**
+	 * True to sort tick labels when labels are created by merging x axis values from multiple series.
+	 *
+	 * @param sortMergedLabels
+	 */
+	public void setSortMergedLabels(Boolean sortMergedLabels)
+	{
+		this.sortMergedLabels = sortMergedLabels;
+	}
 
-    /**
-     * True to sort tick labels when labels are created by merging x axis values from multiple series.
-     *
-     * @param sortMergedLabels
-     */
-    public void setSortMergedLabels(Boolean sortMergedLabels)
-    {
-        this.sortMergedLabels = sortMergedLabels;
-    }
+	/**
+	 * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
+	 *
+	 * @return
+	 */
+	public O getTickRenderer()
+	{
+		return tickRenderer;
+	}
 
-    /**
-     * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
-     *
-     * @return
-     */
-    public O getTickRenderer()
-    {
-        return tickRenderer;
-    }
-
-    /**
-     * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
-     *
-     * @param tickRenderer
-     */
-    public void setTickRenderer(O tickRenderer)
-    {
-        this.tickRenderer = tickRenderer;
-    }
+	/**
+	 * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
+	 *
+	 * @param tickRenderer
+	 */
+	public void setTickRenderer(O tickRenderer)
+	{
+		this.tickRenderer = tickRenderer;
+	}
 
 }

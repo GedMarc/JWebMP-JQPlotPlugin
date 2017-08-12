@@ -19,20 +19,19 @@ package za.co.mmagon.jwebswing.plugins.jqplot.options;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
 public class JQPlotBarGraphOptionsTest
 {
-
-    public JQPlotBarGraphOptionsTest()
-    {
-    }
-
-    @Test
-    public void testSomeMethod()
-    {
-
-    }
-
+	
+	public JQPlotBarGraphOptionsTest()
+	{
+	}
+	
+	@Test
+	public void testSomeMethod()
+	{
+	
+	}
+	
 }

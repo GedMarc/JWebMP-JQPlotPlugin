@@ -22,217 +22,222 @@ package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 public class JQPlotBar implements JQPlotSeriesItem
 {
 
-    private String xAxisValue;
-    private String categoryValue;
-    private Double yValue;
-    private Double startingValue;
+	private String xAxisValue;
+	private String categoryValue;
+	private Double yValue;
+	private Double startingValue;
 
-    private boolean waterfall;
-    private boolean clustered;
+	private boolean waterfall;
+	private boolean clustered;
 
-    /**
-     * Constructs a new Bar with the given X Axis category and actual yAxis value
-     * <p>
-     * @param xAxisValue
-     * @param yValue
-     */
-    public JQPlotBar(String xAxisValue, Double yValue)
-    {
-        this.xAxisValue = xAxisValue;
-        this.yValue = yValue;
-    }
+	/**
+	 * Constructs a new Bar with the given X Axis category and actual yAxis value
+	 * <p>
+	 *
+	 * @param xAxisValue
+	 * @param yValue
+	 */
+	public JQPlotBar(String xAxisValue, Double yValue)
+	{
+		this.xAxisValue = xAxisValue;
+		this.yValue = yValue;
+	}
 
-    /**
-     * For cluster graphs, to give each series a separate name
-     *
-     * @param xAxisValue
-     * @param categoryValue
-     * @param yValue
-     */
-    public JQPlotBar(String xAxisValue, String categoryValue, Double yValue)
-    {
-        this.xAxisValue = xAxisValue;
-        this.categoryValue = categoryValue;
-        this.yValue = yValue;
+	/**
+	 * For cluster graphs, to give each series a separate name
+	 *
+	 * @param xAxisValue
+	 * @param categoryValue
+	 * @param yValue
+	 */
+	public JQPlotBar(String xAxisValue, String categoryValue, Double yValue)
+	{
+		this.xAxisValue = xAxisValue;
+		this.categoryValue = categoryValue;
+		this.yValue = yValue;
 
-        setClustered(true);
-    }
+		setClustered(true);
+	}
 
-    /**
-     * For Waterfall Bars, Specified with a Starting Point clustered
-     *
-     * @param xAxisValue
-     * @param categoryValue
-     * @param yValue
-     * @param startingValue
-     */
-    public JQPlotBar(String xAxisValue, String categoryValue, Double startingValue, Double yValue)
-    {
-        this.xAxisValue = xAxisValue;
-        this.categoryValue = categoryValue;
-        this.yValue = yValue;
-        this.startingValue = startingValue;
+	/**
+	 * For Waterfall Bars, Specified with a Starting Point clustered
+	 *
+	 * @param xAxisValue
+	 * @param categoryValue
+	 * @param yValue
+	 * @param startingValue
+	 */
+	public JQPlotBar(String xAxisValue, String categoryValue, Double startingValue, Double yValue)
+	{
+		this.xAxisValue = xAxisValue;
+		this.categoryValue = categoryValue;
+		this.yValue = yValue;
+		this.startingValue = startingValue;
 
-        setWaterfall(true);
-        setClustered(true);
-    }
+		setWaterfall(true);
+		setClustered(true);
+	}
 
-    /**
-     * For Waterfall Bars, Specified with a Starting Point
-     *
-     * @param categoryValue
-     * @param yValue
-     * @param startingValue
-     */
-    public JQPlotBar(String categoryValue, Double startingValue, Double yValue)
-    {
-        this.categoryValue = categoryValue;
-        this.yValue = yValue;
-        this.startingValue = startingValue;
+	/**
+	 * For Waterfall Bars, Specified with a Starting Point
+	 *
+	 * @param categoryValue
+	 * @param yValue
+	 * @param startingValue
+	 */
+	public JQPlotBar(String categoryValue, Double startingValue, Double yValue)
+	{
+		this.categoryValue = categoryValue;
+		this.yValue = yValue;
+		this.startingValue = startingValue;
 
-        setWaterfall(true);
-    }
+		setWaterfall(true);
+	}
 
-    /**
-     * Gets the category value for a specific bar
-     * <p>
-     * @return
-     */
-    public String getCategoryValue()
-    {
-        return categoryValue;
-    }
+	/**
+	 * Gets the category value for a specific bar
+	 * <p>
+	 *
+	 * @return
+	 */
+	public String getCategoryValue()
+	{
+		return categoryValue;
+	}
 
-    /**
-     * Sets the current category value for a specific bar
-     * <p>
-     * @param categoryValue
-     */
-    public void setCategoryValue(String categoryValue)
-    {
-        this.categoryValue = categoryValue;
-    }
+	/**
+	 * Sets the current category value for a specific bar
+	 * <p>
+	 *
+	 * @param categoryValue
+	 */
+	public void setCategoryValue(String categoryValue)
+	{
+		this.categoryValue = categoryValue;
+	}
 
-    /**
-     * Gets the yAxis Value
-     * <p>
-     * @return
-     */
-    public Double getyValue()
-    {
-        return yValue;
-    }
+	/**
+	 * Gets the yAxis Value
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Double getyValue()
+	{
+		return yValue;
+	}
 
-    /**
-     * Sets the yAxis Value
-     * <p>
-     * @param yValue
-     */
-    public void setyValue(Double yValue)
-    {
-        this.yValue = yValue;
-    }
+	/**
+	 * Sets the yAxis Value
+	 * <p>
+	 *
+	 * @param yValue
+	 */
+	public void setyValue(Double yValue)
+	{
+		this.yValue = yValue;
+	}
 
-    /**
-     * Only for Waterfall, Gets the starting value
-     *
-     * @return
-     */
-    public Double getStartingValue()
-    {
-        return startingValue;
-    }
+	/**
+	 * Only for Waterfall, Gets the starting value
+	 *
+	 * @return
+	 */
+	public Double getStartingValue()
+	{
+		return startingValue;
+	}
 
-    /**
-     * Only for waterfall, gets the starting value
-     *
-     * @param startingValue
-     */
-    public void setStartingValue(Double startingValue)
-    {
-        this.startingValue = startingValue;
-    }
+	/**
+	 * Only for waterfall, gets the starting value
+	 *
+	 * @param startingValue
+	 */
+	public void setStartingValue(Double startingValue)
+	{
+		this.startingValue = startingValue;
+	}
 
-    /**
-     * Gets the X Axis Name
-     *
-     * @return
-     */
-    public String getxAxisValue()
-    {
-        return xAxisValue;
-    }
+	/**
+	 * Gets the X Axis Name
+	 *
+	 * @return
+	 */
+	public String getxAxisValue()
+	{
+		return xAxisValue;
+	}
 
-    /**
-     * Sets the X Axis Name
-     *
-     * @param xAxisValue
-     */
-    public void setxAxisValue(String xAxisValue)
-    {
-        this.xAxisValue = xAxisValue;
-    }
+	/**
+	 * Sets the X Axis Name
+	 *
+	 * @param xAxisValue
+	 */
+	public void setxAxisValue(String xAxisValue)
+	{
+		this.xAxisValue = xAxisValue;
+	}
 
-    /**
-     * Gets if this is a waterfall bar
-     *
-     * @return
-     */
-    public boolean isWaterfall()
-    {
-        return waterfall;
-    }
+	/**
+	 * Gets if this is a waterfall bar
+	 *
+	 * @return
+	 */
+	public boolean isWaterfall()
+	{
+		return waterfall;
+	}
 
-    /**
-     * sets if this is a waterfall bar
-     *
-     * @param waterfall
-     */
-    public void setWaterfall(boolean waterfall)
-    {
-        this.waterfall = waterfall;
-    }
+	/**
+	 * sets if this is a waterfall bar
+	 *
+	 * @param waterfall
+	 */
+	public void setWaterfall(boolean waterfall)
+	{
+		this.waterfall = waterfall;
+	}
 
-    /**
-     * gets if this is a clustered bar
-     *
-     * @return
-     */
-    public boolean isClustered()
-    {
-        return clustered;
-    }
+	/**
+	 * gets if this is a clustered bar
+	 *
+	 * @return
+	 */
+	public boolean isClustered()
+	{
+		return clustered;
+	}
 
-    /**
-     * sets if this is a clustered bar
-     *
-     * @param clustered
-     */
-    public void setClustered(boolean clustered)
-    {
-        this.clustered = clustered;
-    }
+	/**
+	 * sets if this is a clustered bar
+	 *
+	 * @param clustered
+	 */
+	public void setClustered(boolean clustered)
+	{
+		this.clustered = clustered;
+	}
 
-    @Override
-    public String toString()
-    {
-        if (isClustered() && !isWaterfall())
-        {
-            return "[\"" + getCategoryValue() + "\"," + getyValue() + "],";
-        }
-        if (isWaterfall())
-        {
-            /*
+	@Override
+	public String toString()
+	{
+		if (isClustered() && !isWaterfall())
+		{
+			return "[\"" + getCategoryValue() + "\"," + getyValue() + "],";
+		}
+		if (isWaterfall())
+		{
+	        /*
              * if (isClustered())
              * {
              * return "[\"" + getCategoryValue() + "\"," + getStartingValue() + "," + getyValue() + "],";
              * }
              */
 
-            //return getStartingValue() + "," + getyValue() + ",";
-            return getyValue() + ",";
-        }
+			//return getStartingValue() + "," + getyValue() + ",";
+			return getyValue() + ",";
+		}
 
-        return getyValue().toString() + ",";
-    }
+		return getyValue().toString() + ",";
+	}
 }

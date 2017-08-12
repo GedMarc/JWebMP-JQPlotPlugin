@@ -20,20 +20,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 
 /**
- *
  * @author GedMarc
  * @since 26 Feb 2016
  */
 public interface JQPlotMarkerRenderer extends JQPlotRenderer
 {
-
-    /**
-     * Returns the marker renderer
-     *
-     * @return
-     */
-    @JsonProperty("markerRenderer")
-    @JsonRawValue
-    public String getMarkerRenderer();
-
+	
+	/**
+	 * Returns the marker renderer
+	 *
+	 * @return
+	 */
+	@JsonProperty("markerRenderer")
+	@JsonRawValue
+	public String getMarkerRenderer();
+	
 }

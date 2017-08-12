@@ -16,36 +16,34 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
-import za.co.mmagon.jwebswing.plugins.jqplot.graphs.display.JQPlotLine;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
 public class JQPlotLineTest
 {
 
-    public JQPlotLineTest()
-    {
-    }
+	public JQPlotLineTest()
+	{
+	}
 
-    @Test
-    public void testBasicPlotline()
-    {
-        JQPlotLine pl = new JQPlotLine(1);
-        System.out.println(pl);
-        Assert.assertEquals(pl.toString(), "[[0,1.0]]");
+	@Test
+	public void testBasicPlotline()
+	{
+		JQPlotLine pl = new JQPlotLine(1);
+		System.out.println(pl);
+		Assert.assertEquals(pl.toString(), "[[0,1.0]]");
 
-        pl.addPoint(2);
-        System.out.println(pl);
-        Assert.assertEquals(pl.toString(), "[[0,1.0], [1,2.0]]");
+		pl.addPoint(2);
+		System.out.println(pl);
+		Assert.assertEquals(pl.toString(), "[[0,1.0], [1,2.0]]");
 
-        pl.addPoint("X", 1);
-        System.out.println(pl);
-        Assert.assertEquals(pl.toString(), "[[0,1.0], [1,2.0], ['X',1.0]]");
+		pl.addPoint("X", 1);
+		System.out.println(pl);
+		Assert.assertEquals(pl.toString(), "[[0,1.0], [1,2.0], ['X',1.0]]");
 
-    }
+	}
 
 }

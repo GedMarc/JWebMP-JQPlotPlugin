@@ -17,510 +17,508 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.options.series;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import java.util.ArrayList;
 
 /**
  * The properties for a line graph
  *
  * @author Marc Magon
- * @since 09 Aug 2015
  * @version 1.0
+ * @since 09 Aug 2015
  */
 public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeriesRenderer
 {
 
-    /**
-     * The graph that this is linked to
-     */
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * The graph that this is linked to
+	 */
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
+	/**
+	 * Outer diameter of the pie, auto computed by default
+	 */
+	private Integer diameter;//
+	/**
+	 * padding between the pie and plot edges, legend, etc.
+	 */
+	private Double padding;
+	/**
+	 * angular spacing between pie slices in degrees.
+	 */
+	private Integer sliceMargin;
+	/**
+	 * true or false, whether to fil the slices.
+	 */
+	private Boolean fill;
+	/**
+	 * offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
+	 */
+	private Integer shadowOffset;
+	/**
+	 * transparency of the shadow (0 = transparent, 1 = opaque)
+	 */
+	private Double shadowAlpha;
+	/**
+	 * number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
+	 */
+	private Integer shadowDepth;
+	/**
+	 * True to highlight slice when moused over.
+	 */
+	private Boolean highlightMouseOver;
+	/**
+	 * True to highlight when a mouse button is pressed over a slice.
+	 */
+	private Boolean highlightMouseDown;
+	/**
+	 * an array of colors to use when highlighting a slice.
+	 */
+	private ArrayList<String> highlightColors;
+	/**
+	 * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
+	 */
+	private String dataLabels;
+	/**
+	 * true to show data labels on slices.
+	 */
+	private Boolean showDataLabels;
+	/**
+	 * Format string for data labels.
+	 */
+	private String dataLabelFormatString;
+	/**
+	 * Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
+	 */
+	private Integer dataLabelThreshold;
+	/**
+	 * A Multiplier (0-1) of the pie radius which controls position of label on slice.
+	 */
+	private Double dataLabelPositionFactor;
+	/**
+	 * Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
+	 */
+	private Integer dataLabelNudge;
+	/**
+	 * True to center the data label at its position.
+	 */
+	private Boolean dataLabelCenterOn;
+	/**
+	 * Angle to start drawing pie in degrees.
+	 */
+	private Integer startAngle;
+	/**
+	 * Array for whether the pie chart slice for a data element should be displayed.
+	 */
+	private ArrayList<Boolean> showSlice;
+	/**
+	 * Constructs a new Line Options for the given graph
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotSeriesPieOptions(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.PieRenderer.getReference());
+	}
 
-    /**
-     * Constructs a new Line Options for the given graph
-     *
-     * @param linkedGraph
-     */
-    public JQPlotSeriesPieOptions(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.PieRenderer.getReference());
-    }
+	/**
+	 * Gets the graph associated with this options
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    private static final long serialVersionUID = 1L;
+	/**
+	 * Sets the graph that is linked to this options
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    /**
-     * Gets the graph associated with this options
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	/**
+	 * Sets the series render to bubble
+	 *
+	 * @return
+	 */
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.PieRenderer";
+	}
 
-    /**
-     * Sets the graph that is linked to this options
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * Outer diameter of the pie, auto computed by default
+	 *
+	 * @return
+	 */
+	public Integer getDiameter()
+	{
+		return diameter;
+	}
 
-    /**
-     * Sets the series render to bubble
-     *
-     * @return
-     */
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.PieRenderer";
-    }
+	/**
+	 * Outer diameter of the pie, auto computed by default
+	 * <p>
+	 * <p>
+	 */
+	public void setDiameter(Integer diameter)
+	{
+		this.diameter = diameter;
+	}
 
-    /**
-     * Outer diameter of the pie, auto computed by default
-     */
-    private Integer diameter;//
-    /**
-     * padding between the pie and plot edges, legend, etc.
-     */
-    private Double padding;
-    /**
-     * angular spacing between pie slices in degrees.
-     */
-    private Integer sliceMargin;
-    /**
-     * true or false, whether to fil the slices.
-     */
-    private Boolean fill;
-    /**
-     * offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
-     */
-    private Integer shadowOffset;
-    /**
-     * transparency of the shadow (0 = transparent, 1 = opaque)
-     */
-    private Double shadowAlpha;
-    /**
-     * number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
-     */
-    private Integer shadowDepth;
-    /**
-     * True to highlight slice when moused over.
-     */
-    private Boolean highlightMouseOver;
-    /**
-     * True to highlight when a mouse button is pressed over a slice.
-     */
-    private Boolean highlightMouseDown;
-    /**
-     * an array of colors to use when highlighting a slice.
-     */
-    private ArrayList<String> highlightColors;
-    /**
-     * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
-     */
-    private String dataLabels;
-    /**
-     * true to show data labels on slices.
-     */
-    private Boolean showDataLabels;
-    /**
-     * Format string for data labels.
-     */
-    private String dataLabelFormatString;
-    /**
-     * Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
-     */
-    private Integer dataLabelThreshold;
-    /**
-     * A Multiplier (0-1) of the pie radius which controls position of label on slice.
-     */
-    private Double dataLabelPositionFactor;
-    /**
-     * Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
-     */
-    private Integer dataLabelNudge;
-    /**
-     * True to center the data label at its position.
-     */
-    private Boolean dataLabelCenterOn;
-    /**
-     * Angle to start drawing pie in degrees.
-     */
-    private Integer startAngle;
-    /**
-     * Array for whether the pie chart slice for a data element should be displayed.
-     */
-    private ArrayList<Boolean> showSlice;
+	/**
+	 * padding between the pie and plot edges, legend, etc.
+	 *
+	 * @return
+	 */
+	public Double getPadding()
+	{
+		return padding;
+	}
 
-    /**
-     * Outer diameter of the pie, auto computed by default
-     *
-     * @return
-     */
-    public Integer getDiameter()
-    {
-        return diameter;
-    }
+	/**
+	 * padding between the pie and plot edges, legend, etc.
+	 * <p>
+	 */
+	public void setPadding(Double padding)
+	{
+		this.padding = padding;
+	}
 
-    /**
-     * Outer diameter of the pie, auto computed by default
-     * <p>
-     * <p>
-     */
-    public void setDiameter(Integer diameter)
-    {
-        this.diameter = diameter;
-    }
+	/**
+	 * angular spacing between pie slices in degrees.
+	 *
+	 * @return
+	 */
+	public Integer getSliceMargin()
+	{
+		return sliceMargin;
+	}
 
-    /**
-     * padding between the pie and plot edges, legend, etc.
-     *
-     * @return
-     */
-    public Double getPadding()
-    {
-        return padding;
-    }
+	/**
+	 * angular spacing between pie slices in degrees.
+	 * <p>
+	 */
+	public void setSliceMargin(Integer sliceMargin)
+	{
+		this.sliceMargin = sliceMargin;
+	}
 
-    /**
-     * padding between the pie and plot edges, legend, etc.
-     * <p>
-     */
-    public void setPadding(Double padding)
-    {
-        this.padding = padding;
-    }
+	/**
+	 * true or false, whether to fil the slices.
+	 *
+	 * @return
+	 */
+	public Boolean getFill()
+	{
+		return fill;
+	}
 
-    /**
-     * angular spacing between pie slices in degrees.
-     *
-     * @return
-     */
-    public Integer getSliceMargin()
-    {
-        return sliceMargin;
-    }
+	/**
+	 * true or false, whether to fil the slices.
+	 * <p>
+	 */
+	public void setFill(Boolean fill)
+	{
+		this.fill = fill;
+	}
 
-    /**
-     * angular spacing between pie slices in degrees.
-     * <p>
-     */
-    public void setSliceMargin(Integer sliceMargin)
-    {
-        this.sliceMargin = sliceMargin;
-    }
+	/**
+	 * offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
+	 *
+	 * @return
+	 */
+	public Integer getShadowOffset()
+	{
+		return shadowOffset;
+	}
 
-    /**
-     * true or false, whether to fil the slices.
-     *
-     * @return
-     */
-    public Boolean getFill()
-    {
-        return fill;
-    }
+	/**
+	 * offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
+	 * <p>
+	 */
+	public void setShadowOffset(Integer shadowOffset)
+	{
+		this.shadowOffset = shadowOffset;
+	}
 
-    /**
-     * true or false, whether to fil the slices.
-     * <p>
-     */
-    public void setFill(Boolean fill)
-    {
-        this.fill = fill;
-    }
+	/**
+	 * transparency of the shadow (0 = transparent, 1 = opaque)
+	 *
+	 * @return
+	 */
+	public Double getShadowAlpha()
+	{
+		return shadowAlpha;
+	}
 
-    /**
-     * offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
-     *
-     * @return
-     */
-    public Integer getShadowOffset()
-    {
-        return shadowOffset;
-    }
+	/**
+	 * transparency of the shadow (0 = transparent, 1 = opaque)
+	 * <p>
+	 * <p>
+	 */
+	public void setShadowAlpha(Double shadowAlpha)
+	{
+		this.shadowAlpha = shadowAlpha;
+	}
 
-    /**
-     * offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
-     * <p>
-     */
-    public void setShadowOffset(Integer shadowOffset)
-    {
-        this.shadowOffset = shadowOffset;
-    }
+	/**
+	 * number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
+	 *
+	 * @return
+	 */
+	public Integer getShadowDepth()
+	{
+		return shadowDepth;
+	}
 
-    /**
-     * transparency of the shadow (0 = transparent, 1 = opaque)
-     *
-     * @return
-     */
-    public Double getShadowAlpha()
-    {
-        return shadowAlpha;
-    }
+	/**
+	 * number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
+	 * <p>
+	 */
+	public void setShadowDepth(Integer shadowDepth)
+	{
+		this.shadowDepth = shadowDepth;
+	}
 
-    /**
-     * transparency of the shadow (0 = transparent, 1 = opaque)
-     * <p>
-     * <p>
-     */
-    public void setShadowAlpha(Double shadowAlpha)
-    {
-        this.shadowAlpha = shadowAlpha;
-    }
+	/**
+	 * True to highlight slice when moused over.
+	 *
+	 * @return
+	 */
+	public Boolean getHighlightMouseOver()
+	{
+		return highlightMouseOver;
+	}
 
-    /**
-     * number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
-     *
-     * @return
-     */
-    public Integer getShadowDepth()
-    {
-        return shadowDepth;
-    }
+	/**
+	 * True to highlight slice when moused over.
+	 * <p>
+	 */
+	public void setHighlightMouseOver(Boolean highlightMouseOver)
+	{
+		this.highlightMouseOver = highlightMouseOver;
+	}
 
-    /**
-     * number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
-     * <p>
-     */
-    public void setShadowDepth(Integer shadowDepth)
-    {
-        this.shadowDepth = shadowDepth;
-    }
+	/**
+	 * True to highlight when a mouse button is pressed over a slice.
+	 *
+	 * @return
+	 */
+	public Boolean getHighlightMouseDown()
+	{
+		return highlightMouseDown;
+	}
 
-    /**
-     * True to highlight slice when moused over.
-     *
-     * @return
-     */
-    public Boolean getHighlightMouseOver()
-    {
-        return highlightMouseOver;
-    }
+	/**
+	 * True to highlight when a mouse button is pressed over a slice.
+	 * <p>
+	 */
+	public void setHighlightMouseDown(Boolean highlightMouseDown)
+	{
+		this.highlightMouseDown = highlightMouseDown;
+	}
 
-    /**
-     * True to highlight slice when moused over.
-     * <p>
-     */
-    public void setHighlightMouseOver(Boolean highlightMouseOver)
-    {
-        this.highlightMouseOver = highlightMouseOver;
-    }
+	/**
+	 * an array of colors to use when highlighting a slice.
+	 *
+	 * @return
+	 */
+	public ArrayList<String> getHighlightColors()
+	{
+		return highlightColors;
+	}
 
-    /**
-     * True to highlight when a mouse button is pressed over a slice.
-     *
-     * @return
-     */
-    public Boolean getHighlightMouseDown()
-    {
-        return highlightMouseDown;
-    }
+	/**
+	 * an array of colors to use when highlighting a slice.
+	 * <p>
+	 */
+	public void setHighlightColors(ArrayList<String> highlightColors)
+	{
+		this.highlightColors = highlightColors;
+	}
 
-    /**
-     * True to highlight when a mouse button is pressed over a slice.
-     * <p>
-     */
-    public void setHighlightMouseDown(Boolean highlightMouseDown)
-    {
-        this.highlightMouseDown = highlightMouseDown;
-    }
+	/**
+	 * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
+	 *
+	 * @return
+	 */
+	public String getDataLabels()
+	{
+		return dataLabels;
+	}
 
-    /**
-     * an array of colors to use when highlighting a slice.
-     *
-     * @return
-     */
-    public ArrayList<String> getHighlightColors()
-    {
-        return highlightColors;
-    }
+	/**
+	 * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
+	 * <p>
+	 */
+	public void setDataLabels(String dataLabels)
+	{
+		this.dataLabels = dataLabels;
+	}
 
-    /**
-     * an array of colors to use when highlighting a slice.
-     * <p>
-     */
-    public void setHighlightColors(ArrayList<String> highlightColors)
-    {
-        this.highlightColors = highlightColors;
-    }
+	/**
+	 * true to show data labels on slices
+	 *
+	 * @return
+	 */
+	public Boolean getShowDataLabels()
+	{
+		return showDataLabels;
+	}
 
-    /**
-     * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
-     *
-     * @return
-     */
-    public String getDataLabels()
-    {
-        return dataLabels;
-    }
+	/**
+	 * true to show data labels on slices
+	 * <p>
+	 */
+	public void setShowDataLabels(Boolean showDataLabels)
+	{
+		this.showDataLabels = showDataLabels;
+	}
 
-    /**
-     * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
-     * <p>
-     */
-    public void setDataLabels(String dataLabels)
-    {
-        this.dataLabels = dataLabels;
-    }
+	/**
+	 * Format string for data labels. If none, ‘%s’ is used for “label” and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
+	 *
+	 * @return
+	 */
+	public String getDataLabelFormatString()
+	{
+		return dataLabelFormatString;
+	}
 
-    /**
-     * true to show data labels on slices
-     *
-     * @return
-     */
-    public Boolean getShowDataLabels()
-    {
-        return showDataLabels;
-    }
+	/**
+	 * Format string for data labels. If none, ‘%s’ is used for “label” and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
+	 * <p>
+	 */
+	public void setDataLabelFormatString(String dataLabelFormatString)
+	{
+		this.dataLabelFormatString = dataLabelFormatString;
+	}
 
-    /**
-     * true to show data labels on slices
-     * <p>
-     */
-    public void setShowDataLabels(Boolean showDataLabels)
-    {
-        this.showDataLabels = showDataLabels;
-    }
+	/**
+	 * Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
+	 *
+	 * @return
+	 */
+	public Integer getDataLabelThreshold()
+	{
+		return dataLabelThreshold;
+	}
 
-    /**
-     * Format string for data labels. If none, ‘%s’ is used for “label” and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
-     *
-     * @return
-     */
-    public String getDataLabelFormatString()
-    {
-        return dataLabelFormatString;
-    }
+	/**
+	 * Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
+	 * <p>
+	 */
+	public void setDataLabelThreshold(Integer dataLabelThreshold)
+	{
+		this.dataLabelThreshold = dataLabelThreshold;
+	}
 
-    /**
-     * Format string for data labels. If none, ‘%s’ is used for “label” and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
-     * <p>
-     */
-    public void setDataLabelFormatString(String dataLabelFormatString)
-    {
-        this.dataLabelFormatString = dataLabelFormatString;
-    }
+	/**
+	 * A Multiplier (0-1) of the pie radius which controls position of label on slice.
+	 *
+	 * @return
+	 */
+	public Double getDataLabelPositionFactor()
+	{
+		return dataLabelPositionFactor;
+	}
 
-    /**
-     * Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
-     *
-     * @return
-     */
-    public Integer getDataLabelThreshold()
-    {
-        return dataLabelThreshold;
-    }
+	/**
+	 * A Multiplier (0-1) of the pie radius which controls position of label on slice.
+	 * <p>
+	 */
+	public void setDataLabelPositionFactor(Double dataLabelPositionFactor)
+	{
+		this.dataLabelPositionFactor = dataLabelPositionFactor;
+	}
 
-    /**
-     * Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
-     * <p>
-     */
-    public void setDataLabelThreshold(Integer dataLabelThreshold)
-    {
-        this.dataLabelThreshold = dataLabelThreshold;
-    }
+	/**
+	 * Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
+	 *
+	 * @return
+	 */
+	public Integer getDataLabelNudge()
+	{
+		return dataLabelNudge;
+	}
 
-    /**
-     * A Multiplier (0-1) of the pie radius which controls position of label on slice.
-     *
-     * @return
-     */
-    public Double getDataLabelPositionFactor()
-    {
-        return dataLabelPositionFactor;
-    }
+	/**
+	 * Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
+	 * <p>
+	 */
+	public void setDataLabelNudge(Integer dataLabelNudge)
+	{
+		this.dataLabelNudge = dataLabelNudge;
+	}
 
-    /**
-     * A Multiplier (0-1) of the pie radius which controls position of label on slice.
-     * <p>
-     */
-    public void setDataLabelPositionFactor(Double dataLabelPositionFactor)
-    {
-        this.dataLabelPositionFactor = dataLabelPositionFactor;
-    }
+	/**
+	 * True to center the data label at its position.
+	 *
+	 * @return
+	 */
+	public Boolean getDataLabelCenterOn()
+	{
+		return dataLabelCenterOn;
+	}
 
-    /**
-     * Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
-     *
-     * @return
-     */
-    public Integer getDataLabelNudge()
-    {
-        return dataLabelNudge;
-    }
+	/**
+	 * True to center the data label at its position.
+	 * <p>
+	 */
+	public void setDataLabelCenterOn(Boolean dataLabelCenterOn)
+	{
+		this.dataLabelCenterOn = dataLabelCenterOn;
+	}
 
-    /**
-     * Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
-     * <p>
-     */
-    public void setDataLabelNudge(Integer dataLabelNudge)
-    {
-        this.dataLabelNudge = dataLabelNudge;
-    }
+	/**
+	 * Angle to start drawing pie in degrees.
+	 *
+	 * @return
+	 */
+	public Integer getStartAngle()
+	{
+		return startAngle;
+	}
 
-    /**
-     * True to center the data label at its position.
-     *
-     * @return
-     */
-    public Boolean getDataLabelCenterOn()
-    {
-        return dataLabelCenterOn;
-    }
+	/**
+	 * Angle to start drawing pie in degrees.
+	 * <p>
+	 */
+	public void setStartAngle(Integer startAngle)
+	{
+		this.startAngle = startAngle;
+	}
 
-    /**
-     * True to center the data label at its position.
-     * <p>
-     */
-    public void setDataLabelCenterOn(Boolean dataLabelCenterOn)
-    {
-        this.dataLabelCenterOn = dataLabelCenterOn;
-    }
+	/**
+	 * Array for whether the pie chart slice for a data element should be displayed.
+	 *
+	 * @return
+	 */
+	public ArrayList<Boolean> getShowSlice()
+	{
+		return showSlice;
+	}
 
-    /**
-     * Angle to start drawing pie in degrees.
-     *
-     * @return
-     */
-    public Integer getStartAngle()
-    {
-        return startAngle;
-    }
-
-    /**
-     * Angle to start drawing pie in degrees.
-     * <p>
-     */
-    public void setStartAngle(Integer startAngle)
-    {
-        this.startAngle = startAngle;
-    }
-
-    /**
-     * Array for whether the pie chart slice for a data element should be displayed.
-     *
-     * @return
-     */
-    public ArrayList<Boolean> getShowSlice()
-    {
-        return showSlice;
-    }
-
-    /**
-     * Array for whether the pie chart slice for a data element should be displayed.
-     * <p>
-     */
-    public void setShowSlice(ArrayList<Boolean> showSlice)
-    {
-        this.showSlice = showSlice;
-    }
+	/**
+	 * Array for whether the pie chart slice for a data element should be displayed.
+	 * <p>
+	 */
+	public void setShowSlice(ArrayList<Boolean> showSlice)
+	{
+		this.showSlice = showSlice;
+	}
 
 }

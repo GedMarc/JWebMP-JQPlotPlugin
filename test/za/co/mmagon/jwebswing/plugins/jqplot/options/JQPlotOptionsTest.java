@@ -16,7 +16,6 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.options;
 
-import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 import org.junit.Test;
 import za.co.mmagon.jwebswing.base.servlets.enumarations.Orientation;
 import za.co.mmagon.jwebswing.plugins.jqplot.graphs.JQPlotBarGraph;
@@ -24,36 +23,35 @@ import za.co.mmagon.jwebswing.plugins.jqplot.graphs.display.JQPlotBar;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.series.JQPlotSeriesBarOptions;
 
 /**
- *
  * @author GedMarc
  */
 public class JQPlotOptionsTest
 {
-
-    public JQPlotOptionsTest()
-    {
-    }
-
-    @Test
-    public void testSomeMethod()
-    {
-        JQPlotBarGraph graph = new JQPlotBarGraph(Orientation.VERTICAL);
-
-        graph.addBar("meh", 1.0);
-        graph.addBar(new JQPlotBar("Cat 2", 14.0));
-        graph.addBar(new JQPlotBar("Cat 3", 36.0));
-        graph.addBar(new JQPlotBar("Cat 4", 94.0));
-
-        //graph.preRenderTest();
-        //JQPlotOptions o = new JQPlotOptions(new JQPlotBarGraph(Orientation.HORIZONTAL));
-        JQPlotOptions o = graph.getOptions();
-        o.getSeriesDefaults().setColors("123");
-        o.setAnimate(true);
-        o.getSeriesDefaults().setRendererOptions(new JQPlotSeriesBarOptions(graph));
-        o.getSeriesDefaults().getPointLabels().setShow(true);
-
-        //  System.out.println(o);
-        System.out.println(graph.renderJavascriptAll());
-    }
-
+	
+	public JQPlotOptionsTest()
+	{
+	}
+	
+	@Test
+	public void testSomeMethod()
+	{
+		JQPlotBarGraph graph = new JQPlotBarGraph(Orientation.VERTICAL);
+		
+		graph.addBar("meh", 1.0);
+		graph.addBar(new JQPlotBar("Cat 2", 14.0));
+		graph.addBar(new JQPlotBar("Cat 3", 36.0));
+		graph.addBar(new JQPlotBar("Cat 4", 94.0));
+		
+		//graph.preRenderTest();
+		//JQPlotOptions o = new JQPlotOptions(new JQPlotBarGraph(Orientation.HORIZONTAL));
+		JQPlotOptions o = graph.getOptions();
+		o.getSeriesDefaults().setColors("123");
+		o.setAnimate(true);
+		o.getSeriesDefaults().setRendererOptions(new JQPlotSeriesBarOptions(graph));
+		o.getSeriesDefaults().getPointLabels().setShow(true);
+		
+		//  System.out.println(o);
+		System.out.println(graph.renderJavascriptAll());
+	}
+	
 }

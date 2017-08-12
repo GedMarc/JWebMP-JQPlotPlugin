@@ -21,26 +21,27 @@ import za.co.mmagon.jwebswing.base.references.CSSReference;
 /**
  * References for all the graphing Java Scripts
  * <p>
+ *
  * @author Marc Magon
- * @since 08 Aug 2015
  * @version 1.0
+ * @since 08 Aug 2015
  */
 public enum JQPlotCSSReferencePool
 {
 
-    GraphCore(new CSSReference("jqPlot", 1.08, "javascript/jquery.plot/jquery.jqplot.css", "https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.css"));
+	GraphCore(new CSSReference("jqPlot", 1.08, "javascript/jquery.plot/jquery.jqplot.css", "https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.css"));
 
-    private final CSSReference reference;
+	private final CSSReference reference;
 
-    private JQPlotCSSReferencePool(CSSReference reference)
-    {
-        this.reference = reference;
+	private JQPlotCSSReferencePool(CSSReference reference)
+	{
+		this.reference = reference;
 
-    }
+	}
 
-    public CSSReference getReference()
-    {
-        return reference;
-    }
+	public CSSReference getReference()
+	{
+		return reference;
+	}
 
 }

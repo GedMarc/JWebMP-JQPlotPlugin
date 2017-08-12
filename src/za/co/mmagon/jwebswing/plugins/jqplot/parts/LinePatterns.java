@@ -17,16 +17,16 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.parts;
 
 /**
- *
  * @author GedMarc
  * @since 01 Mar 2016
  */
-public enum LinePatterns 
+public enum LinePatterns
 {
-    
 
-;
-    private LinePatterns()
-    {
-    }
+
+	;
+
+	private LinePatterns()
+	{
+	}
 }

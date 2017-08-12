@@ -17,7 +17,6 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces;
 
 /**
- *
  * @author GedMarc
  * @since 26 Feb 2016
  */

@@ -17,30 +17,30 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.parts;
 
 /**
- *
  * @author Marc Magon
- * @since 08 Aug 2015
  * @version 1.0
+ * @since 08 Aug 2015
  */
 public enum XAxisTypes
 {
 
-    XAxis,
-    X1Axis;
+	XAxis,
+	X1Axis;
 
-    private XAxisTypes()
-    {
+	private XAxisTypes()
+	{
 
-    }
+	}
 
-    /**
-     * Returns the name of the enumeration in lower case
-     * <p>
-     * @return
-     */
-    @Override
-    public String toString()
-    {
-        return name().toLowerCase();
-    }
+	/**
+	 * Returns the name of the enumeration in lower case
+	 * <p>
+	 *
+	 * @return
+	 */
+	@Override
+	public String toString()
+	{
+		return name().toLowerCase();
+	}
 }

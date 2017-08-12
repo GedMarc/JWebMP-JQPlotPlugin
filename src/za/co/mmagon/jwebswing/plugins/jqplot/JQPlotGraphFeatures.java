@@ -20,9 +20,10 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.IFeature;
 
 /**
  * Defines the features allowed on the JWGraph Object
+ *
  * @author mmagon
  */
 public interface JQPlotGraphFeatures extends IFeature
 {
-    
+
 }

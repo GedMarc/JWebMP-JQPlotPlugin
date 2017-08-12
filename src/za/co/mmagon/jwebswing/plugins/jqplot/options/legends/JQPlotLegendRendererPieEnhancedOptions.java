@@ -19,11 +19,12 @@ package za.co.mmagon.jwebswing.plugins.jqplot.options.legends;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import java.util.ArrayList;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import java.util.ArrayList;
 
 /**
  * @author GedMarc
@@ -32,197 +33,194 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 public class JQPlotLegendRendererPieEnhancedOptions extends JavaScriptPart implements JQPlotLegendRenderer
 {
 
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
+	/**
+	 * Maximum number of rows in the legend.
+	 */
+	private Integer numberRows;
+	/**
+	 * Maximum number of columns in the legend.
+	 */
+	private Integer numberColumns;
+	/**
+	 * false to not enable series on/off toggling on the legend.
+	 */
+	private Boolean seriesToggle;
+	/**
+	 * True to replot the chart after toggling series on/off.
+	 */
+	private Boolean seriesToggleReplot;
+	/**
+	 * true to toggle series with a show/hide method only and not allow fading in/out.
+	 */
+	private Boolean disableIEFading;
+	/**
+	 * optional array of toolTip text corresponding to each pie slice
+	 */
+	private ArrayList<String> toolTips;
+	/**
+	 * The Default Axis Label Renderer Options
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotLegendRendererPieEnhancedOptions(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.EnhancedPieLegenedRenderer.getReference());
+	}
 
-    /**
-     * The Default Axis Label Renderer Options
-     *
-     * @param linkedGraph
-     */
-    public JQPlotLegendRendererPieEnhancedOptions(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.EnhancedPieLegenedRenderer.getReference());
-    }
+	@JsonProperty("renderer")
+	@JsonRawValue
+	@JsonIgnore
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.EnhancedPieLegendRenderer";
+	}
 
-    @JsonProperty("renderer")
-    @JsonRawValue
-    @JsonIgnore
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.EnhancedPieLegendRenderer";
-    }
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    /**
-     * Gets the linked graph
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    /**
-     * Sets the linked graph
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * Maximum number of rows in the legend.
+	 *
+	 * @return
+	 */
+	public Integer getNumberRows()
+	{
+		return numberRows;
+	}
 
-    /**
-     * Maximum number of rows in the legend.
-     */
-    private Integer numberRows;
-    /**
-     * Maximum number of columns in the legend.
-     */
-    private Integer numberColumns;
-    /**
-     * false to not enable series on/off toggling on the legend.
-     */
-    private Boolean seriesToggle;
-    /**
-     * True to replot the chart after toggling series on/off.
-     */
-    private Boolean seriesToggleReplot;
-    /**
-     * true to toggle series with a show/hide method only and not allow fading in/out.
-     */
-    private Boolean disableIEFading;
+	/**
+	 * Maximum number of rows in the legend.
+	 *
+	 * @param numberRows
+	 */
+	public void setNumberRows(Integer numberRows)
+	{
+		this.numberRows = numberRows;
+	}
 
-    /**
-     * optional array of toolTip text corresponding to each pie slice
-     */
-    private ArrayList<String> toolTips;
+	/**
+	 * Maximum number of columns in the legend.
+	 *
+	 * @return
+	 */
+	public Integer getNumberColumns()
+	{
+		return numberColumns;
+	}
 
-    /**
-     * Maximum number of rows in the legend.
-     *
-     * @return
-     */
-    public Integer getNumberRows()
-    {
-        return numberRows;
-    }
+	/**
+	 * Maximum number of columns in the legend.
+	 *
+	 * @param numberColumns
+	 */
+	public void setNumberColumns(Integer numberColumns)
+	{
+		this.numberColumns = numberColumns;
+	}
 
-    /**
-     * Maximum number of rows in the legend.
-     *
-     * @param numberRows
-     */
-    public void setNumberRows(Integer numberRows)
-    {
-        this.numberRows = numberRows;
-    }
+	/**
+	 * false to not enable series on/off toggling on the legend.
+	 *
+	 * @return
+	 */
+	public Boolean getSeriesToggle()
+	{
+		return seriesToggle;
+	}
 
-    /**
-     * Maximum number of columns in the legend.
-     *
-     * @return
-     */
-    public Integer getNumberColumns()
-    {
-        return numberColumns;
-    }
+	/**
+	 * false to not enable series on/off toggling on the legend.
+	 *
+	 * @param seriesToggle
+	 */
+	public void setSeriesToggle(Boolean seriesToggle)
+	{
+		this.seriesToggle = seriesToggle;
+	}
 
-    /**
-     * Maximum number of columns in the legend.
-     *
-     * @param numberColumns
-     */
-    public void setNumberColumns(Integer numberColumns)
-    {
-        this.numberColumns = numberColumns;
-    }
+	/**
+	 * True to replot the chart after toggling series on/off.
+	 *
+	 * @return
+	 */
+	public Boolean getSeriesToggleReplot()
+	{
+		return seriesToggleReplot;
+	}
 
-    /**
-     * false to not enable series on/off toggling on the legend.
-     *
-     * @return
-     */
-    public Boolean getSeriesToggle()
-    {
-        return seriesToggle;
-    }
+	/**
+	 * True to replot the chart after toggling series on/off.
+	 *
+	 * @param seriesToggleReplot
+	 */
+	public void setSeriesToggleReplot(Boolean seriesToggleReplot)
+	{
+		this.seriesToggleReplot = seriesToggleReplot;
+	}
 
-    /**
-     * false to not enable series on/off toggling on the legend.
-     *
-     * @param seriesToggle
-     */
-    public void setSeriesToggle(Boolean seriesToggle)
-    {
-        this.seriesToggle = seriesToggle;
-    }
+	/**
+	 * true to toggle series with a show/hide method only and not allow fading in/out.
+	 *
+	 * @return
+	 */
+	public Boolean getDisableIEFading()
+	{
+		return disableIEFading;
+	}
 
-    /**
-     * True to replot the chart after toggling series on/off.
-     *
-     * @return
-     */
-    public Boolean getSeriesToggleReplot()
-    {
-        return seriesToggleReplot;
-    }
+	/**
+	 * true to toggle series with a show/hide method only and not allow fading in/out.
+	 *
+	 * @param disableIEFading
+	 */
+	public void setDisableIEFading(Boolean disableIEFading)
+	{
+		this.disableIEFading = disableIEFading;
+	}
 
-    /**
-     * True to replot the chart after toggling series on/off.
-     *
-     * @param seriesToggleReplot
-     */
-    public void setSeriesToggleReplot(Boolean seriesToggleReplot)
-    {
-        this.seriesToggleReplot = seriesToggleReplot;
-    }
+	/**
+	 * optional array of toolTip text corresponding to each pie slice
+	 *
+	 * @return
+	 */
+	public ArrayList<String> getToolTips()
+	{
+		if (toolTips == null)
+		{
+			toolTips = new ArrayList<>();
+		}
+		return toolTips;
+	}
 
-    /**
-     * true to toggle series with a show/hide method only and not allow fading in/out.
-     *
-     * @return
-     */
-    public Boolean getDisableIEFading()
-    {
-        return disableIEFading;
-    }
-
-    /**
-     * true to toggle series with a show/hide method only and not allow fading in/out.
-     *
-     * @param disableIEFading
-     */
-    public void setDisableIEFading(Boolean disableIEFading)
-    {
-        this.disableIEFading = disableIEFading;
-    }
-
-    /**
-     * optional array of toolTip text corresponding to each pie slice
-     *
-     * @return
-     */
-    public ArrayList<String> getToolTips()
-    {
-        if (toolTips == null)
-        {
-            toolTips = new ArrayList<>();
-        }
-        return toolTips;
-    }
-
-    /**
-     * optional array of toolTip text corresponding to each pie slice
-     *
-     * @param toolTips
-     */
-    public void setToolTips(ArrayList<String> toolTips)
-    {
-        this.toolTips = toolTips;
-    }
+	/**
+	 * optional array of toolTip text corresponding to each pie slice
+	 *
+	 * @param toolTips
+	 */
+	public void setToolTips(ArrayList<String> toolTips)
+	{
+		this.toolTips = toolTips;
+	}
 
 }

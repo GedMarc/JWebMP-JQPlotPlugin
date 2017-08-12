@@ -16,14 +16,14 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces;
 
-import java.io.Serializable;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
+import java.io.Serializable;
+
 /**
- *
- * @author GedMarc
  * @param <O>
  *
+ * @author GedMarc
  * @since 26 Feb 2016
  */
 public interface JQPlotTickRenderer<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotRendererDefault<O>, Serializable

@@ -18,431 +18,460 @@ package za.co.mmagon.jwebswing.plugins.jqplot.options.ticks;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
-import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 import za.co.mmagon.jwebswing.htmlbuilder.css.colours.ColourHex;
 import za.co.mmagon.jwebswing.htmlbuilder.css.fonts.FontFamilies;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
+import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
+import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
- *
  * @author Marc Magon
- * @since 07 Aug 2015
  * @version 1.0
+ * @since 07 Aug 2015
  */
 public class JQPlotTickOptionsCanvasAxisTick extends JavaScriptPart implements JQPlotTickRenderer
 {
 
-    private static final long serialVersionUID = 1L;
-    /**
-     * tick mark on the axis. One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
-     */
-    private String mark;
-    /**
-     * Whether or not to show the mark on the axis.
-     */
-    private Boolean showMark;
-    /**
-     * Whether or not to draw the gridline on the grid at this tick.
-     */
-    private Boolean showGridline;
-    /**
-     * css spec for the font-size css attribute.
-     */
-    private Integer angle;
-    /**
-     * if this is a minor tick.
-     */
-    private Boolean isMinorTick;
-    /**
-     * Length of the tick marks in pixels.
-     */
-    private Boolean markSize;
-    /**
-     * Whether or not to show the tick (mark and label).
-     */
-    private Boolean show;
-    /**
-     * wether or not to show the label.
-     */
-    private Boolean showLabel;
-    /**
-     * A class of a formatter for the tick text. $.jqplot.DefaultTickFormatter
-     * <p>
-     * A class of a formatter for the tick text. sprintf by default.
-     */
-    private String formatter;
-    /**
-     * String to prepend to the tick label.
-     */
-    private String prefix;
-    /**
-     * string passed to the formatter.
-     * <p>
-     */
-    private String formatString;
-    /**
-     * css spec for the font-family css attribute.
-     */
-    private FontFamilies fontFamily;
-    /**
-     * css spec for the font-size css attribute.
-     */
-    private Integer fontSize;
-    /**
-     * css spec for the color attribute.
-     */
-    private ColourHex textColor;
-    /**
-     * true to escape HTML entities in the label.
-     */
-    private Boolean escapeHTML;
+	private static final long serialVersionUID = 1L;
+	@JsonIgnore
+	private final JQPlotGraph linkedGraph;
+	/**
+	 * tick mark on the axis. One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
+	 */
+	private String mark;
+	/**
+	 * Whether or not to show the mark on the axis.
+	 */
+	private Boolean showMark;
+	/**
+	 * Whether or not to draw the gridline on the grid at this tick.
+	 */
+	private Boolean showGridline;
+	/**
+	 * css spec for the font-size css attribute.
+	 */
+	private Integer angle;
+	/**
+	 * if this is a minor tick.
+	 */
+	private Boolean isMinorTick;
+	/**
+	 * Length of the tick marks in pixels.
+	 */
+	private Boolean markSize;
+	/**
+	 * Whether or not to show the tick (mark and label).
+	 */
+	private Boolean show;
+	/**
+	 * wether or not to show the label.
+	 */
+	private Boolean showLabel;
+	/**
+	 * A class of a formatter for the tick text. $.jqplot.DefaultTickFormatter
+	 * <p>
+	 * A class of a formatter for the tick text. sprintf by default.
+	 */
+	private String formatter;
+	/**
+	 * String to prepend to the tick label.
+	 */
+	private String prefix;
+	/**
+	 * string passed to the formatter.
+	 * <p>
+	 */
+	private String formatString;
+	/**
+	 * css spec for the font-family css attribute.
+	 */
+	private FontFamilies fontFamily;
+	/**
+	 * css spec for the font-size css attribute.
+	 */
+	private Integer fontSize;
+	/**
+	 * css spec for the color attribute.
+	 */
+	private ColourHex textColor;
+	/**
+	 * true to escape HTML entities in the label.
+	 */
+	private Boolean escapeHTML;
+	/**
+	 * ‘auto’, ‘start’, ‘middle’ or ‘end’.
+	 */
+	private String labelPosition;
 
-    /**
-     * ‘auto’, ‘start’, ‘middle’ or ‘end’.
-     */
-    private String labelPosition;
+	/**
+	 * Constructs a new tick options canvas
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotTickOptionsCanvasAxisTick(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasAxisTickRenderer.getReference());
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasTextRenderer.getReference());
+	}
 
-    @JsonIgnore
-    private final JQPlotGraph linkedGraph;
+	/**
+	 * tick mark on the axis. One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
+	 * <p>
+	 *
+	 * @return
+	 */
+	public String getMark()
+	{
+		return mark;
+	}
 
-    /**
-     * Constructs a new tick options canvas
-     *
-     * @param linkedGraph
-     */
-    public JQPlotTickOptionsCanvasAxisTick(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasAxisTickRenderer.getReference());
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasTextRenderer.getReference());
-    }
+	/**
+	 * tick mark on the axis. One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
+	 * <p>
+	 *
+	 * @param mark
+	 */
+	public void setMark(String mark)
+	{
+		this.mark = mark;
+	}
 
-    /**
-     * tick mark on the axis. One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
-     * <p>
-     * @return
-     */
-    public String getMark()
-    {
-        return mark;
-    }
+	/**
+	 * Show the mark or not
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean getShowMark()
+	{
+		return showMark;
+	}
 
-    /**
-     * tick mark on the axis. One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
-     * <p>
-     * @param mark
-     */
-    public void setMark(String mark)
-    {
-        this.mark = mark;
-    }
+	/**
+	 * Show the mark or not
+	 * <p>
+	 *
+	 * @param showMark
+	 */
+	public void setShowMark(Boolean showMark)
+	{
+		this.showMark = showMark;
+	}
 
-    /**
-     * Show the mark or not
-     * <p>
-     * @return
-     */
-    public Boolean getShowMark()
-    {
-        return showMark;
-    }
+	/**
+	 * Whether to show the grid line
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean getShowGridline()
+	{
+		return showGridline;
+	}
 
-    /**
-     * Show the mark or not
-     * <p>
-     * @param showMark
-     */
-    public void setShowMark(Boolean showMark)
-    {
-        this.showMark = showMark;
-    }
+	/**
+	 * Whether to show the grid line
+	 * <p>
+	 *
+	 * @param showGridline
+	 */
+	public void setShowGridline(Boolean showGridline)
+	{
+		this.showGridline = showGridline;
+	}
 
-    /**
-     * Whether to show the grid line
-     * <p>
-     * @return
-     */
-    public Boolean getShowGridline()
-    {
-        return showGridline;
-    }
+	/**
+	 * The angle of the text
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Integer getAngle()
+	{
+		return angle;
+	}
 
-    /**
-     * Whether to show the grid line
-     * <p>
-     * @param showGridline
-     */
-    public void setShowGridline(Boolean showGridline)
-    {
-        this.showGridline = showGridline;
-    }
+	/**
+	 * The angle of the text
+	 * <p>
+	 *
+	 * @param angle
+	 */
+	public void setAngle(Integer angle)
+	{
+		this.angle = angle;
+	}
 
-    /**
-     * The angle of the text
-     * <p>
-     * @return
-     */
-    public Integer getAngle()
-    {
-        return angle;
-    }
+	/**
+	 * Display minor ticks or not
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean getIsMinorTick()
+	{
+		return isMinorTick;
+	}
 
-    /**
-     * The angle of the text
-     * <p>
-     * @param angle
-     */
-    public void setAngle(Integer angle)
-    {
-        this.angle = angle;
-    }
+	/**
+	 * Display minor ticks or not
+	 * <p>
+	 *
+	 * @param isMinorTick
+	 */
+	public void setIsMinorTick(Boolean isMinorTick)
+	{
+		this.isMinorTick = isMinorTick;
+	}
 
-    /**
-     * Display minor ticks or not
-     * <p>
-     * @return
-     */
-    public Boolean getIsMinorTick()
-    {
-        return isMinorTick;
-    }
+	/**
+	 * Gets the mark size
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean getMarkSize()
+	{
+		return markSize;
+	}
 
-    /**
-     * Display minor ticks or not
-     * <p>
-     * @param isMinorTick
-     */
-    public void setIsMinorTick(Boolean isMinorTick)
-    {
-        this.isMinorTick = isMinorTick;
-    }
+	/**
+	 * Sets the mark size
+	 * <p>
+	 *
+	 * @param markSize
+	 */
+	public void setMarkSize(Boolean markSize)
+	{
+		this.markSize = markSize;
+	}
 
-    /**
-     * Gets the mark size
-     * <p>
-     * @return
-     */
-    public Boolean getMarkSize()
-    {
-        return markSize;
-    }
+	/**
+	 * Whether or not to show the ticks
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean getShow()
+	{
+		return show;
+	}
 
-    /**
-     * Sets the mark size
-     * <p>
-     * @param markSize
-     */
-    public void setMarkSize(Boolean markSize)
-    {
-        this.markSize = markSize;
-    }
+	/**
+	 * Whether or not to show the ticks
+	 * <p>
+	 *
+	 * @param show
+	 */
+	public void setShow(Boolean show)
+	{
+		this.show = show;
+	}
 
-    /**
-     * Whether or not to show the ticks
-     * <p>
-     * @return
-     */
-    public Boolean getShow()
-    {
-        return show;
-    }
+	/**
+	 * Whether or not to show the label
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean getShowLabel()
+	{
+		return showLabel;
+	}
 
-    /**
-     * Whether or not to show the ticks
-     * <p>
-     * @param show
-     */
-    public void setShow(Boolean show)
-    {
-        this.show = show;
-    }
+	/**
+	 * Whether or not to show the label
+	 * <p>
+	 *
+	 * @param showLabel
+	 */
+	public void setShowLabel(Boolean showLabel)
+	{
+		this.showLabel = showLabel;
+	}
 
-    /**
-     * Whether or not to show the label
-     * <p>
-     * @return
-     */
-    public Boolean getShowLabel()
-    {
-        return showLabel;
-    }
+	/**
+	 * Get a sprintf formatter
+	 * <p>
+	 *
+	 * @return
+	 */
+	public String getFormatter()
+	{
+		return formatter;
+	}
 
-    /**
-     * Whether or not to show the label
-     * <p>
-     * @param showLabel
-     */
-    public void setShowLabel(Boolean showLabel)
-    {
-        this.showLabel = showLabel;
-    }
+	/**
+	 * Set the sprint f format string
+	 * <p>
+	 *
+	 * @param formatter
+	 */
+	public void setFormatter(String formatter)
+	{
+		this.formatter = formatter;
+	}
 
-    /**
-     * Get a sprintf formatter
-     * <p>
-     * @return
-     */
-    public String getFormatter()
-    {
-        return formatter;
-    }
+	/**
+	 * Text to display before the value
+	 * <p>
+	 *
+	 * @return
+	 */
+	public String getPrefix()
+	{
+		return prefix;
+	}
 
-    /**
-     * Set the sprint f format string
-     * <p>
-     * @param formatter
-     */
-    public void setFormatter(String formatter)
-    {
-        this.formatter = formatter;
-    }
+	/**
+	 * Text to display before the prefix
+	 * <p>
+	 *
+	 * @param prefix
+	 */
+	public void setPrefix(String prefix)
+	{
+		this.prefix = prefix;
+	}
 
-    /**
-     * Text to display before the value
-     * <p>
-     * @return
-     */
-    public String getPrefix()
-    {
-        return prefix;
-    }
+	/**
+	 * The string to pass to the formatter
+	 * <p>
+	 *
+	 * @return
+	 */
+	public String getFormatString()
+	{
+		return formatString;
+	}
 
-    /**
-     * Text to display before the prefix
-     * <p>
-     * @param prefix
-     */
-    public void setPrefix(String prefix)
-    {
-        this.prefix = prefix;
-    }
+	/**
+	 * The string to pass to the formatter
+	 * <p>
+	 *
+	 * @param formatString
+	 */
+	public void setFormatString(String formatString)
+	{
+		this.formatString = formatString;
+	}
 
-    /**
-     * The string to pass to the formatter
-     * <p>
-     * @return
-     */
-    public String getFormatString()
-    {
-        return formatString;
-    }
+	/**
+	 * The CSS Font Family
+	 * <p>
+	 *
+	 * @return
+	 */
+	public FontFamilies getFontFamily()
+	{
+		return fontFamily;
+	}
 
-    /**
-     * The string to pass to the formatter
-     * <p>
-     * @param formatString
-     */
-    public void setFormatString(String formatString)
-    {
-        this.formatString = formatString;
-    }
+	/**
+	 * The CSS Font Family
+	 * <p>
+	 *
+	 * @param fontFamily
+	 */
+	public void setFontFamily(FontFamilies fontFamily)
+	{
+		this.fontFamily = fontFamily;
+	}
 
-    /**
-     * The CSS Font Family
-     * <p>
-     * @return
-     */
-    public FontFamilies getFontFamily()
-    {
-        return fontFamily;
-    }
+	/**
+	 * The font size setting
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Integer getFontSize()
+	{
+		return fontSize;
+	}
 
-    /**
-     * The CSS Font Family
-     * <p>
-     * @param fontFamily
-     */
-    public void setFontFamily(FontFamilies fontFamily)
-    {
-        this.fontFamily = fontFamily;
-    }
+	/**
+	 * The font size setting
+	 * <p>
+	 *
+	 * @param fontSize
+	 */
+	public void setFontSize(Integer fontSize)
+	{
+		this.fontSize = fontSize;
+	}
 
-    /**
-     * The font size setting
-     * <p>
-     * @return
-     */
-    public Integer getFontSize()
-    {
-        return fontSize;
-    }
+	/**
+	 * The text colour
+	 * <p>
+	 *
+	 * @return
+	 */
+	public ColourHex getTextColor()
+	{
+		return textColor;
+	}
 
-    /**
-     * The font size setting
-     * <p>
-     * @param fontSize
-     */
-    public void setFontSize(Integer fontSize)
-    {
-        this.fontSize = fontSize;
-    }
+	/**
+	 * The text colour
+	 * <p>
+	 *
+	 * @param textColor
+	 */
+	public void setTextColor(ColourHex textColor)
+	{
+		this.textColor = textColor;
+	}
 
-    /**
-     * The text colour
-     * <p>
-     * @return
-     */
-    public ColourHex getTextColor()
-    {
-        return textColor;
-    }
+	/**
+	 * Escape html characters in the axis label or not
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean getEscapeHTML()
+	{
+		return escapeHTML;
+	}
 
-    /**
-     * The text colour
-     * <p>
-     * @param textColor
-     */
-    public void setTextColor(ColourHex textColor)
-    {
-        this.textColor = textColor;
-    }
+	/**
+	 * Escape html characters in the axis label or not
+	 * <p>
+	 *
+	 * @param escapeHTML
+	 */
+	public void setEscapeHTML(Boolean escapeHTML)
+	{
+		this.escapeHTML = escapeHTML;
+	}
 
-    /**
-     * Escape html characters in the axis label or not
-     * <p>
-     * @return
-     */
-    public Boolean getEscapeHTML()
-    {
-        return escapeHTML;
-    }
+	/**
+	 * ‘auto’, ‘start’, ‘middle’ or ‘end’.
+	 * <p>
+	 *
+	 * @return
+	 */
+	public String getLabelPosition()
+	{
+		return labelPosition;
+	}
 
-    /**
-     * Escape html characters in the axis label or not
-     * <p>
-     * @param escapeHTML
-     */
-    public void setEscapeHTML(Boolean escapeHTML)
-    {
-        this.escapeHTML = escapeHTML;
-    }
+	/**
+	 * ‘auto’, ‘start’, ‘middle’ or ‘end’.
+	 * <p>
+	 *
+	 * @param labelPosition
+	 */
+	public void setLabelPosition(String labelPosition)
+	{
+		this.labelPosition = labelPosition;
+	}
 
-    /**
-     * ‘auto’, ‘start’, ‘middle’ or ‘end’.
-     * <p>
-     * @return
-     */
-    public String getLabelPosition()
-    {
-        return labelPosition;
-    }
-
-    /**
-     * ‘auto’, ‘start’, ‘middle’ or ‘end’.
-     * <p>
-     * @param labelPosition
-     */
-    public void setLabelPosition(String labelPosition)
-    {
-        this.labelPosition = labelPosition;
-    }
-
-    @Override
-    @JsonRawValue
-    public String getRenderer()
-    {
-        return "$.jqplot.CanvasAxisTickRenderer";
-    }
+	@Override
+	@JsonRawValue
+	public String getRenderer()
+	{
+		return "$.jqplot.CanvasAxisTickRenderer";
+	}
 }

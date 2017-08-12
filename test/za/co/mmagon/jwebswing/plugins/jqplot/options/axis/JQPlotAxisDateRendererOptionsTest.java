@@ -16,37 +16,34 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.options.axis;
 
-import za.co.mmagon.jwebswing.plugins.jqplot.options.axis.JQPlotAxisOptions;
-import za.co.mmagon.jwebswing.plugins.jqplot.options.axis.JQPlotAxisDateRendererOptions;
 import org.junit.Test;
 import za.co.mmagon.jwebswing.base.servlets.enumarations.Orientation;
 import za.co.mmagon.jwebswing.plugins.jqplot.graphs.JQPlotBarGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.ticks.JQPlotTickOptionsAxisTick;
 
 /**
- *
  * @author GedMarc
  */
 public class JQPlotAxisDateRendererOptionsTest
 {
-
-    public JQPlotAxisDateRendererOptionsTest()
-    {
-    }
-
-    @Test
-    public void testDateOnAxis()
-    {
-        JQPlotBarGraph graph = new JQPlotBarGraph(Orientation.VERTICAL);
-        JQPlotAxisOptions axis = new JQPlotAxisOptions(graph);
-
-        JQPlotAxisDateRendererOptions dateRender = new JQPlotAxisDateRendererOptions(graph);
-
-        axis.setRendererOptions(dateRender);
-        axis.setMin(5);
-        JQPlotTickOptionsAxisTick.class.cast(axis.getTickRendererOptions()).setFormatString("%b %#d, %#I %p");
-
-        System.out.println(axis);
-    }
-
+	
+	public JQPlotAxisDateRendererOptionsTest()
+	{
+	}
+	
+	@Test
+	public void testDateOnAxis()
+	{
+		JQPlotBarGraph graph = new JQPlotBarGraph(Orientation.VERTICAL);
+		JQPlotAxisOptions axis = new JQPlotAxisOptions(graph);
+		
+		JQPlotAxisDateRendererOptions dateRender = new JQPlotAxisDateRendererOptions(graph);
+		
+		axis.setRendererOptions(dateRender);
+		axis.setMin(5);
+		JQPlotTickOptionsAxisTick.class.cast(axis.getTickRendererOptions()).setFormatString("%b %#d, %#I %p");
+		
+		System.out.println(axis);
+	}
+	
 }

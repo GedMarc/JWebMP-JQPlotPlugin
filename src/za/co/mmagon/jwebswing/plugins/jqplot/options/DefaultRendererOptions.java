@@ -22,32 +22,31 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 
 /**
- *
  * @author GedMarc
  * @since 29 Feb 2016
  */
 public class DefaultRendererOptions extends JavaScriptPart implements JQPlotAxisLabelRenderer
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
 
-    /**
-     * The Default Axis Label Renderer Options
-     *
-     * @param linkedGraph
-     */
-    public DefaultRendererOptions(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * The Default Axis Label Renderer Options
+	 *
+	 * @param linkedGraph
+	 */
+	public DefaultRendererOptions(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    @Override
-    public String getRenderer()
-    {
-        return "";
-    }
+	@Override
+	public String getRenderer()
+	{
+		return "";
+	}
 
 }

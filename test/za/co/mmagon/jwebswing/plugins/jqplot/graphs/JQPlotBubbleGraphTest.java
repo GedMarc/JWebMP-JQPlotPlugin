@@ -16,25 +16,23 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs;
 
-import za.co.mmagon.jwebswing.plugins.jqplot.graphs.JQPlotBubbleGraph;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
 public class JQPlotBubbleGraphTest
 {
-
-    public JQPlotBubbleGraphTest()
-    {
-    }
-
-    @Test
-    public void testSomeMethod()
-    {
-        JQPlotBubbleGraph bubbleGraph = new JQPlotBubbleGraph();
-
-    }
-
+	
+	public JQPlotBubbleGraphTest()
+	{
+	}
+	
+	@Test
+	public void testSomeMethod()
+	{
+		JQPlotBubbleGraph bubbleGraph = new JQPlotBubbleGraph();
+		
+	}
+	
 }

@@ -17,31 +17,31 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.parts;
 
 /**
- *
  * @author Marc Magon
- * @since 07 Aug 2015
  * @version 1.0
+ * @since 07 Aug 2015
  */
 public enum TickParts
 {
-
-    Outside,
-    Inside,
-    Cross;
-
-    private TickParts()
-    {
-
-    }
-
-    /**
-     * Returns the name of the enumeration in lower case
-     * <p>
-     * @return
-     */
-    @Override
-    public String toString()
-    {
-        return name().toLowerCase();
-    }
+	
+	Outside,
+	Inside,
+	Cross;
+	
+	private TickParts()
+	{
+	
+	}
+	
+	/**
+	 * Returns the name of the enumeration in lower case
+	 * <p>
+	 *
+	 * @return
+	 */
+	@Override
+	public String toString()
+	{
+		return name().toLowerCase();
+	}
 }

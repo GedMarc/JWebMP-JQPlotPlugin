@@ -19,58 +19,57 @@ package za.co.mmagon.jwebswing.plugins.jqplot.options.title;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTitleRenderer;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
- *
  * @author GedMarc
  * @since 29 Feb 2016
  */
 public class JQPlotTitleOptionsDivTitle extends JavaScriptPart implements JQPlotTitleRenderer
 {
 
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
 
-    /**
-     * The Default Axis Label Renderer Options
-     *
-     * @param linkedGraph
-     */
-    public JQPlotTitleOptionsDivTitle(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
+	/**
+	 * The Default Axis Label Renderer Options
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotTitleOptionsDivTitle(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
 
-    }
+	}
 
-    @JsonProperty("renderer")
-    @JsonRawValue
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.DivTitleRenderer";
-    }
+	@JsonProperty("renderer")
+	@JsonRawValue
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.DivTitleRenderer";
+	}
 
-    /**
-     * Gets the linked graph
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    /**
-     * Sets the linked graph
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
 }

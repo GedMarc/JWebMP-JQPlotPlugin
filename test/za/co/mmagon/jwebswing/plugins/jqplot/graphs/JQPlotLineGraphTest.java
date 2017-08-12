@@ -16,31 +16,29 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs;
 
-import za.co.mmagon.jwebswing.plugins.jqplot.graphs.JQPlotLineGraph;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
 public class JQPlotLineGraphTest
 {
 
-    public JQPlotLineGraphTest()
-    {
-    }
+	public JQPlotLineGraphTest()
+	{
+	}
 
-    @Test
-    public void testVeryBasic()
-    {
+	@Test
+	public void testVeryBasic()
+	{
 
-        JQPlotLineGraph graph = new JQPlotLineGraph();
-        graph.getOptions().getTitle().setText("Line Graph");
-        graph.addLine("0,1,1,2,3,4,5,6,7,8,9,10");
-        graph.addLine("0,1,1,2,3,4,5,6,7,8,9,10");
+		JQPlotLineGraph graph = new JQPlotLineGraph();
+		graph.getOptions().getTitle().setText("Line Graph");
+		graph.addLine("0,1,1,2,3,4,5,6,7,8,9,10");
+		graph.addLine("0,1,1,2,3,4,5,6,7,8,9,10");
 
-        System.out.println(graph.renderJavascriptAll());
+		System.out.println(graph.renderJavascriptAll());
 
-    }
+	}
 
 }

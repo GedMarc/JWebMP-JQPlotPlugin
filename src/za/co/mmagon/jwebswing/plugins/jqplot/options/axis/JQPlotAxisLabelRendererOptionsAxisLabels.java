@@ -20,144 +20,143 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import za.co.mmagon.jwebswing.Component;
-import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
+import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
- *
  * @author GedMarc
  * @since 29 Feb 2016
  */
 public class JQPlotAxisLabelRendererOptionsAxisLabels extends JavaScriptPart implements JQPlotAxisLabelRenderer
 {
 
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
 
-    /**
-     * whether or not to show the tick (mark and label).
-     */
-    private Boolean show;
-    /**
-     * The text or html for the label.
-     */
-    private String label;
-    /**
-     * true to escape HTML entities in the label.
-     */
-    private Boolean escapeHTML;
+	/**
+	 * whether or not to show the tick (mark and label).
+	 */
+	private Boolean show;
+	/**
+	 * The text or html for the label.
+	 */
+	private String label;
+	/**
+	 * true to escape HTML entities in the label.
+	 */
+	private Boolean escapeHTML;
 
-    /**
-     * The Default Axis Label Renderer Options
-     *
-     * @param linkedGraph
-     */
-    public JQPlotAxisLabelRendererOptionsAxisLabels(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.AxisLabelRenderer.getReference());
-    }
+	/**
+	 * The Default Axis Label Renderer Options
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotAxisLabelRendererOptionsAxisLabels(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.AxisLabelRenderer.getReference());
+	}
 
-    @JsonProperty("renderer")
-    @JsonRawValue
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.AxisLabelRenderer";
-    }
+	@JsonProperty("renderer")
+	@JsonRawValue
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.AxisLabelRenderer";
+	}
 
-    /**
-     * Gets the linked graph
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    /**
-     * Sets the linked graph
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    /**
-     * Whether or not to show the axis
-     *
-     * @return
-     */
-    public Boolean getShow()
-    {
-        return show;
-    }
+	/**
+	 * Whether or not to show the axis
+	 *
+	 * @return
+	 */
+	public Boolean getShow()
+	{
+		return show;
+	}
 
-    /**
-     * Wheter or not to show the axis label
-     *
-     * @param show
-     */
-    public void setShow(Boolean show)
-    {
-        this.show = show;
-    }
+	/**
+	 * Wheter or not to show the axis label
+	 *
+	 * @param show
+	 */
+	public void setShow(Boolean show)
+	{
+		this.show = show;
+	}
 
-    /**
-     * Gets the label
-     *
-     * @return
-     */
-    public String getLabel()
-    {
-        return label;
-    }
+	/**
+	 * Gets the label
+	 *
+	 * @return
+	 */
+	public String getLabel()
+	{
+		return label;
+	}
 
-    /**
-     * Sets the label
-     *
-     * @param label
-     */
-    public void setLabel(String label)
-    {
-        this.label = label;
-    }
+	/**
+	 * Sets the label to a component
+	 *
+	 * @param label
+	 */
+	public void setLabel(Component label)
+	{
+		label.setTiny(true);
+		this.label = label.toString(true).toString();
+		setEscapeHTML(true);
+	}
 
-    /**
-     * Sets the label to a component
-     *
-     * @param label
-     */
-    public void setLabel(Component label)
-    {
-        label.setTiny(true);
-        this.label = label.toString(true).toString();
-        setEscapeHTML(true);
-    }
+	/**
+	 * Sets the label
+	 *
+	 * @param label
+	 */
+	public void setLabel(String label)
+	{
+		this.label = label;
+	}
 
-    /**
-     * Whether or not to escape the html
-     *
-     * @return
-     */
-    public Boolean getEscapeHTML()
-    {
-        return escapeHTML;
-    }
+	/**
+	 * Whether or not to escape the html
+	 *
+	 * @return
+	 */
+	public Boolean getEscapeHTML()
+	{
+		return escapeHTML;
+	}
 
-    /**
-     * Whether or not to escape html in the label field
-     *
-     * @param escapeHTML
-     */
-    public void setEscapeHTML(Boolean escapeHTML)
-    {
-        this.escapeHTML = escapeHTML;
-    }
+	/**
+	 * Whether or not to escape html in the label field
+	 *
+	 * @param escapeHTML
+	 */
+	public void setEscapeHTML(Boolean escapeHTML)
+	{
+		this.escapeHTML = escapeHTML;
+	}
 
 }

@@ -45,520 +45,553 @@ import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferenc
  * For more complete control, the “formatString” option can be set. This Allows conplete control over tooltip formatting. Values are passed to the format string in an order determined by the
  * “tooltipAxes” and “yvalues” options. So, if you have a hi-low-close chart and you just want to display the hi-low-close values in the tooltip, you could set a formatString like:
  *
- * @author mmagon
  * @param <O>
+ *
+ * @author mmagon
  */
 public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRenderer> extends JavaScriptPart implements JQPlotRendererDefault
 {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * true to show the highlight.
-     */
-    private Boolean show;
-    /**
-     * Renderer used to draw the marker of the highlighted point.
-     */
-    private String markerRenderer;
-    @JsonProperty("markerRenderer")
-    private O markerRendererOptions;
-
-    /**
-     * true to show the marker
-     */
-    private Boolean showMarker = false;
-    /**
-     * Pixels to add to the lineWidth of the highlight.
-     */
-    private Integer lineWidthAdjust;
-    /**
-     * Pixels to add to the overall size of the highlight.
-     */
-    private Integer sizeAdjust;
-    /**
-     * Show a ToolTip with data point values.
-     */
-    private Boolean showTooltip = false;
-    /**
-     * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
-     */
-    private CompassPoints tooltipLocation;
-    /**
-     * true = fade in/out tooltip, false = show/hide tooltip
-     */
-    private Boolean fadeTooltip;
-    /**
-     * number of milliseconds.
-     */
-    private Integer tooltipFadeSpeed;
-    /**
-     * Pixel offset of tooltip from the highlight.
-     */
-    private Integer tooltipOffset;
-    /**
-     * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
-     */
-    private String tooltipAxes;
-    /**
-     * Use the x and y axes formatters to format the text in the tooltip.
-     */
-    private Boolean useAxesFormatters;
-    /**
-     * sprintf format string for the tooltip.
-     */
-    private String tooltipFormatString;
-    /**
-     * alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
-     */
-    private String formatString;
-    /**
-     * Number of y values to expect in the data point array.
-     */
-    private Integer yvalues;
-    /**
-     * This option requires jQuery 1.4+ True to bring the series of the highlighted point to the front of other series.
-     */
-    private Boolean bringSeriesToFront;
-
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
-
-    /**
-     * Constructs a new highlight options class with the given graph
-     *
-     * @param linkedGraph
-     */
-    public JQPlotHighlightOptions(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.HighlightRenderer.getReference());
-    }
-
-    /**
-     * true to show the highlight.
-     * <p>
-     * @return Current value
-     */
-    public Boolean isShow()
-    {
-        return show;
-    }
-
-    /**
-     * True to show the highlight
-     * <p>
-     * @param show
-     */
-    public void setShow(Boolean show)
-    {
-        this.show = show;
-    }
-
-    /**
-     * Renderer used to draw the marker of the highlighted point.
-     * <p>
-     * @return The renderer used
-     */
-    public String getMarkerRenderer()
-    {
-        return markerRenderer;
-    }
-
-    /**
-     * true to show the marker
-     * <p>
-     * @return Current Value
-     */
-    public Boolean isShowMarker()
-    {
-        return showMarker;
-    }
-
-    /**
-     * true to show the marker
-     * <p>
-     * @param showMarker Show Marker Boolean
-     */
-    public void setShowMarker(Boolean showMarker)
-    {
-        this.showMarker = showMarker;
-    }
-
-    /**
-     * Pixels to add to the lineWidth of the highlight.
-     * <p>
-     * @return The pixels adjustment
-     */
-    public Integer getLineWidthAdjust()
-    {
-        return lineWidthAdjust;
-    }
-
-    /**
-     * Pixels to add to the lineWidth of the highlight.
-     * <p>
-     * @param lineWidthAdjust The line adjustment width
-     */
-    public void setLineWidthAdjust(Integer lineWidthAdjust)
-    {
-        this.lineWidthAdjust = lineWidthAdjust;
-    }
-
-    /**
-     * Pixels to add to the overall size of the highlight.
-     * <p>
-     * @return The Size Adjustment
-     */
-    public Integer getSizeAdjust()
-    {
-        return sizeAdjust;
-    }
-
-    /**
-     * Pixels to add to the overall size of the highlight.
-     * <p>
-     * @param sizeAdjust The size to adjust by
-     */
-    public void setSizeAdjust(Integer sizeAdjust)
-    {
-        this.sizeAdjust = sizeAdjust;
-    }
-
-    /**
-     * Show a tooltip with data point values
-     * <p>
-     * @return
-     */
-    public Boolean isShowTooltip()
-    {
-        return showTooltip;
-    }
-
-    /**
-     * Show a tooltip with data point values.
-     * <p>
-     * @param showTooltip To show the tooltip
-     */
-    public void setShowTooltip(Boolean showTooltip)
-    {
-        this.showTooltip = showTooltip;
-    }
-
-    /**
-     * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
-     * <p>
-     * @return Position
-     */
-    public CompassPoints getTooltipLocation()
-    {
-        return tooltipLocation;
-    }
-
-    /**
-     * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
-     * <p>
-     * @param tooltipLocation The location
-     */
-    public void setTooltipLocation(CompassPoints tooltipLocation)
-    {
-        this.tooltipLocation = tooltipLocation;
-    }
-
-    /**
-     * true = fade in/out tooltip, false = show/hide tooltip
-     * <p>
-     * @return Fading
-     */
-    public Boolean isFadeTooltip()
-    {
-        return fadeTooltip;
-    }
-
-    /**
-     * true = fade in/out tooltip, false = show/hide tooltip
-     * <p>
-     * @param fadeTooltip True or False
-     */
-    public void setFadeTooltip(Boolean fadeTooltip)
-    {
-        this.fadeTooltip = fadeTooltip;
-    }
-
-    /**
-     * number of milliseconds
-     * <p>
-     * @return Number of milliseconds
-     */
-    public Integer getTooltipFadeSpeed()
-    {
-        return tooltipFadeSpeed;
-    }
-
-    /**
-     * number of milliseconds
-     * <p>
-     * @param tooltipFadeSpeed The fading speed in milliseconds
-     */
-    public void setTooltipFadeSpeed(Integer tooltipFadeSpeed)
-    {
-        this.tooltipFadeSpeed = tooltipFadeSpeed;
-    }
-
-    /**
-     * Pixel offset of tooltip from the highlight.
-     * <p>
-     * @return The offset from the highlight
-     */
-    public Integer getTooltipOffset()
-    {
-        return tooltipOffset;
-    }
-
-    /**
-     * Pixel offset of tooltip from the highlight.
-     * <p>
-     * @param tooltipOffset The offest
-     */
-    public void setTooltipOffset(Integer tooltipOffset)
-    {
-        this.tooltipOffset = tooltipOffset;
-    }
-
-    /**
-     * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
-     * <p>
-     * @return The Axes to use
-     */
-    public String getTooltipAxes()
-    {
-        return tooltipAxes;
-    }
-
-    /**
-     * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
-     * <p>
-     * @param tooltipAxes
-     */
-    public void setTooltipAxes(String tooltipAxes)
-    {
-        this.tooltipAxes = tooltipAxes;
-    }
-
-    /**
-     * Use the x and y axes formatters to format the text in the tooltip
-     * <p>
-     * @return The text in the formatters
-     */
-    public Boolean isUseAxesFormatters()
-    {
-        return useAxesFormatters;
-    }
-
-    /**
-     * Use the x and y axes formatters to format the text in the tooltip
-     * <p>
-     * @param useAxesFormatters True or False
-     */
-    public void setUseAxesFormatters(Boolean useAxesFormatters)
-    {
-        this.useAxesFormatters = useAxesFormatters;
-    }
-
-    /**
-     * sprintf format string for the tooltip.
-     * <p>
-     * @return The tooltip format string
-     */
-    public String getTooltipFormatString()
-    {
-        return tooltipFormatString;
-    }
-
-    /**
-     * sprintf format string for the tooltip.
-     * <p>
-     * @param tooltipFormatString The sprintf format for the tooltip
-     */
-    public void setTooltipFormatString(String tooltipFormatString)
-    {
-        this.tooltipFormatString = tooltipFormatString;
-    }
-
-    /**
-     * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
-     * <p>
-     * @return
-     */
-    public String getFormatString()
-    {
-        return formatString;
-    }
-
-    /**
-     * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
-     * <p>
-     * @param formatString The HTML to use as a tooltip
-     */
-    public void setFormatString(String formatString)
-    {
-        this.formatString = formatString;
-    }
-
-    /**
-     * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
-     * <p>
-     * @param formatString The HTML to use as a tooltip
-     */
-    public void setFormatString(Div formatString)
-    {
-        this.formatString = formatString.toString(true).toString();
-    }
-
-    /**
-     * Number of y values to expect in the data point array.
-     * <p>
-     * @return
-     */
-    public Integer getYvalues()
-    {
-        return yvalues;
-    }
-
-    /**
-     * Number of y values to expect in the data point array.
-     * <p>
-     * @param yvalues
-     */
-    public void setYvalues(Integer yvalues)
-    {
-        this.yvalues = yvalues;
-    }
-
-    /**
-     * True to bring the series of the highlighted point to the front of other series.
-     * <p>
-     * @return
-     */
-    public Boolean isBringSeriesToFront()
-    {
-        return bringSeriesToFront;
-    }
-
-    /**
-     * True to bring the series of the highlighted point to the front of other series.
-     * <p>
-     * @param bringSeriesToFront
-     */
-    public void setBringSeriesToFront(Boolean bringSeriesToFront)
-    {
-        this.bringSeriesToFront = bringSeriesToFront;
-    }
-
-    /**
-     * Sets the marker renderer accordingly
-     * <p>
-     */
-    public void setMarkerRendererOptions(O markerRendererOptions)
-    {
-        this.markerRenderer = markerRendererOptions.getMarkerRenderer();
-        this.markerRendererOptions = markerRendererOptions;
-    }
-
-    public static long getSerialVersionUID()
-    {
-        return serialVersionUID;
-    }
-
-    /**
-     * true to show the highlight.
-     *
-     * @return
-     */
-    public Boolean getShow()
-    {
-        return show;
-    }
-
-    /**
-     * Return the marker rendering options with the highlighter
-     *
-     * @return
-     */
-    public O getMarkerRendererOptions()
-    {
-        if (markerRendererOptions == null)
-        {
-            markerRendererOptions = (O) new JQPlotMarkerOptions(getLinkedGraph());
-            this.markerRenderer = markerRendererOptions.getMarkerRenderer();
-        }
-        return markerRendererOptions;
-    }
-
-    /**
-     * Whether or not to show the marker
-     *
-     * @return
-     */
-    public Boolean getShowMarker()
-    {
-        return showMarker;
-    }
-
-    /**
-     * Whether or not to show the tooltip
-     *
-     * @return
-     */
-    public Boolean getShowTooltip()
-    {
-        return showTooltip;
-    }
-
-    /**
-     * whether or not to fade the tooltip
-     *
-     * @return
-     */
-    public Boolean getFadeTooltip()
-    {
-        return fadeTooltip;
-    }
-
-    /**
-     * Use axes formatters for display or not
-     *
-     * @return
-     */
-    public Boolean getUseAxesFormatters()
-    {
-        return useAxesFormatters;
-    }
-
-    /**
-     * Always have the series in front
-     *
-     * @return
-     */
-    public Boolean getBringSeriesToFront()
-    {
-        return bringSeriesToFront;
-    }
-
-    /**
-     * Returns the linked graph with this object
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
-
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.Highlighter";
-    }
-
+	
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * true to show the highlight.
+	 */
+	private Boolean show;
+	/**
+	 * Renderer used to draw the marker of the highlighted point.
+	 */
+	private String markerRenderer;
+	@JsonProperty("markerRenderer")
+	private O markerRendererOptions;
+	
+	/**
+	 * true to show the marker
+	 */
+	private Boolean showMarker = false;
+	/**
+	 * Pixels to add to the lineWidth of the highlight.
+	 */
+	private Integer lineWidthAdjust;
+	/**
+	 * Pixels to add to the overall size of the highlight.
+	 */
+	private Integer sizeAdjust;
+	/**
+	 * Show a ToolTip with data point values.
+	 */
+	private Boolean showTooltip = false;
+	/**
+	 * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
+	 */
+	private CompassPoints tooltipLocation;
+	/**
+	 * true = fade in/out tooltip, false = show/hide tooltip
+	 */
+	private Boolean fadeTooltip;
+	/**
+	 * number of milliseconds.
+	 */
+	private Integer tooltipFadeSpeed;
+	/**
+	 * Pixel offset of tooltip from the highlight.
+	 */
+	private Integer tooltipOffset;
+	/**
+	 * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
+	 */
+	private String tooltipAxes;
+	/**
+	 * Use the x and y axes formatters to format the text in the tooltip.
+	 */
+	private Boolean useAxesFormatters;
+	/**
+	 * sprintf format string for the tooltip.
+	 */
+	private String tooltipFormatString;
+	/**
+	 * alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
+	 */
+	private String formatString;
+	/**
+	 * Number of y values to expect in the data point array.
+	 */
+	private Integer yvalues;
+	/**
+	 * This option requires jQuery 1.4+ True to bring the series of the highlighted point to the front of other series.
+	 */
+	private Boolean bringSeriesToFront;
+	
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
+	
+	/**
+	 * Constructs a new highlight options class with the given graph
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotHighlightOptions(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.HighlightRenderer.getReference());
+	}
+	
+	public static long getSerialVersionUID()
+	{
+		return serialVersionUID;
+	}
+	
+	/**
+	 * true to show the highlight.
+	 * <p>
+	 *
+	 * @return Current value
+	 */
+	public Boolean isShow()
+	{
+		return show;
+	}
+	
+	/**
+	 * Renderer used to draw the marker of the highlighted point.
+	 * <p>
+	 *
+	 * @return The renderer used
+	 */
+	public String getMarkerRenderer()
+	{
+		return markerRenderer;
+	}
+	
+	/**
+	 * true to show the marker
+	 * <p>
+	 *
+	 * @return Current Value
+	 */
+	public Boolean isShowMarker()
+	{
+		return showMarker;
+	}
+	
+	/**
+	 * Pixels to add to the lineWidth of the highlight.
+	 * <p>
+	 *
+	 * @return The pixels adjustment
+	 */
+	public Integer getLineWidthAdjust()
+	{
+		return lineWidthAdjust;
+	}
+	
+	/**
+	 * Pixels to add to the lineWidth of the highlight.
+	 * <p>
+	 *
+	 * @param lineWidthAdjust The line adjustment width
+	 */
+	public void setLineWidthAdjust(Integer lineWidthAdjust)
+	{
+		this.lineWidthAdjust = lineWidthAdjust;
+	}
+	
+	/**
+	 * Pixels to add to the overall size of the highlight.
+	 * <p>
+	 *
+	 * @return The Size Adjustment
+	 */
+	public Integer getSizeAdjust()
+	{
+		return sizeAdjust;
+	}
+	
+	/**
+	 * Pixels to add to the overall size of the highlight.
+	 * <p>
+	 *
+	 * @param sizeAdjust The size to adjust by
+	 */
+	public void setSizeAdjust(Integer sizeAdjust)
+	{
+		this.sizeAdjust = sizeAdjust;
+	}
+	
+	/**
+	 * Show a tooltip with data point values
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean isShowTooltip()
+	{
+		return showTooltip;
+	}
+	
+	/**
+	 * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
+	 * <p>
+	 *
+	 * @return Position
+	 */
+	public CompassPoints getTooltipLocation()
+	{
+		return tooltipLocation;
+	}
+	
+	/**
+	 * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
+	 * <p>
+	 *
+	 * @param tooltipLocation The location
+	 */
+	public void setTooltipLocation(CompassPoints tooltipLocation)
+	{
+		this.tooltipLocation = tooltipLocation;
+	}
+	
+	/**
+	 * true = fade in/out tooltip, false = show/hide tooltip
+	 * <p>
+	 *
+	 * @return Fading
+	 */
+	public Boolean isFadeTooltip()
+	{
+		return fadeTooltip;
+	}
+	
+	/**
+	 * number of milliseconds
+	 * <p>
+	 *
+	 * @return Number of milliseconds
+	 */
+	public Integer getTooltipFadeSpeed()
+	{
+		return tooltipFadeSpeed;
+	}
+	
+	/**
+	 * number of milliseconds
+	 * <p>
+	 *
+	 * @param tooltipFadeSpeed The fading speed in milliseconds
+	 */
+	public void setTooltipFadeSpeed(Integer tooltipFadeSpeed)
+	{
+		this.tooltipFadeSpeed = tooltipFadeSpeed;
+	}
+	
+	/**
+	 * Pixel offset of tooltip from the highlight.
+	 * <p>
+	 *
+	 * @return The offset from the highlight
+	 */
+	public Integer getTooltipOffset()
+	{
+		return tooltipOffset;
+	}
+	
+	/**
+	 * Pixel offset of tooltip from the highlight.
+	 * <p>
+	 *
+	 * @param tooltipOffset The offest
+	 */
+	public void setTooltipOffset(Integer tooltipOffset)
+	{
+		this.tooltipOffset = tooltipOffset;
+	}
+	
+	/**
+	 * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
+	 * <p>
+	 *
+	 * @return The Axes to use
+	 */
+	public String getTooltipAxes()
+	{
+		return tooltipAxes;
+	}
+	
+	/**
+	 * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
+	 * <p>
+	 *
+	 * @param tooltipAxes
+	 */
+	public void setTooltipAxes(String tooltipAxes)
+	{
+		this.tooltipAxes = tooltipAxes;
+	}
+	
+	/**
+	 * Use the x and y axes formatters to format the text in the tooltip
+	 * <p>
+	 *
+	 * @return The text in the formatters
+	 */
+	public Boolean isUseAxesFormatters()
+	{
+		return useAxesFormatters;
+	}
+	
+	/**
+	 * sprintf format string for the tooltip.
+	 * <p>
+	 *
+	 * @return The tooltip format string
+	 */
+	public String getTooltipFormatString()
+	{
+		return tooltipFormatString;
+	}
+	
+	/**
+	 * sprintf format string for the tooltip.
+	 * <p>
+	 *
+	 * @param tooltipFormatString The sprintf format for the tooltip
+	 */
+	public void setTooltipFormatString(String tooltipFormatString)
+	{
+		this.tooltipFormatString = tooltipFormatString;
+	}
+	
+	/**
+	 * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
+	 * <p>
+	 *
+	 * @return
+	 */
+	public String getFormatString()
+	{
+		return formatString;
+	}
+	
+	/**
+	 * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
+	 * <p>
+	 *
+	 * @param formatString The HTML to use as a tooltip
+	 */
+	public void setFormatString(Div formatString)
+	{
+		this.formatString = formatString.toString(true).toString();
+	}
+	
+	/**
+	 * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
+	 * <p>
+	 *
+	 * @param formatString The HTML to use as a tooltip
+	 */
+	public void setFormatString(String formatString)
+	{
+		this.formatString = formatString;
+	}
+	
+	/**
+	 * Number of y values to expect in the data point array.
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Integer getYvalues()
+	{
+		return yvalues;
+	}
+	
+	/**
+	 * Number of y values to expect in the data point array.
+	 * <p>
+	 *
+	 * @param yvalues
+	 */
+	public void setYvalues(Integer yvalues)
+	{
+		this.yvalues = yvalues;
+	}
+	
+	/**
+	 * True to bring the series of the highlighted point to the front of other series.
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Boolean isBringSeriesToFront()
+	{
+		return bringSeriesToFront;
+	}
+	
+	/**
+	 * true to show the highlight.
+	 *
+	 * @return
+	 */
+	public Boolean getShow()
+	{
+		return show;
+	}
+	
+	/**
+	 * True to show the highlight
+	 * <p>
+	 *
+	 * @param show
+	 */
+	public void setShow(Boolean show)
+	{
+		this.show = show;
+	}
+	
+	/**
+	 * Return the marker rendering options with the highlighter
+	 *
+	 * @return
+	 */
+	public O getMarkerRendererOptions()
+	{
+		if (markerRendererOptions == null)
+		{
+			markerRendererOptions = (O) new JQPlotMarkerOptions(getLinkedGraph());
+			this.markerRenderer = markerRendererOptions.getMarkerRenderer();
+		}
+		return markerRendererOptions;
+	}
+	
+	/**
+	 * Sets the marker renderer accordingly
+	 * <p>
+	 */
+	public void setMarkerRendererOptions(O markerRendererOptions)
+	{
+		this.markerRenderer = markerRendererOptions.getMarkerRenderer();
+		this.markerRendererOptions = markerRendererOptions;
+	}
+	
+	/**
+	 * Whether or not to show the marker
+	 *
+	 * @return
+	 */
+	public Boolean getShowMarker()
+	{
+		return showMarker;
+	}
+	
+	/**
+	 * true to show the marker
+	 * <p>
+	 *
+	 * @param showMarker Show Marker Boolean
+	 */
+	public void setShowMarker(Boolean showMarker)
+	{
+		this.showMarker = showMarker;
+	}
+	
+	/**
+	 * Whether or not to show the tooltip
+	 *
+	 * @return
+	 */
+	public Boolean getShowTooltip()
+	{
+		return showTooltip;
+	}
+	
+	/**
+	 * Show a tooltip with data point values.
+	 * <p>
+	 *
+	 * @param showTooltip To show the tooltip
+	 */
+	public void setShowTooltip(Boolean showTooltip)
+	{
+		this.showTooltip = showTooltip;
+	}
+	
+	/**
+	 * whether or not to fade the tooltip
+	 *
+	 * @return
+	 */
+	public Boolean getFadeTooltip()
+	{
+		return fadeTooltip;
+	}
+	
+	/**
+	 * true = fade in/out tooltip, false = show/hide tooltip
+	 * <p>
+	 *
+	 * @param fadeTooltip True or False
+	 */
+	public void setFadeTooltip(Boolean fadeTooltip)
+	{
+		this.fadeTooltip = fadeTooltip;
+	}
+	
+	/**
+	 * Use axes formatters for display or not
+	 *
+	 * @return
+	 */
+	public Boolean getUseAxesFormatters()
+	{
+		return useAxesFormatters;
+	}
+	
+	/**
+	 * Use the x and y axes formatters to format the text in the tooltip
+	 * <p>
+	 *
+	 * @param useAxesFormatters True or False
+	 */
+	public void setUseAxesFormatters(Boolean useAxesFormatters)
+	{
+		this.useAxesFormatters = useAxesFormatters;
+	}
+	
+	/**
+	 * Always have the series in front
+	 *
+	 * @return
+	 */
+	public Boolean getBringSeriesToFront()
+	{
+		return bringSeriesToFront;
+	}
+	
+	/**
+	 * True to bring the series of the highlighted point to the front of other series.
+	 * <p>
+	 *
+	 * @param bringSeriesToFront
+	 */
+	public void setBringSeriesToFront(Boolean bringSeriesToFront)
+	{
+		this.bringSeriesToFront = bringSeriesToFront;
+	}
+	
+	/**
+	 * Returns the linked graph with this object
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
+	
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.Highlighter";
+	}
+	
 }

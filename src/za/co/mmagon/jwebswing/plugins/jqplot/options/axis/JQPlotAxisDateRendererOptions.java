@@ -16,12 +16,14 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.options.axis;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * A plugin for a jqPlot to render an axis as a series of date values. This renderer has no options beyond those supplied by the Axis class. It supplies its own tick formatter, so the
@@ -57,170 +59,168 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQPlotAxisRenderer
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
+	/**
+	 * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
+	 */
+	private JQPlotTickRenderer tickRenderer;
+	/**
+	 * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval.
+	 */
+	private Integer tickInset;
+	/**
+	 * True to draw the axis baseline.
+	 */
+	private Boolean drawBaseline;
+	/**
+	 * width of the baseline in pixels.
+	 */
+	private Integer baselineWidth;
+	/**
+	 * CSS color spec for the baseline.
+	 */
+	private String baselineColor;
+	/**
+	 * The Default Axis Label Renderer Options
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotAxisDateRendererOptions(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.DateAxisRenderer.getReference());
+	}
 
-    /**
-     * The Default Axis Label Renderer Options
-     *
-     * @param linkedGraph
-     */
-    public JQPlotAxisDateRendererOptions(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.DateAxisRenderer.getReference());
-    }
+	@JsonProperty("renderer")
+	@JsonRawValue
+	@JsonIgnore
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.DateAxisRenderer";
+	}
 
-    @JsonProperty("renderer")
-    @JsonRawValue
-    @JsonIgnore
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.DateAxisRenderer";
-    }
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    /**
-     * Gets the linked graph
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    /**
-     * Sets the linked graph
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
+	 *
+	 * @return
+	 */
+	public JQPlotTickRenderer getTickRenderer()
+	{
+		return tickRenderer;
+	}
 
-    /**
-     * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
-     */
-    private JQPlotTickRenderer tickRenderer;
-    /**
-     * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval.
-     */
-    private Integer tickInset;
-    /**
-     * True to draw the axis baseline.
-     */
-    private Boolean drawBaseline;
-    /**
-     * width of the baseline in pixels.
-     */
-    private Integer baselineWidth;
-    /**
-     * CSS color spec for the baseline.
-     */
-    private String baselineColor;
+	/**
+	 * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
+	 *
+	 * @param tickRenderer
+	 */
+	public void setTickRenderer(JQPlotTickRenderer tickRenderer)
+	{
+		this.tickRenderer = tickRenderer;
+	}
 
-    /**
-     * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
-     *
-     * @return
-     */
-    public JQPlotTickRenderer getTickRenderer()
-    {
-        return tickRenderer;
-    }
+	/**
+	 * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval.
+	 *
+	 * @return
+	 */
+	public Integer getTickInset()
+	{
+		return tickInset;
+	}
 
-    /**
-     * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
-     *
-     * @param tickRenderer
-     */
-    public void setTickRenderer(JQPlotTickRenderer tickRenderer)
-    {
-        this.tickRenderer = tickRenderer;
-    }
+	/**
+	 * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval.
+	 *
+	 * @param tickInset
+	 */
+	public void setTickInset(Integer tickInset)
+	{
+		this.tickInset = tickInset;
+	}
 
-    /**
-     * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval.
-     *
-     * @return
-     */
-    public Integer getTickInset()
-    {
-        return tickInset;
-    }
+	/**
+	 * True to draw the axis baseline.
+	 *
+	 * @return
+	 */
+	public Boolean getDrawBaseline()
+	{
+		return drawBaseline;
+	}
 
-    /**
-     * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval.
-     *
-     * @param tickInset
-     */
-    public void setTickInset(Integer tickInset)
-    {
-        this.tickInset = tickInset;
-    }
+	/**
+	 * True to draw the axis baseline.
+	 *
+	 * @param drawBaseline
+	 */
+	public void setDrawBaseline(Boolean drawBaseline)
+	{
+		this.drawBaseline = drawBaseline;
+	}
 
-    /**
-     * True to draw the axis baseline.
-     *
-     * @return
-     */
-    public Boolean getDrawBaseline()
-    {
-        return drawBaseline;
-    }
+	/**
+	 * width of the baseline in pixels.
+	 *
+	 * @return
+	 */
+	public Integer getBaselineWidth()
+	{
+		return baselineWidth;
+	}
 
-    /**
-     * True to draw the axis baseline.
-     *
-     * @param drawBaseline
-     */
-    public void setDrawBaseline(Boolean drawBaseline)
-    {
-        this.drawBaseline = drawBaseline;
-    }
+	/**
+	 * width of the baseline in pixels.
+	 *
+	 * @param baselineWidth
+	 */
+	public void setBaselineWidth(Integer baselineWidth)
+	{
+		this.baselineWidth = baselineWidth;
+	}
 
-    /**
-     * width of the baseline in pixels.
-     *
-     * @return
-     */
-    public Integer getBaselineWidth()
-    {
-        return baselineWidth;
-    }
+	/**
+	 * CSS color spec for the baseline.
+	 *
+	 * @return
+	 */
+	public String getBaselineColor()
+	{
+		return baselineColor;
+	}
 
-    /**
-     * width of the baseline in pixels.
-     *
-     * @param baselineWidth
-     */
-    public void setBaselineWidth(Integer baselineWidth)
-    {
-        this.baselineWidth = baselineWidth;
-    }
-
-    /**
-     * CSS color spec for the baseline.
-     *
-     * @return
-     */
-    public String getBaselineColor()
-    {
-        return baselineColor;
-    }
-
-    /**
-     * CSS color spec for the baseline.
-     *
-     * @param baselineColor
-     */
-    public void setBaselineColor(String baselineColor)
-    {
-        this.baselineColor = baselineColor;
-    }
+	/**
+	 * CSS color spec for the baseline.
+	 *
+	 * @param baselineColor
+	 */
+	public void setBaselineColor(String baselineColor)
+	{
+		this.baselineColor = baselineColor;
+	}
 
 }

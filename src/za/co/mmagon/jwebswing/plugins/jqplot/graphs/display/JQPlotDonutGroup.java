@@ -16,9 +16,10 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
 import java.util.ArrayList;
 import java.util.List;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * Container Class for Donut Pie Groupings
@@ -29,49 +30,49 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 public class JQPlotDonutGroup extends JavaScriptPart
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private ArrayList<List<JQPlotPieSlice>> donutGroup;
+	private ArrayList<List<JQPlotPieSlice>> donutGroup;
 
-    public JQPlotDonutGroup()
-    {
-    }
+	public JQPlotDonutGroup()
+	{
+	}
 
-    /**
-     * Returns a specific donut group. Rendered as [] in
-     *
-     * @return
-     */
-    public List<List<JQPlotPieSlice>> getDonutGroup()
-    {
-        if (donutGroup == null)
-        {
-            donutGroup = new ArrayList<>();
-        }
-        return donutGroup;
-    }
+	/**
+	 * Returns a specific donut group. Rendered as [] in
+	 *
+	 * @return
+	 */
+	public List<List<JQPlotPieSlice>> getDonutGroup()
+	{
+		if (donutGroup == null)
+		{
+			donutGroup = new ArrayList<>();
+		}
+		return donutGroup;
+	}
 
-    public List<JQPlotPieSlice> getDonutGroupSlices(int groupNumber)
-    {
-        if (donutGroup == null)
-        {
-            donutGroup = new ArrayList<>();
-            if (!(donutGroup.size() >= groupNumber))
-            {
-                donutGroup.add(groupNumber, new ArrayList<>());
-            }
-        }
-        return donutGroup.get(groupNumber);
-    }
+	/**
+	 * Sets the specific donut group
+	 *
+	 * @param donutGroup
+	 */
+	public void setDonutGroup(ArrayList<List<JQPlotPieSlice>> donutGroup)
+	{
+		this.donutGroup = donutGroup;
+	}
 
-    /**
-     * Sets the specific donut group
-     *
-     * @param donutGroup
-     */
-    public void setDonutGroup(ArrayList<List<JQPlotPieSlice>> donutGroup)
-    {
-        this.donutGroup = donutGroup;
-    }
+	public List<JQPlotPieSlice> getDonutGroupSlices(int groupNumber)
+	{
+		if (donutGroup == null)
+		{
+			donutGroup = new ArrayList<>();
+			if (!(donutGroup.size() >= groupNumber))
+			{
+				donutGroup.add(groupNumber, new ArrayList<>());
+			}
+		}
+		return donutGroup.get(groupNumber);
+	}
 
 }

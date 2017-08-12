@@ -17,11 +17,10 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
 /**
- * 
  * @author GedMarc
  * @since 01 Mar 2016
  */
-public interface JQPlotSeriesItem 
+public interface JQPlotSeriesItem
 {
-    
+
 }

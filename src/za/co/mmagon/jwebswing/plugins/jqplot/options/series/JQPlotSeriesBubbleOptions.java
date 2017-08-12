@@ -17,369 +17,364 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.options.series;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
- *
  * @author Marc Magon
- * @since 09 Aug 2015
  * @version 1.0
+ * @since 09 Aug 2015
  */
 public class JQPlotSeriesBubbleOptions extends JavaScriptPart implements JQPlotSeriesRenderer
 {
 
-    /**
-     * The graph that this is linked to
-     */
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * The graph that this is linked to
+	 */
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
+	/**
+	 * True to vary the color of each bubble in this series according to the seriesColors array.
+	 */
+	private Boolean varyBubbleColors;
+	/**
+	 * True to scale the bubble radius based on plot size.
+	 */
 
-    /**
-     * Constructs a new Bubble Options for the given graph
-     *
-     * @param linkedGraph
-     */
-    public JQPlotSeriesBubbleOptions(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-        linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.BubbleRenderer.getReference());
-    }
+	private Boolean autoscaleBubbles;
+	/**
+	 * Multiplier the bubble size if autoscaleBubbles is true.
+	 */
 
-    private static final long serialVersionUID = 1L;
+	private Integer autoscaleMultiplier;
+	/**
+	 * Factor which decreases bubble size based on how many bubbles on on the chart.
+	 */
 
-    /**
-     * Gets the graph associated with this options
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	private Integer autoscalePointsFactor;
+	/**
+	 * True to escape HTML in bubble label text.
+	 */
 
-    /**
-     * Sets the graph that is linked to this options
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	private Boolean escapeHtml;
+	/**
+	 * True to highlight bubbles when Moused over.
+	 */
 
-    /**
-     * Sets the series render to bubble
-     *
-     * @return
-     */
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.BubbleRenderer";
-    }
+	private Boolean highlightMouseOver;
+	/**
+	 * True to highlight when a mouse button is pressed over a bubble.
+	 */
 
-    /**
-     * True to vary the color of each bubble in this series according to the seriesColors array.
-     */
-    private Boolean varyBubbleColors;
-    /**
-     * True to scale the bubble radius based on plot size.
-     */
+	private Boolean highlightMouseDown;
+	/**
+	 * An array of colors to use when highlighting a slice.
+	 */
 
-    private Boolean autoscaleBubbles;
-    /**
-     * Multiplier the bubble size if autoscaleBubbles is true.
-     */
+	private String highlightColors;
+	/**
+	 * Alpha transparency to apply to all bubbles in this series.
+	 */
 
-    private Integer autoscaleMultiplier;
-    /**
-     * Factor which decreases bubble size based on how many bubbles on on the chart.
-     */
+	private Double bubbleAlpha;
+	/**
+	 * Alpha transparency to apply when highlighting bubble.
+	 */
 
-    private Integer autoscalePointsFactor;
-    /**
-     * True to escape HTML in bubble label text.
-     */
+	private Double highlightAlpha;
+	/**
+	 * True to color the bubbles with gradient fills instead of flat colors.;
+	 */
 
-    private Boolean escapeHtml;
-    /**
-     * True to highlight bubbles when Moused over.
-     */
+	private Boolean bubbleGradients;
+	/**
+	 * True to show labels on bubbles (if any), false to not show.
+	 */
 
-    private Boolean highlightMouseOver;
-    /**
-     * True to highlight when a mouse button is pressed over a bubble.
-     */
+	private Boolean showLabels;
+	/**
+	 * Constructs a new Bubble Options for the given graph
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotSeriesBubbleOptions(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.BubbleRenderer.getReference());
+	}
 
-    private Boolean highlightMouseDown;
-    /**
-     * An array of colors to use when highlighting a slice.
-     */
+	/**
+	 * Gets the graph associated with this options
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    private String highlightColors;
-    /**
-     * Alpha transparency to apply to all bubbles in this series.
-     */
+	/**
+	 * Sets the graph that is linked to this options
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    private Double bubbleAlpha;
-    /**
-     * Alpha transparency to apply when highlighting bubble.
-     */
+	/**
+	 * Sets the series render to bubble
+	 *
+	 * @return
+	 */
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.BubbleRenderer";
+	}
 
-    private Double highlightAlpha;
-    /**
-     * True to color the bubbles with gradient fills instead of flat colors.;
-     */
+	/**
+	 * True to vary the color of each bubble in this series according to the seriesColors array.
+	 *
+	 * @return
+	 */
+	public boolean getVaryBubbleColors()
+	{
+		return varyBubbleColors;
+	}
 
-    private Boolean bubbleGradients;
-    /**
-     * True to show labels on bubbles (if any), false to not show.
-     */
+	/**
+	 * True to vary the color of each bubble in this series according to the seriesColors array.
+	 *
+	 * @param varyBubbleColors
+	 */
+	public void setVaryBubbleColors(boolean varyBubbleColors)
+	{
+		this.varyBubbleColors = varyBubbleColors;
+	}
 
-    private Boolean showLabels;
+	/**
+	 * True to scale the bubble radius based on plot size.
+	 *
+	 * @return
+	 */
+	public boolean getAutoscaleBubbles()
+	{
+		return autoscaleBubbles;
+	}
 
-    /**
-     *
-     * True to vary the color of each bubble in this series according to the seriesColors array.
-     *
-     * @return
-     */
-    public boolean getVaryBubbleColors()
-    {
-        return varyBubbleColors;
-    }
+	/**
+	 * True to scale the bubble radius based on plot size.
+	 *
+	 * @param autoscaleBubbles
+	 */
+	public void setAutoscaleBubbles(boolean autoscaleBubbles)
+	{
+		this.autoscaleBubbles = autoscaleBubbles;
+	}
 
-    /**
-     * True to vary the color of each bubble in this series according to the seriesColors array.
-     *
-     * @param varyBubbleColors
-     */
-    public void setVaryBubbleColors(boolean varyBubbleColors)
-    {
-        this.varyBubbleColors = varyBubbleColors;
-    }
+	/**
+	 * Multiplier the bubble size if autoscaleBubbles get true.
+	 *
+	 * @return
+	 */
+	public int getAutoscaleMultiplier()
+	{
+		return autoscaleMultiplier;
+	}
 
-    /**
-     * True to scale the bubble radius based on plot size.
-     *
-     * @return
-     */
-    public boolean getAutoscaleBubbles()
-    {
-        return autoscaleBubbles;
-    }
+	/**
+	 * Multiplier the bubble size if autoscaleBubbles get true.
+	 *
+	 * @param autoscaleMultiplier
+	 */
+	public void setAutoscaleMultiplier(int autoscaleMultiplier)
+	{
+		this.autoscaleMultiplier = autoscaleMultiplier;
+	}
 
-    /**
-     * True to scale the bubble radius based on plot size.
-     *
-     * @param autoscaleBubbles
-     */
-    public void setAutoscaleBubbles(boolean autoscaleBubbles)
-    {
-        this.autoscaleBubbles = autoscaleBubbles;
-    }
+	/**
+	 * Factor which decreases bubble size based on how many bubbles on on the chart.
+	 *
+	 * @return
+	 */
+	public int getAutoscalePointsFactor()
+	{
+		return autoscalePointsFactor;
+	}
 
-    /**
-     * Multiplier the bubble size if autoscaleBubbles get true.
-     *
-     * @return
-     */
-    public int getAutoscaleMultiplier()
-    {
-        return autoscaleMultiplier;
-    }
+	/**
+	 * Factor which decreases bubble size based on how many bubbles on on the chart.
+	 *
+	 * @param autoscalePointsFactor
+	 */
+	public void setAutoscalePointsFactor(int autoscalePointsFactor)
+	{
+		this.autoscalePointsFactor = autoscalePointsFactor;
+	}
 
-    /**
-     * Multiplier the bubble size if autoscaleBubbles get true.
-     *
-     * @param autoscaleMultiplier
-     */
-    public void setAutoscaleMultiplier(int autoscaleMultiplier)
-    {
-        this.autoscaleMultiplier = autoscaleMultiplier;
-    }
+	/**
+	 * True to escape html in bubble label text.
+	 *
+	 * @return
+	 */
+	public boolean getEscapeHtml()
+	{
+		return escapeHtml;
+	}
 
-    /**
-     * Factor which decreases bubble size based on how many bubbles on on the chart.
-     *
-     * @return
-     */
-    public int getAutoscalePointsFactor()
-    {
-        return autoscalePointsFactor;
-    }
+	/**
+	 * True to escape html in bubble label text.
+	 *
+	 * @param escapeHtml
+	 */
+	public void setEscapeHtml(boolean escapeHtml)
+	{
+		this.escapeHtml = escapeHtml;
+	}
 
-    /**
-     * Factor which decreases bubble size based on how many bubbles on on the chart.
-     *
-     * @param autoscalePointsFactor
-     */
-    public void setAutoscalePointsFactor(int autoscalePointsFactor)
-    {
-        this.autoscalePointsFactor = autoscalePointsFactor;
-    }
+	/**
+	 * True to highlight bubbles when moused over.
+	 *
+	 * @return
+	 */
+	public boolean getHighlightMouseOver()
+	{
+		return highlightMouseOver;
+	}
 
-    /**
-     * True to escape html in bubble label text.
-     *
-     * @return
-     */
-    public boolean getEscapeHtml()
-    {
-        return escapeHtml;
-    }
+	/**
+	 * True to highlight bubbles when moused over.
+	 *
+	 * @param highlightMouseOver
+	 */
+	public void setHighlightMouseOver(boolean highlightMouseOver)
+	{
+		this.highlightMouseOver = highlightMouseOver;
+	}
 
-    /**
-     * True to escape html in bubble label text.
-     *
-     * @param escapeHtml
-     */
-    public void setEscapeHtml(boolean escapeHtml)
-    {
-        this.escapeHtml = escapeHtml;
-    }
+	/**
+	 * True to highlight when a mouse button get pressed over a bubble.
+	 *
+	 * @return
+	 */
+	public boolean getHighlightMouseDown()
+	{
+		return highlightMouseDown;
+	}
 
-    /**
-     * True to highlight bubbles when moused over.
-     *
-     * @return
-     */
-    public boolean getHighlightMouseOver()
-    {
-        return highlightMouseOver;
-    }
+	/**
+	 * True to highlight when a mouse button get pressed over a bubble.
+	 *
+	 * @param highlightMouseDown
+	 */
+	public void setHighlightMouseDown(boolean highlightMouseDown)
+	{
+		this.highlightMouseDown = highlightMouseDown;
+	}
 
-    /**
-     * True to highlight bubbles when moused over.
-     *
-     * @param highlightMouseOver
-     */
-    public void setHighlightMouseOver(boolean highlightMouseOver)
-    {
-        this.highlightMouseOver = highlightMouseOver;
-    }
+	/**
+	 * An array of colors to use when highlighting a slice.
+	 *
+	 * @return
+	 */
+	public String getHighlightColors()
+	{
+		return highlightColors;
+	}
 
-    /**
-     * True to highlight when a mouse button get pressed over a bubble.
-     *
-     * @return
-     */
-    public boolean getHighlightMouseDown()
-    {
-        return highlightMouseDown;
-    }
+	/**
+	 * An array of colors to use when highlighting a slice.
+	 *
+	 * @param highlightColors
+	 */
+	public void setHighlightColors(String highlightColors)
+	{
+		this.highlightColors = highlightColors;
+	}
 
-    /**
-     * True to highlight when a mouse button get pressed over a bubble.
-     *
-     * @param highlightMouseDown
-     */
-    public void setHighlightMouseDown(boolean highlightMouseDown)
-    {
-        this.highlightMouseDown = highlightMouseDown;
-    }
+	/**
+	 * Alpha transparency to apply to all bubbles in this series.
+	 *
+	 * @return
+	 */
+	public double getBubbleAlpha()
+	{
+		return bubbleAlpha;
+	}
 
-    /**
-     * An array of colors to use when highlighting a slice.
-     *
-     * @return
-     */
-    public String getHighlightColors()
-    {
-        return highlightColors;
-    }
+	/**
+	 * Alpha transparency to apply to all bubbles in this series.
+	 *
+	 * @param bubbleAlpha
+	 */
+	public void setBubbleAlpha(double bubbleAlpha)
+	{
+		this.bubbleAlpha = bubbleAlpha;
+	}
 
-    /**
-     * An array of colors to use when highlighting a slice.
-     *
-     * @param highlightColors
-     */
-    public void setHighlightColors(String highlightColors)
-    {
-        this.highlightColors = highlightColors;
-    }
+	/**
+	 * Alpha transparency to apply when highlighting bubble.
+	 *
+	 * @return
+	 */
+	public double getHighlightAlpha()
+	{
+		return highlightAlpha;
+	}
 
-    /**
-     * Alpha transparency to apply to all bubbles in this series.
-     *
-     * @return
-     */
-    public double getBubbleAlpha()
-    {
-        return bubbleAlpha;
-    }
+	/**
+	 * Alpha transparency to apply when highlighting bubble.
+	 *
+	 * @param highlightAlpha
+	 */
+	public void setHighlightAlpha(double highlightAlpha)
+	{
+		this.highlightAlpha = highlightAlpha;
+	}
 
-    /**
-     * Alpha transparency to apply to all bubbles in this series.
-     *
-     * @param bubbleAlpha
-     */
-    public void setBubbleAlpha(double bubbleAlpha)
-    {
-        this.bubbleAlpha = bubbleAlpha;
-    }
+	/**
+	 * True to color the bubbles with gradient fills instead of flat colors.
+	 *
+	 * @return
+	 */
+	public boolean getBubbleGradients()
+	{
+		return bubbleGradients;
+	}
 
-    /**
-     * Alpha transparency to apply when highlighting bubble.
-     *
-     * @return
-     */
-    public double getHighlightAlpha()
-    {
-        return highlightAlpha;
-    }
+	/**
+	 * True to color the bubbles with gradient fills instead of flat colors.
+	 *
+	 * @param bubbleGradients
+	 */
+	public void setBubbleGradients(boolean bubbleGradients)
+	{
+		this.bubbleGradients = bubbleGradients;
+	}
 
-    /**
-     * Alpha transparency to apply when highlighting bubble.
-     *
-     * @param highlightAlpha
-     */
-    public void setHighlightAlpha(double highlightAlpha)
-    {
-        this.highlightAlpha = highlightAlpha;
-    }
+	/**
+	 * True to show labels on bubbles (if any), false to not show.
+	 *
+	 * @return
+	 */
+	public boolean getShowLabels()
+	{
+		return showLabels;
+	}
 
-    /**
-     * True to color the bubbles with gradient fills instead of flat colors.
-     *
-     * @return
-     */
-    public boolean getBubbleGradients()
-    {
-        return bubbleGradients;
-    }
-
-    /**
-     * True to color the bubbles with gradient fills instead of flat colors.
-     *
-     * @param bubbleGradients
-     */
-    public void setBubbleGradients(boolean bubbleGradients)
-    {
-        this.bubbleGradients = bubbleGradients;
-    }
-
-    /**
-     * True to show labels on bubbles (if any), false to not show.
-     *
-     * @return
-     */
-    public boolean getShowLabels()
-    {
-        return showLabels;
-    }
-
-    /**
-     * True to show labels on bubbles (if any), false to not show.
-     *
-     * @param showLabels
-     */
-    public void setShowLabels(boolean showLabels)
-    {
-        this.showLabels = showLabels;
-    }
+	/**
+	 * True to show labels on bubbles (if any), false to not show.
+	 *
+	 * @param showLabels
+	 */
+	public void setShowLabels(boolean showLabels)
+	{
+		this.showLabels = showLabels;
+	}
 
 }

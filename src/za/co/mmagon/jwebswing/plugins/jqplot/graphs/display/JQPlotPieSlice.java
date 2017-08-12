@@ -27,58 +27,58 @@ import za.co.mmagon.jwebswing.generics.XYObject;
 public class JQPlotPieSlice extends XYObject<String, Double>
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * A slice of the pie
-     *
-     * @param name
-     * @param value
-     */
-    public JQPlotPieSlice(String name, double value)
-    {
-        super(name, value);
+	/**
+	 * A slice of the pie
+	 *
+	 * @param name
+	 * @param value
+	 */
+	public JQPlotPieSlice(String name, double value)
+	{
+		super(name, value);
 
-    }
+	}
 
-    /**
-     * Return the name of the slice (or X)
-     *
-     * @return
-     */
-    public String getName()
-    {
-        return getX();
-    }
+	/**
+	 * Return the name of the slice (or X)
+	 *
+	 * @return
+	 */
+	public String getName()
+	{
+		return getX();
+	}
 
-    /**
-     * Sets the name of the slice (or X)
-     *
-     * @param name
-     */
-    public void setName(String name)
-    {
-        setX(name);
-    }
+	/**
+	 * Sets the name of the slice (or X)
+	 *
+	 * @param name
+	 */
+	public void setName(String name)
+	{
+		setX(name);
+	}
 
-    /**
-     * Gets the value of the slice
-     *
-     * @return
-     */
-    public Double getValue()
-    {
-        return getY();
-    }
+	/**
+	 * Gets the value of the slice
+	 *
+	 * @return
+	 */
+	public Double getValue()
+	{
+		return getY();
+	}
 
-    /**
-     * Sets the value of the slice
-     *
-     * @param value
-     */
-    public void setValue(double value)
-    {
-        setY(value);
-    }
+	/**
+	 * Sets the value of the slice
+	 *
+	 * @param value
+	 */
+	public void setValue(double value)
+	{
+		setY(value);
+	}
 
 }

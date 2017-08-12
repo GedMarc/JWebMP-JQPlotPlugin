@@ -20,16 +20,18 @@ package za.co.mmagon.jwebswing.plugins.jqplot;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
-public class JQPlotGraphFeatureTest {
+public class JQPlotGraphFeatureTest
+{
 
-    public JQPlotGraphFeatureTest() {
-    }
+	public JQPlotGraphFeatureTest()
+	{
+	}
 
-    @Test
-    public void testSomeMethod() {
-    }
+	@Test
+	public void testSomeMethod()
+	{
+	}
 
 }

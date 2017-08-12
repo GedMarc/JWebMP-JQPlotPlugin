@@ -19,31 +19,31 @@ package za.co.mmagon.jwebswing.plugins.jqplot.parts;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- *
  * @author Marc Magon
- * @since 08 Aug 2015
  * @version 1.0
+ * @since 08 Aug 2015
  */
 public enum YAxisTypes
 {
 
-    YAxis,
-    Y2Axis;
+	YAxis,
+	Y2Axis;
 
-    private YAxisTypes()
-    {
+	private YAxisTypes()
+	{
 
-    }
+	}
 
-    /**
-     * Returns the name of the enumeration in lower case
-     * <p>
-     * @return
-     */
-    @JsonValue
-    @Override
-    public String toString()
-    {
-        return name().toLowerCase();
-    }
+	/**
+	 * Returns the name of the enumeration in lower case
+	 * <p>
+	 *
+	 * @return
+	 */
+	@JsonValue
+	@Override
+	public String toString()
+	{
+		return name().toLowerCase();
+	}
 }

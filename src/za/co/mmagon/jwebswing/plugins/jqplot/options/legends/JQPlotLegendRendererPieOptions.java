@@ -19,9 +19,9 @@ package za.co.mmagon.jwebswing.plugins.jqplot.options.legends;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendPieRenderer;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * Default renderer options, nothing really here
@@ -32,121 +32,120 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQPlotLegendPieRenderer
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
-    private JQPlotGraph linkedGraph;
+	@JsonIgnore
+	private JQPlotGraph linkedGraph;
+	/**
+	 * Maximum number of rows in the legend.
+	 */
+	private Integer numberRows;
+	/**
+	 * Maximum number of columns in the legend.
+	 */
+	private Integer numberColumns;
+	/**
+	 * Fixed with of legend.
+	 */
+	private Integer width;
 
-    /**
-     * The Default Axis Label Renderer Options
-     *
-     * @param linkedGraph
-     */
-    public JQPlotLegendRendererPieOptions(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * The Default Axis Label Renderer Options
+	 *
+	 * @param linkedGraph
+	 */
+	public JQPlotLegendRendererPieOptions(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    @JsonProperty("renderer")
-    @JsonRawValue
-    @JsonIgnore
-    @Override
-    public String getRenderer()
-    {
-        return "$.jqplot.PieRenderer";
-    }
+	@JsonProperty("renderer")
+	@JsonRawValue
+	@JsonIgnore
+	@Override
+	public String getRenderer()
+	{
+		return "$.jqplot.PieRenderer";
+	}
 
-    /**
-     * Gets the linked graph
-     *
-     * @return
-     */
-    public JQPlotGraph getLinkedGraph()
-    {
-        return linkedGraph;
-    }
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
 
-    /**
-     * Sets the linked graph
-     *
-     * @param linkedGraph
-     */
-    public void setLinkedGraph(JQPlotGraph linkedGraph)
-    {
-        this.linkedGraph = linkedGraph;
-    }
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
 
-    /**
-     * Maximum number of rows in the legend.
-     */
-    private Integer numberRows;
-    /**
-     * Maximum number of columns in the legend.
-     */
-    private Integer numberColumns;
-    /**
-     * Fixed with of legend.
-     */
-    private Integer width;
+	/**
+	 * Maximum number of rows in the legend.
+	 *
+	 * @return
+	 */
+	public Integer getNumberRows()
+	{
+		return numberRows;
+	}
 
-    /**
-     * Maximum number of rows in the legend.
-     *
-     * @return
-     */
-    public Integer getNumberRows()
-    {
-        return numberRows;
-    }
+	/**
+	 * Maximum number of rows in the legend.
+	 *
+	 * @param numberRows
+	 */
+	public void setNumberRows(Integer numberRows)
+	{
+		this.numberRows = numberRows;
+	}
 
-    /**
-     * Maximum number of rows in the legend.
-     *
-     * @param numberRows
-     */
-    public void setNumberRows(Integer numberRows)
-    {
-        this.numberRows = numberRows;
-    }
+	/**
+	 * Maximum number of columns in the legend.
+	 *
+	 * @return
+	 */
+	public Integer getNumberColumns()
+	{
+		return numberColumns;
+	}
 
-    /**
-     * Maximum number of columns in the legend.
-     *
-     * @return
-     */
-    public Integer getNumberColumns()
-    {
-        return numberColumns;
-    }
+	/**
+	 * Maximum number of columns in the legend.
+	 *
+	 * @param numberColumns
+	 */
+	public void setNumberColumns(Integer numberColumns)
+	{
+		this.numberColumns = numberColumns;
+	}
 
-    /**
-     * Maximum number of columns in the legend.
-     *
-     * @param numberColumns
-     */
-    public void setNumberColumns(Integer numberColumns)
-    {
-        this.numberColumns = numberColumns;
-    }
+	/**
+	 * Fixed with of legend.
+	 *
+	 * @return
+	 */
+	public Integer getWidth()
+	{
+		return width;
+	}
 
-    /**
-     * Fixed with of legend.
-     *
-     * @return
-     */
-    public Integer getWidth()
-    {
-        return width;
-    }
-
-    /**
-     * Fixed with of legend.
-     *
-     * @param width
-     */
-    public void setWidth(Integer width)
-    {
-        this.width = width;
-    }
+	/**
+	 * Fixed with of legend.
+	 *
+	 * @param width
+	 */
+	public void setWidth(Integer width)
+	{
+		this.width = width;
+	}
 
 }
