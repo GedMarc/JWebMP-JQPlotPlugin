@@ -83,6 +83,7 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 * CSS color spec for the baseline.
 	 */
 	private String baselineColor;
+	
 	/**
 	 * The Default Axis Label Renderer Options
 	 *

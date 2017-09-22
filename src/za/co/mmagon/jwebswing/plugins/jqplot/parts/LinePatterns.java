@@ -22,11 +22,11 @@ package za.co.mmagon.jwebswing.plugins.jqplot.parts;
  */
 public enum LinePatterns
 {
-
-
+	
+	
 	;
-
-	private LinePatterns()
+	
+	LinePatterns()
 	{
 	}
 }

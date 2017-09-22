@@ -139,6 +139,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	 * Whether or not to show the labels for a point
 	 */
 	private JQPlotPointLabelsOptions pointLabels;
+
 	/**
 	 * Construct a new instance of the series defaults with the given renderer
 	 * <p>
@@ -268,9 +269,9 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	 *
 	 * @param colors
 	 */
-	public void setColors(String colors)
+	public void setColors(ColourHex colors)
 	{
-		this.colors = colors;
+		this.colors = colors.getValue();
 	}
 	
 	/**
@@ -278,9 +279,9 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	 *
 	 * @param colors
 	 */
-	public void setColors(ColourHex colors)
+	public void setColors(String colors)
 	{
-		this.colors = colors.getValue();
+		this.colors = colors;
 	}
 	
 	/**
@@ -438,9 +439,9 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	 *
 	 * @param fillColor
 	 */
-	public void setFillColor(String fillColor)
+	public void setFillColor(ColourHex fillColor)
 	{
-		this.fillColor = fillColor;
+		this.fillColor = fillColor.getValue();
 	}
 	
 	/**
@@ -448,9 +449,9 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	 *
 	 * @param fillColor
 	 */
-	public void setFillColor(ColourHex fillColor)
+	public void setFillColor(String fillColor)
 	{
-		this.fillColor = fillColor.getValue();
+		this.fillColor = fillColor;
 	}
 	
 	/**
@@ -464,16 +465,6 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	}
 	
 	/**
-	 * custom fill color for filled lines (default is line color).
-	 *
-	 * @param fillAlpha
-	 */
-	public void setFillAlpha(String fillAlpha)
-	{
-		this.fillAlpha = fillAlpha;
-	}
-	
-	/**
 	 * custom alpha to apply to fillColor
 	 *
 	 * @param fillAlpha
@@ -481,6 +472,16 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	public void setFillAlpha(ColourHex fillAlpha)
 	{
 		this.fillAlpha = fillAlpha.getValue();
+	}
+	
+	/**
+	 * custom fill color for filled lines (default is line color).
+	 *
+	 * @param fillAlpha
+	 */
+	public void setFillAlpha(String fillAlpha)
+	{
+		this.fillAlpha = fillAlpha;
 	}
 	
 	/**

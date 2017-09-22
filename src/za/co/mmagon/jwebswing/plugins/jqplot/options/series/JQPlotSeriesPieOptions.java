@@ -116,6 +116,7 @@ public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeri
 	 * Array for whether the pie chart slice for a data element should be displayed.
 	 */
 	private ArrayList<Boolean> showSlice;
+	
 	/**
 	 * Constructs a new Line Options for the given graph
 	 *

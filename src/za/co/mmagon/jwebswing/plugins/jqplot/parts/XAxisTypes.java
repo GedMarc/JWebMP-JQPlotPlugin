@@ -23,15 +23,15 @@ package za.co.mmagon.jwebswing.plugins.jqplot.parts;
  */
 public enum XAxisTypes
 {
-
+	
 	XAxis,
 	X1Axis;
-
-	private XAxisTypes()
+	
+	XAxisTypes()
 	{
-
+	
 	}
-
+	
 	/**
 	 * Returns the name of the enumeration in lower case
 	 * <p>

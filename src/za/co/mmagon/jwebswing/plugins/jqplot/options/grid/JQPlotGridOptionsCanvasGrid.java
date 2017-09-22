@@ -81,6 +81,7 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 */
 	private Double shadowAlpha;
 	private JavaScriptPart rendererOptions;
+	
 	/**
 	 * Construct a new Grid Options with the linked graph
 	 *

@@ -116,6 +116,16 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels extends JavaScriptPart imp
 	{
 		return label;
 	}
+	
+	/**
+	 * Sets the label
+	 *
+	 * @param label
+	 */
+	public void setLabel(String label)
+	{
+		this.label = label;
+	}
 
 	/**
 	 * Sets the label to a component
@@ -127,16 +137,6 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels extends JavaScriptPart imp
 		label.setTiny(true);
 		this.label = label.toString(true).toString();
 		setEscapeHTML(true);
-	}
-
-	/**
-	 * Sets the label
-	 *
-	 * @param label
-	 */
-	public void setLabel(String label)
-	{
-		this.label = label;
 	}
 
 	/**

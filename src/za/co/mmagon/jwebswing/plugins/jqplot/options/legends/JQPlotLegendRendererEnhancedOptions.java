@@ -53,6 +53,7 @@ public class JQPlotLegendRendererEnhancedOptions extends JavaScriptPart implemen
 	 * true to toggle series with a show/hide method only and not allow fading in/out.
 	 */
 	private Boolean disableIEFading;
+	
 	/**
 	 * The Default Axis Label Renderer Options
 	 *

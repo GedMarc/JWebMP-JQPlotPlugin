@@ -25,15 +25,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum YAxisTypes
 {
-
+	
 	YAxis,
 	Y2Axis;
-
-	private YAxisTypes()
+	
+	YAxisTypes()
 	{
-
+	
 	}
-
+	
 	/**
 	 * Returns the name of the enumeration in lower case
 	 * <p>

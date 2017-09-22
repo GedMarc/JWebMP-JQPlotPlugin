@@ -95,6 +95,7 @@ public class JQPlotSeriesBubbleOptions extends JavaScriptPart implements JQPlotS
 	 */
 
 	private Boolean showLabels;
+	
 	/**
 	 * Constructs a new Bubble Options for the given graph
 	 *

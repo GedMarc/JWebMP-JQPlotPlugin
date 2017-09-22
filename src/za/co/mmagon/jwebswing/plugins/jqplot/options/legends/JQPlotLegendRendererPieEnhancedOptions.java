@@ -59,6 +59,7 @@ public class JQPlotLegendRendererPieEnhancedOptions extends JavaScriptPart imple
 	 * optional array of toolTip text corresponding to each pie slice
 	 */
 	private ArrayList<String> toolTips;
+	
 	/**
 	 * The Default Axis Label Renderer Options
 	 *

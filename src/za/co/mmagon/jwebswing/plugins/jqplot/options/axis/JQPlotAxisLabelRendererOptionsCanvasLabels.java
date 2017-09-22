@@ -85,6 +85,7 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels extends JavaScriptPart i
 	 * This is an issue only with the native font renderering capabilities of Mozilla 3.5 and Safari 4 since they do not provide a method to determine the font height.
 	 */
 	private Double pt2px;
+	
 	/**
 	 * The Default Axis Label Renderer Options
 	 *

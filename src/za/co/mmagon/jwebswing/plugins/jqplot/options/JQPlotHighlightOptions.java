@@ -378,9 +378,9 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 *
 	 * @param formatString The HTML to use as a tooltip
 	 */
-	public void setFormatString(Div formatString)
+	public void setFormatString(String formatString)
 	{
-		this.formatString = formatString.toString(true).toString();
+		this.formatString = formatString;
 	}
 	
 	/**
@@ -389,9 +389,9 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 *
 	 * @param formatString The HTML to use as a tooltip
 	 */
-	public void setFormatString(String formatString)
+	public void setFormatString(Div formatString)
 	{
-		this.formatString = formatString;
+		this.formatString = formatString.toString(true).toString();
 	}
 	
 	/**

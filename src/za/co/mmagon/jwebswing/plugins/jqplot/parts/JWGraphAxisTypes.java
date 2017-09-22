@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum JWGraphAxisTypes
 {
-
+	
 	/**
 	 * The X Axis
 	 */
@@ -77,13 +77,13 @@ public enum JWGraphAxisTypes
 	/**
 	 * The y2Axis axis for a dual graph
 	 */
-	y9Axis;;
-
-	private JWGraphAxisTypes()
+	y9Axis;
+	
+	JWGraphAxisTypes()
 	{
-
+	
 	}
-
+	
 	/**
 	 * Returns the name of the enumeration in lower case
 	 * <p>

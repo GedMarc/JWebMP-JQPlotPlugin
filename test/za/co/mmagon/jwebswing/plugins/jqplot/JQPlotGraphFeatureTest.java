@@ -24,14 +24,14 @@ import org.junit.Test;
  */
 public class JQPlotGraphFeatureTest
 {
-
+	
 	public JQPlotGraphFeatureTest()
 	{
 	}
-
+	
 	@Test
 	public void testSomeMethod()
 	{
 	}
-
+	
 }

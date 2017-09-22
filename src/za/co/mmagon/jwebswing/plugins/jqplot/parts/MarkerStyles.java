@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum MarkerStyles
 {
-
+	
 	/**
 	 * An Empty Circle
 	 */
@@ -65,7 +65,7 @@ public enum MarkerStyles
 	 * Draw a Dash
 	 */
 	Dash;
-
+	
 	/**
 	 * Returns the name in lower case
 	 * <p>
@@ -78,5 +78,5 @@ public enum MarkerStyles
 	{
 		return name().toLowerCase();
 	}
-
+	
 }

@@ -93,7 +93,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	 * @return The Data Points String
 	 */
 	protected abstract StringBuilder getDataPointRender();
-
+	
 	/**
 	 * Gets the feature for the graph. Please don't ever return a null. JQPlotGraphFeature is also fine
 	 * <p>
