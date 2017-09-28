@@ -16,7 +16,7 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.options.axis;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import za.co.mmagon.jwebswing.base.servlets.enumarations.Orientation;
 import za.co.mmagon.jwebswing.plugins.jqplot.graphs.JQPlotBarGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.ticks.JQPlotTickOptionsAxisTick;

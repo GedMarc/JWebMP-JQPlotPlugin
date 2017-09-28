@@ -16,8 +16,8 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author GedMarc
@@ -34,15 +34,15 @@ public class JQPlotLineTest
 	{
 		JQPlotLine pl = new JQPlotLine(1);
 		System.out.println(pl);
-		Assert.assertEquals(pl.toString(), "[[0,1.0]]");
+		Assertions.assertEquals(pl.toString(), "[[0,1.0]]");
 
 		pl.addPoint(2);
 		System.out.println(pl);
-		Assert.assertEquals(pl.toString(), "[[0,1.0], [1,2.0]]");
+		Assertions.assertEquals(pl.toString(), "[[0,1.0], [1,2.0]]");
 
 		pl.addPoint("X", 1);
 		System.out.println(pl);
-		Assert.assertEquals(pl.toString(), "[[0,1.0], [1,2.0], ['X',1.0]]");
+		Assertions.assertEquals(pl.toString(), "[[0,1.0], [1,2.0], ['X',1.0]]");
 
 	}
 
