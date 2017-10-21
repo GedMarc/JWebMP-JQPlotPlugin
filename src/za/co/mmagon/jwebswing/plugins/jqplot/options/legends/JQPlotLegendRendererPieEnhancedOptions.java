@@ -25,6 +25,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRender
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author GedMarc
@@ -58,8 +59,8 @@ public class JQPlotLegendRendererPieEnhancedOptions extends JavaScriptPart imple
 	/**
 	 * optional array of toolTip text corresponding to each pie slice
 	 */
-	private ArrayList<String> toolTips;
-	
+	private List<String> toolTips;
+
 	/**
 	 * The Default Axis Label Renderer Options
 	 *
@@ -205,7 +206,7 @@ public class JQPlotLegendRendererPieEnhancedOptions extends JavaScriptPart imple
 	 *
 	 * @return
 	 */
-	public ArrayList<String> getToolTips()
+	public List<String> getToolTips()
 	{
 		if (toolTips == null)
 		{
@@ -219,7 +220,7 @@ public class JQPlotLegendRendererPieEnhancedOptions extends JavaScriptPart imple
 	 *
 	 * @param toolTips
 	 */
-	public void setToolTips(ArrayList<String> toolTips)
+	public void setToolTips(List<String> toolTips)
 	{
 		this.toolTips = toolTips;
 	}

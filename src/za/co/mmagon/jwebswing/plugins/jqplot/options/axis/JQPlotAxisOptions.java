@@ -36,7 +36,7 @@ import java.util.List;
 public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRenderer>
 		extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
@@ -78,13 +78,6 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 */
 	private Integer tickInterval;
 	/**
-	 * renderer to use to draw the axis,
-	 */
-	// @JsonRawValue
-	//private String renderer;
-	
-	//private JavaScriptPart rendererOptions;
-	/**
 	 * whether or not to show the tick labels, Wether to show the ticks (both marks and labels) or not.
 	 */
 	private Boolean showTicks;
@@ -102,7 +95,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 */
 	@JsonProperty("tickOptions")
 	private JavaScriptPart tickRendererOptions;
-	
+
 	/**
 	 * The specific renderer options
 	 */
@@ -112,7 +105,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * Label for the axis
 	 */
 	private String label;
-	
+
 	/**
 	 * Padding to extend the range above data bounds.
 	 */
@@ -121,7 +114,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * Padding to extend the range below data bounds.
 	 */
 	private Integer padMin;
-	
+
 	/**
 	 * Whether or not to show minor ticks.
 	 */
@@ -157,7 +150,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * Returns the label renderer options
 	 */
 	private JQPlotAxisLabelRenderer labelRendererOptions;
-	
+
 	/**
 	 * The linked graph
 	 *
@@ -167,7 +160,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 	/**
 	 * Returns the linked graph to this options
 	 *
@@ -177,7 +170,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return linkedGraph;
 	}
-	
+
 	/**
 	 * Sets the linked graph
 	 *
@@ -187,7 +180,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 	/**
 	 * Whether or not to show the axis
 	 * <p>
@@ -198,7 +191,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return show;
 	}
-	
+
 	/**
 	 * Whether or not to show the axis
 	 * <p>
@@ -209,7 +202,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.show = show;
 	}
-	
+
 	/**
 	 * Whether or not to show a label
 	 * <p>
@@ -220,7 +213,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return showLabel;
 	}
-	
+
 	/**
 	 * Whether or not to show a label
 	 * <p>
@@ -231,7 +224,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.showLabel = showLabel;
 	}
-	
+
 	/**
 	 * Autoscale the axis min and max values to provide sensible tick spacing.
 	 * <p>
@@ -242,7 +235,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return autoscale;
 	}
-	
+
 	/**
 	 * Autoscale the axis min and max values to provide sensible tick spacing.
 	 * <p>
@@ -253,7 +246,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.autoscale = autoscale;
 	}
-	
+
 	/**
 	 * minimum numerical value of the axis. Determined automatically.
 	 * <p>
@@ -264,7 +257,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return min;
 	}
-	
+
 	/**
 	 * minimum numerical value of the axis. Determined automatically.
 	 * <p>
@@ -275,7 +268,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.min = min;
 	}
-	
+
 	/**
 	 * maximum num vertical value of the axis. Determined automatically
 	 * <p>
@@ -286,7 +279,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return max;
 	}
-	
+
 	/**
 	 * maximum num vertical value of the axis. Determined automatically
 	 * <p>
@@ -297,7 +290,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.max = max;
 	}
-	
+
 	/**
 	 * a factor multiplied by the data range on the axis to give the
 	 * <p>
@@ -308,7 +301,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return pad;
 	}
-	
+
 	/**
 	 * a factor multiplied by the data range on the axis to give the
 	 * <p>
@@ -319,7 +312,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.pad = pad;
 	}
-	
+
 	/**
 	 * axis range so that data points don't fall on the edges of the axis. a 1D [val1, val2, ...], or 2D [[val, label], [val, label], ...]
 	 * <p>
@@ -331,7 +324,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return ticks;
 	}
-	
+
 	/**
 	 * axis range so that data points don't fall on the edges of the axis. a 1D [val1, val2, ...], or 2D [[val, label], [val, label], ...]
 	 * <p>
@@ -342,7 +335,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.ticks = ticks;
 	}
-	
+
 	/**
 	 * array of ticks to use. Computed automatically.
 	 * <p>
@@ -353,27 +346,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return numberTicks;
 	}
-	
-	/**
-	 * renderer to use to draw the axis,
-	 * <p>
-	 * @return
-	 */
-	// public String getRenderer()
-	// {
-	//    return renderer;
-	// }
-	/**
-	 * renderer to use to draw the axis,
-	 * <p>
-	 * @param renderer
-	 */
-	//  public void setRenderer(JWGraphAxisRenderers renderer)
-	//  {
-	//      this.renderer = renderer.getRendererString();
-	//      this.rendererOptions = renderer.getOptions();
-	//  }
-	
+
 	/**
 	 * array of ticks to use. Computed automatically.
 	 * <p>
@@ -384,7 +357,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.numberTicks = numberTicks;
 	}
-	
+
 	/**
 	 * array of ticks to use. Computed automatically.
 	 * <p>
@@ -395,7 +368,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return tickInterval;
 	}
-	
+
 	/**
 	 * array of ticks to use. Computed automatically.
 	 * <p>
@@ -406,7 +379,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.tickInterval = tickInterval;
 	}
-	
+
 	/**
 	 * Whether to show the ticks (both marks and labels) or not.
 	 * <p>
@@ -417,7 +390,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return showTicks;
 	}
-	
+
 	/**
 	 * Whether to show the ticks (both marks and labels) or not.
 	 * <p>
@@ -428,7 +401,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.showTicks = showTicks;
 	}
-	
+
 	/**
 	 * Whether to show the tick marks (line crossing grid) or not.
 	 * <p>
@@ -439,7 +412,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return showTickMarks;
 	}
-	
+
 	/**
 	 * Whether to show the tick marks (line crossing grid) or not.
 	 * <p>
@@ -450,7 +423,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.showTickMarks = showTickMarks;
 	}
-	
+
 	/**
 	 * A class of a rendering engine for creating the ticks labels displayed on the plot, See $.jqplot.AxisTickRenderer.
 	 * <p>
@@ -461,7 +434,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return tickRenderer;
 	}
-	
+
 	/**
 	 * Get Tick Renderer Options Default JQPlotTickOptionsAxisTick
 	 *
@@ -475,19 +448,21 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 		}
 		return tickRendererOptions;
 	}
-	
+
 	/**
 	 * Set the tick renderer
 	 *
-	 * @param <O>                 A Valid Tick Renderer
-	 * @param tickRendererOptions The Actual Options Class
+	 * @param <O>
+	 * 		A Valid Tick Renderer
+	 * @param tickRendererOptions
+	 * 		The Actual Options Class
 	 */
 	public <O extends JavaScriptPart & JQPlotTickRenderer> void setTickRendererOptions(O tickRendererOptions)
 	{
 		this.tickRenderer = tickRendererOptions.getRenderer();
 		this.tickRendererOptions = tickRendererOptions;
 	}
-	
+
 	/**
 	 * Label for the axis
 	 * <p>
@@ -498,7 +473,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return label;
 	}
-	
+
 	/**
 	 * Label for the axis
 	 * <p>
@@ -509,7 +484,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.label = label;
 	}
-	
+
 	/**
 	 * Padding to extend the range above data bounds.
 	 * <p>
@@ -520,7 +495,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return padMax;
 	}
-	
+
 	/**
 	 * Padding to extend the range above data bounds.
 	 * <p>
@@ -531,7 +506,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.padMax = padMax;
 	}
-	
+
 	/**
 	 * Padding to extend the range below data bounds.
 	 * <p>
@@ -542,7 +517,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return padMin;
 	}
-	
+
 	/**
 	 * Padding to extend the range below data bounds.
 	 * <p>
@@ -553,7 +528,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.padMin = padMin;
 	}
-	
+
 	/**
 	 * Whether or not to show minor ticks.
 	 * <p>
@@ -564,7 +539,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return showMinorTicks;
 	}
-	
+
 	/**
 	 * Whether or not to show minor ticks.
 	 * <p>
@@ -575,7 +550,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.showMinorTicks = showMinorTicks;
 	}
-	
+
 	/**
 	 * Use the color of the first series associated with this axis for the tick marks and line bordering this axis.
 	 * <p>
@@ -586,7 +561,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return useSeriesColor;
 	}
-	
+
 	/**
 	 * Use the color of the first series associated with this axis for the tick marks and line bordering this axis.
 	 * <p>
@@ -597,7 +572,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.useSeriesColor = useSeriesColor;
 	}
-	
+
 	/**
 	 * width of line stroked at the border of the axis.
 	 * <p>
@@ -608,7 +583,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return borderWidth;
 	}
-	
+
 	/**
 	 * width of line stroked at the border of the axis.
 	 * <p>
@@ -619,7 +594,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.borderWidth = borderWidth;
 	}
-	
+
 	/**
 	 * color of the border adjacent to the axis.
 	 * <p>
@@ -630,7 +605,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return borderColor;
 	}
-	
+
 	/**
 	 * color of the border adjacent to the axis.
 	 * <p>
@@ -641,7 +616,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.borderColor = borderColor.getValue();
 	}
-	
+
 	/**
 	 * true to try and synchronize tick spacing across multiple axes so that ticks and grid lines line up.
 	 * <p>
@@ -652,7 +627,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return syncTicks;
 	}
-	
+
 	/**
 	 * true to try and synchronize tick spacing across multiple axes so that ticks and grid lines line up.
 	 * <p>
@@ -663,7 +638,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.syncTicks = syncTicks;
 	}
-	
+
 	/**
 	 * Approximate pixel spacing between ticks on graph.
 	 * <p>
@@ -674,7 +649,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return tickSpacing;
 	}
-	
+
 	/**
 	 * Approximate pixel spacing between ticks on graph.
 	 * <p>
@@ -685,7 +660,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		this.tickSpacing = tickSpacing;
 	}
-	
+
 	/**
 	 * Returns the assigned axis renderer options
 	 *
@@ -695,7 +670,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return rendererOptions;
 	}
-	
+
 	/**
 	 * The the options
 	 * <p>
@@ -707,7 +682,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 		this.rendererOptions = rendererOptions;
 		this.renderer = rendererOptions.getRenderer();
 	}
-	
+
 	/**
 	 * Returns the renderer
 	 *
@@ -717,7 +692,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return renderer;
 	}
-	
+
 	/**
 	 * Gets the label renderer options JQPlotAxisLabelRendererOptionsCanvasLabels by default
 	 *
@@ -731,7 +706,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 		}
 		return labelRendererOptions;
 	}
-	
+
 	/**
 	 * Sets the label renderer options
 	 *
@@ -742,7 +717,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 		this.labelRendererOptions = labelRendererOptions;
 		this.labelRenderer = labelRendererOptions.getRenderer();
 	}
-	
+
 	/**
 	 * Returns the label renderer string assigned with this axis plot
 	 *
@@ -752,5 +727,5 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	{
 		return labelRenderer;
 	}
-	
+
 }

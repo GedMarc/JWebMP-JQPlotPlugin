@@ -20,6 +20,7 @@ import za.co.mmagon.jwebswing.generics.XYObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -32,7 +33,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 {
 
 	private String name;
-	private ArrayList<XYObject> values;
+	private List<XYObject> values;
 
 	/**
 	 * Constructs a new line
@@ -47,7 +48,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 	 *
 	 * @param values
 	 */
-	public JQPlotLine(ArrayList<XYObject> values)
+	public JQPlotLine(List<XYObject> values)
 	{
 		this.values = values;
 	}
@@ -91,7 +92,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 	 *
 	 * @return
 	 */
-	public static ArrayList<XYObject> buildFromArray(Serializable... array)
+	public static List<XYObject> buildFromArray(Serializable... array)
 	{
 		ArrayList<XYObject> output = new ArrayList<>();
 		for (int i = 0; i < array.length; i = i + 2)
@@ -134,7 +135,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 	 *
 	 * @return
 	 */
-	public static ArrayList<XYObject> buildFromDelimiteredSrting(String array, String delimeter)
+	public static List<XYObject> buildFromDelimiteredSrting(String array, String delimeter)
 	{
 		ArrayList<XYObject> output = new ArrayList<>();
 		StringTokenizer st = new StringTokenizer(array, delimeter);
@@ -151,8 +152,10 @@ public class JQPlotLine implements JQPlotSeriesItem
 	/**
 	 * Adds a point to this line
 	 *
-	 * @param x The X Position
-	 * @param y The Y Position
+	 * @param x
+	 * 		The X Position
+	 * @param y
+	 * 		The Y Position
 	 *
 	 * @return
 	 */
@@ -200,7 +203,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 	 *
 	 * @return
 	 */
-	public final ArrayList<XYObject> getValues()
+	public final List<XYObject> getValues()
 	{
 		if (values == null)
 		{
@@ -228,7 +231,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 	public String toString()
 	{
 		StringBuilder lineStringBuilder = new StringBuilder("[");
-		ArrayList<XYObject> vals = getValues();
+		List<XYObject> vals = getValues();
 
 		for (XYObject value : vals)
 		{

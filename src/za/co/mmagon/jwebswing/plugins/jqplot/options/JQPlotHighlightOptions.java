@@ -51,9 +51,9 @@ import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferenc
  */
 public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRenderer> extends JavaScriptPart implements JQPlotRendererDefault
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * true to show the highlight.
 	 */
@@ -64,7 +64,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	private String markerRenderer;
 	@JsonProperty("markerRenderer")
 	private O markerRendererOptions;
-	
+
 	/**
 	 * true to show the marker
 	 */
@@ -121,10 +121,10 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * This option requires jQuery 1.4+ True to bring the series of the highlighted point to the front of other series.
 	 */
 	private Boolean bringSeriesToFront;
-	
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
-	
+
 	/**
 	 * Constructs a new highlight options class with the given graph
 	 *
@@ -135,12 +135,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 		this.linkedGraph = linkedGraph;
 		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.HighlightRenderer.getReference());
 	}
-	
+
 	public static long getSerialVersionUID()
 	{
 		return serialVersionUID;
 	}
-	
+
 	/**
 	 * true to show the highlight.
 	 * <p>
@@ -151,7 +151,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return show;
 	}
-	
+
 	/**
 	 * Renderer used to draw the marker of the highlighted point.
 	 * <p>
@@ -162,7 +162,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return markerRenderer;
 	}
-	
+
 	/**
 	 * true to show the marker
 	 * <p>
@@ -173,7 +173,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return showMarker;
 	}
-	
+
 	/**
 	 * Pixels to add to the lineWidth of the highlight.
 	 * <p>
@@ -184,18 +184,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return lineWidthAdjust;
 	}
-	
+
 	/**
 	 * Pixels to add to the lineWidth of the highlight.
 	 * <p>
 	 *
-	 * @param lineWidthAdjust The line adjustment width
+	 * @param lineWidthAdjust
+	 * 		The line adjustment width
 	 */
 	public void setLineWidthAdjust(Integer lineWidthAdjust)
 	{
 		this.lineWidthAdjust = lineWidthAdjust;
 	}
-	
+
 	/**
 	 * Pixels to add to the overall size of the highlight.
 	 * <p>
@@ -206,18 +207,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return sizeAdjust;
 	}
-	
+
 	/**
 	 * Pixels to add to the overall size of the highlight.
 	 * <p>
 	 *
-	 * @param sizeAdjust The size to adjust by
+	 * @param sizeAdjust
+	 * 		The size to adjust by
 	 */
 	public void setSizeAdjust(Integer sizeAdjust)
 	{
 		this.sizeAdjust = sizeAdjust;
 	}
-	
+
 	/**
 	 * Show a tooltip with data point values
 	 * <p>
@@ -228,7 +230,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return showTooltip;
 	}
-	
+
 	/**
 	 * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
 	 * <p>
@@ -239,18 +241,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return tooltipLocation;
 	}
-	
+
 	/**
 	 * Where to position tooltip, ‘n’, ‘ne’, ‘e’, ‘se’, ‘s’, ‘sw’, ‘w’, ‘nw’
 	 * <p>
 	 *
-	 * @param tooltipLocation The location
+	 * @param tooltipLocation
+	 * 		The location
 	 */
 	public void setTooltipLocation(CompassPoints tooltipLocation)
 	{
 		this.tooltipLocation = tooltipLocation;
 	}
-	
+
 	/**
 	 * true = fade in/out tooltip, false = show/hide tooltip
 	 * <p>
@@ -261,7 +264,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return fadeTooltip;
 	}
-	
+
 	/**
 	 * number of milliseconds
 	 * <p>
@@ -272,18 +275,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return tooltipFadeSpeed;
 	}
-	
+
 	/**
 	 * number of milliseconds
 	 * <p>
 	 *
-	 * @param tooltipFadeSpeed The fading speed in milliseconds
+	 * @param tooltipFadeSpeed
+	 * 		The fading speed in milliseconds
 	 */
 	public void setTooltipFadeSpeed(Integer tooltipFadeSpeed)
 	{
 		this.tooltipFadeSpeed = tooltipFadeSpeed;
 	}
-	
+
 	/**
 	 * Pixel offset of tooltip from the highlight.
 	 * <p>
@@ -294,18 +298,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return tooltipOffset;
 	}
-	
+
 	/**
 	 * Pixel offset of tooltip from the highlight.
 	 * <p>
 	 *
-	 * @param tooltipOffset The offest
+	 * @param tooltipOffset
+	 * 		The offest
 	 */
 	public void setTooltipOffset(Integer tooltipOffset)
 	{
 		this.tooltipOffset = tooltipOffset;
 	}
-	
+
 	/**
 	 * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
 	 * <p>
@@ -316,7 +321,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return tooltipAxes;
 	}
-	
+
 	/**
 	 * Which axes to display in tooltip, ‘x’, ‘y’ or ‘both’, ‘xy’ or ‘yx’ ‘both’ and ‘xy’ are equivalent, ‘yx’ reverses order of labels.
 	 * <p>
@@ -327,7 +332,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		this.tooltipAxes = tooltipAxes;
 	}
-	
+
 	/**
 	 * Use the x and y axes formatters to format the text in the tooltip
 	 * <p>
@@ -338,7 +343,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return useAxesFormatters;
 	}
-	
+
 	/**
 	 * sprintf format string for the tooltip.
 	 * <p>
@@ -349,18 +354,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return tooltipFormatString;
 	}
-	
+
 	/**
 	 * sprintf format string for the tooltip.
 	 * <p>
 	 *
-	 * @param tooltipFormatString The sprintf format for the tooltip
+	 * @param tooltipFormatString
+	 * 		The sprintf format for the tooltip
 	 */
 	public void setTooltipFormatString(String tooltipFormatString)
 	{
 		this.tooltipFormatString = tooltipFormatString;
 	}
-	
+
 	/**
 	 * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
 	 * <p>
@@ -371,29 +377,31 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return formatString;
 	}
-	
+
 	/**
 	 * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
 	 * <p>
 	 *
-	 * @param formatString The HTML to use as a tooltip
+	 * @param formatString
+	 * 		The HTML to use as a tooltip
 	 */
 	public void setFormatString(String formatString)
 	{
 		this.formatString = formatString;
 	}
-	
+
 	/**
 	 * Alternative to tooltipFormatString will format the whole tooltip text, populating with x, y values as indicated by tooltipAxes option.
 	 * <p>
 	 *
-	 * @param formatString The HTML to use as a tooltip
+	 * @param formatString
+	 * 		The HTML to use as a tooltip
 	 */
 	public void setFormatString(Div formatString)
 	{
-		this.formatString = formatString.toString(true).toString();
+		this.formatString = formatString.toString(true);
 	}
-	
+
 	/**
 	 * Number of y values to expect in the data point array.
 	 * <p>
@@ -404,7 +412,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return yvalues;
 	}
-	
+
 	/**
 	 * Number of y values to expect in the data point array.
 	 * <p>
@@ -415,7 +423,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		this.yvalues = yvalues;
 	}
-	
+
 	/**
 	 * True to bring the series of the highlighted point to the front of other series.
 	 * <p>
@@ -426,7 +434,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return bringSeriesToFront;
 	}
-	
+
 	/**
 	 * true to show the highlight.
 	 *
@@ -436,7 +444,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return show;
 	}
-	
+
 	/**
 	 * True to show the highlight
 	 * <p>
@@ -447,7 +455,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		this.show = show;
 	}
-	
+
 	/**
 	 * Return the marker rendering options with the highlighter
 	 *
@@ -462,7 +470,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 		}
 		return markerRendererOptions;
 	}
-	
+
 	/**
 	 * Sets the marker renderer accordingly
 	 * <p>
@@ -472,7 +480,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 		this.markerRenderer = markerRendererOptions.getMarkerRenderer();
 		this.markerRendererOptions = markerRendererOptions;
 	}
-	
+
 	/**
 	 * Whether or not to show the marker
 	 *
@@ -482,18 +490,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return showMarker;
 	}
-	
+
 	/**
 	 * true to show the marker
 	 * <p>
 	 *
-	 * @param showMarker Show Marker Boolean
+	 * @param showMarker
+	 * 		Show Marker Boolean
 	 */
 	public void setShowMarker(Boolean showMarker)
 	{
 		this.showMarker = showMarker;
 	}
-	
+
 	/**
 	 * Whether or not to show the tooltip
 	 *
@@ -503,18 +512,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return showTooltip;
 	}
-	
+
 	/**
 	 * Show a tooltip with data point values.
 	 * <p>
 	 *
-	 * @param showTooltip To show the tooltip
+	 * @param showTooltip
+	 * 		To show the tooltip
 	 */
 	public void setShowTooltip(Boolean showTooltip)
 	{
 		this.showTooltip = showTooltip;
 	}
-	
+
 	/**
 	 * whether or not to fade the tooltip
 	 *
@@ -524,18 +534,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return fadeTooltip;
 	}
-	
+
 	/**
 	 * true = fade in/out tooltip, false = show/hide tooltip
 	 * <p>
 	 *
-	 * @param fadeTooltip True or False
+	 * @param fadeTooltip
+	 * 		True or False
 	 */
 	public void setFadeTooltip(Boolean fadeTooltip)
 	{
 		this.fadeTooltip = fadeTooltip;
 	}
-	
+
 	/**
 	 * Use axes formatters for display or not
 	 *
@@ -545,18 +556,19 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return useAxesFormatters;
 	}
-	
+
 	/**
 	 * Use the x and y axes formatters to format the text in the tooltip
 	 * <p>
 	 *
-	 * @param useAxesFormatters True or False
+	 * @param useAxesFormatters
+	 * 		True or False
 	 */
 	public void setUseAxesFormatters(Boolean useAxesFormatters)
 	{
 		this.useAxesFormatters = useAxesFormatters;
 	}
-	
+
 	/**
 	 * Always have the series in front
 	 *
@@ -566,7 +578,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return bringSeriesToFront;
 	}
-	
+
 	/**
 	 * True to bring the series of the highlighted point to the front of other series.
 	 * <p>
@@ -577,7 +589,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		this.bringSeriesToFront = bringSeriesToFront;
 	}
-	
+
 	/**
 	 * Returns the linked graph with this object
 	 *
@@ -587,11 +599,11 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	{
 		return linkedGraph;
 	}
-	
+
 	@Override
 	public String getRenderer()
 	{
 		return "$.jqplot.Highlighter";
 	}
-	
+
 }

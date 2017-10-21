@@ -43,20 +43,20 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 )
 public class JQPlotPageConfigurator extends PageConfigurator
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public JQPlotPageConfigurator()
 	{
-	
+		//Nothing needed
 	}
-	
+
 	@Override
 	public Page configure(Page page)
 	{
 		if (!page.isConfigured())
 		{
-		
+			//Later on
 		}
 		return page;
 	}

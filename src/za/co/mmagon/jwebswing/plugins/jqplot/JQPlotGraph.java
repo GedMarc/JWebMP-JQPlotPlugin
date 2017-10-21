@@ -17,19 +17,17 @@
 package za.co.mmagon.jwebswing.plugins.jqplot;
 
 import za.co.mmagon.jwebswing.Component;
-import za.co.mmagon.jwebswing.base.client.BrowserGroups;
 import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.DisplayObjectType;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.NoNewLineBeforeClosingTag;
 import za.co.mmagon.jwebswing.base.html.interfaces.children.NoChildren;
-import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class incorporates the JQPlot library from http://www.jqplot.com
@@ -39,17 +37,17 @@ import java.util.ArrayList;
  *
  * @author mmagon
  * @version 3.0
- * <p>
- * Changes to how the Renderering and options work together
- * <p>
- * 3.0 2016/02/28 Implementation into Options interface with JavaScriptFunctions as the base
+ * 		<p>
+ * 		Changes to how the Renderering and options work together
+ * 		<p>
+ * 		3.0 2016/02/28 Implementation into Options interface with JavaScriptFunctions as the base
  * @since 2014/07/08
  */
 public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGraph<O, J>>
 		extends Component<NoChildren, NoAttributes, JQPlotGraphFeatures, JQPlotGraphEvents, J>
 		implements GlobalChildren, DisplayObjectType, NoNewLineBeforeClosingTag
 {
-	
+
 	/**
 	 * Version 2
 	 */
@@ -57,35 +55,16 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	/**
 	 * All the data points
 	 */
-	protected final ArrayList<Object> dataObjects = new ArrayList<>();
+	protected final List<Object> dataObjects = new ArrayList<>();
 	private JQPlotGraphFeature feature;
 	private JQPlotOptions<O> options;
-	
+
 	protected JQPlotGraph()
 	{
 		super(ComponentTypes.Div);
 		addFeature(getFeature());
 	}
-	
-	/**
-	 * If version of ie before 9 add the ex canvas script
-	 */
-	@Override
-	public void preConfigure()
-	{
-		super.preConfigure();
-		if (getPage() != null && getPage().getBrowser() != null)
-		{
-			if (getPage().getBrowser().getBrowserGroup() == BrowserGroups.InternetExplorer && getPage().getBrowser().getBrowserVersion() < 9)
-			{
-				if (!getFeature().getJavascriptReferences().contains(JQPlotJavascriptReferencePool.ExCanvas.getReference()))
-				{
-					getFeature().getJavascriptReferences().add(0, JQPlotJavascriptReferencePool.ExCanvas.getReference());
-				}
-			}
-		}
-	}
-	
+
 	/**
 	 * Renders the data point section on the graph
 	 * <p>
@@ -93,7 +72,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	 * @return The Data Points String
 	 */
 	protected abstract StringBuilder getDataPointRender();
-	
+
 	/**
 	 * Gets the feature for the graph. Please don't ever return a null. JQPlotGraphFeature is also fine
 	 * <p>
@@ -108,7 +87,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 		}
 		return feature;
 	}
-	
+
 	/**
 	 * Sets the feature for this graph
 	 *
@@ -118,7 +97,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	{
 		this.feature = feature;
 	}
-	
+
 	/**
 	 * Returns the graph options
 	 * <p>
@@ -134,7 +113,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 		}
 		return options;
 	}
-	
+
 	/**
 	 * Sets the options for this graph
 	 *
@@ -144,16 +123,43 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	{
 		this.options = options;
 	}
-	
-	/**
-	 * Returns the JavaScriptReferences
-	 *
-	 * @return
-	 */
-	public ArrayList<JavascriptReference> getJavascriptReference()
+
+	@Override
+	public boolean equals(Object o)
 	{
-		ArrayList<JavascriptReference> arrs = new ArrayList<>();
-		return arrs;
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JQPlotGraph))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQPlotGraph<?, ?> that = (JQPlotGraph<?, ?>) o;
+
+		if (dataObjects != null ? !dataObjects.equals(that.dataObjects) : that.dataObjects != null)
+		{
+			return false;
+		}
+		if (getFeature() != null ? !getFeature().equals(that.getFeature()) : that.getFeature() != null)
+		{
+			return false;
+		}
+		return getOptions() != null ? getOptions().equals(that.getOptions()) : that.getOptions() == null;
 	}
-	
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (dataObjects != null ? dataObjects.hashCode() : 0);
+		result = 31 * result + (getFeature() != null ? getFeature().hashCode() : 0);
+		result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
+		return result;
+	}
 }

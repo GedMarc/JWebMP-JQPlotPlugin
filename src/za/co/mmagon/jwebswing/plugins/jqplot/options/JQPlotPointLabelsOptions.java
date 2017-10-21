@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The Point Labels
@@ -32,14 +32,14 @@ import java.util.ArrayList;
  */
 public class JQPlotPointLabelsOptions extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * show the labels or not.
 	 */
 	private Boolean show;
-	
+
 	/**
 	 * compass location where to position the label around the point.
 	 */
@@ -51,11 +51,11 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	/**
 	 * array index for location of labels within data point arrays.
 	 */
-	private ArrayList seriesLabelIndex;//
+	private List seriesLabelIndex;//
 	/**
 	 * array of arrays of labels, one array for each series.
 	 */
-	private ArrayList<String> labels;
+	private List<String> labels;
 	/**
 	 * true to display value as stacked in a stacked plot.
 	 */
@@ -88,10 +88,10 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	 * true to not show a label for a value which is 0.
 	 */
 	private Boolean hideZeros;
-	
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
-	
+
 	/**
 	 * Constructs a new point labels option
 	 *
@@ -101,7 +101,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 	/**
 	 * Gets whether or not to show the point labels
 	 *
@@ -111,7 +111,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return show;
 	}
-	
+
 	/**
 	 * Sets whether or not to show point labels
 	 *
@@ -119,16 +119,13 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	 */
 	public void setShow(Boolean show)
 	{
-		if (show)
+		if (show && this.linkedGraph != null)
 		{
-			if (this.linkedGraph != null)
-			{
-				this.linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.PointLabelsRenderer.getReference());
-			}
+			this.linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.PointLabelsRenderer.getReference());
 		}
 		this.show = show;
 	}
-	
+
 	/**
 	 * compass location where to position the label around the point.
 	 *
@@ -138,7 +135,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return location;
 	}
-	
+
 	/**
 	 * compass location where to position the label around the point.
 	 *
@@ -148,7 +145,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.location = location;
 	}
-	
+
 	/**
 	 * true to use labels within data point arrays.
 	 *
@@ -158,7 +155,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return labelsFromSeries;
 	}
-	
+
 	/**
 	 * true to use labels within data point arrays.
 	 *
@@ -168,48 +165,48 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.labelsFromSeries = labelsFromSeries;
 	}
-	
+
 	/**
 	 * array index for location of labels within data point arrays.
 	 *
 	 * @return
 	 */
-	public ArrayList getSeriesLabelIndex()
+	public List getSeriesLabelIndex()
 	{
 		return seriesLabelIndex;
 	}
-	
+
 	/**
 	 * array index for location of labels within data point arrays.
 	 *
 	 * @param seriesLabelIndex
 	 */
-	public void setSeriesLabelIndex(ArrayList seriesLabelIndex)
+	public void setSeriesLabelIndex(List seriesLabelIndex)
 	{
 		this.seriesLabelIndex = seriesLabelIndex;
 	}
-	
+
 	/**
 	 * *
 	 * array of arrays of labels, one array for each series.
 	 *
 	 * @return
 	 */
-	public ArrayList<String> getLabels()
+	public List<String> getLabels()
 	{
 		return labels;
 	}
-	
+
 	/**
 	 * array of arrays of labels, one array for each series.
 	 *
 	 * @param labels
 	 */
-	public void setLabels(ArrayList<String> labels)
+	public void setLabels(List<String> labels)
 	{
 		this.labels = labels;
 	}
-	
+
 	/**
 	 * true to display value as stacked in a stacked plot.
 	 *
@@ -219,7 +216,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return stackedValue;
 	}
-	
+
 	/**
 	 * true to display value as stacked in a stacked plot.
 	 *
@@ -229,7 +226,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.stackedValue = stackedValue;
 	}
-	
+
 	/**
 	 * vertical padding in pixels between point and label
 	 *
@@ -239,7 +236,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return ypadding;
 	}
-	
+
 	/**
 	 * vertical padding in pixels between point and label
 	 *
@@ -249,7 +246,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.ypadding = ypadding;
 	}
-	
+
 	/**
 	 * horizontal padding in pixels between point and label
 	 *
@@ -259,7 +256,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return xpadding;
 	}
-	
+
 	/**
 	 * horizontal padding in pixels between point and label
 	 *
@@ -269,7 +266,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.xpadding = xpadding;
 	}
-	
+
 	/**
 	 * true to escape html entities in the labels.
 	 *
@@ -279,7 +276,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return escapeHTML;
 	}
-	
+
 	/**
 	 * true to escape html entities in the labels.
 	 *
@@ -289,7 +286,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.escapeHTML = escapeHTML;
 	}
-	
+
 	/**
 	 * Number of pixels that the label must be away from an axis boundary in order to be drawn.
 	 *
@@ -299,7 +296,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return edgeTolerance;
 	}
-	
+
 	/**
 	 * Number of pixels that the label must be away from an axis boundary in order to be drawn.
 	 *
@@ -309,7 +306,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.edgeTolerance = edgeTolerance;
 	}
-	
+
 	/**
 	 * A class of a formatter for the tick text. sprintf by default.
 	 *
@@ -319,7 +316,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return formatter;
 	}
-	
+
 	/**
 	 * A class of a formatter for the tick text. sprintf by default.
 	 *
@@ -329,7 +326,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.formatter = formatter;
 	}
-	
+
 	/**
 	 * string passed to the formatter.
 	 *
@@ -339,7 +336,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return formatString;
 	}
-	
+
 	/**
 	 * string passed to the formatter.
 	 *
@@ -349,7 +346,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.formatString = formatString;
 	}
-	
+
 	/**
 	 * Whether or not to hide zeros
 	 *
@@ -359,7 +356,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return hideZeros;
 	}
-	
+
 	/**
 	 * Whether or not to hide zeros
 	 *
@@ -369,7 +366,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.hideZeros = hideZeros;
 	}
-	
+
 	/**
 	 * gets the linked graph
 	 *
@@ -379,7 +376,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		return linkedGraph;
 	}
-	
+
 	/*
 	 * Sets the linked graph
 	 */
@@ -387,5 +384,5 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 }

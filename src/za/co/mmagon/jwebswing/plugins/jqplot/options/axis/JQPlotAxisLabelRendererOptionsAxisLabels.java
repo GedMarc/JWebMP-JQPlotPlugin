@@ -56,7 +56,7 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels extends JavaScriptPart imp
 	public JQPlotAxisLabelRendererOptionsAxisLabels(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.AxisLabelRenderer.getReference());
+		linkedGraph.addJavaScriptReference(JQPlotJavascriptReferencePool.AxisLabelRenderer.getReference());
 	}
 
 	@JsonProperty("renderer")
@@ -116,7 +116,7 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels extends JavaScriptPart imp
 	{
 		return label;
 	}
-	
+
 	/**
 	 * Sets the label
 	 *
@@ -135,7 +135,7 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels extends JavaScriptPart imp
 	public void setLabel(Component label)
 	{
 		label.setTiny(true);
-		this.label = label.toString(true).toString();
+		this.label = label.toString(true);
 		setEscapeHTML(true);
 	}
 

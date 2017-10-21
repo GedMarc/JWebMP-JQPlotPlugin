@@ -26,6 +26,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotRendererDefa
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The Cursor Plugin for the JQuery Plot Library
@@ -36,9 +37,9 @@ import java.util.ArrayList;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendererDefault
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * CSS spec for cursor style
 	 */
@@ -83,12 +84,12 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	 * Use the x and y axes formatters to format the text in the tooltip.
 	 */
 	private Boolean useAxesFormatters;
-	
+
 	/**
 	 * Show position for the specified axes<p>
 	 * This is an array like [[‘xaxis’, ‘yaxis’], [‘xaxis’, ‘y2axis’]] Default is to compute automatically for all visible axes.
 	 */
-	private ArrayList<XYObject> tooltipAxisGroups;
+	private List<XYObject> tooltipAxisGroups;
 	/**
 	 * Enable plot zooming.
 	 */
@@ -137,10 +138,10 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	 * True will keep updating the tooltip when zooming of the grid.
 	 */
 	private Boolean showTooltipOutsideZoom;
-	
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
-	
+
 	/**
 	 * Constructs a new instance of the cursor object
 	 *
@@ -154,7 +155,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 			this.linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
 		}
 	}
-	
+
 	/**
 	 * Gets the linked graph
 	 *
@@ -164,7 +165,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return linkedGraph;
 	}
-	
+
 	/**
 	 * Set the linked graph and adds the reference
 	 *
@@ -179,7 +180,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 		this.linkedGraph = linkedGraph;
 		this.linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
 	}
-	
+
 	/**
 	 * CSS spec for cursor style
 	 *
@@ -189,7 +190,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return style;
 	}
-	
+
 	/**
 	 * CSS spec for cursor style
 	 *
@@ -199,7 +200,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.style = style;
 	}
-	
+
 	/**
 	 * Whether to show the cursor or not.
 	 *
@@ -209,7 +210,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return show;
 	}
-	
+
 	/**
 	 * Whether to show the cursor or not.
 	 *
@@ -219,7 +220,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.show = show;
 	}
-	
+
 	/**
 	 * Show tooltip or not
 	 *
@@ -229,7 +230,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showTooltip;
 	}
-	
+
 	/**
 	 * Show tooltip or not
 	 *
@@ -239,7 +240,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showTooltip = showTooltip;
 	}
-	
+
 	/**
 	 * Tooltip follows the mouse, it is not at a fixed location.
 	 *
@@ -249,7 +250,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return followMouse;
 	}
-	
+
 	/**
 	 * Tooltip follows the mouse, it is not at a fixed location.
 	 *
@@ -259,7 +260,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.followMouse = followMouse;
 	}
-	
+
 	/**
 	 * Where to position tooltip. 'n' etc
 	 *
@@ -269,7 +270,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return tooltipLocation;
 	}
-	
+
 	/**
 	 * Where to position tooltip.
 	 *
@@ -279,7 +280,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.tooltipLocation = tooltipLocation;
 	}
-	
+
 	/**
 	 * Pixel offset of tooltip from the grid boundaries or cursor center.
 	 * <p>
@@ -290,7 +291,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return tooltipOffset;
 	}
-	
+
 	/**
 	 * Pixel offset of tooltip from the grid boundaries or cursor center.
 	 * <p>
@@ -301,7 +302,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.tooltipOffset = tooltipOffset;
 	}
-	
+
 	/**
 	 * show the grid pixel coordinates of the mouse.
 	 * <p>
@@ -312,7 +313,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showTooltipGridPosition;
 	}
-	
+
 	/**
 	 * show the grid pixel coordinates of the mouse.
 	 * <p>
@@ -323,7 +324,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showTooltipGridPosition = showTooltipGridPosition;
 	}
-	
+
 	/**
 	 * show the unit (data) coordinates of the mouse.
 	 * <p>
@@ -334,7 +335,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showTooltipUnitPosition;
 	}
-	
+
 	/**
 	 * show the unit (data) coordinates of the mouse.
 	 * <p>
@@ -345,7 +346,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showTooltipUnitPosition = showTooltipUnitPosition;
 	}
-	
+
 	/**
 	 * Used with showVerticalLine to show intersecting data points in the tooltip.
 	 * <p>
@@ -356,7 +357,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showTooltipDataPosition;
 	}
-	
+
 	/**
 	 * Used with showVerticalLine to show intersecting data points in the tooltip.
 	 * <p>
@@ -367,7 +368,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showTooltipDataPosition = showTooltipDataPosition;
 	}
-	
+
 	/**
 	 * sprintf format string for the tooltip.
 	 * <p>
@@ -378,7 +379,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return tooltipFormatString;
 	}
-	
+
 	/**
 	 * sprintf format string for the tooltip.
 	 * <p>
@@ -389,7 +390,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.tooltipFormatString = tooltipFormatString;
 	}
-	
+
 	/**
 	 * Use the x and y axes formatters to format the text in the tooltip.
 	 * <p>
@@ -400,7 +401,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return useAxesFormatters;
 	}
-	
+
 	/**
 	 * Use the x and y axes formatters to format the text in the tooltip.
 	 * <p>
@@ -411,7 +412,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.useAxesFormatters = useAxesFormatters;
 	}
-	
+
 	/**
 	 * Enable plot zooming.
 	 * <p>
@@ -422,7 +423,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return zoom;
 	}
-	
+
 	/**
 	 * Enable plot zooming.
 	 * <p>
@@ -433,7 +434,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.zoom = zoom;
 	}
-	
+
 	/**
 	 * Will expand zoom range to provide more rounded tick values.
 	 * <p>
@@ -444,7 +445,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return looseZoom;
 	}
-	
+
 	/**
 	 * Will expand zoom range to provide more rounded tick values.
 	 * <p>
@@ -455,7 +456,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.looseZoom = looseZoom;
 	}
-	
+
 	/**
 	 * Will reset plot zoom if single click on plot without drag.
 	 * <p>
@@ -466,7 +467,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return clickReset;
 	}
-	
+
 	/**
 	 * Will reset plot zoom if single click on plot without drag.
 	 * <p>
@@ -477,7 +478,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.clickReset = clickReset;
 	}
-	
+
 	/**
 	 * Will reset plot zoom if double click on plot without drag.
 	 * <p>
@@ -488,7 +489,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return dblClickReset;
 	}
-	
+
 	/**
 	 * Will reset plot zoom if double click on plot without drag.
 	 * <p>
@@ -499,7 +500,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.dblClickReset = dblClickReset;
 	}
-	
+
 	/**
 	 * draw a vertical line across the plot which follows the cursor.
 	 * <p>
@@ -510,7 +511,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showVerticalLine;
 	}
-	
+
 	/**
 	 * draw a vertical line across the plot which follows the cursor.
 	 * <p>
@@ -521,7 +522,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showVerticalLine = showVerticalLine;
 	}
-	
+
 	/**
 	 * draw a horizontal line across the plot which follows the cursor.
 	 * <p>
@@ -532,7 +533,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showHorizontalLine;
 	}
-	
+
 	/**
 	 * draw a horizontal line across the plot which follows the cursor.
 	 * <p>
@@ -543,7 +544,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showHorizontalLine = showHorizontalLine;
 	}
-	
+
 	/**
 	 * ‘none’, ‘x’ or ‘y’
 	 * <p>
@@ -554,7 +555,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return constrainZoomTo;
 	}
-	
+
 	/**
 	 * ‘none’, ‘x’ or ‘y’
 	 * <p>
@@ -565,7 +566,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.constrainZoomTo = constrainZoomTo;
 	}
-	
+
 	/**
 	 * pixel distance from data point or marker to consider cursor lines intersecting with point.
 	 * <p>
@@ -576,7 +577,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return intersectionThreshold;
 	}
-	
+
 	/**
 	 * pixel distance from data point or marker to consider cursor lines intersecting with point.
 	 * <p>
@@ -587,7 +588,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.intersectionThreshold = intersectionThreshold;
 	}
-	
+
 	/**
 	 * Replace the plot legend with an enhanced legend displaying intersection information.
 	 * <p>
@@ -598,7 +599,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showCursorLegend;
 	}
-	
+
 	/**
 	 * Replace the plot legend with an enhanced legend displaying intersection information.
 	 * <p>
@@ -609,7 +610,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showCursorLegend = showCursorLegend;
 	}
-	
+
 	/**
 	 * Format string used in the cursor legend.
 	 * <p>
@@ -620,7 +621,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return cursorLegendFormatString;
 	}
-	
+
 	/**
 	 * Format string used in the cursor legend.
 	 * <p>
@@ -631,7 +632,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.cursorLegendFormatString = cursorLegendFormatString;
 	}
-	
+
 	/**
 	 * True to limit actual zoom area to edges of grid, even when zooming outside of plot area.
 	 * <p>
@@ -642,7 +643,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return constrainOutsideZoom;
 	}
-	
+
 	/**
 	 * True to limit actual zoom area to edges of grid, even when zooming outside of plot area.
 	 * <p>
@@ -653,7 +654,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.constrainOutsideZoom = constrainOutsideZoom;
 	}
-	
+
 	/**
 	 * True will keep updating the tooltip when zooming of the grid.
 	 * <p>
@@ -664,7 +665,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		return showTooltipOutsideZoom;
 	}
-	
+
 	/**
 	 * True will keep updating the tooltip when zooming of the grid.
 	 * <p>
@@ -675,20 +676,20 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	{
 		this.showTooltipOutsideZoom = showTooltipOutsideZoom;
 	}
-	
+
 	@Override
 	public String getRenderer()
 	{
 		return "$.jqplot.Cursor";
 	}
-	
+
 	/**
 	 * Show position for the specified axes<p>
 	 * This is an array like [[‘xaxis’, ‘yaxis’], [‘xaxis’, ‘y2axis’]] Default is to compute automatically for all visible axes.
 	 *
 	 * @return
 	 */
-	public ArrayList<XYObject> getTooltipAxisGroups()
+	public List<XYObject> getTooltipAxisGroups()
 	{
 		if (tooltipAxisGroups == null)
 		{
@@ -696,16 +697,16 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 		}
 		return tooltipAxisGroups;
 	}
-	
+
 	/**
 	 * Show position for the specified axes<p>
 	 * This is an array like [[‘xaxis’, ‘yaxis’], [‘xaxis’, ‘y2axis’]] Default is to compute automatically for all visible axes.
 	 *
 	 * @param tooltipAxisGroups
 	 */
-	public void setTooltipAxisGroups(ArrayList<XYObject> tooltipAxisGroups)
+	public void setTooltipAxisGroups(List<XYObject> tooltipAxisGroups)
 	{
 		this.tooltipAxisGroups = tooltipAxisGroups;
 	}
-	
+
 }

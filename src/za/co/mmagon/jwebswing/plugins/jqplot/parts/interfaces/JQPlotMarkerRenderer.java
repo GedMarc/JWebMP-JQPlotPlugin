@@ -23,9 +23,10 @@ import com.fasterxml.jackson.annotation.JsonRawValue;
  * @author GedMarc
  * @since 26 Feb 2016
  */
+@FunctionalInterface
 public interface JQPlotMarkerRenderer extends JQPlotRenderer
 {
-	
+
 	/**
 	 * Returns the marker renderer
 	 *
@@ -34,5 +35,5 @@ public interface JQPlotMarkerRenderer extends JQPlotRenderer
 	@JsonProperty("markerRenderer")
 	@JsonRawValue
 	public String getMarkerRenderer();
-	
+
 }

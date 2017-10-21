@@ -27,6 +27,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.grid.JQPlotGridOptionsCanva
 import za.co.mmagon.jwebswing.plugins.jqplot.options.title.JQPlotTitleOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The Global options allowed for a JQPlotGraph
@@ -36,9 +37,9 @@ import java.util.ArrayList;
  * @author GedMarc
  * @since 26 Feb 2016
  */
-public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
+public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 {
-	
+
 	/**
 	 * Version 1
 	 */
@@ -82,11 +83,11 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	/**
 	 * A grouping of colours
 	 */
-	private ArrayList<String> seriesColours;
+	private List<String> seriesColours;
 	/**
 	 * A grouping of colours
 	 */
-	private ArrayList<String> negativeSeriesColours;
+	private List<String> negativeSeriesColours;
 	/**
 	 * The default options for all series
 	 */
@@ -94,7 +95,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	/**
 	 * Each series configuration in order of display
 	 */
-	private ArrayList<JQPlotSeriesOptions> series;
+	private List<JQPlotSeriesOptions> series;
 	/**
 	 * An array of all the axis available. Can be up to 9. Example [x,y,z] or [x,y1,x2,y2,y3,y4,y5,y6]
 	 */
@@ -112,7 +113,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	 * The default axis configuration
 	 */
 	private JQPlotAxisOptions axesDefaults;
-	
+
 	/**
 	 * The graph options available. This is the complete set
 	 * <p>
@@ -123,7 +124,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 	/**
 	 * Gets the Title Part for this Graph
 	 * <p>
@@ -138,19 +139,20 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return title;
 	}
-	
+
 	/**
 	 * Sets the Graph Title Part for this Graph
 	 * <p>
 	 *
-	 * @param title The title object to set
+	 * @param title
+	 * 		The title object to set
 	 */
 	public void setTitle(JQPlotTitleOptions title)
 	{
 		this.title = title;
-		
+
 	}
-	
+
 	/**
 	 * Gets the Highlighter associated with this graph
 	 * <p>
@@ -165,18 +167,19 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return highlighter;
 	}
-	
+
 	/**
 	 * Sets the Highlighter for this graph
 	 * <p>
 	 *
-	 * @param highlighter The highlighting to use
+	 * @param highlighter
+	 * 		The highlighting to use
 	 */
 	public void setHighlighter(JQPlotHighlightOptions highlighter)
 	{
 		this.highlighter = highlighter;
 	}
-	
+
 	/**
 	 * Get the cursor option associated with this graph
 	 * <p>
@@ -191,7 +194,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return cursor;
 	}
-	
+
 	/**
 	 * Sets the Cursor options associated with this graph
 	 * <p>
@@ -202,14 +205,14 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.cursor = cursor;
 	}
-	
+
 	/**
 	 * Returns the series Colours that are associated with this Graph
 	 * <p>
 	 *
 	 * @return
 	 */
-	public ArrayList<String> getSeriesColours()
+	public List<String> getSeriesColours()
 	{
 		if (seriesColours == null)
 		{
@@ -217,25 +220,25 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return seriesColours;
 	}
-	
+
 	/**
 	 * Set the series Colours to be used for this graph
 	 * <p>
 	 *
 	 * @param seriesColours
 	 */
-	public void setSeriesColours(ArrayList<String> seriesColours)
+	public void setSeriesColours(List<String> seriesColours)
 	{
 		this.seriesColours = seriesColours;
 	}
-	
+
 	/**
 	 * Returns the series Colours that are associated with this Graph when negative
 	 * <p>
 	 *
 	 * @return
 	 */
-	public ArrayList<String> getNegativeSeriesColours()
+	public List<String> getNegativeSeriesColours()
 	{
 		if (negativeSeriesColours == null)
 		{
@@ -243,18 +246,18 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return negativeSeriesColours;
 	}
-	
+
 	/**
 	 * Set the series Colours to be used for this graph when negative
 	 * <p>
 	 *
 	 * @param negativeSeriesColours
 	 */
-	public void setNegativeSeriesColours(ArrayList<String> negativeSeriesColours)
+	public void setNegativeSeriesColours(List<String> negativeSeriesColours)
 	{
 		this.negativeSeriesColours = negativeSeriesColours;
 	}
-	
+
 	/**
 	 * Returns the current allocated series defaults
 	 * <p>
@@ -269,7 +272,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return seriesDefaults;
 	}
-	
+
 	/**
 	 * Sets the current allocated Series Defaults.
 	 * <p>
@@ -280,14 +283,14 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.seriesDefaults = seriesDefaults;
 	}
-	
+
 	/**
 	 * Gets the array list of each series different options in order of addition
 	 * <p>
 	 *
 	 * @return
 	 */
-	public ArrayList<JQPlotSeriesOptions> getSeries()
+	public List<JQPlotSeriesOptions> getSeries()
 	{
 		if (series == null)
 		{
@@ -295,18 +298,18 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return series;
 	}
-	
+
 	/**
 	 * Sets the series configuration
 	 * <p>
 	 *
 	 * @param series
 	 */
-	public void setSeries(ArrayList<JQPlotSeriesOptions> series)
+	public void setSeries(List<JQPlotSeriesOptions> series)
 	{
 		this.series = series;
 	}
-	
+
 	/**
 	 * Gets the Axes Defaults
 	 * <p>
@@ -321,7 +324,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return axesDefaults;
 	}
-	
+
 	/**
 	 * Sets the Axes Defaults
 	 * <p>
@@ -332,7 +335,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.axesDefaults = axesDefaults;
 	}
-	
+
 	/**
 	 * Returns the legendOptions options
 	 * <p>
@@ -347,7 +350,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return legendOptions;
 	}
-	
+
 	/**
 	 * Sets the legendOptions options
 	 * <p>
@@ -358,7 +361,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.legendOptions = legendOptions;
 	}
-	
+
 	/**
 	 * Gets the grid options
 	 * <p>
@@ -373,7 +376,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return gridOptions;
 	}
-	
+
 	/**
 	 * Sets the grid options
 	 * <p>
@@ -384,7 +387,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.gridOptions = gridOptions;
 	}
-	
+
 	@JsonProperty(value = "animate")
 	@JsonRawValue
 	/**
@@ -407,7 +410,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 			return "false";
 		}
 	}
-	
+
 	/**
 	 * True to animate the series on initial plot draw (renderer dependent).
 	 * <p>
@@ -418,7 +421,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.animate = animate;
 	}
-	
+
 	/**
 	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in these situations can
 	 * cause problems.
@@ -430,7 +433,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		return animateReplot;
 	}
-	
+
 	/**
 	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in these situations can
 	 * cause problems.
@@ -442,7 +445,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.animateReplot = animateReplot;
 	}
-	
+
 	/**
 	 * false to not sort the data passed in by the user.
 	 * <p>
@@ -453,7 +456,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		return sortData;
 	}
-	
+
 	/**
 	 * false to not sort the data passed in by the user.
 	 * <p>
@@ -464,7 +467,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.sortData = sortData;
 	}
-	
+
 	/**
 	 * true or false, creates a stack or “mountain” plot.
 	 * <p>
@@ -475,7 +478,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		return stackSeries;
 	}
-	
+
 	/**
 	 * true or false, creates a stack or “mountain” plot.
 	 * <p>
@@ -486,7 +489,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.stackSeries = stackSeries;
 	}
-	
+
 	/**
 	 * if true, right-click events are intercepted and a jqplotRightClick event will be fired. This will also block the context menu.
 	 * <p>
@@ -497,7 +500,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		return captureRightClick;
 	}
-	
+
 	/**
 	 * if true, right-click events are intercepted and a jqplotRightClick event will be fired. This will also block the context menu.
 	 * <p>
@@ -508,7 +511,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.captureRightClick = captureRightClick;
 	}
-	
+
 	/**
 	 * An array of all the axis available. Can be up to 9. Example [x,y,z] or [x,y1,x2,y2,y3,y4,y5,y6]
 	 * <p>
@@ -523,7 +526,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 		}
 		return axes;
 	}
-	
+
 	/**
 	 * Sets the map in order
 	 * <p>
@@ -534,21 +537,19 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.axes = axes;
 	}
-	
-	;
-	
+
 	@JsonIgnore
 	/**
 	 * Returns the linked JavaScript References
 	 *
 	 * @return
 	 */
-	public ArrayList<JavascriptReference> getJavascriptReferences()
+	public List<JavascriptReference> getJavascriptReferences()
 	{
-		ArrayList<JavascriptReference> arrs = new ArrayList<>();
+		List<JavascriptReference> arrs = new ArrayList<>();
 		return arrs;
 	}
-	
+
 	/**
 	 * Gets the linked graph
 	 *
@@ -558,7 +559,7 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		return linkedGraph;
 	}
-	
+
 	/**
 	 * Sets the linked graph
 	 *
@@ -568,5 +569,5 @@ public class JQPlotOptions<O extends JavaScriptPart> extends JavaScriptPart
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 }

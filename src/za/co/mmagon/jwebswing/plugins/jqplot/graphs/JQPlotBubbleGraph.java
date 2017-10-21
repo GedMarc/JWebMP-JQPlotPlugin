@@ -23,6 +23,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.series.JQPlotSeriesBubbleOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The Bubble Graph Renderering for the JQ Plot Library
@@ -32,19 +33,19 @@ import java.util.ArrayList;
  *
  * @author mmagon
  * @since 2014/07/10
- * <p>
+ * 		<p>
  */
 @ComponentInformation(name = "Bubble Graph",
 		description = "A bubble graph",
 		url = "http://www.jqplot.com/examples/bubbleChart.php")
 public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGraph<JQPlotOptions, J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	private ArrayList<JQPlotBubble> bubbles;
+
+	private List<JQPlotBubble> bubbles;
 	private JQPlotSeriesBubbleOptions bubbleOptions;
-	
+
 	/**
 	 * Creates a new bubble graph
 	 */
@@ -53,7 +54,7 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 		getOptions().getSeriesDefaults();
 		getOptions().getSeriesDefaults().setRendererOptions(getBubbleOptions());
 	}
-	
+
 	/**
 	 * Returns the bubble options instance
 	 *
@@ -67,7 +68,7 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 		}
 		return bubbleOptions;
 	}
-	
+
 	/**
 	 * Sets the bubble options
 	 *
@@ -77,39 +78,19 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 	{
 		this.bubbleOptions = bubbleOptions;
 	}
-	
-	/**
-	 * Returns a list of all the bubbles
-	 *
-	 * @return
-	 */
-	public ArrayList<JQPlotBubble> getBubbles()
-	{
-		if (bubbles == null)
-		{
-			bubbles = new ArrayList<>();
-		}
-		return bubbles;
-	}
-	
-	/**
-	 * Sets the bubbles
-	 *
-	 * @param bubbles
-	 */
-	public void setBubbles(ArrayList<JQPlotBubble> bubbles)
-	{
-		this.bubbles = bubbles;
-	}
-	
+
 	/**
 	 * Adds a bubble into the collection with a specified label Labels can be components as well, this will set the HTML escape off
 	 * <p>
 	 *
-	 * @param x      The X Location
-	 * @param y      The Y Location
-	 * @param radius The Radius of the Bubble
-	 * @param label  The Label of the Bubble
+	 * @param x
+	 * 		The X Location
+	 * @param y
+	 * 		The Y Location
+	 * @param radius
+	 * 		The Radius of the Bubble
+	 * @param label
+	 * 		The Label of the Bubble
 	 *
 	 * @return
 	 */
@@ -119,7 +100,31 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 		getBubbles().add(bubble);
 		return bubble;
 	}
-	
+
+	/**
+	 * Returns a list of all the bubbles
+	 *
+	 * @return
+	 */
+	public List<JQPlotBubble> getBubbles()
+	{
+		if (bubbles == null)
+		{
+			bubbles = new ArrayList<>();
+		}
+		return bubbles;
+	}
+
+	/**
+	 * Sets the bubbles
+	 *
+	 * @param bubbles
+	 */
+	public void setBubbles(List<JQPlotBubble> bubbles)
+	{
+		this.bubbles = bubbles;
+	}
+
 	/**
 	 * Renders the data points for the bubbles
 	 * <p>
@@ -130,18 +135,52 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 	public StringBuilder getDataPointRender()
 	{
 		StringBuilder sb = new StringBuilder("[[");
-		
+
 		for (JQPlotBubble next : getBubbles())
 		{
 			sb.append(next).append(",");
 		}
-		
+
 		if (sb.indexOf(",") > 0)
 		{
 			sb = sb.deleteCharAt(sb.lastIndexOf(","));
 		}
-		
+
 		sb.append("]]");
 		return sb;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JQPlotBubbleGraph))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQPlotBubbleGraph<?> that = (JQPlotBubbleGraph<?>) o;
+
+		if (getBubbles() != null ? !getBubbles().equals(that.getBubbles()) : that.getBubbles() != null)
+		{
+			return false;
+		}
+		return getBubbleOptions() != null ? getBubbleOptions().equals(that.getBubbleOptions()) : that.getBubbleOptions() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getBubbles() != null ? getBubbles().hashCode() : 0);
+		result = 31 * result + (getBubbleOptions() != null ? getBubbleOptions().hashCode() : 0);
+		return result;
 	}
 }

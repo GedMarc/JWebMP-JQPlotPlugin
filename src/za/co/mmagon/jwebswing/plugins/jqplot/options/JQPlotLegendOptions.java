@@ -27,9 +27,12 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.legends.JQPlotLegendRendere
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The Legend options
+ * <p>
+ * TODO update to CRP
  *
  * @param <O>
  *
@@ -39,20 +42,20 @@ import java.util.ArrayList;
  */
 public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer> extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * The legend renderer string
 	 */
 	@JsonRawValue
 	private String renderer;
-	
+
 	/**
 	 * The legend renderer options
 	 */
 	private O rendererOptions;
-	
+
 	/**
 	 * Whether to display the legend on the graph.
 	 */
@@ -63,23 +66,17 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	private CompassPoints location;
 	/**
 	 * pixel offset of the legend box from the x (or x2) axis.
-	 * <p>
-	 *
-	 * @deprecated
 	 */
 	private Integer xoffset;
 	/**
 	 * pixel offset of the legend box from the y (or y2) axis.
-	 * <p>
-	 *
-	 * @deprecated
 	 */
 	private Integer yoffset;
-	
+
 	/**
 	 * Array of labels to use.
 	 */
-	private ArrayList<String> labels;
+	private List<String> labels;
 	/**
 	 * true to show the label text on the legend.
 	 */
@@ -116,7 +113,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 * CSS padding-top spec for the rows in the legend.
 	 */
 	private Integer rowSpacing;
-	
+
 	/**
 	 * Whether to draw the legend before the series or not.
 	 */
@@ -137,10 +134,10 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 * CSS margin for the legend DOM element.
 	 */
 	private Integer marginLeft;
-	
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
-	
+
 	/**
 	 * Sets the linked graph for this options
 	 *
@@ -150,7 +147,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 	/**
 	 * Whether to display the legend on the graph.
 	 */
@@ -158,7 +155,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return show;
 	}
-	
+
 	/**
 	 * Whether to display the legend on the graph.
 	 * <p>
@@ -169,7 +166,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.show = show;
 	}
-	
+
 	/**
 	 * Placement of the legend. compass direction, nw, n, ne, e, se, s, sw, w.
 	 * <p>
@@ -180,7 +177,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return location;
 	}
-	
+
 	/**
 	 * Placement of the legend. compass direction, nw, n, ne, e, se, s, sw, w.
 	 * <p>
@@ -191,58 +188,50 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.location = location;
 	}
-	
+
 	/**
 	 * pixel offset of the legend box from the x (or x2) axis.
 	 * <p>
-	 *
-	 * @deprecated
 	 */
 	public Integer getXoffset()
 	{
 		return xoffset;
 	}
-	
+
 	/**
 	 * pixel offset of the legend box from the x (or x2) axis.
 	 * <p>
-	 *
-	 * @deprecated @param xoffset
 	 */
 	public void setXoffset(Integer xoffset)
 	{
 		this.xoffset = xoffset;
 	}
-	
+
 	/**
 	 * pixel offset of the legend box from the x (or x2) axis.
 	 * <p>
-	 *
-	 * @deprecated @return
 	 */
 	public Integer getYoffset()
 	{
 		return yoffset;
 	}
-	
+
 	/**
 	 * pixel offset of the legend box from the x (or x2) axis.
 	 * <p>
-	 *
-	 * @deprecated @param yoffset
 	 */
 	public void setYoffset(Integer yoffset)
 	{
 		this.yoffset = yoffset;
 	}
-	
+
 	/**
 	 * Custom list of labels
 	 * <p>
 	 *
 	 * @return
 	 */
-	public ArrayList<String> getLabels()
+	public List<String> getLabels()
 	{
 		if (labels == null)
 		{
@@ -250,18 +239,18 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 		}
 		return labels;
 	}
-	
+
 	/**
 	 * Sets a custom display list for labels
 	 * <p>
 	 *
 	 * @param labels
 	 */
-	public void setLabels(ArrayList<String> labels)
+	public void setLabels(List<String> labels)
 	{
 		this.labels = labels;
 	}
-	
+
 	/**
 	 * Sets to show the labels or not
 	 * <p>
@@ -272,7 +261,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return showLabels;
 	}
-	
+
 	/**
 	 * Sets to show the labels
 	 * <p>
@@ -283,7 +272,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.showLabels = showLabels;
 	}
-	
+
 	/**
 	 * Whether to show the swatch or not
 	 * <p>
@@ -294,7 +283,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return showSwatch;
 	}
-	
+
 	/**
 	 * Whether to show the swatch or not
 	 * <p>
@@ -305,7 +294,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.showSwatch = showSwatch;
 	}
-	
+
 	/**
 	 * ”insideGrid” places legend inside the grid area of the plot “outsideGrid” places the legend outside the grid but inside the plot container, shrinking the grid to accomodate the legend “inside”
 	 * synonym for “insideGrid”,
@@ -319,7 +308,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return placement;
 	}
-	
+
 	/**
 	 * ”insideGrid” places legend inside the grid area of the plot<p>
 	 * “outsideGrid” places the legend outside the grid but inside the plot container, shrinking the grid to accomodate the legend<p>
@@ -334,7 +323,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.placement = placement;
 	}
-	
+
 	/**
 	 * CSS Border Configuration line
 	 * <p>
@@ -345,7 +334,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return border;
 	}
-	
+
 	/**
 	 * Sets the css border configuration
 	 * <p>
@@ -356,7 +345,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.border = border;
 	}
-	
+
 	/**
 	 * Sets the CSS Background
 	 * <p>
@@ -367,7 +356,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return background;
 	}
-	
+
 	/**
 	 * Sets the CSS Background
 	 * <p>
@@ -378,7 +367,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.background = background;
 	}
-	
+
 	/**
 	 * Gets the text colour
 	 * <p>
@@ -389,7 +378,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return textColor;
 	}
-	
+
 	/**
 	 * Sets the text colour
 	 * <p>
@@ -400,7 +389,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.textColor = textColor.getValue();
 	}
-	
+
 	/**
 	 * Gets the font family used
 	 * <p>
@@ -411,7 +400,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return fontFamily;
 	}
-	
+
 	/**
 	 * Sets the font family used
 	 * <p>
@@ -422,7 +411,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.fontFamily = fontFamily;
 	}
-	
+
 	/**
 	 * Gets the font size
 	 * <p>
@@ -433,7 +422,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return fontSize;
 	}
-	
+
 	/**
 	 * Sets the font size
 	 * <p>
@@ -444,7 +433,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.fontSize = fontSize;
 	}
-	
+
 	/**
 	 * Gets the row spacing
 	 * <p>
@@ -455,7 +444,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return rowSpacing;
 	}
-	
+
 	/**
 	 * Sets the row spacing
 	 * <p>
@@ -466,7 +455,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.rowSpacing = rowSpacing;
 	}
-	
+
 	/**
 	 * Whether to draw the legend before the series or not.
 	 * <p>
@@ -477,7 +466,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return predraw;
 	}
-	
+
 	/**
 	 * Whether to draw the legend before the series or not.
 	 * <p>
@@ -488,7 +477,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.predraw = predraw;
 	}
-	
+
 	/**
 	 * Sets the margin top
 	 * <p>
@@ -499,7 +488,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return marginTop;
 	}
-	
+
 	/**
 	 * Sets the margin top
 	 * <p>
@@ -510,7 +499,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.marginTop = marginTop;
 	}
-	
+
 	/**
 	 * Sets the margin right
 	 * <p>
@@ -521,7 +510,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return marginRight;
 	}
-	
+
 	/**
 	 * Sets the margin right
 	 * <p>
@@ -532,7 +521,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.marginRight = marginRight;
 	}
-	
+
 	/**
 	 * Gets the margin bottom
 	 * <p>
@@ -543,7 +532,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return marginBottom;
 	}
-	
+
 	/**
 	 * Sets the margin bottom
 	 * <p>
@@ -554,7 +543,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.marginBottom = marginBottom;
 	}
-	
+
 	/**
 	 * Sets the margin left
 	 * <p>
@@ -565,7 +554,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return marginLeft;
 	}
-	
+
 	/**
 	 * Sets the margin left
 	 * <p>
@@ -576,7 +565,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.marginLeft = marginLeft;
 	}
-	
+
 	/**
 	 * Gets the linked graph for this legends box
 	 *
@@ -586,7 +575,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return linkedGraph;
 	}
-	
+
 	/**
 	 * Sets the linked graph for this box
 	 *
@@ -596,7 +585,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 	/**
 	 * Legend Renderer Options
 	 * <p>
@@ -612,7 +601,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 		}
 		return rendererOptions;
 	}
-	
+
 	/**
 	 * Sets legend renderer options
 	 *
@@ -623,7 +612,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 		this.renderer = rendererOptions.getRenderer();
 		this.rendererOptions = rendererOptions;
 	}
-	
+
 	/**
 	 * Returns the renderer string for the options
 	 *
@@ -633,5 +622,5 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	{
 		return renderer;
 	}
-	
+
 }

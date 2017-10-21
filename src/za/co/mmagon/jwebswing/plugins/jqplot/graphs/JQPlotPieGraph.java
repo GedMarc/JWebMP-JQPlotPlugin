@@ -23,6 +23,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.series.JQPlotSeriesPieOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The line graph implementation
@@ -37,30 +38,34 @@ import java.util.ArrayList;
 		url = "http://www.jqplot.com/examples/pieTest.php")
 public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQPlotOptions, J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	private ArrayList<JQPlotPieSlice> plotSlices;
-	
+
+	private List<JQPlotPieSlice> plotSlices;
+
 	public JQPlotPieGraph()
 	{
 		getOptions().getSeriesDefaults().setRendererOptions(new JQPlotSeriesPieOptions(this));
 	}
-	
+
 	/**
-	 * Returns the plot lines on this graph
-	 *
-	 * @return
+	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
+	 * <p>
 	 */
-	public ArrayList<JQPlotPieSlice> getPlotSlices()
+	public List<JQPlotPieSlice> addSlices(double[] values)
 	{
-		if (plotSlices == null)
+		ArrayList<JQPlotPieSlice> output = new ArrayList<>();
+		String s = "Slice ";
+		for (int i = 0; i < values.length; i++)
 		{
-			plotSlices = new ArrayList<>();
+			double value = values[i];
+			JQPlotPieSlice slice = new JQPlotPieSlice(s + i + 1, value);
+			getPlotSlices().add(slice);
 		}
-		return plotSlices;
+
+		return output;
 	}
-	
+
 	/**
 	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
 	 * <p>
@@ -71,25 +76,21 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 		getPlotSlices().add(slice);
 		return slice;
 	}
-	
+
 	/**
-	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
-	 * <p>
+	 * Returns the plot lines on this graph
+	 *
+	 * @return
 	 */
-	public ArrayList<JQPlotPieSlice> addSlices(double[] values)
+	public List<JQPlotPieSlice> getPlotSlices()
 	{
-		ArrayList<JQPlotPieSlice> output = new ArrayList<>();
-		String s = "Slice ";
-		for (int i = 0; i < values.length; i++)
+		if (plotSlices == null)
 		{
-			double value = values[i];
-			JQPlotPieSlice slice = new JQPlotPieSlice("Slice " + i + 1, value);
-			getPlotSlices().add(slice);
+			plotSlices = new ArrayList<>();
 		}
-		
-		return output;
+		return plotSlices;
 	}
-	
+
 	/**
 	 * 3 Bracket start
 	 *
@@ -108,5 +109,34 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 		sb = sb.deleteCharAt(sb.lastIndexOf(","));
 		sb.append("]]");
 		return sb;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JQPlotPieGraph))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQPlotPieGraph<?> that = (JQPlotPieGraph<?>) o;
+
+		return getPlotSlices() != null ? getPlotSlices().equals(that.getPlotSlices()) : that.getPlotSlices() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getPlotSlices() != null ? getPlotSlices().hashCode() : 0);
+		return result;
 	}
 }

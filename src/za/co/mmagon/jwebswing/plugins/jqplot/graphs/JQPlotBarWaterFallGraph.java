@@ -38,17 +38,18 @@ import java.util.List;
 		url = "http://www.jqplot.com/examples/waterfall.php")
 public class JQPlotBarWaterFallGraph extends JQPlotBarGraph
 {
-	
+
 	/**
 	 * Version 1
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new JQPlotBar Graph default waterfall graph
 	 * <p>
 	 *
-	 * @param orientation Vertical or Horizontal. Configures where to apply the Tick Renderer. Don't ever make this null
+	 * @param orientation
+	 * 		Vertical or Horizontal. Configures where to apply the Tick Renderer. Don't ever make this null
 	 */
 	public JQPlotBarWaterFallGraph(Orientation orientation)
 	{
@@ -57,34 +58,35 @@ public class JQPlotBarWaterFallGraph extends JQPlotBarGraph
 		setWaterfall(true);
 		getJavascriptReferences().add(JQPlotJavascriptReferencePool.BarRenderer.getReference());
 		getOptions().getSeriesDefaults().setRendererOptions(barGraphOptions);
-		
+
 		getBarGraphOptions().setWaterfall(true);
 		getBarGraphOptions().setVaryBarColor(true);
-		
+
 		getOptions().getSeriesDefaults().getPointLabels().setHideZeros(true);
-		
+
 		getOptions().getSeriesDefaults().setYaxis(YAxisTypes.Y2Axis);
-		
+
 		getOptions().getAxes().getxAxis().setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
-		
+
 	}
-	
+
 	@Override
 	public void preConfigure()
 	{
 		super.preConfigure();
 		getBarGraphOptions().setFillToZero(null);
 	}
-	
+
 	/**
 	 * Adds a new bar for cluster graphs for each bar value to have a series name
 	 *
-	 * @param xAxisName The tick or category value
-	 * @param BarName   The yAxis Value
-	 * @param barValue  The actual bar value
-	 *
-	 * @deprecated Not For Waterfalls
-	 * <p>
+	 * @param xAxisName
+	 * 		The tick or category value
+	 * @param BarName
+	 * 		The yAxis Value
+	 * @param barValue
+	 * 		The actual bar value
+	 * 		<p>
 	 */
 	@Override
 	public void addBar(String xAxisName, String BarName, Double barValue)
@@ -94,63 +96,13 @@ public class JQPlotBarWaterFallGraph extends JQPlotBarGraph
 		bar.setClustered(true);
 		addBar(bar);
 	}
-	
-	/**
-	 * Adds a new bar and category to the 0 bar group number for waterfall standard graphs
-	 * <p>
-	 *
-	 * @param xAxisName     The tick or category value
-	 * @param startingPoint The starting point for a bar
-	 * @param barValue      The actual bar value
-	 */
-	@Override
-	public void addBar(String xAxisName, Double startingPoint, Double barValue)
-	{
-		JQPlotBar bar = new JQPlotBar(xAxisName, startingPoint, barValue);
-		barGraphOptions.setWaterfall(true);
-		setWaterfall(true);
-		addBar(bar);
-	}
-	
-	/**
-	 * Adds a new bar and category to the 0 bar group number for waterfall clustered graphs
-	 * <p>
-	 *
-	 * @param xAxisName     The tick or category value
-	 * @param BarName       The yAxis Value
-	 * @param startingPoint The starting point for a bar
-	 * @param barValue      The actual bar value
-	 */
-	@Override
-	public void addBar(String xAxisName, String BarName, Double startingPoint, Double barValue)
-	{
-		JQPlotBar bar = new JQPlotBar(xAxisName, BarName, startingPoint, barValue);
-		barGraphOptions.setWaterfall(true);
-		setWaterfall(true);
-		addBar(bar);
-	}
-	
-	/**
-	 * Adds a new bar and category to the 0 bar group number
-	 *
-	 * @param XAxisValue The tick or category value
-	 * @param dataValue  The yAxis Value
-	 *
-	 * @deprecated Not For Waterfalls
-	 * <p>
-	 */
-	public void addBar(String XAxisValue, Double dataValue)
-	{
-		JQPlotBar bar = new JQPlotBar(XAxisValue, dataValue);
-		bar.setWaterfall(true);
-		addBar(bar);
-	}
-	
+
 	/**
 	 * Adds a new bar and x Axis to the 0 bar group
 	 * <p>
 	 *
-	 * @param bar The bar to add to the bar group 0
+	 * @param bar
+	 * 		The bar to add to the bar group 0
 	 */
 	@Override
 	public void addBar(JQPlotBar bar)
@@ -163,5 +115,63 @@ public class JQPlotBarWaterFallGraph extends JQPlotBarGraph
 			getCategoryTickValues().add(bar.getxAxisValue());
 		}
 	}
-	
+
+	/**
+	 * Adds a new bar and category to the 0 bar group number for waterfall standard graphs
+	 * <p>
+	 *
+	 * @param xAxisName
+	 * 		The tick or category value
+	 * @param startingPoint
+	 * 		The starting point for a bar
+	 * @param barValue
+	 * 		The actual bar value
+	 */
+	@Override
+	public void addBar(String xAxisName, Double startingPoint, Double barValue)
+	{
+		JQPlotBar bar = new JQPlotBar(xAxisName, startingPoint, barValue);
+		barGraphOptions.setWaterfall(true);
+		setWaterfall(true);
+		addBar(bar);
+	}
+
+	/**
+	 * Adds a new bar and category to the 0 bar group number for waterfall clustered graphs
+	 * <p>
+	 *
+	 * @param xAxisName
+	 * 		The tick or category value
+	 * @param BarName
+	 * 		The yAxis Value
+	 * @param startingPoint
+	 * 		The starting point for a bar
+	 * @param barValue
+	 * 		The actual bar value
+	 */
+	@Override
+	public void addBar(String xAxisName, String BarName, Double startingPoint, Double barValue)
+	{
+		JQPlotBar bar = new JQPlotBar(xAxisName, BarName, startingPoint, barValue);
+		barGraphOptions.setWaterfall(true);
+		setWaterfall(true);
+		addBar(bar);
+	}
+
+	/**
+	 * Adds a new bar and category to the 0 bar group number
+	 *
+	 * @param XAxisValue
+	 * 		The tick or category value
+	 * @param dataValue
+	 * 		The yAxis Value
+	 * 		<p>
+	 */
+	public void addBar(String XAxisValue, Double dataValue)
+	{
+		JQPlotBar bar = new JQPlotBar(XAxisValue, dataValue);
+		bar.setWaterfall(true);
+		addBar(bar);
+	}
+
 }

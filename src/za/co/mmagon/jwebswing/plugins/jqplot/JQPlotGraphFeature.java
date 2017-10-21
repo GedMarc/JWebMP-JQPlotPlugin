@@ -27,18 +27,18 @@ import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferenc
  *
  * @author mmagon
  * @version 2.0
- * <p>
- * 2016/02/26 Update to the feature for 1.0.9 and updates to the JavaScript Engine
+ * 		<p>
+ * 		2016/02/26 Update to the feature for 1.0.9 and updates to the JavaScript Engine
  * @since 2014/07/08
  */
 public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeature> implements JQPlotGraphFeatures, GlobalFeatures
 {
-	
+
 	/**
 	 * The graph this feature is linked to
 	 */
 	private JQPlotGraph graph;
-	
+
 	public JQPlotGraphFeature(JQPlotGraph forGraph)
 	{
 		super("JWGraphFeature");
@@ -48,29 +48,28 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 		getCssReferences().add(JQPlotCSSReferencePool.GraphCore.getReference());
 		forGraph.addVariable(getVariableName());
 	}
-	
+
 	public String getVariableName()
 	{
 		return graph.getID().replaceAll("-", "_") + "_plot";
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
 		getGraph().addVariable(getVariableName());
 		StringBuilder sb = new StringBuilder();
-		
+
 		addQuery("$.jqplot.config.enablePlugins = true;" + getNewLine());
-		
+
 		sb.append("var ").append(getVariableName()).append(" = ");
 		sb.append(getComponent().getJQueryID()).append("jqplot(");
 		sb.append(graph.getDataPointRender()).append(",").append(getNewLine());
-		JavaScriptPart options = getOptions();
 		sb.append(getOptions());
 		sb.append(");").append(getNewLine());
 		addQuery(sb.toString());
 	}
-	
+
 	/**
 	 * Gets the graph with this feature
 	 *
@@ -80,7 +79,7 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 	{
 		return graph;
 	}
-	
+
 	/**
 	 * Sets the graph for this feature
 	 *
@@ -90,5 +89,33 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 	{
 		this.graph = graph;
 	}
-	
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JQPlotGraphFeature))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQPlotGraphFeature that = (JQPlotGraphFeature) o;
+
+		return getGraph() != null ? getGraph().equals(that.getGraph()) : that.getGraph() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getGraph() != null ? getGraph().hashCode() : 0);
+		return result;
+	}
 }

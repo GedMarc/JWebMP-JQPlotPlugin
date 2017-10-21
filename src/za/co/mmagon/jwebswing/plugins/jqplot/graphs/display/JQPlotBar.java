@@ -227,14 +227,6 @@ public class JQPlotBar implements JQPlotSeriesItem
 		}
 		if (isWaterfall())
 		{
-		    /*
-	         * if (isClustered())
-             * {
-             * return "[\"" + getCategoryValue() + "\"," + getStartingValue() + "," + getyValue() + "],";
-             * }
-             */
-
-			//return getStartingValue() + "," + getyValue() + ",";
 			return getyValue() + ",";
 		}
 

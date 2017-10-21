@@ -22,6 +22,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.graphs.display.JQPlotLine;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The line graph implementation
@@ -37,21 +38,37 @@ import java.util.ArrayList;
 public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 		extends JQPlotGraph<JQPlotOptions, J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	private ArrayList<JQPlotLine> plotLines;
-	
+
+	private List<JQPlotLine> plotLines;
+
+	/**
+	 * The plot line graph
+	 */
 	public JQPlotLineGraph()
 	{
+		//Nothing Needed
 	}
-	
+
+	/**
+	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
+	 *
+	 * @param xyValues
+	 * 		An array of x,y values continual
+	 */
+	public void addLine(double... xyValues)
+	{
+		JQPlotLine newLine = new JQPlotLine(JQPlotLine.buildFromArray(xyValues));
+		getPlotLines().add(newLine);
+	}
+
 	/**
 	 * Returns the plot lines on this graph
 	 *
 	 * @return
 	 */
-	public ArrayList<JQPlotLine> getPlotLines()
+	public List<JQPlotLine> getPlotLines()
 	{
 		if (plotLines == null)
 		{
@@ -59,66 +76,43 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 		}
 		return plotLines;
 	}
-	
+
 	/**
 	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
 	 *
-	 * @param xyValues An array of x,y values continual
-	 */
-	public void addLine(double... xyValues)
-	{
-		JQPlotLine newLine = new JQPlotLine(JQPlotLine.buildFromArray(xyValues));
-		getPlotLines().add(newLine);
-	}
-	
-	/**
-	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
-	 *
-	 * @param xyValues An array of x,y values continual
+	 * @param xyValues
+	 * 		An array of x,y values continual
 	 */
 	public void addLine(Object[] xyValues)
 	{
 		JQPlotLine newLine = new JQPlotLine(JQPlotLine.buildFromArray(xyValues));
 		getPlotLines().add(newLine);
 	}
-	
+
 	/**
 	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
 	 *
-	 * @param xyValues An array of x,y values continual
-	 */
-	public void addLine(boolean yOnly, double... xyValues)
-	{
-		JQPlotLine newLine = new JQPlotLine();
-		for (double xyValue : xyValues)
-		{
-			newLine.addPoint(xyValue);
-		}
-		getPlotLines().add(newLine);
-	}
-	
-	/**
-	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
-	 *
-	 * @param xyValues A string of x,y coordinates
+	 * @param xyValues
+	 * 		A string of x,y coordinates
 	 */
 	public void addLine(String xyValues)
 	{
 		JQPlotLine newLine = new JQPlotLine(JQPlotLine.buildFromDelimiteredSrting(xyValues, ","));
 		getPlotLines().add(newLine);
 	}
-	
+
 	/**
 	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
 	 *
-	 * @param newLine A new line to add
+	 * @param newLine
+	 * 		A new line to add
 	 */
 	public void addLine(JQPlotLine newLine)
 	{
-		
+
 		getPlotLines().add(newLine);
 	}
-	
+
 	@Override
 	protected StringBuilder getDataPointRender()
 	{
@@ -132,5 +126,34 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 		sb = sb.deleteCharAt(sb.lastIndexOf(","));
 		sb.append("]");
 		return sb;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JQPlotLineGraph))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQPlotLineGraph<?> that = (JQPlotLineGraph<?>) o;
+
+		return getPlotLines() != null ? getPlotLines().equals(that.getPlotLines()) : that.getPlotLines() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getPlotLines() != null ? getPlotLines().hashCode() : 0);
+		return result;
 	}
 }

@@ -46,7 +46,7 @@ import java.util.logging.Logger;
 		url = "http://www.jqplot.com/examples/barTest.php")
 public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQPlotSeriesBarOptions, J>
 {
-	
+
 	/**
 	 * The logger for the swing Servlet
 	 */
@@ -83,12 +83,13 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	 * If the graph is rendering as a waterfall
 	 */
 	private boolean waterfall;
-	
+
 	/**
 	 * Constructs a new JQPlotBar Graph default Graph
 	 * <p>
 	 *
-	 * @param orientation Vertical or Horizontal. Configures where to apply the Tick Renderer. Don't ever make this null
+	 * @param orientation
+	 * 		Vertical or Horizontal. Configures where to apply the Tick Renderer. Don't ever make this null
 	 */
 	public JQPlotBarGraph(Orientation orientation)
 	{
@@ -96,14 +97,96 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		getJavascriptReferences().add(JQPlotJavascriptReferencePool.BarRenderer.getReference());
 		getOptions().getSeriesDefaults().setRendererOptions(getBarGraphOptions());
 	}
-	
+
+	/**
+	 * Sets the orientation of the bar graph. final
+	 *
+	 * @param orientation
+	 */
+	public final void setOrientation(Orientation orientation)
+	{
+		this.orientation = orientation;
+		switch (orientation)
+		{
+			case HORIZONTAL:
+			{
+				JQPlotAxisOptions axis = getOptions().getAxes().getyAxis();
+				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				axis.setTicks(getCategoryTickValues());
+
+				getSeriesDefaultBarOptions().setBarDirection(Orientation.HORIZONTAL);
+				if (getOptions().getSeriesDefaults().getPointLabels().getShow() == null)
+				{
+					getOptions().getSeriesDefaults().getPointLabels().setLocation(CompassPoints.E);
+					getOptions().getSeriesDefaults().getPointLabels().setEdgeTolerance(-15);
+					getOptions().getSeriesDefaults().setShadowAngle(135);
+				}
+				getOptions().getAxes().setxAxis(null);
+
+				break;
+			}
+			case VERTICAL:
+			default:
+			{
+				JQPlotAxisOptions axis = getOptions().getAxes().getxAxis();
+				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				axis.setTicks(getCategoryTickValues());
+
+				getOptions().getAxes().setyAxis(null);
+				break;
+			}
+		}
+	}
+
+	/**
+	 * Returns the current tick values array
+	 * <p>
+	 *
+	 * @return
+	 */
+	public List<String> getCategoryTickValues()
+	{
+		if (categoryTickValues == null)
+		{
+			categoryTickValues = new ArrayList<>();
+		}
+
+		getBarGroups().entrySet().forEach(entry ->
+		                                  {
+			                                  String key = entry.getKey();
+			                                  if (!categoryTickValues.contains(key))
+			                                  {
+				                                  categoryTickValues.add(key);
+			                                  }
+		                                  });
+		return categoryTickValues;
+	}
+
+	/**
+	 * Sets the default bar options if null for series default
+	 *
+	 * @return
+	 */
+	public JQPlotSeriesBarOptions getSeriesDefaultBarOptions()
+	{
+		if (getOptions().getSeriesDefaults().getRendererOptions() == null)
+		{
+			getOptions().getSeriesDefaults().setRendererOptions(getBarGraphOptions());
+		}
+
+		return (JQPlotSeriesBarOptions) getOptions().getSeriesDefaults().getRendererOptions();
+	}
+
 	/**
 	 * Adds a new bar for cluster graphs for each bar value to have a series name
 	 * <p>
 	 *
-	 * @param xAxisName The tick or category value
-	 * @param BarName   The yAxis Value
-	 * @param barValue  The actual bar value
+	 * @param xAxisName
+	 * 		The tick or category value
+	 * @param BarName
+	 * 		The yAxis Value
+	 * @param barValue
+	 * 		The actual bar value
 	 */
 	public void addBar(String xAxisName, String BarName, Double barValue)
 	{
@@ -112,65 +195,20 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		bar.setClustered(true);
 		addBar(bar);
 	}
-	
-	/**
-	 * Adds a new bar and category to the 0 bar group number for waterfall standard graphs
-	 * <p>
-	 *
-	 * @param xAxisName     The tick or category value
-	 * @param startingPoint The starting point for a bar
-	 * @param barValue      The actual bar value
-	 */
-	public void addBar(String xAxisName, Double startingPoint, Double barValue)
-	{
-		JQPlotBar bar = new JQPlotBar(xAxisName, startingPoint, barValue);
-		getBarGraphOptions().setWaterfall(true);
-		setWaterfall(true);
-		addBar(bar);
-	}
-	
-	/**
-	 * Adds a new bar and category to the 0 bar group number for waterfall clustered graphs
-	 * <p>
-	 *
-	 * @param xAxisName     The tick or category value
-	 * @param BarName       The yAxis Value
-	 * @param startingPoint The starting point for a bar
-	 * @param barValue      The actual bar value
-	 */
-	public void addBar(String xAxisName, String BarName, Double startingPoint, Double barValue)
-	{
-		JQPlotBar bar = new JQPlotBar(xAxisName, BarName, startingPoint, barValue);
-		getBarGraphOptions().setWaterfall(true);
-		setWaterfall(true);
-		addBar(bar);
-	}
-	
-	/**
-	 * Adds a new bar and category to the 0 bar group number
-	 * <p>
-	 *
-	 * @param XAxisValue The tick or category value
-	 * @param dataValue  The yAxis Value
-	 */
-	public void addBar(String XAxisValue, double dataValue)
-	{
-		JQPlotBar bar = new JQPlotBar(XAxisValue, dataValue);
-		addBar(bar);
-	}
-	
+
 	/**
 	 * Adds a new bar and x Axis to the 0 bar group
 	 * <p>
 	 *
-	 * @param bar The bar to add to the bar group 0
+	 * @param bar
+	 * 		The bar to add to the bar group 0
 	 */
 	public void addBar(JQPlotBar bar)
 	{
 		List<JQPlotBar> bars = getBarGroup(bar.getxAxisValue());
 		bars.add(bar);
 	}
-	
+
 	/**
 	 * Returns the bar group associated with the category. If no group is found a new one is created
 	 *
@@ -184,11 +222,9 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		{
 			getBarGroups().put(xAxisValue, new ArrayList<>());
 		}
-		List<JQPlotBar> bars = getBarGroups().get(xAxisValue);
-		
-		return bars;
+		return getBarGroups().get(xAxisValue);
 	}
-	
+
 	/**
 	 * Returns the largest number of clusters for each category (x)
 	 *
@@ -199,7 +235,6 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		int clusterBars = 0;
 		for (Map.Entry<String, List<JQPlotBar>> entry : getBarGroups().entrySet())
 		{
-			String key = entry.getKey();
 			List<JQPlotBar> value = entry.getValue();
 			if (value.size() > clusterBars)
 			{
@@ -208,7 +243,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		}
 		return clusterBars;
 	}
-	
+
 	/**
 	 * Returns the maximum integer from the bar grouping. Not a count of bar groups
 	 * <p>
@@ -219,7 +254,123 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	{
 		return getBarGroups().size();
 	}
-	
+
+	/**
+	 * Adds a new bar and category to the 0 bar group number for waterfall standard graphs
+	 * <p>
+	 *
+	 * @param xAxisName
+	 * 		The tick or category value
+	 * @param startingPoint
+	 * 		The starting point for a bar
+	 * @param barValue
+	 * 		The actual bar value
+	 */
+	public void addBar(String xAxisName, Double startingPoint, Double barValue)
+	{
+		JQPlotBar bar = new JQPlotBar(xAxisName, startingPoint, barValue);
+		getBarGraphOptions().setWaterfall(true);
+		setWaterfall(true);
+		addBar(bar);
+	}
+
+	/**
+	 * Renders each bar in a list
+	 *
+	 * @param value
+	 *
+	 * @return
+	 */
+	protected StringBuilder renderBarArrayList(List<JQPlotBar> value)
+	{
+		StringBuilder sb = new StringBuilder();
+		value.forEach(sb::append);
+		return sb;
+	}
+
+	/**
+	 * Adds a new bar and category to the 0 bar group number for waterfall clustered graphs
+	 * <p>
+	 *
+	 * @param xAxisName
+	 * 		The tick or category value
+	 * @param BarName
+	 * 		The yAxis Value
+	 * @param startingPoint
+	 * 		The starting point for a bar
+	 * @param barValue
+	 * 		The actual bar value
+	 */
+	public void addBar(String xAxisName, String BarName, Double startingPoint, Double barValue)
+	{
+		JQPlotBar bar = new JQPlotBar(xAxisName, BarName, startingPoint, barValue);
+		getBarGraphOptions().setWaterfall(true);
+		setWaterfall(true);
+		addBar(bar);
+	}
+
+	/**
+	 * Sets if this graph is clustered
+	 *
+	 * @return
+	 */
+	public boolean isTwoD()
+	{
+		return TwoD;
+	}
+
+	/**
+	 * Sets if this bar graph is clustered or not
+	 *
+	 * @param TwoD
+	 */
+	public void setTwoD(boolean TwoD)
+	{
+		this.TwoD = TwoD;
+	}
+
+	/**
+	 * Adds a new bar and category to the 0 bar group number
+	 * <p>
+	 *
+	 * @param XAxisValue
+	 * 		The tick or category value
+	 * @param dataValue
+	 * 		The yAxis Value
+	 */
+	public void addBar(String XAxisValue, double dataValue)
+	{
+		JQPlotBar bar = new JQPlotBar(XAxisValue, dataValue);
+		addBar(bar);
+	}
+
+	/**
+	 * Return a linked hash map each of the bar groups in order of Integer.
+	 * <p>
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Map<String, List<JQPlotBar>> getBarGroups()
+	{
+		if (barGroups == null)
+		{
+			barGroups = new LinkedHashMap<>();
+		}
+		return barGroups;
+	}
+
+	/**
+	 * Returns the orientation of this bar graph
+	 * <p>
+	 *
+	 * @return
+	 */
+	public Orientation getOrientation()
+	{
+		return orientation;
+	}
+
 	/**
 	 * Create the ticks and correct axis options and stuff
 	 */
@@ -250,37 +401,20 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 				axis.setTicks(getCategoryTickValues());
 			}
 		}
-		
-		getBarGroups().entrySet().stream().map(entry ->
-		                                       {
-			                                       String key = entry.getKey();
-			                                       return entry;
-		                                       }).map(entry -> entry.getValue()).forEachOrdered(value ->
-		                                                                                        {
-			                                                                                        value.stream().filter(next ->
-			                                                                                                              {
-				                                                                                                              return next.getyValue() != null;
-			                                                                                                              }).filter(next -> (next.getyValue() < 0)).map(_item -> (JQPlotSeriesBarOptions) getOptions().getSeriesDefaults().getRendererOptions()).forEachOrdered((barOptions) ->
-			                                                                                                                                                                                                                                                                    {
-				                                                                                                                                                                                                                                                                    barOptions.setFillToZero(true);
-			                                                                                                                                                                                                                                                                    });
-		                                                                                        });
+
+		getBarGroups().forEach((key, value) ->
+		                       {
+			                       value.forEach(a ->
+			                                     {
+				                                     if (a.getyValue() != null && a.getyValue() < 0)
+				                                     {
+					                                     JQPlotSeriesBarOptions series = (JQPlotSeriesBarOptions) getOptions().getSeriesDefaults().getRendererOptions();
+					                                     series.setFillToZero(true);
+				                                     }
+			                                     });
+		                       });
 	}
-	
-	/**
-	 * Renders each bar in a list
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	protected StringBuilder renderBarArrayList(List<JQPlotBar> value)
-	{
-		StringBuilder sb = new StringBuilder();
-		value.forEach(sb::append);
-		return sb;
-	}
-	
+
 	/**
 	 * Gets the data points to be rendered
 	 * <p>
@@ -292,21 +426,20 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
-		
+
 		int clusterBarCount = getNumberOfClusterBars();
 		int categoryCount = getNumberOfBarGroups();
-		
+
 		if (clusterBarCount > 1)
 		{
 			setTwoD(true);
 		}
-		
+
 		if (!isTwoD())
 		{
 			sb.append("[");
 			for (Map.Entry<String, List<JQPlotBar>> entrySet : getBarGroups().entrySet())
 			{
-				String key = entrySet.getKey();
 				List<JQPlotBar> value = entrySet.getValue();
 				sb.append(renderBarArrayList(value));
 			}
@@ -320,26 +453,25 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		{
 			Object[] rows = new Object[clusterBarCount];
 			Object[] valuesPerRow;//
-			
+
 			//The expected number of bars per category, aka number of arrays to build
 			for (int i = 0; i < clusterBarCount; i++)
 			{
 				rows[i] = valuesPerRow = new Object[categoryCount];
-				
+
 				//Get the int i number bar number per category;
 				for (int j = 0; j < categoryCount; j++)
 				{
 					int mapPosition = 0;
 					for (Map.Entry<String, List<JQPlotBar>> entry : getBarGroups().entrySet())
 					{
-						String key = entry.getKey();
 						List<JQPlotBar> value = entry.getValue();
-						
+
 						if (i >= value.size())
 						{
 							break;
 						}
-						
+
 						if (mapPosition == j)
 						{
 							try
@@ -367,7 +499,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 						mapPosition++;
 					}
 				}
-				
+
 			}
 			//Load values from Array
 			for (Object row1 : rows)
@@ -396,136 +528,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		sb.append("]");
 		return sb;
 	}
-	
-	/**
-	 * Sets if this graph is clustered
-	 *
-	 * @return
-	 */
-	public boolean isTwoD()
-	{
-		return TwoD;
-	}
-	
-	/**
-	 * Sets if this bar graph is clustered or not
-	 *
-	 * @param TwoD
-	 */
-	public void setTwoD(boolean TwoD)
-	{
-		this.TwoD = TwoD;
-	}
-	
-	/**
-	 * Returns the current tick values array
-	 * <p>
-	 *
-	 * @return
-	 */
-	public List<String> getCategoryTickValues()
-	{
-		if (categoryTickValues == null)
-		{
-			categoryTickValues = new ArrayList<>();
-		}
-		
-		getBarGroups().entrySet().forEach((entry) ->
-		                                  {
-			                                  String key = entry.getKey();
-			                                  List<JQPlotBar> value = entry.getValue();
-			                                  if (!categoryTickValues.contains(key))
-			                                  {
-				                                  categoryTickValues.add(key);
-			                                  }
-		                                  });
-		return categoryTickValues;
-	}
-	
-	/**
-	 * Return a linked hash map each of the bar groups in order of Integer.
-	 * <p>
-	 * <p>
-	 *
-	 * @return
-	 */
-	public Map<String, List<JQPlotBar>> getBarGroups()
-	{
-		if (barGroups == null)
-		{
-			barGroups = new LinkedHashMap<>();
-		}
-		return barGroups;
-	}
-	
-	/**
-	 * Returns the orientation of this bar graph
-	 * <p>
-	 *
-	 * @return
-	 */
-	public Orientation getOrientation()
-	{
-		return orientation;
-	}
-	
-	/**
-	 * Sets the orientation of the bar graph. final
-	 *
-	 * @param orientation
-	 */
-	public final void setOrientation(Orientation orientation)
-	{
-		this.orientation = orientation;
-		switch (orientation)
-		{
-			case HORIZONTAL:
-			{
-				JQPlotAxisOptions axis = getOptions().getAxes().getyAxis();
-				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
-				axis.setTicks(getCategoryTickValues());
-				
-				getSeriesDefaultBarOptions().setBarDirection(Orientation.HORIZONTAL);
-				if (!(getOptions().getSeriesDefaults().getPointLabels().getShow() != null))
-				{
-					getOptions().getSeriesDefaults().getPointLabels().setLocation(CompassPoints.E);
-					getOptions().getSeriesDefaults().getPointLabels().setEdgeTolerance(-15);
-					getOptions().getSeriesDefaults().setShadowAngle(135);
-					
-				}
-				
-				getOptions().getAxes().setxAxis(null);
-				
-				break;
-			}
-			case VERTICAL:
-			default:
-			{
-				JQPlotAxisOptions axis = getOptions().getAxes().getxAxis();
-				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
-				axis.setTicks(getCategoryTickValues());
-				
-				getOptions().getAxes().setyAxis(null);
-				break;
-			}
-		}
-	}
-	
-	/**
-	 * Sets the default bar options if null for series default
-	 *
-	 * @return
-	 */
-	public JQPlotSeriesBarOptions getSeriesDefaultBarOptions()
-	{
-		if (getOptions().getSeriesDefaults().getRendererOptions() == null)
-		{
-			getOptions().getSeriesDefaults().setRendererOptions(getBarGraphOptions());
-		}
-		
-		return (JQPlotSeriesBarOptions) getOptions().getSeriesDefaults().getRendererOptions();
-	}
-	
+
 	/**
 	 * Gets if this is a waterfall bar
 	 *
@@ -535,7 +538,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	{
 		return waterfall;
 	}
-	
+
 	/**
 	 * sets if this is a waterfall bar
 	 *
@@ -545,7 +548,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	{
 		this.waterfall = waterfall;
 	}
-	
+
 	/**
 	 * gets if this is a clustered bar
 	 *
@@ -555,7 +558,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	{
 		return clustered;
 	}
-	
+
 	/**
 	 * sets if this is a clustered bar
 	 *
@@ -565,7 +568,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	{
 		this.clustered = clustered;
 	}
-	
+
 	/**
 	 * Returns a new instance of the Bar Graph Options
 	 *
@@ -579,5 +582,63 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		}
 		return barGraphOptions;
 	}
-	
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JQPlotBarGraph))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQPlotBarGraph<?> that = (JQPlotBarGraph<?>) o;
+
+		if (isTwoD() != that.isTwoD())
+		{
+			return false;
+		}
+		if (isClustered() != that.isClustered())
+		{
+			return false;
+		}
+		if (isWaterfall() != that.isWaterfall())
+		{
+			return false;
+		}
+		if (getBarGraphOptions() != null ? !getBarGraphOptions().equals(that.getBarGraphOptions()) : that.getBarGraphOptions() != null)
+		{
+			return false;
+		}
+		if (getCategoryTickValues() != null ? !getCategoryTickValues().equals(that.getCategoryTickValues()) : that.getCategoryTickValues() != null)
+		{
+			return false;
+		}
+		if (getBarGroups() != null ? !getBarGroups().equals(that.getBarGroups()) : that.getBarGroups() != null)
+		{
+			return false;
+		}
+		return getOrientation() == that.getOrientation();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getBarGraphOptions() != null ? getBarGraphOptions().hashCode() : 0);
+		result = 31 * result + (isTwoD() ? 1 : 0);
+		result = 31 * result + (getCategoryTickValues() != null ? getCategoryTickValues().hashCode() : 0);
+		result = 31 * result + (getBarGroups() != null ? getBarGroups().hashCode() : 0);
+		result = 31 * result + (getOrientation() != null ? getOrientation().hashCode() : 0);
+		result = 31 * result + (isClustered() ? 1 : 0);
+		result = 31 * result + (isWaterfall() ? 1 : 0);
+		return result;
+	}
 }

@@ -23,11 +23,9 @@ import za.co.mmagon.jwebswing.plugins.jqplot.graphs.display.JQPlotDonutGroup;
 import za.co.mmagon.jwebswing.plugins.jqplot.graphs.display.JQPlotPieSlice;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.series.JQPlotSeriesDonutOptions;
-import za.co.mmagon.logger.LogFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * The line graph implementation
@@ -46,26 +44,21 @@ import java.util.logging.Logger;
 public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 		extends JQPlotGraph<JQPlotOptions, J>
 {
-	
-	/**
-	 * The logger for the swing Servlet
-	 */
-	private static final Logger LOG = LogFactory.getInstance().getLogger("JQPlotDonutGraph");
-	
 	private static final long serialVersionUID = 1L;
-	
+
 	@JsonIgnore
 	private JQPlotSeriesDonutOptions donutOptions;
-	
+
 	@JsonIgnore
 	private JQPlotDonutGroup donutGroup;
-	
+
 	public JQPlotDonutGraph()
 	{
-		getOptions().getSeriesDefaults().setRendererOptions(donutOptions = new JQPlotSeriesDonutOptions(this));
+		donutOptions = new JQPlotSeriesDonutOptions(this);
+		getOptions().getSeriesDefaults().setRendererOptions(donutOptions);
 		donutGroup = new JQPlotDonutGroup();
 	}
-	
+
 	/**
 	 * Returns the plot lines on this graph
 	 *
@@ -80,14 +73,15 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 		{
 			getDonutGroup().add(donutGroup, arr);
 		}
-		
+
 		return getDonutGroup().get(donutGroup);
 	}
-	
+
 	/**
 	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
 	 *
-	 * @param doubleGroup the donut group number to assign towards
+	 * @param doubleGroup
+	 * 		the donut group number to assign towards
 	 * @param name
 	 * @param values
 	 *
@@ -99,12 +93,31 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 		getDonutGroupSlices(doubleGroup).add(slice);
 		return slice;
 	}
-	
+
+	/**
+	 * Keep Group Number In oRder. if number is not in the size list, array list index out of bounds or
+	 *
+	 * @param groupNumber
+	 *
+	 * @return
+	 */
+	public List<JQPlotPieSlice> getDonutGroupSlices(int groupNumber)
+	{
+		if (getDonutGroup().size() >= groupNumber)
+		{
+			List<JQPlotPieSlice> newList = new ArrayList<>();
+			getDonutGroup().add(newList);
+		}
+		return getDonutGroup().get(groupNumber);
+	}
+
 	/**
 	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
 	 *
-	 * @param doubleGroup The group to add the pie values to
-	 * @param values      An array of x,y values continual
+	 * @param doubleGroup
+	 * 		The group to add the pie values to
+	 * @param values
+	 * 		An array of x,y values continual
 	 *
 	 * @return
 	 */
@@ -117,10 +130,42 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 			JQPlotPieSlice slice = new JQPlotPieSlice("Slice " + i, value);
 			newSlices.add(slice);
 		}
-		
+
 		return newSlices;
 	}
-	
+
+	/**
+	 * The donut options
+	 *
+	 * @return
+	 */
+	public JQPlotSeriesDonutOptions getDonutOptions()
+	{
+		return donutOptions;
+	}
+
+	/**
+	 * The donut options
+	 *
+	 * @param donutOptions
+	 */
+	public void setDonutOptions(JQPlotSeriesDonutOptions donutOptions)
+	{
+		this.donutOptions = donutOptions;
+	}
+
+	/**
+	 * Returns a specific donut group. Rendered as [] in
+	 *
+	 * @return
+	 */
+	@JsonRawValue
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	public List<List<JQPlotPieSlice>> getDonutGroupJSON()
+	{
+		return getDonutGroup();
+	}
+
 	/**
 	 * 3 Bracket start
 	 *
@@ -133,59 +178,10 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 		String jsonInString;
 		jsonInString = getDonutGroupJSON().toString();
 		sb.append(jsonInString);
-		
+
 		return sb;
 	}
-	
-	/**
-	 * The donut options
-	 *
-	 * @return
-	 */
-	public JQPlotSeriesDonutOptions getDonutOptions()
-	{
-		return donutOptions;
-	}
-	
-	/**
-	 * The donut options
-	 *
-	 * @param donutOptions
-	 */
-	public void setDonutOptions(JQPlotSeriesDonutOptions donutOptions)
-	{
-		this.donutOptions = donutOptions;
-	}
-	
-	/**
-	 * Returns a specific donut group. Rendered as [] in
-	 *
-	 * @return
-	 */
-	@JsonRawValue
-	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
-	public List<List<JQPlotPieSlice>> getDonutGroupJSON()
-	{
-		return getDonutGroup();
-	}
-	
-	/**
-	 * Keep Group Number In oRder. if number is not in the size list, array list index out of bounds or
-	 *
-	 * @param groupNumber
-	 *
-	 * @return
-	 */
-	public List<JQPlotPieSlice> getDonutGroupSlices(int groupNumber) throws ArrayIndexOutOfBoundsException
-	{
-		if (getDonutGroup().size() >= groupNumber)
-		{
-			List<JQPlotPieSlice> newList = new ArrayList<>();
-			getDonutGroup().add(newList);
-		}
-		return getDonutGroup().get(groupNumber);
-	}
-	
+
 	public List<List<JQPlotPieSlice>> getDonutGroup()
 	{
 		if (this.donutGroup == null)
@@ -193,5 +189,39 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 			donutGroup = new JQPlotDonutGroup();
 		}
 		return this.donutGroup.getDonutGroup();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JQPlotDonutGraph))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQPlotDonutGraph<?> that = (JQPlotDonutGraph<?>) o;
+
+		if (getDonutOptions() != null ? !getDonutOptions().equals(that.getDonutOptions()) : that.getDonutOptions() != null)
+		{
+			return false;
+		}
+		return getDonutGroup() != null ? getDonutGroup().equals(that.getDonutGroup()) : that.getDonutGroup() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getDonutOptions() != null ? getDonutOptions().hashCode() : 0);
+		result = 31 * result + (getDonutGroup() != null ? getDonutGroup().hashCode() : 0);
+		return result;
 	}
 }
