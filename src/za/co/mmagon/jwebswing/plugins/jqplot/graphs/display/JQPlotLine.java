@@ -29,8 +29,10 @@ import java.util.StringTokenizer;
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotLine implements JQPlotSeriesItem
+public class JQPlotLine implements JQPlotSeriesItem, Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private List<XYObject> values;
@@ -41,6 +43,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 	 */
 	public JQPlotLine()
 	{
+		//Nothing Needed
 	}
 
 	/**
@@ -217,7 +220,7 @@ public class JQPlotLine implements JQPlotSeriesItem
 	 *
 	 * @param values
 	 */
-	public void setValues(ArrayList<XYObject> values)
+	public void setValues(List<XYObject> values)
 	{
 		this.values = values;
 	}

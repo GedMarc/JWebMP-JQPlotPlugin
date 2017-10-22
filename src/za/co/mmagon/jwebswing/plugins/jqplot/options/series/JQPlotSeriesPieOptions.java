@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The properties for a line graph
@@ -79,7 +79,7 @@ public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeri
 	/**
 	 * an array of colors to use when highlighting a slice.
 	 */
-	private ArrayList<String> highlightColors;
+	private List<String> highlightColors;
 	/**
 	 * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
 	 */
@@ -115,8 +115,8 @@ public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeri
 	/**
 	 * Array for whether the pie chart slice for a data element should be displayed.
 	 */
-	private ArrayList<Boolean> showSlice;
-	
+	private List<Boolean> showSlice;
+
 	/**
 	 * Constructs a new Line Options for the given graph
 	 *
@@ -337,7 +337,7 @@ public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeri
 	 *
 	 * @return
 	 */
-	public ArrayList<String> getHighlightColors()
+	public List<String> getHighlightColors()
 	{
 		return highlightColors;
 	}
@@ -346,7 +346,7 @@ public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeri
 	 * an array of colors to use when highlighting a slice.
 	 * <p>
 	 */
-	public void setHighlightColors(ArrayList<String> highlightColors)
+	public void setHighlightColors(List<String> highlightColors)
 	{
 		this.highlightColors = highlightColors;
 	}
@@ -508,7 +508,7 @@ public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeri
 	 *
 	 * @return
 	 */
-	public ArrayList<Boolean> getShowSlice()
+	public List<Boolean> getShowSlice()
 	{
 		return showSlice;
 	}
@@ -517,7 +517,7 @@ public class JQPlotSeriesPieOptions extends JavaScriptPart implements JQPlotSeri
 	 * Array for whether the pie chart slice for a data element should be displayed.
 	 * <p>
 	 */
-	public void setShowSlice(ArrayList<Boolean> showSlice)
+	public void setShowSlice(List<Boolean> showSlice)
 	{
 		this.showSlice = showSlice;
 	}

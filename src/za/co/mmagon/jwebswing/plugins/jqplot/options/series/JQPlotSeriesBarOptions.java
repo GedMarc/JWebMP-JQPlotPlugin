@@ -24,6 +24,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRender
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Marc Magon
@@ -93,7 +94,7 @@ public class JQPlotSeriesBarOptions extends JavaScriptPart implements JQPlotSeri
 	/**
 	 * an array of colors to use when highlighting a bar.
 	 */
-	private ArrayList<String> highlightColors;
+	private List<String> highlightColors;
 	/**
 	 * NOT IMPLEMENTED YET.
 	 * True if this is a horizontal bar plot and x and y values are “transposed”.
@@ -382,7 +383,7 @@ public class JQPlotSeriesBarOptions extends JavaScriptPart implements JQPlotSeri
 	 *
 	 * @return
 	 */
-	public ArrayList<String> getHighlightColors()
+	public List<String> getHighlightColors()
 	{
 		if (highlightColors == null)
 		{
@@ -397,7 +398,7 @@ public class JQPlotSeriesBarOptions extends JavaScriptPart implements JQPlotSeri
 	 *
 	 * @param highlightColors
 	 */
-	public void setHighlightColors(ArrayList<String> highlightColors)
+	public void setHighlightColors(List<String> highlightColors)
 	{
 		this.highlightColors = highlightColors;
 	}

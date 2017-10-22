@@ -19,7 +19,6 @@ package za.co.mmagon.jwebswing.plugins.jqplot.options;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.axis.JQPlotAxisOptions;
@@ -536,18 +535,6 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	public void setAxes(JQPlotAxes axes)
 	{
 		this.axes = axes;
-	}
-
-	@JsonIgnore
-	/**
-	 * Returns the linked JavaScript References
-	 *
-	 * @return
-	 */
-	public List<JavascriptReference> getJavascriptReferences()
-	{
-		List<JavascriptReference> arrs = new ArrayList<>();
-		return arrs;
 	}
 
 	/**

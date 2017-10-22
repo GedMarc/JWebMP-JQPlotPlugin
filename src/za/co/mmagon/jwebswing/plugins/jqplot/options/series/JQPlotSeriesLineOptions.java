@@ -58,7 +58,6 @@ public class JQPlotSeriesLineOptions extends JavaScriptPart implements JQPlotSer
 	public JQPlotSeriesLineOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		//linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.BubbleRenderer.getReference());
 	}
 
 	/**

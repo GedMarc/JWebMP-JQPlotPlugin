@@ -57,7 +57,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	 */
 	protected final List<Object> dataObjects = new ArrayList<>();
 	private JQPlotGraphFeature feature;
-	private JQPlotOptions<O> options;
+	private JQPlotOptions options;
 
 	protected JQPlotGraph()
 	{
@@ -105,7 +105,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	 * @return
 	 */
 	@Override
-	public JQPlotOptions<O> getOptions()
+	public JQPlotOptions getOptions()
 	{
 		if (options == null)
 		{
@@ -119,7 +119,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	 *
 	 * @param options
 	 */
-	public void setOptions(JQPlotOptions<O> options)
+	public void setOptions(JQPlotOptions options)
 	{
 		this.options = options;
 	}

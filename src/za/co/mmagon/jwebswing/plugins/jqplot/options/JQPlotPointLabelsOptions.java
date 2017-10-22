@@ -51,7 +51,7 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	/**
 	 * array index for location of labels within data point arrays.
 	 */
-	private List seriesLabelIndex;//
+	private List<String> seriesLabelIndex;
 	/**
 	 * array of arrays of labels, one array for each series.
 	 */

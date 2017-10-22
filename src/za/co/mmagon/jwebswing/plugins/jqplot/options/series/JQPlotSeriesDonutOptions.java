@@ -22,7 +22,6 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -368,7 +367,7 @@ public class JQPlotSeriesDonutOptions extends JavaScriptPart implements JQPlotSe
 	 *
 	 * @param highlightColors
 	 */
-	public void setHighlightColors(ArrayList<String> highlightColors)
+	public void setHighlightColors(List<String> highlightColors)
 	{
 		this.highlightColors = highlightColors;
 	}

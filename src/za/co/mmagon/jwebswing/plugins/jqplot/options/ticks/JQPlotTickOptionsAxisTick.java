@@ -30,7 +30,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer
  */
 public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotTickRenderer
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * tick mark on the axis.
@@ -97,17 +97,20 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	 * true to escape HTML entities in the label.
 	 */
 	private Boolean escapeHTML;
-	
+
 	/**
 	 * ‘auto’, ‘start’, ‘middle’ or ‘end’.
 	 */
 	private String labelPosition;
-	
+
+	/**
+	 * The options list
+	 */
 	public JQPlotTickOptionsAxisTick()
 	{
-	
+		//Nothing needed
 	}
-	
+
 	/**
 	 * tick mark on the axis.
 	 * One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
@@ -119,7 +122,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return mark;
 	}
-	
+
 	/**
 	 * tick mark on the axis.
 	 * One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.
@@ -131,7 +134,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.mark = mark;
 	}
-	
+
 	/**
 	 * Show the mark or not
 	 * <p>
@@ -142,7 +145,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return showMark;
 	}
-	
+
 	/**
 	 * Show the mark or not
 	 * <p>
@@ -153,7 +156,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.showMark = showMark;
 	}
-	
+
 	/**
 	 * Whether to show the grid line
 	 * <p>
@@ -164,7 +167,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return showGridline;
 	}
-	
+
 	/**
 	 * Whether to show the grid line
 	 * <p>
@@ -175,7 +178,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.showGridline = showGridline;
 	}
-	
+
 	/**
 	 * The angle of the text
 	 * <p>
@@ -186,7 +189,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return angle;
 	}
-	
+
 	/**
 	 * The angle of the text
 	 * <p>
@@ -197,7 +200,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.angle = angle;
 	}
-	
+
 	/**
 	 * Display minor ticks or not
 	 * <p>
@@ -208,7 +211,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return isMinorTick;
 	}
-	
+
 	/**
 	 * Display minor ticks or not
 	 * <p>
@@ -219,7 +222,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.isMinorTick = isMinorTick;
 	}
-	
+
 	/**
 	 * Gets the mark size
 	 * <p>
@@ -230,7 +233,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return markSize;
 	}
-	
+
 	/**
 	 * Sets the mark size
 	 * <p>
@@ -241,7 +244,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.markSize = markSize;
 	}
-	
+
 	/**
 	 * Whether or not to show the ticks
 	 * <p>
@@ -252,7 +255,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return show;
 	}
-	
+
 	/**
 	 * Whether or not to show the ticks
 	 * <p>
@@ -263,7 +266,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.show = show;
 	}
-	
+
 	/**
 	 * Whether or not to show the label
 	 * <p>
@@ -274,7 +277,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return showLabel;
 	}
-	
+
 	/**
 	 * Whether or not to show the label
 	 * <p>
@@ -285,7 +288,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.showLabel = showLabel;
 	}
-	
+
 	/**
 	 * Get a sprintf formatter
 	 * <p>
@@ -296,7 +299,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return formatter;
 	}
-	
+
 	/**
 	 * Set the sprint f format string
 	 * <p>
@@ -307,7 +310,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.formatter = formatter;
 	}
-	
+
 	/**
 	 * Text to display before the value
 	 * <p>
@@ -318,7 +321,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return prefix;
 	}
-	
+
 	/**
 	 * Text to display before the prefix
 	 * <p>
@@ -329,7 +332,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.prefix = prefix;
 	}
-	
+
 	/**
 	 * The string to pass to the formatter
 	 * <p>
@@ -340,7 +343,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return formatString;
 	}
-	
+
 	/**
 	 * The string to pass to the formatter
 	 * <p>
@@ -351,7 +354,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.formatString = formatString;
 	}
-	
+
 	/**
 	 * The CSS Font Family
 	 * <p>
@@ -362,7 +365,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return fontFamily;
 	}
-	
+
 	/**
 	 * The CSS Font Family
 	 * <p>
@@ -373,7 +376,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.fontFamily = fontFamily;
 	}
-	
+
 	/**
 	 * The font size setting
 	 * <p>
@@ -384,7 +387,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return fontSize;
 	}
-	
+
 	/**
 	 * The font size setting
 	 * <p>
@@ -395,7 +398,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.fontSize = fontSize;
 	}
-	
+
 	/**
 	 * The text colour
 	 * <p>
@@ -406,7 +409,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return textColor;
 	}
-	
+
 	/**
 	 * The text colour
 	 * <p>
@@ -417,7 +420,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.textColor = textColor;
 	}
-	
+
 	/**
 	 * Escape html characters in the axis label or not
 	 * <p>
@@ -428,7 +431,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return escapeHTML;
 	}
-	
+
 	/**
 	 * Escape html characters in the axis label or not
 	 * <p>
@@ -439,7 +442,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.escapeHTML = escapeHTML;
 	}
-	
+
 	/**
 	 * ‘auto’, ‘start’, ‘middle’ or ‘end’.
 	 * <p>
@@ -450,7 +453,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		return labelPosition;
 	}
-	
+
 	/**
 	 * ‘auto’, ‘start’, ‘middle’ or ‘end’.
 	 * <p>
@@ -461,7 +464,7 @@ public class JQPlotTickOptionsAxisTick extends JavaScriptPart implements JQPlotT
 	{
 		this.labelPosition = labelPosition;
 	}
-	
+
 	@JsonProperty("renderer")
 	@JsonRawValue
 	@Override

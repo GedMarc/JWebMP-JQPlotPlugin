@@ -17,7 +17,6 @@
 package za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * Defines default methods for JqPlot Renderering
@@ -27,9 +26,10 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @author GedMarc
  * @since 26 Feb 2016
  */
-public interface JQPlotRendererDefault<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotRenderer
+@FunctionalInterface
+public interface JQPlotRendererDefault extends JQPlotRenderer
 {
-	
+
 	@JsonIgnore
-	public String getRenderer();
+	String getRenderer();
 }
