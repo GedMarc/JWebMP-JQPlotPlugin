@@ -168,19 +168,19 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 
 		JQPlotBubbleGraph<?> that = (JQPlotBubbleGraph<?>) o;
 
-		if (getBubbles() != null ? !getBubbles().equals(that.getBubbles()) : that.getBubbles() != null)
+		if (!getBubbles().equals(that.getBubbles()))
 		{
 			return false;
 		}
-		return getBubbleOptions() != null ? getBubbleOptions().equals(that.getBubbleOptions()) : that.getBubbleOptions() == null;
+		return getBubbleOptions().equals(that.getBubbleOptions());
 	}
 
 	@Override
 	public int hashCode()
 	{
 		int result = super.hashCode();
-		result = 31 * result + (getBubbles() != null ? getBubbles().hashCode() : 0);
-		result = 31 * result + (getBubbleOptions() != null ? getBubbleOptions().hashCode() : 0);
+		result = 31 * result + getBubbles().hashCode();
+		result = 31 * result + getBubbleOptions().hashCode();
 		return result;
 	}
 }

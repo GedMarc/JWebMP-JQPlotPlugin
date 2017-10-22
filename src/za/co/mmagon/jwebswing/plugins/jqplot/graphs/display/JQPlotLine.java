@@ -57,17 +57,6 @@ public class JQPlotLine implements JQPlotSeriesItem, Serializable
 	}
 
 	/**
-	 * *
-	 * Constructs a
-	 *
-	 * @param name
-	 */
-	private JQPlotLine(String name)
-	{
-		this.name = name;
-	}
-
-	/**
 	 * Constructs a new plot line object with the given name and Y value
 	 *
 	 * @param x

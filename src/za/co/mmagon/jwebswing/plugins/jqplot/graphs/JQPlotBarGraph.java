@@ -139,27 +139,46 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	}
 
 	/**
-	 * Returns the current tick values array
-	 * <p>
-	 *
-	 * @return
+	 * Create the ticks and correct axis options and stuff
 	 */
-	public List<String> getCategoryTickValues()
+	@Override
+	public void preConfigure()
 	{
-		if (categoryTickValues == null)
+		super.preConfigure();
+		switch (orientation)
 		{
-			categoryTickValues = new ArrayList<>();
+			case HORIZONTAL:
+			{
+				JQPlotAxisOptions axis = getOptions().getAxes().getyAxis();
+				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				axis.setTicks(getCategoryTickValues());
+				break;
+			}
+			case VERTICAL:
+			{
+				JQPlotAxisOptions axis = getOptions().getAxes().getxAxis();
+				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				axis.setTicks(getCategoryTickValues());
+				break;
+			}
+			default:
+			{
+				JQPlotAxisOptions axis = getOptions().getAxes().getxAxis();
+				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				axis.setTicks(getCategoryTickValues());
+			}
 		}
 
-		getBarGroups().entrySet().forEach(entry ->
-		                                  {
-			                                  String key = entry.getKey();
-			                                  if (!categoryTickValues.contains(key))
-			                                  {
-				                                  categoryTickValues.add(key);
-			                                  }
-		                                  });
-		return categoryTickValues;
+		getBarGroups().forEach((key, value) ->
+				                       value.forEach(a ->
+				                                     {
+					                                     if (a.getyValue() != null && a.getyValue() < 0)
+					                                     {
+						                                     JQPlotSeriesBarOptions series = (JQPlotSeriesBarOptions) getOptions().getSeriesDefaults().getRendererOptions();
+						                                     series.setFillToZero(true);
+					                                     }
+				                                     })
+		                      );
 	}
 
 	/**
@@ -372,47 +391,24 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	}
 
 	/**
-	 * Create the ticks and correct axis options and stuff
+	 * Returns the current tick values array
+	 * <p>
+	 *
+	 * @return
 	 */
-	@Override
-	public void preConfigure()
+	public List<String> getCategoryTickValues()
 	{
-		super.preConfigure();
-		switch (orientation)
+		if (categoryTickValues == null)
 		{
-			case HORIZONTAL:
-			{
-				JQPlotAxisOptions axis = getOptions().getAxes().getyAxis();
-				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
-				axis.setTicks(getCategoryTickValues());
-				break;
-			}
-			case VERTICAL:
-			{
-				JQPlotAxisOptions axis = getOptions().getAxes().getxAxis();
-				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
-				axis.setTicks(getCategoryTickValues());
-				break;
-			}
-			default:
-			{
-				JQPlotAxisOptions axis = getOptions().getAxes().getxAxis();
-				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
-				axis.setTicks(getCategoryTickValues());
-			}
+			categoryTickValues = new ArrayList<>();
 		}
 
-		getBarGroups().forEach((key, value) ->
-		                       {
-			                       value.forEach(a ->
-			                                     {
-				                                     if (a.getyValue() != null && a.getyValue() < 0)
-				                                     {
-					                                     JQPlotSeriesBarOptions series = (JQPlotSeriesBarOptions) getOptions().getSeriesDefaults().getRendererOptions();
-					                                     series.setFillToZero(true);
-				                                     }
-			                                     });
-		                       });
+		getBarGroups().entrySet().forEach(entry ->
+		                                  {
+			                                  String key = entry.getKey();
+			                                  categoryTickValues.add(key);
+		                                  });
+		return categoryTickValues;
 	}
 
 	/**
@@ -458,8 +454,6 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 			for (int i = 0; i < clusterBarCount; i++)
 			{
 				rows[i] = valuesPerRow = new Object[categoryCount];
-
-				//Get the int i number bar number per category;
 				for (int j = 0; j < categoryCount; j++)
 				{
 					int mapPosition = 0;
@@ -613,15 +607,15 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		{
 			return false;
 		}
-		if (getBarGraphOptions() != null ? !getBarGraphOptions().equals(that.getBarGraphOptions()) : that.getBarGraphOptions() != null)
+		if (!getBarGraphOptions().equals(that.getBarGraphOptions()))
 		{
 			return false;
 		}
-		if (getCategoryTickValues() != null ? !getCategoryTickValues().equals(that.getCategoryTickValues()) : that.getCategoryTickValues() != null)
+		if (!getCategoryTickValues().equals(that.getCategoryTickValues()))
 		{
 			return false;
 		}
-		if (getBarGroups() != null ? !getBarGroups().equals(that.getBarGroups()) : that.getBarGroups() != null)
+		if (!getBarGroups().equals(that.getBarGroups()))
 		{
 			return false;
 		}
@@ -632,11 +626,11 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	public int hashCode()
 	{
 		int result = super.hashCode();
-		result = 31 * result + (getBarGraphOptions() != null ? getBarGraphOptions().hashCode() : 0);
+		result = 31 * result + getBarGraphOptions().hashCode();
 		result = 31 * result + (isTwoD() ? 1 : 0);
-		result = 31 * result + (getCategoryTickValues() != null ? getCategoryTickValues().hashCode() : 0);
-		result = 31 * result + (getBarGroups() != null ? getBarGroups().hashCode() : 0);
-		result = 31 * result + (getOrientation() != null ? getOrientation().hashCode() : 0);
+		result = 31 * result + getCategoryTickValues().hashCode();
+		result = 31 * result + getBarGroups().hashCode();
+		result = 31 * result + getOrientation().hashCode();
 		result = 31 * result + (isClustered() ? 1 : 0);
 		result = 31 * result + (isWaterfall() ? 1 : 0);
 		return result;

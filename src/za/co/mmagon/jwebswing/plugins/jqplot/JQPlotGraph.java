@@ -26,6 +26,7 @@ import za.co.mmagon.jwebswing.base.servlets.enumarations.ComponentTypes;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	/**
 	 * All the data points
 	 */
-	protected final List<Object> dataObjects = new ArrayList<>();
+	protected final List<Serializable> dataObjects = new ArrayList<>();
 	private JQPlotGraphFeature feature;
 	private JQPlotOptions options;
 
@@ -142,24 +143,24 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 
 		JQPlotGraph<?, ?> that = (JQPlotGraph<?, ?>) o;
 
-		if (dataObjects != null ? !dataObjects.equals(that.dataObjects) : that.dataObjects != null)
+		if (!dataObjects.equals(that.dataObjects))
 		{
 			return false;
 		}
-		if (getFeature() != null ? !getFeature().equals(that.getFeature()) : that.getFeature() != null)
+		if (!getFeature().equals(that.getFeature()))
 		{
 			return false;
 		}
-		return getOptions() != null ? getOptions().equals(that.getOptions()) : that.getOptions() == null;
+		return getOptions().equals(that.getOptions());
 	}
 
 	@Override
 	public int hashCode()
 	{
 		int result = super.hashCode();
-		result = 31 * result + (dataObjects != null ? dataObjects.hashCode() : 0);
-		result = 31 * result + (getFeature() != null ? getFeature().hashCode() : 0);
-		result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
+		result = 31 * result + dataObjects.hashCode();
+		result = 31 * result + getFeature().hashCode();
+		result = 31 * result + getOptions().hashCode();
 		return result;
 	}
 }

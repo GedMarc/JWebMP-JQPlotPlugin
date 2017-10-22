@@ -16,14 +16,18 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
+import java.io.Serializable;
+
 /**
  * A specific bubble for the JQ Plot Library
  *
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotBubble implements JQPlotSeriesItem
+public class JQPlotBubble implements JQPlotSeriesItem, Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 
 	private double x;
 	private double y;
@@ -33,10 +37,14 @@ public class JQPlotBubble implements JQPlotSeriesItem
 	/**
 	 * Constructs a new Graph Bubble
 	 *
-	 * @param x      The X Position
-	 * @param y      The Y Position
-	 * @param radius The Radius of the Bubble
-	 * @param label  The Label of the Bubble - Optional
+	 * @param x
+	 * 		The X Position
+	 * @param y
+	 * 		The Y Position
+	 * @param radius
+	 * 		The Radius of the Bubble
+	 * @param label
+	 * 		The Label of the Bubble - Optional
 	 */
 	public JQPlotBubble(double x, double y, int radius, String label)
 	{
