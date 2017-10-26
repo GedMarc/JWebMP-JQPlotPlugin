@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @author GedMarc
  * @since 26 Feb 2016
  */
-public interface JQPlotTitleRenderer<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotRendererDefault<O>
+public interface JQPlotTitleRenderer<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotRendererDefault
 {
 
 }

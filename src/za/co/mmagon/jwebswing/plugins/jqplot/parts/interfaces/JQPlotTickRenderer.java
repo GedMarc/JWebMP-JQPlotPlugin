@@ -26,7 +26,7 @@ import java.io.Serializable;
  * @author GedMarc
  * @since 26 Feb 2016
  */
-public interface JQPlotTickRenderer<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotRendererDefault<O>, Serializable
+public interface JQPlotTickRenderer<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotRendererDefault, Serializable
 {
 
 }
