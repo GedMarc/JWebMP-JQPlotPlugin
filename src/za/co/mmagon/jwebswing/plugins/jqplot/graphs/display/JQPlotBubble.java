@@ -16,6 +16,8 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
+
 import java.io.Serializable;
 
 /**
@@ -142,6 +144,6 @@ public class JQPlotBubble implements JQPlotSeriesItem, Serializable
 	@Override
 	public String toString()
 	{
-		return "[" + getX().intValue() + "," + getY().intValue() + "," + getRadius() + ",\"" + getLabel() + "\"" + "]";
+		return "[" + getX().intValue() + "," + getY().intValue() + "," + getRadius() + ",\"" + getLabel() + StaticStrings.STRING_DOUBLE_QUOTES + "]";
 	}
 }

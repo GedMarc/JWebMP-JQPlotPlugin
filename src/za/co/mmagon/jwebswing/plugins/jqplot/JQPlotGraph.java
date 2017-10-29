@@ -57,6 +57,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	 * All the data points
 	 */
 	protected final List<Serializable> dataObjects = new ArrayList<>();
+
 	private JQPlotGraphFeature feature;
 	private JQPlotOptions options;
 
