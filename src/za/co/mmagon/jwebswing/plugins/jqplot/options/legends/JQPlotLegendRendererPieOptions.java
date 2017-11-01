@@ -62,7 +62,6 @@ public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQ
 	@JsonProperty("renderer")
 	@JsonRawValue
 	@JsonIgnore
-	@Override
 	public String getRenderer()
 	{
 		return "$.jqplot.PieRenderer";

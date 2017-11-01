@@ -32,7 +32,6 @@ import java.util.List;
 /**
  * The Legend options
  * <p>
- * TODO update to CRP
  *
  * @param <O>
  *

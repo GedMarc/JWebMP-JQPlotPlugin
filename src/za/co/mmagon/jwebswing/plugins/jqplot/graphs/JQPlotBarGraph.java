@@ -411,6 +411,82 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		return categoryTickValues;
 	}
 
+	private void processDataValues(Object[] rows, int clusterBarCount, int categoryCount)
+	{
+		Object[] valuesPerRow;
+		//The expected number of bars per category, aka number of arrays to build
+		for (int i = 0; i < clusterBarCount; i++)
+		{
+			rows[i] = valuesPerRow = new Object[categoryCount];
+			for (int j = 0; j < categoryCount; j++)
+			{
+				int mapPosition = 0;
+
+				for (Map.Entry<String, List<JQPlotBar>> entry : getBarGroups().entrySet())
+				{
+					List<JQPlotBar> value = entry.getValue();
+					if (i >= value.size())
+					{
+						break;
+					}
+					else if (mapPosition == j)
+					{
+						try
+						{
+							JQPlotBar o = value.get(i);
+							if (o != null)
+							{
+								if (o.getyValue() == null)
+								{
+									valuesPerRow[j] = 0;
+								}
+								else
+								{
+									valuesPerRow[j] = o.getyValue();
+								}
+							}
+						}
+						catch (Exception e)
+						{
+							LOG.log(Level.WARNING, "Unable to generate data", e);
+							valuesPerRow[j] = "";
+						}
+						break;
+					}
+					mapPosition++;
+				}
+			}
+		}
+	}
+
+	private StringBuilder processValuesFromArray(Object[] rows, StringBuilder sb)
+	{
+		//Load values from Array
+		for (Object row1 : rows)
+		{
+			Object[] row = (Object[]) row1;
+			sb.append("[");
+			for (Object value : row)
+			{
+				if (value == null)
+				{
+					value = 0;
+				}
+				sb.append(value).append(",");
+			}
+			if (sb.indexOf(",") > -1)
+			{
+				sb = sb.deleteCharAt(sb.lastIndexOf(","));
+			}
+			sb.append("],");
+		}
+		if (sb.indexOf("],") > -1)
+		{
+			sb = sb.deleteCharAt(sb.lastIndexOf(","));
+		}
+		return sb;
+	}
+
 	/**
 	 * Gets the data points to be rendered
 	 * <p>
@@ -448,76 +524,8 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 		else
 		{
 			Object[] rows = new Object[clusterBarCount];
-			Object[] valuesPerRow;//
-
-			//The expected number of bars per category, aka number of arrays to build
-			for (int i = 0; i < clusterBarCount; i++)
-			{
-				rows[i] = valuesPerRow = new Object[categoryCount];
-				for (int j = 0; j < categoryCount; j++)
-				{
-					int mapPosition = 0;
-					for (Map.Entry<String, List<JQPlotBar>> entry : getBarGroups().entrySet())
-					{
-						List<JQPlotBar> value = entry.getValue();
-
-						if (i >= value.size())
-						{
-							break;
-						}
-
-						if (mapPosition == j)
-						{
-							try
-							{
-								JQPlotBar o = value.get(i);
-								if (o != null)
-								{
-									if (o.getyValue() == null)
-									{
-										valuesPerRow[j] = 0;
-									}
-									else
-									{
-										valuesPerRow[j] = o.getyValue();
-									}
-								}
-							}
-							catch (Exception e)
-							{
-								LOG.log(Level.WARNING, "Unable to generate data", e);
-								valuesPerRow[j] = "";
-							}
-							break;
-						}
-						mapPosition++;
-					}
-				}
-
-			}
-			//Load values from Array
-			for (Object row1 : rows)
-			{
-				Object[] row = (Object[]) row1;
-				sb.append("[");
-				for (Object value : row)
-				{
-					if (value == null)
-					{
-						value = 0;
-					}
-					sb.append(value).append(",");
-				}
-				if (sb.indexOf(",") > -1)
-				{
-					sb = sb.deleteCharAt(sb.lastIndexOf(","));
-				}
-				sb.append("],");
-			}
-			if (sb.indexOf("],") > -1)
-			{
-				sb = sb.deleteCharAt(sb.lastIndexOf(","));
-			}
+			processDataValues(rows, clusterBarCount, categoryCount);
+			sb = processValuesFromArray(rows, sb);
 		}
 		sb.append("]");
 		return sb;

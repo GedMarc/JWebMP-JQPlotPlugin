@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @author GedMarc
  * @since 26 Feb 2016
  */
-public interface JQPlotLegendPieRenderer<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotLegendRenderer<O>
+public interface JQPlotLegendPieRenderer<O extends JavaScriptPart & JQPlotRendererOptions> extends JQPlotLegendRenderer
 {
 
 }
