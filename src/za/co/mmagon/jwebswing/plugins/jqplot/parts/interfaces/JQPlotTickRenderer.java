@@ -16,12 +16,9 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces;
 
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-
 import java.io.Serializable;
 
 /**
- * @param <O>
  *
  * @author GedMarc
  * @since 26 Feb 2016

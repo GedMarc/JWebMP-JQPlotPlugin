@@ -22,6 +22,8 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotCSSReferencePool;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
+
 /**
  * This is the default implementation of the JQPlot Graph Library
  *
@@ -64,7 +66,7 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 
 		sb.append("var ").append(getVariableName()).append(" = ");
 		sb.append(getComponent().getJQueryID()).append("jqplot(");
-		sb.append(graph.getDataPointRender()).append(",").append(getNewLine());
+		sb.append(graph.getDataPointRender()).append(STRING_COMMNA).append(getNewLine());
 		sb.append(getOptions());
 		sb.append(");").append(getNewLine());
 		addQuery(sb.toString());

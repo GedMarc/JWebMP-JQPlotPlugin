@@ -56,7 +56,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	/**
 	 * All the data points
 	 */
-	protected final List<Serializable> dataObjects = new ArrayList<>();
+	private final List<Serializable> dataObjects = new ArrayList<>();
 
 	private JQPlotGraphFeature feature;
 	private JQPlotOptions options;
@@ -124,6 +124,15 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	public void setOptions(JQPlotOptions options)
 	{
 		this.options = options;
+	}
+
+	/**
+	 * Returns the list of data objects currently in the graph
+	 * @return
+	 */
+	public List<Serializable> getDataObjects()
+	{
+		return dataObjects;
 	}
 
 	@Override

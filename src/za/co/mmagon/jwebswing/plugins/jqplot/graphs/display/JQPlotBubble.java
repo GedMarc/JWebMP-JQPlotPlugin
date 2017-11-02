@@ -20,6 +20,8 @@ import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import java.io.Serializable;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
+
 /**
  * A specific bubble for the JQ Plot Library
  *
@@ -144,6 +146,6 @@ public class JQPlotBubble implements JQPlotSeriesItem, Serializable
 	@Override
 	public String toString()
 	{
-		return "[" + getX().intValue() + "," + getY().intValue() + "," + getRadius() + ",\"" + getLabel() + StaticStrings.STRING_DOUBLE_QUOTES + "]";
+		return "[" + getX().intValue() + STRING_COMMNA + getY().intValue() + STRING_COMMNA+ getRadius() + ",\"" + getLabel() + StaticStrings.STRING_DOUBLE_QUOTES + "]";
 	}
 }

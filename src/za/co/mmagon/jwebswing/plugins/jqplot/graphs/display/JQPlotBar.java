@@ -16,11 +16,15 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
+
 /**
  * Represents a single bar
  */
 public class JQPlotBar implements JQPlotSeriesItem
 {
+
+	private static final long serialVersionUID = 1L;
 
 	private String xAxisValue;
 	private String categoryValue;
@@ -227,9 +231,9 @@ public class JQPlotBar implements JQPlotSeriesItem
 		}
 		if (isWaterfall())
 		{
-			return getyValue() + ",";
+			return getyValue() + STRING_COMMNA;
 		}
 
-		return getyValue().toString() + ",";
+		return getyValue().toString() + STRING_COMMNA;
 	}
 }

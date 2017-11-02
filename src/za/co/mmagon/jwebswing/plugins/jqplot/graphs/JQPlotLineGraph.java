@@ -24,6 +24,8 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.JQPlotOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
+
 /**
  * The line graph implementation
  *
@@ -97,7 +99,7 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 	 */
 	public void addLine(String xyValues)
 	{
-		JQPlotLine newLine = new JQPlotLine(JQPlotLine.buildFromDelimiteredSrting(xyValues, ","));
+		JQPlotLine newLine = new JQPlotLine(JQPlotLine.buildFromDelimiteredSrting(xyValues, STRING_COMMNA));
 		getPlotLines().add(newLine);
 	}
 
@@ -120,10 +122,10 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 		sb.append("[");
 		for (JQPlotLine plotLine : getPlotLines())
 		{
-			sb.append(plotLine).append(",");
+			sb.append(plotLine).append(STRING_COMMNA);
 			sb.append("");
 		}
-		sb = sb.deleteCharAt(sb.lastIndexOf(","));
+		sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 		sb.append("]");
 		return sb;
 	}

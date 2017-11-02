@@ -31,6 +31,8 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
+
 /**
  * Constructs a new JQPlotBar Graph default series display
  * <p>
@@ -66,11 +68,11 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	/**
 	 * The category or tick values
 	 */
-	private ArrayList<String> categoryTickValues;
+	private List<String> categoryTickValues;
 	/**
 	 * Each of the separate bar groups to be applied
 	 */
-	private HashMap<String, List<JQPlotBar>> barGroups;
+	private Map<String, List<JQPlotBar>> barGroups;
 	/**
 	 * Vertical or Horizontal
 	 */
@@ -472,17 +474,17 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 				{
 					value = 0;
 				}
-				sb.append(value).append(",");
+				sb.append(value).append(STRING_COMMNA);
 			}
-			if (sb.indexOf(",") > -1)
+			if (sb.indexOf(STRING_COMMNA) > -1)
 			{
-				sb = sb.deleteCharAt(sb.lastIndexOf(","));
+				sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 			}
 			sb.append("],");
 		}
 		if (sb.indexOf("],") > -1)
 		{
-			sb = sb.deleteCharAt(sb.lastIndexOf(","));
+			sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 		}
 		return sb;
 	}
@@ -515,9 +517,9 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 				List<JQPlotBar> value = entrySet.getValue();
 				sb.append(renderBarArrayList(value));
 			}
-			if (sb.indexOf(",") > -1)
+			if (sb.indexOf(STRING_COMMNA) > -1)
 			{
-				sb = sb.deleteCharAt(sb.lastIndexOf(","));
+				sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 			}
 			sb.append("]");
 		}

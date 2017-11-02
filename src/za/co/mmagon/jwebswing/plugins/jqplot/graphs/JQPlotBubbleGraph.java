@@ -25,6 +25,8 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.series.JQPlotSeriesBubbleOp
 import java.util.ArrayList;
 import java.util.List;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
+
 /**
  * The Bubble Graph Renderering for the JQ Plot Library
  * <p>
@@ -138,12 +140,12 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 
 		for (JQPlotBubble next : getBubbles())
 		{
-			sb.append(next).append(",");
+			sb.append(next).append(STRING_COMMNA);
 		}
 
-		if (sb.indexOf(",") > 0)
+		if (sb.indexOf(STRING_COMMNA) > 0)
 		{
-			sb = sb.deleteCharAt(sb.lastIndexOf(","));
+			sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 		}
 
 		sb.append("]]");

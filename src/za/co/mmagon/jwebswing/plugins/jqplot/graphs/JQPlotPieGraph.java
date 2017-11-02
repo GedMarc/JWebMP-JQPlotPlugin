@@ -25,6 +25,8 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.series.JQPlotSeriesPieOptio
 import java.util.ArrayList;
 import java.util.List;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
+
 /**
  * The line graph implementation
  *
@@ -103,10 +105,10 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 		sb.append("[[");
 		for (JQPlotPieSlice plotLine : getPlotSlices())
 		{
-			sb.append(plotLine).append(",");
+			sb.append(plotLine).append(STRING_COMMNA);
 			sb.append("");
 		}
-		sb = sb.deleteCharAt(sb.lastIndexOf(","));
+		sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 		sb.append("]]");
 		return sb;
 	}
