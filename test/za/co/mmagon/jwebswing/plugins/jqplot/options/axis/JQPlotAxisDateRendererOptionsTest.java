@@ -32,6 +32,7 @@ public class JQPlotAxisDateRendererOptionsTest
 	}
 	
 	@Test
+	@SuppressWarnings("unchecked")
 	public void testDateOnAxis()
 	{
 		JQPlotBarGraph graph = new JQPlotBarGraph(Orientation.VERTICAL);
