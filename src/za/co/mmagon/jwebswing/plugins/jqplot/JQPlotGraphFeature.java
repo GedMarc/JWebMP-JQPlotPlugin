@@ -116,8 +116,6 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getGraph() != null ? getGraph().hashCode() : 0);
-		return result;
+		return super.hashCode();
 	}
 }

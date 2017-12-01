@@ -27,7 +27,10 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.series.JQPlotSeriesBarOptio
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 import za.co.mmagon.logger.LogFactory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -635,14 +638,6 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>> extends JQPlotGraph<JQP
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + getBarGraphOptions().hashCode();
-		result = 31 * result + (isTwoD() ? 1 : 0);
-		result = 31 * result + getCategoryTickValues().hashCode();
-		result = 31 * result + getBarGroups().hashCode();
-		result = 31 * result + getOrientation().hashCode();
-		result = 31 * result + (isClustered() ? 1 : 0);
-		result = 31 * result + (isWaterfall() ? 1 : 0);
-		return result;
+		return super.hashCode();
 	}
 }

@@ -154,8 +154,6 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getPlotLines() != null ? getPlotLines().hashCode() : 0);
-		return result;
+		return super.hashCode();
 	}
 }

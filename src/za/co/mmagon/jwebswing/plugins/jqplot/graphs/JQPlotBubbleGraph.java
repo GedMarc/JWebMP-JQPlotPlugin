@@ -180,9 +180,6 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + getBubbles().hashCode();
-		result = 31 * result + getBubbleOptions().hashCode();
-		return result;
+		return super.hashCode();
 	}
 }

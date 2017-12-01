@@ -219,9 +219,6 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getDonutOptions() != null ? getDonutOptions().hashCode() : 0);
-		result = 31 * result + (getDonutGroup() != null ? getDonutGroup().hashCode() : 0);
-		return result;
+		return super.hashCode();
 	}
 }
