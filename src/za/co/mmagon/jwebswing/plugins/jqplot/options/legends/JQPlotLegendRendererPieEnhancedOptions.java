@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonRawValue;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,9 @@ import java.util.List;
  * @author GedMarc
  * @since 1 Mar 2016
  */
-public class JQPlotLegendRendererPieEnhancedOptions extends JavaScriptPart implements JQPlotLegendRenderer
+public class JQPlotLegendRendererPieEnhancedOptions
+		extends JavaScriptPart
+		implements JQPlotLegendRenderer
 {
 
 	@JsonIgnore
@@ -69,7 +70,6 @@ public class JQPlotLegendRendererPieEnhancedOptions extends JavaScriptPart imple
 	public JQPlotLegendRendererPieEnhancedOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.EnhancedPieLegenedRenderer.getReference());
 	}
 
 	@JsonProperty("renderer")

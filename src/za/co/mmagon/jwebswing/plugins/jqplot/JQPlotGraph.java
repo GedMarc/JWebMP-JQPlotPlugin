@@ -68,14 +68,6 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	}
 
 	/**
-	 * Renders the data point section on the graph
-	 * <p>
-	 *
-	 * @return The Data Points String
-	 */
-	protected abstract StringBuilder getDataPointRender();
-
-	/**
 	 * Gets the feature for the graph. Please don't ever return a null. JQPlotGraphFeature is also fine
 	 * <p>
 	 *
@@ -101,17 +93,26 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	}
 
 	/**
+	 * Renders the data point section on the graph
+	 * <p>
+	 *
+	 * @return The Data Points String
+	 */
+	protected abstract StringBuilder getDataPointRender();
+
+	/**
 	 * Returns the graph options
 	 * <p>
 	 *
 	 * @return
 	 */
 	@Override
-	public JQPlotOptions getOptions()
+	public JQPlotOptions<?> getOptions()
 	{
 		if (options == null)
 		{
 			options = new JQPlotOptions<>(this);
+			getFeature().setOptions(options);
 		}
 		return options;
 	}
@@ -128,6 +129,7 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 
 	/**
 	 * Returns the list of data objects currently in the graph
+	 *
 	 * @return
 	 */
 	public List<Serializable> getDataObjects()
@@ -138,39 +140,12 @@ public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGrap
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JQPlotGraph))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JQPlotGraph<?, ?> that = (JQPlotGraph<?, ?>) o;
-
-		if (!dataObjects.equals(that.dataObjects))
-		{
-			return false;
-		}
-		if (!getFeature().equals(that.getFeature()))
-		{
-			return false;
-		}
-		return getOptions().equals(that.getOptions());
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + dataObjects.hashCode();
-		result = 31 * result + getFeature().hashCode();
-		result = 31 * result + getOptions().hashCode();
-		return result;
+		return super.hashCode();
 	}
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,6 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.jqplot.graphs.display.JQPlotBar;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.axis.JQPlotAxisLabelRendererOptionsCategoryLabels;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.YAxisTypes;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.List;
 
@@ -36,7 +35,8 @@ import java.util.List;
 @ComponentInformation(name = "Waterfall Graph",
 		description = "A waterfall graph",
 		url = "http://www.jqplot.com/examples/waterfall.php")
-public class JQPlotBarWaterFallGraph extends JQPlotBarGraph
+public class JQPlotBarWaterFallGraph
+		extends JQPlotBarGraph
 {
 
 	/**
@@ -56,17 +56,22 @@ public class JQPlotBarWaterFallGraph extends JQPlotBarGraph
 		super(orientation);
 		setOrientation(orientation);
 		setWaterfall(true);
-		getJavascriptReferences().add(JQPlotJavascriptReferencePool.BarRenderer.getReference());
-		getOptions().getSeriesDefaults().setRendererOptions(barGraphOptions);
+		getOptions().getSeriesDefaults()
+		            .setRendererOptions(barGraphOptions);
 
 		getBarGraphOptions().setWaterfall(true);
 		getBarGraphOptions().setVaryBarColor(true);
 
-		getOptions().getSeriesDefaults().getPointLabels().setHideZeros(true);
+		getOptions().getSeriesDefaults()
+		            .getPointLabels()
+		            .setHideZeros(true);
 
-		getOptions().getSeriesDefaults().setYaxis(YAxisTypes.Y2Axis);
+		getOptions().getSeriesDefaults()
+		            .setYaxis(YAxisTypes.Y2Axis);
 
-		getOptions().getAxes().getxAxis().setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+		getOptions().getAxes()
+		            .getxAxis()
+		            .setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
 
 	}
 
@@ -110,10 +115,7 @@ public class JQPlotBarWaterFallGraph extends JQPlotBarGraph
 		List<JQPlotBar> bars = getBarGroup(bar.getxAxisValue());
 		bars.add(bar);
 		bar.setWaterfall(true);
-		if (!getCategoryTickValues().contains(bar.getxAxisValue()))
-		{
-			getCategoryTickValues().add(bar.getxAxisValue());
-		}
+		getCategoryTickValues().add(bar.getxAxisValue());
 	}
 
 	/**

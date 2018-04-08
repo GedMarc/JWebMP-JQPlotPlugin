@@ -24,6 +24,8 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.axis.JQPlotAxisOptions;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.grid.JQPlotGridOptionsCanvasGrid;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.title.JQPlotTitleOptions;
+import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
+import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +36,8 @@ import java.util.List;
  * @author GedMarc
  * @since 26 Feb 2016
  */
-public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
+public class JQPlotOptions<J extends JQPlotOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	/**
@@ -49,7 +52,8 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	@JsonIgnore
 	private Boolean animate;
 	/**
-	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in these situations can
+	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in
+	 * these situations can
 	 * cause problems.
 	 */
 	private Boolean animateReplot;
@@ -132,7 +136,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	{
 		if (title == null)
 		{
-			title = new JQPlotTitleOptions("", this.linkedGraph);
+			title = new JQPlotTitleOptions("", linkedGraph);
 		}
 		return title;
 	}
@@ -160,7 +164,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	{
 		if (highlighter == null)
 		{
-			highlighter = new JQPlotHighlightOptions(this.linkedGraph);
+			highlighter = new JQPlotHighlightOptions(linkedGraph);
 		}
 		return highlighter;
 	}
@@ -187,7 +191,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	{
 		if (cursor == null)
 		{
-			cursor = new JQPlotCursorOptions(this.linkedGraph);
+			cursor = new JQPlotCursorOptions(linkedGraph);
 		}
 		return cursor;
 	}
@@ -261,11 +265,11 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	 *
 	 * @return Null if not applied or is Line Graph
 	 */
-	public JQPlotSeriesOptions getSeriesDefaults()
+	public <O extends JavaScriptPart & JQPlotSeriesRenderer, M extends JavaScriptPart & JQPlotMarkerRenderer> JQPlotSeriesOptions<O, M> getSeriesDefaults()
 	{
 		if (seriesDefaults == null)
 		{
-			seriesDefaults = new JQPlotSeriesOptions(this.linkedGraph);
+			seriesDefaults = new JQPlotSeriesOptions(linkedGraph);
 		}
 		return seriesDefaults;
 	}
@@ -317,7 +321,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	{
 		if (axesDefaults == null)
 		{
-			axesDefaults = new JQPlotAxisOptions(this.getLinkedGraph());
+			axesDefaults = new JQPlotAxisOptions(getLinkedGraph());
 		}
 		return axesDefaults;
 	}
@@ -331,6 +335,26 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	public void setAxesDefaults(JQPlotAxisOptions axesDefaults)
 	{
 		this.axesDefaults = axesDefaults;
+	}
+
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
+
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
 	}
 
 	/**
@@ -391,8 +415,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	 * True to animate the series on initial plot draw (renderer dependent).
 	 * <p>
 	 * @return
-	 */
-	public String getAnimate()
+	 */ public String getAnimate()
 	{
 		if (animate == null)
 		{
@@ -420,7 +443,8 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	}
 
 	/**
-	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in these situations can
+	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in
+	 * these situations can
 	 * cause problems.
 	 * <p>
 	 *
@@ -432,7 +456,8 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	}
 
 	/**
-	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in these situations can
+	 * True to animate series after a call to the replot() method. Replots can happen very frequently under certain circumstances (e.g. resizing, dragging points) and animation in
+	 * these situations can
 	 * cause problems.
 	 * <p>
 	 *
@@ -533,26 +558,6 @@ public class JQPlotOptions<J extends JQPlotOptions<J>> extends JavaScriptPart<J>
 	public void setAxes(JQPlotAxes axes)
 	{
 		this.axes = axes;
-	}
-
-	/**
-	 * Gets the linked graph
-	 *
-	 * @return
-	 */
-	public JQPlotGraph getLinkedGraph()
-	{
-		return linkedGraph;
-	}
-
-	/**
-	 * Sets the linked graph
-	 *
-	 * @param linkedGraph
-	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
-	{
-		this.linkedGraph = linkedGraph;
 	}
 
 }

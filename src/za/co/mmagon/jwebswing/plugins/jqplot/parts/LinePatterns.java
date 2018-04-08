@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,10 +22,10 @@ package za.co.mmagon.jwebswing.plugins.jqplot.parts;
  */
 public enum LinePatterns
 {
-	
-	
-	;
-	
+	Dashed,
+	Solid,
+	Dotted;
+
 	LinePatterns()
 	{
 	}

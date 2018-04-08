@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.ticks.JQPlotTickOptionsAxis
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author Marc Magon
@@ -68,7 +68,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * axis range so that data points don't fall on the edges of the axis. a 1D [val1, val2, ...], or 2D [[val, label], [val, label], ...]
 	 */
 	@JsonIgnore
-	private List<String> ticks;
+	private Set<String> ticks;
 	/**
 	 * array of ticks to use. Computed automatically.
 	 */
@@ -95,7 +95,6 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 */
 	@JsonProperty("tickOptions")
 	private JavaScriptPart tickRendererOptions;
-
 	/**
 	 * The specific renderer options
 	 */
@@ -157,26 +156,6 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * @param linkedGraph
 	 */
 	public JQPlotAxisOptions(JQPlotGraph linkedGraph)
-	{
-		this.linkedGraph = linkedGraph;
-	}
-
-	/**
-	 * Returns the linked graph to this options
-	 *
-	 * @return
-	 */
-	public JQPlotGraph getLinkedGraph()
-	{
-		return linkedGraph;
-	}
-
-	/**
-	 * Sets the linked graph
-	 *
-	 * @param linkedGraph
-	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
 	}
@@ -320,7 +299,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * @return
 	 */
 	@JsonProperty("ticks")
-	public List<String> getTicks()
+	public Set<String> getTicks()
 	{
 		return ticks;
 	}
@@ -331,7 +310,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param ticks
 	 */
-	public void setTicks(List<String> ticks)
+	public void setTicks(Set<String> ticks)
 	{
 		this.ticks = ticks;
 	}
@@ -459,7 +438,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 */
 	public <O extends JavaScriptPart & JQPlotTickRenderer> void setTickRendererOptions(O tickRendererOptions)
 	{
-		this.tickRenderer = tickRendererOptions.getRenderer();
+		tickRenderer = tickRendererOptions.getRenderer();
 		this.tickRendererOptions = tickRendererOptions;
 	}
 
@@ -680,7 +659,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	public void setRendererOptions(O rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
-		this.renderer = rendererOptions.getRenderer();
+		renderer = rendererOptions.getRenderer();
 	}
 
 	/**
@@ -708,6 +687,26 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	}
 
 	/**
+	 * Returns the linked graph to this options
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
+
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+	}
+
+	/**
 	 * Sets the label renderer options
 	 *
 	 * @param labelRendererOptions
@@ -715,7 +714,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	public void setLabelRendererOptions(JQPlotAxisLabelRenderer labelRendererOptions)
 	{
 		this.labelRendererOptions = labelRendererOptions;
-		this.labelRenderer = labelRendererOptions.getRenderer();
+		labelRenderer = labelRendererOptions.getRenderer();
 	}
 
 	/**

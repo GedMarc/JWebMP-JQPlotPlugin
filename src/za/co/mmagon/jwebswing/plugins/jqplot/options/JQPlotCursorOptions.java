@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,6 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Cursors;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotRendererDefault;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,9 @@ import java.util.List;
  * @since 2014/07/09
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendererDefault
+public class JQPlotCursorOptions
+		extends JavaScriptPart
+		implements JQPlotRendererDefault
 {
 
 	private static final long serialVersionUID = 1L;
@@ -150,10 +151,6 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	public JQPlotCursorOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		if (linkedGraph != null)
-		{
-			this.linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
-		}
 	}
 
 	/**
@@ -173,12 +170,7 @@ public class JQPlotCursorOptions extends JavaScriptPart implements JQPlotRendere
 	 */
 	public void setLinkedGraph(JQPlotGraph linkedGraph)
 	{
-		if (this.linkedGraph != null)
-		{
-			this.linkedGraph.getJavascriptReferences().remove(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
-		}
 		this.linkedGraph = linkedGraph;
-		this.linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
 	}
 
 	/**

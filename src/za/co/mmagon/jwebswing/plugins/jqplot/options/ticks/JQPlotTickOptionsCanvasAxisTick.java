@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,14 +23,15 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.fonts.FontFamilies;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
  * @author Marc Magon
  * @version 1.0
  * @since 07 Aug 2015
  */
-public class JQPlotTickOptionsCanvasAxisTick extends JavaScriptPart implements JQPlotTickRenderer
+public class JQPlotTickOptionsCanvasAxisTick
+		extends JavaScriptPart
+		implements JQPlotTickRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -112,8 +113,6 @@ public class JQPlotTickOptionsCanvasAxisTick extends JavaScriptPart implements J
 	public JQPlotTickOptionsCanvasAxisTick(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasAxisTickRenderer.getReference());
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasTextRenderer.getReference());
 	}
 
 	/**

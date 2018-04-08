@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,6 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotRendererDefault;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
  * Plugin which will highlight data points when they are moused over.
@@ -36,20 +35,26 @@ import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferenc
  * <p>
  * You can control what data is displayed in the tooltip with various options. The “tooltipAxes” option controls whether the x, y or both data values are displayed.
  * <p>
- * Some chart types (e.g. hi-low-close) have more than one y value per data point. To display the additional values in the tooltip, set the “yvalues” option to the desired number of y values present
+ * Some chart types (e.g. hi-low-close) have more than one y value per data point. To display the additional values in the tooltip, set the “yvalues” option to the desired number
+ * of y values present
  * (3 for a hlc chart).
  * <p>
- * By default, data values will be formatted with the same formatting specifiers as used to format the axis ticks. A custom format code can be supplied with the tooltipFormatString option. This will
+ * By default, data values will be formatted with the same formatting specifiers as used to format the axis ticks. A custom format code can be supplied with the tooltipFormatString
+ * option. This will
  * apply to all values in the tooltip.
  * <p>
- * For more complete control, the “formatString” option can be set. This Allows conplete control over tooltip formatting. Values are passed to the format string in an order determined by the
- * “tooltipAxes” and “yvalues” options. So, if you have a hi-low-close chart and you just want to display the hi-low-close values in the tooltip, you could set a formatString like:
+ * For more complete control, the “formatString” option can be set. This Allows conplete control over tooltip formatting. Values are passed to the format string in an order
+ * determined by the
+ * “tooltipAxes” and “yvalues” options. So, if you have a hi-low-close chart and you just want to display the hi-low-close values in the tooltip, you could set a formatString
+ * like:
  *
  * @param <O>
  *
  * @author mmagon
  */
-public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRenderer> extends JavaScriptPart implements JQPlotRendererDefault
+public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRenderer>
+		extends JavaScriptPart
+		implements JQPlotRendererDefault
 {
 
 	private static final long serialVersionUID = 1L;
@@ -133,7 +138,6 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	public JQPlotHighlightOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.HighlightRenderer.getReference());
 	}
 
 	public static long getSerialVersionUID()
@@ -466,7 +470,7 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 		if (markerRendererOptions == null)
 		{
 			markerRendererOptions = (O) new JQPlotMarkerOptions(getLinkedGraph());
-			this.markerRenderer = markerRendererOptions.getMarkerRenderer();
+			markerRenderer = markerRendererOptions.getMarkerRenderer();
 		}
 		return markerRendererOptions;
 	}
@@ -477,8 +481,18 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 */
 	public void setMarkerRendererOptions(O markerRendererOptions)
 	{
-		this.markerRenderer = markerRendererOptions.getMarkerRenderer();
+		markerRenderer = markerRendererOptions.getMarkerRenderer();
 		this.markerRendererOptions = markerRendererOptions;
+	}
+
+	/**
+	 * Returns the linked graph with this object
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
 	}
 
 	/**
@@ -588,16 +602,6 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	public void setBringSeriesToFront(Boolean bringSeriesToFront)
 	{
 		this.bringSeriesToFront = bringSeriesToFront;
-	}
-
-	/**
-	 * Returns the linked graph with this object
-	 *
-	 * @return
-	 */
-	public JQPlotGraph getLinkedGraph()
-	{
-		return linkedGraph;
 	}
 
 	@Override

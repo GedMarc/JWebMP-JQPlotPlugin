@@ -19,8 +19,6 @@ package za.co.mmagon.jwebswing.plugins.jqplot;
 import za.co.mmagon.jwebswing.Feature;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotCSSReferencePool;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
 
@@ -33,7 +31,9 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
  * 		2016/02/26 Update to the feature for 1.0.9 and updates to the JavaScript Engine
  * @since 2014/07/08
  */
-public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeature> implements JQPlotGraphFeatures, GlobalFeatures
+public class JQPlotGraphFeature
+		extends Feature<JavaScriptPart, JQPlotGraphFeature>
+		implements JQPlotGraphFeatures, GlobalFeatures
 {
 
 	/**
@@ -45,15 +45,14 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 	{
 		super("JWGraphFeature");
 		setComponent(forGraph);
-		this.graph = forGraph;
-		getJavascriptReferences().add(JQPlotJavascriptReferencePool.GraphCore.getReference());
-		getCssReferences().add(JQPlotCSSReferencePool.GraphCore.getReference());
+		graph = forGraph;
 		forGraph.addVariable(getVariableName());
 	}
 
 	public String getVariableName()
 	{
-		return graph.getID().replaceAll("-", "_") + "_plot";
+		return graph.getID()
+		            .replaceAll("-", "_") + "_plot";
 	}
 
 	@Override
@@ -64,11 +63,17 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 
 		addQuery("$.jqplot.config.enablePlugins = true;" + getNewLine());
 
-		sb.append("var ").append(getVariableName()).append(" = ");
-		sb.append(getComponent().getJQueryID()).append("jqplot(");
-		sb.append(graph.getDataPointRender()).append(STRING_COMMNA).append(getNewLine());
+		sb.append("var ")
+		  .append(getVariableName())
+		  .append(" = ");
+		sb.append(getComponent().getJQueryID())
+		  .append("jqplot(");
+		sb.append(graph.getDataPointRender())
+		  .append(STRING_COMMNA)
+		  .append(getNewLine());
 		sb.append(getOptions());
-		sb.append(");").append(getNewLine());
+		sb.append(");")
+		  .append(getNewLine());
 		addQuery(sb.toString());
 	}
 
@@ -95,22 +100,7 @@ public class JQPlotGraphFeature extends Feature<JavaScriptPart, JQPlotGraphFeatu
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JQPlotGraphFeature))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JQPlotGraphFeature that = (JQPlotGraphFeature) o;
-
-		return getGraph() != null ? getGraph().equals(that.getGraph()) : that.getGraph() == null;
+		return super.equals(o);
 	}
 
 	@Override

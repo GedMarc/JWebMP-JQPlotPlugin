@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,13 +22,14 @@ import com.fasterxml.jackson.annotation.JsonRawValue;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
  * @author GedMarc
  * @since 1 Mar 2016
  */
-public class JQPlotLegendRendererEnhancedOptions extends JavaScriptPart implements JQPlotLegendRenderer
+public class JQPlotLegendRendererEnhancedOptions
+		extends JavaScriptPart
+		implements JQPlotLegendRenderer
 {
 
 	@JsonIgnore
@@ -53,7 +54,7 @@ public class JQPlotLegendRendererEnhancedOptions extends JavaScriptPart implemen
 	 * true to toggle series with a show/hide method only and not allow fading in/out.
 	 */
 	private Boolean disableIEFading;
-	
+
 	/**
 	 * The Default Axis Label Renderer Options
 	 *
@@ -62,7 +63,6 @@ public class JQPlotLegendRendererEnhancedOptions extends JavaScriptPart implemen
 	public JQPlotLegendRendererEnhancedOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.EnhancedLegenedRenderer.getReference());
 	}
 
 	@JsonProperty("renderer")

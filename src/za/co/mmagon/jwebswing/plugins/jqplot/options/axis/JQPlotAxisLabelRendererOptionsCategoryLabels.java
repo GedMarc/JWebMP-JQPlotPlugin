@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,13 +23,13 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPart & JQPlotTickRenderer> extends JavaScriptPart
+public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPart & JQPlotTickRenderer>
+		extends JavaScriptPart
 		implements JQPlotAxisLabelRenderer
 {
 
@@ -54,7 +54,6 @@ public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPa
 	public JQPlotAxisLabelRendererOptionsCategoryLabels(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CategoryAxisRenderer.getReference());
 	}
 
 	@JsonProperty("renderer")

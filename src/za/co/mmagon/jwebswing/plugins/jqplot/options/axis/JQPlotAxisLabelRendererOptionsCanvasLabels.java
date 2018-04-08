@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,13 +25,14 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.fonts.FontWeights;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotAxisLabelRendererOptionsCanvasLabels extends JavaScriptPart implements JQPlotAxisLabelRenderer
+public class JQPlotAxisLabelRendererOptionsCanvasLabels
+		extends JavaScriptPart
+		implements JQPlotAxisLabelRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -85,7 +86,7 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels extends JavaScriptPart i
 	 * This is an issue only with the native font renderering capabilities of Mozilla 3.5 and Safari 4 since they do not provide a method to determine the font height.
 	 */
 	private Double pt2px;
-	
+
 	/**
 	 * The Default Axis Label Renderer Options
 	 *
@@ -94,8 +95,6 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels extends JavaScriptPart i
 	public JQPlotAxisLabelRendererOptionsCanvasLabels(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasAxisLabelRenderer.getReference());
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.CanvasTextRenderer.getReference());
 	}
 
 	@JsonProperty("renderer")

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,16 @@
  */
 package za.co.mmagon.jwebswing.plugins.jqplot.graphs.display;
 
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
 
 /**
  * Represents a single bar
  */
-public class JQPlotBar implements JQPlotSeriesItem
+public class JQPlotBar<J extends JQPlotBar<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotSeriesItem
 {
 
 	private static final long serialVersionUID = 1L;
@@ -99,6 +103,81 @@ public class JQPlotBar implements JQPlotSeriesItem
 	}
 
 	/**
+	 * Only for Waterfall, Gets the starting value
+	 *
+	 * @return
+	 */
+	public Double getStartingValue()
+	{
+		return startingValue;
+	}
+
+	/**
+	 * Only for waterfall, gets the starting value
+	 *
+	 * @param startingValue
+	 */
+	public void setStartingValue(Double startingValue)
+	{
+		this.startingValue = startingValue;
+	}
+
+	/**
+	 * Gets the X Axis Name
+	 *
+	 * @return
+	 */
+	public String getxAxisValue()
+	{
+		return xAxisValue;
+	}
+
+	/**
+	 * Sets the X Axis Name
+	 *
+	 * @param xAxisValue
+	 */
+	public void setxAxisValue(String xAxisValue)
+	{
+		this.xAxisValue = xAxisValue;
+	}
+
+	@Override
+	public String toString()
+	{
+		if (isClustered() && !isWaterfall())
+		{
+			return "[\"" + getCategoryValue() + "\"," + getyValue() + "],";
+		}
+		if (isWaterfall())
+		{
+			return getyValue() + STRING_COMMNA;
+		}
+
+		return getyValue().toString() + STRING_COMMNA;
+	}
+
+	/**
+	 * gets if this is a clustered bar
+	 *
+	 * @return
+	 */
+	public boolean isClustered()
+	{
+		return clustered;
+	}
+
+	/**
+	 * Gets if this is a waterfall bar
+	 *
+	 * @return
+	 */
+	public boolean isWaterfall()
+	{
+		return waterfall;
+	}
+
+	/**
 	 * Gets the category value for a specific bar
 	 * <p>
 	 *
@@ -143,56 +222,6 @@ public class JQPlotBar implements JQPlotSeriesItem
 	}
 
 	/**
-	 * Only for Waterfall, Gets the starting value
-	 *
-	 * @return
-	 */
-	public Double getStartingValue()
-	{
-		return startingValue;
-	}
-
-	/**
-	 * Only for waterfall, gets the starting value
-	 *
-	 * @param startingValue
-	 */
-	public void setStartingValue(Double startingValue)
-	{
-		this.startingValue = startingValue;
-	}
-
-	/**
-	 * Gets the X Axis Name
-	 *
-	 * @return
-	 */
-	public String getxAxisValue()
-	{
-		return xAxisValue;
-	}
-
-	/**
-	 * Sets the X Axis Name
-	 *
-	 * @param xAxisValue
-	 */
-	public void setxAxisValue(String xAxisValue)
-	{
-		this.xAxisValue = xAxisValue;
-	}
-
-	/**
-	 * Gets if this is a waterfall bar
-	 *
-	 * @return
-	 */
-	public boolean isWaterfall()
-	{
-		return waterfall;
-	}
-
-	/**
 	 * sets if this is a waterfall bar
 	 *
 	 * @param waterfall
@@ -203,16 +232,6 @@ public class JQPlotBar implements JQPlotSeriesItem
 	}
 
 	/**
-	 * gets if this is a clustered bar
-	 *
-	 * @return
-	 */
-	public boolean isClustered()
-	{
-		return clustered;
-	}
-
-	/**
 	 * sets if this is a clustered bar
 	 *
 	 * @param clustered
@@ -220,20 +239,5 @@ public class JQPlotBar implements JQPlotSeriesItem
 	public void setClustered(boolean clustered)
 	{
 		this.clustered = clustered;
-	}
-
-	@Override
-	public String toString()
-	{
-		if (isClustered() && !isWaterfall())
-		{
-			return "[\"" + getCategoryValue() + "\"," + getyValue() + "],";
-		}
-		if (isWaterfall())
-		{
-			return getyValue() + STRING_COMMNA;
-		}
-
-		return getyValue().toString() + STRING_COMMNA;
 	}
 }

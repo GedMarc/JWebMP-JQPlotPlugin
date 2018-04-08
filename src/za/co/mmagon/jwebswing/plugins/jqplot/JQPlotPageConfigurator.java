@@ -19,6 +19,8 @@ package za.co.mmagon.jwebswing.plugins.jqplot;
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.PageConfigurator;
 import za.co.mmagon.jwebswing.plugins.PluginInformation;
+import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotCSSReferencePool;
+import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
  * @author GedMarc
@@ -39,9 +41,9 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/JQPlotPlugin.jar/download",
 		pluginIconUrl = "bower_components/jqplot-jwebswing/jqplot_icon.jpg",
 		pluginIconImageUrl = "bower_components/jqplot-jwebswing/jqplot_logo.png",
-		pluginLastUpdatedDate = "2017/03/04"
-)
-public class JQPlotPageConfigurator extends PageConfigurator
+		pluginLastUpdatedDate = "2017/03/04")
+public class JQPlotPageConfigurator
+		extends PageConfigurator
 {
 
 	private static final long serialVersionUID = 1L;
@@ -56,7 +58,41 @@ public class JQPlotPageConfigurator extends PageConfigurator
 	{
 		if (!page.isConfigured())
 		{
-			//Later on
+			page.addCssReference(JQPlotCSSReferencePool.GraphCore.getReference());
+
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.GraphCore.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.ExCanvas.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BezierCurveRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BarRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BlockRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BubbleRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasAxisLabelRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasAxisTickRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasOverlayRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasTextRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CategoryAxisRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CIParserRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.DateAxisRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.DoughnutRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.DraggableRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.EnhancedLegenedRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.EnhancedPieLegenedRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.FunnelRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.HighlightRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.JSON2Renderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.LogAxisRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.MekkoAxisRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.MekkoRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.MeterGaugeRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.Mobile.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.OHLCRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PieRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PointLabelsRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidAxisRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidGridRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidRenderer.getReference());
+			page.addJavaScriptReference(JQPlotJavascriptReferencePool.TrendlineRenderer.getReference());
 		}
 		return page;
 	}

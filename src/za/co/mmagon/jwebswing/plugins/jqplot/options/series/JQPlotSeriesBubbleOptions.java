@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,14 +20,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 /**
  * @author Marc Magon
  * @version 1.0
  * @since 09 Aug 2015
  */
-public class JQPlotSeriesBubbleOptions extends JavaScriptPart implements JQPlotSeriesRenderer
+public class JQPlotSeriesBubbleOptions
+		extends JavaScriptPart
+		implements JQPlotSeriesRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -95,7 +96,7 @@ public class JQPlotSeriesBubbleOptions extends JavaScriptPart implements JQPlotS
 	 */
 
 	private Boolean showLabels;
-	
+
 	/**
 	 * Constructs a new Bubble Options for the given graph
 	 *
@@ -104,7 +105,6 @@ public class JQPlotSeriesBubbleOptions extends JavaScriptPart implements JQPlotS
 	public JQPlotSeriesBubbleOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.BubbleRenderer.getReference());
 	}
 
 	/**

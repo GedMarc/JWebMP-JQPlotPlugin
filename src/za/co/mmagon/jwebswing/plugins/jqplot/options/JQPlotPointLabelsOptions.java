@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import za.co.mmagon.jwebswing.generics.CompassPoints;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
-import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
 import java.util.List;
 
@@ -30,7 +29,8 @@ import java.util.List;
  * @author GedMarc
  * @since 27 Feb 2016
  */
-public class JQPlotPointLabelsOptions extends JavaScriptPart
+public class JQPlotPointLabelsOptions
+		extends JavaScriptPart
 {
 
 	private static final long serialVersionUID = 1L;
@@ -119,10 +119,6 @@ public class JQPlotPointLabelsOptions extends JavaScriptPart
 	 */
 	public void setShow(Boolean show)
 	{
-		if (show && this.linkedGraph != null)
-		{
-			this.linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.PointLabelsRenderer.getReference());
-		}
 		this.show = show;
 	}
 
