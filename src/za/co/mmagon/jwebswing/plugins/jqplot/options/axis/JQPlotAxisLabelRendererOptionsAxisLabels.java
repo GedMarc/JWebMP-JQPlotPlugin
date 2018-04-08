@@ -24,12 +24,14 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotAxisLabelRendererOptionsAxisLabels
-		extends JavaScriptPart
+public class JQPlotAxisLabelRendererOptionsAxisLabels<J extends JQPlotAxisLabelRendererOptionsAxisLabels<J>>
+		extends JavaScriptPart<J>
 		implements JQPlotAxisLabelRenderer
 {
 
@@ -82,9 +84,12 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -102,9 +107,12 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -122,9 +130,12 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels
 	 *
 	 * @param label
 	 */
-	public void setLabel(String label)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabel(String label)
 	{
 		this.label = label;
+		return (J) this;
 	}
 
 	/**
@@ -132,11 +143,14 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels
 	 *
 	 * @param label
 	 */
-	public void setLabel(Component label)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabel(Component label)
 	{
 		label.setTiny(true);
 		this.label = label.toString(true);
 		setEscapeHTML(true);
+		return (J) this;
 	}
 
 	/**
@@ -154,9 +168,12 @@ public class JQPlotAxisLabelRendererOptionsAxisLabels
 	 *
 	 * @param escapeHTML
 	 */
-	public void setEscapeHTML(Boolean escapeHTML)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEscapeHTML(Boolean escapeHTML)
 	{
 		this.escapeHTML = escapeHTML;
+		return (J) this;
 	}
 
 }

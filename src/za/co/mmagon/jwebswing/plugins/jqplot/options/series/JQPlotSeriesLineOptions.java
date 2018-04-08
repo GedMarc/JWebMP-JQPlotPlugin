@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,6 +21,8 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * The properties for a line graph
  *
@@ -28,7 +30,9 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRender
  * @version 1.0
  * @since 09 Aug 2015
  */
-public class JQPlotSeriesLineOptions extends JavaScriptPart implements JQPlotSeriesRenderer
+public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotSeriesRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -75,9 +79,12 @@ public class JQPlotSeriesLineOptions extends JavaScriptPart implements JQPlotSer
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -106,9 +113,12 @@ public class JQPlotSeriesLineOptions extends JavaScriptPart implements JQPlotSer
 	 *
 	 * @param smooth
 	 */
-	public void setSmooth(Boolean smooth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSmooth(Boolean smooth)
 	{
 		this.smooth = smooth;
+		return (J) this;
 	}
 
 	/**
@@ -127,20 +137,26 @@ public class JQPlotSeriesLineOptions extends JavaScriptPart implements JQPlotSer
 	 *
 	 * @param constrainSmoothing
 	 */
-	public void setConstrainSmoothing(Boolean constrainSmoothing)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setConstrainSmoothing(Boolean constrainSmoothing)
 	{
 		this.constrainSmoothing = constrainSmoothing;
+		return (J) this;
 	}
 
 	/**
 	 * *
-	 * A 2 dimensional array like [[yl1, yl2, ...], [yu1, yu2, ...]] where [yl1, yl2, ...] are y values of the lower line and [yu1, yu2, ...] are y values of the upper line. In this case there must be
+	 * A 2 dimensional array like [[yl1, yl2, ...], [yu1, yu2, ...]] where [yl1, yl2, ...] are y values of the lower line and [yu1, yu2, ...] are y values of the upper line. In
+	 * this case there must be
 	 * the same number of y data points as data points in the series and the bands will inherit the x values of the series.
 	 * <p>
-	 * A 2 dimensional array like [[[xl1, yl1], [xl2, yl2], ...], [[xh1, yh1], [xh2, yh2], ...]] where [xl1, yl1] are x,y data points for the lower line and [xh1, yh1] are x,y data points for the high
+	 * A 2 dimensional array like [[[xl1, yl1], [xl2, yl2], ...], [[xh1, yh1], [xh2, yh2], ...]] where [xl1, yl1] are x,y data points for the lower line and [xh1, yh1] are x,y data
+	 * points for the high
 	 * line. x values do not have to correspond to the x values of the series and can be of any arbitrary length.
 	 * <p>
-	 * Can be of form [[yl1, yu1], [yl2, yu2], [yl3, yu3], ...] where there must be 3 or more arrays and there must be the same number of arrays as there are data points in the series. In this case,
+	 * Can be of form [[yl1, yu1], [yl2, yu2], [yl3, yu3], ...] where there must be 3 or more arrays and there must be the same number of arrays as there are data points in the
+	 * series. In this case,
 	 * [yl1, yu1] specifies the lower and upper y values for the 1st data point and so on. The bands will inherit the x values from the series.
 	 *
 	 * @return
@@ -152,20 +168,26 @@ public class JQPlotSeriesLineOptions extends JavaScriptPart implements JQPlotSer
 
 	/**
 	 * *
-	 * A 2 dimensional array like [[yl1, yl2, ...], [yu1, yu2, ...]] where [yl1, yl2, ...] are y values of the lower line and [yu1, yu2, ...] are y values of the upper line. In this case there must be
+	 * A 2 dimensional array like [[yl1, yl2, ...], [yu1, yu2, ...]] where [yl1, yl2, ...] are y values of the lower line and [yu1, yu2, ...] are y values of the upper line. In
+	 * this case there must be
 	 * the same number of y data points as data points in the series and the bands will inherit the x values of the series.
 	 * <p>
-	 * A 2 dimensional array like [[[xl1, yl1], [xl2, yl2], ...], [[xh1, yh1], [xh2, yh2], ...]] where [xl1, yl1] are x,y data points for the lower line and [xh1, yh1] are x,y data points for the high
+	 * A 2 dimensional array like [[[xl1, yl1], [xl2, yl2], ...], [[xh1, yh1], [xh2, yh2], ...]] where [xl1, yl1] are x,y data points for the lower line and [xh1, yh1] are x,y data
+	 * points for the high
 	 * line. x values do not have to correspond to the x values of the series and can be of any arbitrary length.
 	 * <p>
-	 * Can be of form [[yl1, yu1], [yl2, yu2], [yl3, yu3], ...] where there must be 3 or more arrays and there must be the same number of arrays as there are data points in the series. In this case,
+	 * Can be of form [[yl1, yu1], [yl2, yu2], [yl3, yu3], ...] where there must be 3 or more arrays and there must be the same number of arrays as there are data points in the
+	 * series. In this case,
 	 * [yl1, yu1] specifies the lower and upper y values for the 1st data point and so on. The bands will inherit the x values from the series.
 	 *
 	 * @param bandData
 	 */
-	public void setBandData(String bandData)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBandData(String bandData)
 	{
 		this.bandData = bandData;
+		return (J) this;
 	}
 
 }

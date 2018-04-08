@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,8 +25,11 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisRenderer
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
+import javax.validation.constraints.NotNull;
+
 /**
- * A plugin for a jqPlot to render an axis as a series of date values. This renderer has no options beyond those supplied by the Axis class. It supplies its own tick formatter, so the
+ * A plugin for a jqPlot to render an axis as a series of date values. This renderer has no options beyond those supplied by the Axis class. It supplies its own tick formatter, so
+ * the
  * tickOptions.formatter option should not be overridden.
  * <p>
  * Thanks to Ken Synder for his enhanced Date instance methods which are included with this code http://kendsnyder.com/sandbox/date/.
@@ -39,24 +42,34 @@ import za.co.mmagon.jwebswing.plugins.jqplot.references.JQPlotJavascriptReferenc
  * <p>
  * {axes:{xaxis:{renderer:$.jqplot.DateAxisRenderer}}}
  * <p>
- * Dates can be passed into the axis in almost any recognizable value and will be parsed. They will be rendered on the axis in the format specified by tickOptions.formatString. e.g.
+ * Dates can be passed into the axis in almost any recognizable value and will be parsed. They will be rendered on the axis in the format specified by tickOptions.formatString.
+ * e.g.
  * tickOptions.formatString = ‘%Y-%m-%d’.
  * <p>
  * Accecptable format codes are:
  * <p>
- * Code Result Description == Years == %Y 2008 Four-digit year %y 08 Two-digit year == Months == %m 09 Two-digit month %#m 9 One or two-digit month %B September Full month name %b Sep Abbreviated
- * month name == Days == %d 05 Two-digit day of month %#d 5 One or two-digit day of month %e 5 One or two-digit day of month %A Sunday Full name of the day of the week %a Sun Abbreviated name of the
- * day of the week %w 0 Number of the day of the week (0 = Sunday, 6 = Saturday) %o th The ordinal suffix string following the day of the month == Hours == %H 23 Hours in 24-hour format (two digits)
- * %#H 3 Hours in 24-hour integer format (one or two digits) %I 11 Hours in 12-hour format (two digits) %#I 3 Hours in 12-hour integer format (one or two digits) %p PM AM or PM == Minutes == %M 09
- * Minutes (two digits) %#M 9 Minutes (one or two digits) == Seconds == %S 02 Seconds (two digits) %#S 2 Seconds (one or two digits) %s 1206567625723 Unix timestamp (Seconds past 1970-01-01 00:00:00)
- * == Milliseconds == %N 008 Milliseconds (three digits) %#N 8 Milliseconds (one to three digits) == Timezone == %O 360 difference in minutes between local time and GMT %Z Mountain Standard Time Name
- * of timezone as reported by browser %G -06:00 Hours and minutes between GMT == Shortcuts == %F 2008-03-26 %Y-%m-%d %T 05:06:30 %H:%M:%S %X 05:06:30 %H:%M:%S %x 03/26/08 %m/%d/%y %D 03/26/08 %m/%d/%y
+ * Code Result Description == Years == %Y 2008 Four-digit year %y 08 Two-digit year == Months == %m 09 Two-digit month %#m 9 One or two-digit month %B September Full month name %b
+ * Sep Abbreviated
+ * month name == Days == %d 05 Two-digit day of month %#d 5 One or two-digit day of month %e 5 One or two-digit day of month %A Sunday Full name of the day of the week %a Sun
+ * Abbreviated name of the
+ * day of the week %w 0 Number of the day of the week (0 = Sunday, 6 = Saturday) %o th The ordinal suffix string following the day of the month == Hours == %H 23 Hours in 24-hour
+ * format (two digits)
+ * %#H 3 Hours in 24-hour integer format (one or two digits) %I 11 Hours in 12-hour format (two digits) %#I 3 Hours in 12-hour integer format (one or two digits) %p PM AM or PM ==
+ * Minutes == %M 09
+ * Minutes (two digits) %#M 9 Minutes (one or two digits) == Seconds == %S 02 Seconds (two digits) %#S 2 Seconds (one or two digits) %s 1206567625723 Unix timestamp (Seconds past
+ * 1970-01-01 00:00:00)
+ * == Milliseconds == %N 008 Milliseconds (three digits) %#N 8 Milliseconds (one to three digits) == Timezone == %O 360 difference in minutes between local time and GMT %Z Mountain
+ * Standard Time Name
+ * of timezone as reported by browser %G -06:00 Hours and minutes between GMT == Shortcuts == %F 2008-03-26 %Y-%m-%d %T 05:06:30 %H:%M:%S %X 05:06:30 %H:%M:%S %x 03/26/08 %m/%d/%y
+ * %D 03/26/08 %m/%d/%y
  * %#c Wed Mar 26 15:31:00 2008 %a %b %e %H:%M:%S %Y %v 3-Sep-2008 %e-%b-%Y %R 15:31 %H:%M %r 3:31:00 PM %I:%M:%S %p == Characters == %n \n Newline %t \t Tab %% % Percent Symbol
  *
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQPlotAxisRenderer
+public class JQPlotAxisDateRendererOptions<J extends JQPlotAxisDateRendererOptions<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotAxisRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -83,7 +96,7 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 * CSS color spec for the baseline.
 	 */
 	private String baselineColor;
-	
+
 	/**
 	 * The Default Axis Label Renderer Options
 	 *
@@ -92,7 +105,8 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	public JQPlotAxisDateRendererOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		linkedGraph.getJavascriptReferences().add(JQPlotJavascriptReferencePool.DateAxisRenderer.getReference());
+		linkedGraph.getJavascriptReferences()
+		           .add(JQPlotJavascriptReferencePool.DateAxisRenderer.getReference());
 	}
 
 	@JsonProperty("renderer")
@@ -119,9 +133,12 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -139,9 +156,12 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 *
 	 * @param tickRenderer
 	 */
-	public void setTickRenderer(JQPlotTickRenderer tickRenderer)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTickRenderer(JQPlotTickRenderer tickRenderer)
 	{
 		this.tickRenderer = tickRenderer;
+		return (J) this;
 	}
 
 	/**
@@ -159,9 +179,12 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 *
 	 * @param tickInset
 	 */
-	public void setTickInset(Integer tickInset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTickInset(Integer tickInset)
 	{
 		this.tickInset = tickInset;
+		return (J) this;
 	}
 
 	/**
@@ -179,9 +202,12 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 *
 	 * @param drawBaseline
 	 */
-	public void setDrawBaseline(Boolean drawBaseline)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDrawBaseline(Boolean drawBaseline)
 	{
 		this.drawBaseline = drawBaseline;
+		return (J) this;
 	}
 
 	/**
@@ -199,9 +225,12 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 *
 	 * @param baselineWidth
 	 */
-	public void setBaselineWidth(Integer baselineWidth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBaselineWidth(Integer baselineWidth)
 	{
 		this.baselineWidth = baselineWidth;
+		return (J) this;
 	}
 
 	/**
@@ -219,9 +248,12 @@ public class JQPlotAxisDateRendererOptions extends JavaScriptPart implements JQP
 	 *
 	 * @param baselineColor
 	 */
-	public void setBaselineColor(String baselineColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBaselineColor(String baselineColor)
 	{
 		this.baselineColor = baselineColor;
+		return (J) this;
 	}
 
 }

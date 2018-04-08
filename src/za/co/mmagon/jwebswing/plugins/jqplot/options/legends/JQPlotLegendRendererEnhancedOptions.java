@@ -23,12 +23,14 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @since 1 Mar 2016
  */
-public class JQPlotLegendRendererEnhancedOptions
-		extends JavaScriptPart
+public class JQPlotLegendRendererEnhancedOptions<J extends JQPlotLegendRendererEnhancedOptions<J>>
+		extends JavaScriptPart<J>
 		implements JQPlotLegendRenderer
 {
 
@@ -89,9 +91,12 @@ public class JQPlotLegendRendererEnhancedOptions
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -109,9 +114,12 @@ public class JQPlotLegendRendererEnhancedOptions
 	 *
 	 * @param numberRows
 	 */
-	public void setNumberRows(Integer numberRows)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setNumberRows(Integer numberRows)
 	{
 		this.numberRows = numberRows;
+		return (J) this;
 	}
 
 	/**
@@ -129,9 +137,12 @@ public class JQPlotLegendRendererEnhancedOptions
 	 *
 	 * @param numberColumns
 	 */
-	public void setNumberColumns(Integer numberColumns)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setNumberColumns(Integer numberColumns)
 	{
 		this.numberColumns = numberColumns;
+		return (J) this;
 	}
 
 	/**
@@ -149,9 +160,12 @@ public class JQPlotLegendRendererEnhancedOptions
 	 *
 	 * @param seriesToggle
 	 */
-	public void setSeriesToggle(Boolean seriesToggle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeriesToggle(Boolean seriesToggle)
 	{
 		this.seriesToggle = seriesToggle;
+		return (J) this;
 	}
 
 	/**
@@ -169,9 +183,12 @@ public class JQPlotLegendRendererEnhancedOptions
 	 *
 	 * @param seriesToggleReplot
 	 */
-	public void setSeriesToggleReplot(Boolean seriesToggleReplot)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeriesToggleReplot(Boolean seriesToggleReplot)
 	{
 		this.seriesToggleReplot = seriesToggleReplot;
+		return (J) this;
 	}
 
 	/**
@@ -189,9 +206,12 @@ public class JQPlotLegendRendererEnhancedOptions
 	 *
 	 * @param disableIEFading
 	 */
-	public void setDisableIEFading(Boolean disableIEFading)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDisableIEFading(Boolean disableIEFading)
 	{
 		this.disableIEFading = disableIEFading;
+		return (J) this;
 	}
 
 }

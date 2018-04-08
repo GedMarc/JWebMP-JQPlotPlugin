@@ -21,6 +21,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -30,8 +31,8 @@ import java.util.List;
  * @version 1.0
  * @since 09 Aug 2015
  */
-public class JQPlotSeriesDonutOptions
-		extends JavaScriptPart
+public class JQPlotSeriesDonutOptions<J extends JQPlotSeriesDonutOptions<J>>
+		extends JavaScriptPart<J>
 		implements JQPlotSeriesRenderer
 {
 
@@ -143,9 +144,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -177,9 +181,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param diameter
 	 */
-	public void setDiameter(Integer diameter)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDiameter(Integer diameter)
 	{
 		this.diameter = diameter;
+		return (J) this;
 	}
 
 	/**
@@ -198,9 +205,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param padding
 	 */
-	public void setPadding(Double padding)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPadding(Double padding)
 	{
 		this.padding = padding;
+		return (J) this;
 	}
 
 	/**
@@ -219,9 +229,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param sliceMargin
 	 */
-	public void setSliceMargin(Integer sliceMargin)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSliceMargin(Integer sliceMargin)
 	{
 		this.sliceMargin = sliceMargin;
+		return (J) this;
 	}
 
 	/**
@@ -240,9 +253,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param fill
 	 */
-	public void setFill(Boolean fill)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFill(Boolean fill)
 	{
 		this.fill = fill;
+		return (J) this;
 	}
 
 	/**
@@ -261,9 +277,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param shadowOffset
 	 */
-	public void setShadowOffset(Integer shadowOffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowOffset(Integer shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return (J) this;
 	}
 
 	/**
@@ -283,9 +302,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param shadowAlpha
 	 */
-	public void setShadowAlpha(Double shadowAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return (J) this;
 	}
 
 	/**
@@ -304,9 +326,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param shadowDepth
 	 */
-	public void setShadowDepth(Integer shadowDepth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return (J) this;
 	}
 
 	/**
@@ -325,9 +350,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param highlightMouseOver
 	 */
-	public void setHighlightMouseOver(Boolean highlightMouseOver)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightMouseOver(Boolean highlightMouseOver)
 	{
 		this.highlightMouseOver = highlightMouseOver;
+		return (J) this;
 	}
 
 	/**
@@ -346,9 +374,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param highlightMouseDown
 	 */
-	public void setHighlightMouseDown(Boolean highlightMouseDown)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightMouseDown(Boolean highlightMouseDown)
 	{
 		this.highlightMouseDown = highlightMouseDown;
+		return (J) this;
 	}
 
 	/**
@@ -367,9 +398,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param highlightColors
 	 */
-	public void setHighlightColors(List<String> highlightColors)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightColors(List<String> highlightColors)
 	{
 		this.highlightColors = highlightColors;
+		return (J) this;
 	}
 
 	/**
@@ -388,9 +422,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param dataLabels
 	 */
-	public void setDataLabels(String dataLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabels(String dataLabels)
 	{
 		this.dataLabels = dataLabels;
+		return (J) this;
 	}
 
 	/**
@@ -409,9 +446,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param showDataLabels
 	 */
-	public void setShowDataLabels(Boolean showDataLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowDataLabels(Boolean showDataLabels)
 	{
 		this.showDataLabels = showDataLabels;
+		return (J) this;
 	}
 
 	/**
@@ -430,9 +470,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param dataLabelFormatString
 	 */
-	public void setDataLabelFormatString(String dataLabelFormatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelFormatString(String dataLabelFormatString)
 	{
 		this.dataLabelFormatString = dataLabelFormatString;
+		return (J) this;
 	}
 
 	/**
@@ -451,9 +494,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param dataLabelThreshold
 	 */
-	public void setDataLabelThreshold(Integer dataLabelThreshold)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelThreshold(Integer dataLabelThreshold)
 	{
 		this.dataLabelThreshold = dataLabelThreshold;
+		return (J) this;
 	}
 
 	/**
@@ -472,9 +518,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param dataLabelPositionFactor
 	 */
-	public void setDataLabelPositionFactor(Double dataLabelPositionFactor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelPositionFactor(Double dataLabelPositionFactor)
 	{
 		this.dataLabelPositionFactor = dataLabelPositionFactor;
+		return (J) this;
 	}
 
 	/**
@@ -493,9 +542,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param dataLabelNudge
 	 */
-	public void setDataLabelNudge(Integer dataLabelNudge)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelNudge(Integer dataLabelNudge)
 	{
 		this.dataLabelNudge = dataLabelNudge;
+		return (J) this;
 	}
 
 	/**
@@ -514,9 +566,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param dataLabelCenterOn
 	 */
-	public void setDataLabelCenterOn(Boolean dataLabelCenterOn)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelCenterOn(Boolean dataLabelCenterOn)
 	{
 		this.dataLabelCenterOn = dataLabelCenterOn;
+		return (J) this;
 	}
 
 	/**
@@ -535,9 +590,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param startAngle
 	 */
-	public void setStartAngle(Integer startAngle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStartAngle(Integer startAngle)
 	{
 		this.startAngle = startAngle;
+		return (J) this;
 	}
 
 	/**
@@ -556,9 +614,12 @@ public class JQPlotSeriesDonutOptions
 	 *
 	 * @param showSlice
 	 */
-	public void setShowSlice(List<Boolean> showSlice)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowSlice(List<Boolean> showSlice)
 	{
 		this.showSlice = showSlice;
+		return (J) this;
 	}
 
 }

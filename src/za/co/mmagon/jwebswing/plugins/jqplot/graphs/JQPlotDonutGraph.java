@@ -35,7 +35,9 @@ import java.util.List;
  * @author mmagon
  * @since 2014/07/08
  */
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY,
+		getterVisibility = JsonAutoDetect.Visibility.NONE,
+		setterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @ComponentInformation(name = "Donut Graph",
 		description = "A donut graph",
@@ -55,7 +57,8 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 	public JQPlotDonutGraph()
 	{
 		donutOptions = new JQPlotSeriesDonutOptions(this);
-		getOptions().getSeriesDefaults().setRendererOptions(donutOptions);
+		getOptions().getSeriesDefaults()
+		            .setRendererOptions(donutOptions);
 		donutGroup = new JQPlotDonutGroup();
 	}
 
@@ -75,6 +78,15 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 		}
 
 		return getDonutGroup().get(donutGroup);
+	}
+
+	public List<List<JQPlotPieSlice>> getDonutGroup()
+	{
+		if (donutGroup == null)
+		{
+			donutGroup = new JQPlotDonutGroup();
+		}
+		return donutGroup.getDonutGroup();
 	}
 
 	/**
@@ -155,18 +167,6 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 	}
 
 	/**
-	 * Returns a specific donut group. Rendered as [] in
-	 *
-	 * @return
-	 */
-	@JsonRawValue
-	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
-	public List<List<JQPlotPieSlice>> getDonutGroupJSON()
-	{
-		return getDonutGroup();
-	}
-
-	/**
 	 * 3 Bracket start
 	 *
 	 * @return
@@ -182,38 +182,22 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 		return sb;
 	}
 
-	public List<List<JQPlotPieSlice>> getDonutGroup()
+	/**
+	 * Returns a specific donut group. Rendered as [] in
+	 *
+	 * @return
+	 */
+	@JsonRawValue
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	public List<List<JQPlotPieSlice>> getDonutGroupJSON()
 	{
-		if (this.donutGroup == null)
-		{
-			donutGroup = new JQPlotDonutGroup();
-		}
-		return this.donutGroup.getDonutGroup();
+		return getDonutGroup();
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JQPlotDonutGraph))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JQPlotDonutGraph<?> that = (JQPlotDonutGraph<?>) o;
-
-		if (getDonutOptions() != null ? !getDonutOptions().equals(that.getDonutOptions()) : that.getDonutOptions() != null)
-		{
-			return false;
-		}
-		return getDonutGroup() != null ? getDonutGroup().equals(that.getDonutGroup()) : that.getDonutGroup() == null;
+		return super.equals(o);
 	}
 
 	@Override

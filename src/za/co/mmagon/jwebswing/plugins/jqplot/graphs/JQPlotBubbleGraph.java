@@ -40,7 +40,8 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
 @ComponentInformation(name = "Bubble Graph",
 		description = "A bubble graph",
 		url = "http://www.jqplot.com/examples/bubbleChart.php")
-public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGraph<JQPlotOptions, J>
+public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>>
+		extends JQPlotGraph<JQPlotOptions, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -54,7 +55,8 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 	public JQPlotBubbleGraph()
 	{
 		getOptions().getSeriesDefaults();
-		getOptions().getSeriesDefaults().setRendererOptions(getBubbleOptions());
+		getOptions().getSeriesDefaults()
+		            .setRendererOptions(getBubbleOptions());
 	}
 
 	/**
@@ -140,7 +142,8 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 
 		for (JQPlotBubble next : getBubbles())
 		{
-			sb.append(next).append(STRING_COMMNA);
+			sb.append(next)
+			  .append(STRING_COMMNA);
 		}
 
 		if (sb.indexOf(STRING_COMMNA) > 0)
@@ -155,26 +158,7 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>> extends JQPlotGra
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JQPlotBubbleGraph))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JQPlotBubbleGraph<?> that = (JQPlotBubbleGraph<?>) o;
-
-		if (!getBubbles().equals(that.getBubbles()))
-		{
-			return false;
-		}
-		return getBubbleOptions().equals(that.getBubbleOptions());
+		return super.equals(o);
 	}
 
 	@Override

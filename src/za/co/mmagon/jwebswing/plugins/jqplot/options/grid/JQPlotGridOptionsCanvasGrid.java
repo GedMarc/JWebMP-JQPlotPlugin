@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,12 +24,16 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotGridRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Marc Magon
  * @version 1.0
  * @since 07 Aug 2015
  */
-public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlotGridRenderer
+public class JQPlotGridOptionsCanvasGrid<J extends JQPlotGridOptionsCanvasGrid<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotGridRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -81,7 +85,7 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 */
 	private Double shadowAlpha;
 	private JavaScriptPart rendererOptions;
-	
+
 	/**
 	 * Construct a new Grid Options with the linked graph
 	 *
@@ -119,9 +123,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param drawGridLines
 	 */
-	public void setDrawGridLines(Boolean drawGridLines)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDrawGridLines(Boolean drawGridLines)
 	{
 		this.drawGridLines = drawGridLines;
+		return (J) this;
 	}
 
 	/**
@@ -139,9 +146,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param gridLineColor
 	 */
-	public void setGridLineColor(ColourHex gridLineColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setGridLineColor(ColourHex gridLineColor)
 	{
 		this.gridLineColor = gridLineColor.getValue();
+		return (J) this;
 	}
 
 	/**
@@ -159,9 +169,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param background
 	 */
-	public void setBackground(ColourHex background)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBackground(ColourHex background)
 	{
 		this.background = background.getValue();
+		return (J) this;
 	}
 
 	/**
@@ -179,9 +192,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param borderColor
 	 */
-	public void setBorderColor(ColourHex borderColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBorderColor(ColourHex borderColor)
 	{
 		this.borderColor = borderColor.getValue();
+		return (J) this;
 	}
 
 	/**
@@ -199,9 +215,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param borderWidth
 	 */
-	public void setBorderWidth(Double borderWidth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBorderWidth(Double borderWidth)
 	{
 		this.borderWidth = borderWidth;
+		return (J) this;
 	}
 
 	/**
@@ -219,9 +238,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param shadow
 	 */
-	public void setShadow(Boolean shadow)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
+		return (J) this;
 	}
 
 	/**
@@ -239,9 +261,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param shadowAngle
 	 */
-	public void setShadowAngle(Integer shadowAngle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAngle(Integer shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
+		return (J) this;
 	}
 
 	/**
@@ -259,9 +284,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param shadowOffset
 	 */
-	public void setShadowOffset(Double shadowOffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return (J) this;
 	}
 
 	/**
@@ -279,9 +307,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param shadowWidth
 	 */
-	public void setShadowWidth(Integer shadowWidth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowWidth(Integer shadowWidth)
 	{
 		this.shadowWidth = shadowWidth;
+		return (J) this;
 	}
 
 	/**
@@ -299,9 +330,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param shadowDepth
 	 */
-	public void setShadowDepth(Integer shadowDepth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return (J) this;
 	}
 
 	/**
@@ -319,9 +353,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param shadowAlpha
 	 */
-	public void setShadowAlpha(Double shadowAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return (J) this;
 	}
 
 	/**
@@ -339,9 +376,12 @@ public class JQPlotGridOptionsCanvasGrid extends JavaScriptPart implements JQPlo
 	 *
 	 * @param rendererOptions
 	 */
-	public void setRendererOptions(JavaScriptPart rendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRendererOptions(JavaScriptPart rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
+		return (J) this;
 	}
 
 	@JsonProperty("renderer")

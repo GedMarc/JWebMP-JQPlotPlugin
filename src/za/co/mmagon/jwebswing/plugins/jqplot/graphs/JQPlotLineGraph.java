@@ -122,8 +122,8 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 		sb.append("[");
 		for (JQPlotLine plotLine : getPlotLines())
 		{
-			sb.append(plotLine).append(STRING_COMMNA);
-			sb.append("");
+			sb.append(plotLine)
+			  .append(STRING_COMMNA);
 		}
 		sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 		sb.append("]");
@@ -133,22 +133,7 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JQPlotLineGraph))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JQPlotLineGraph<?> that = (JQPlotLineGraph<?>) o;
-
-		return getPlotLines() != null ? getPlotLines().equals(that.getPlotLines()) : that.getPlotLines() == null;
+		return super.equals(o);
 	}
 
 	@Override

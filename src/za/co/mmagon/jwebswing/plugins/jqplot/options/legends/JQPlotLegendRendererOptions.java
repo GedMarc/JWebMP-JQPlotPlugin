@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,9 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRender
  * @author GedMarc
  * @since 1 Mar 2016
  */
-public class JQPlotLegendRendererOptions extends JavaScriptPart implements JQPlotLegendRenderer
+public class JQPlotLegendRendererOptions<J extends JQPlotLegendRendererOptions<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotLegendRenderer
 {
 
 	@JsonIgnore

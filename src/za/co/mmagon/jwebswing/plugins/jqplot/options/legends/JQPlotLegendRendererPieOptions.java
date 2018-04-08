@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,9 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendPieRen
  * @author GedMarc
  * @since 1 Mar 2016
  */
-public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQPlotLegendPieRenderer
+public class JQPlotLegendRendererPieOptions<J extends JQPlotLegendRendererPieOptions<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotLegendPieRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -59,6 +61,7 @@ public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQ
 		this.linkedGraph = linkedGraph;
 	}
 
+	@Override
 	@JsonProperty("renderer")
 	@JsonRawValue
 	@JsonIgnore
@@ -82,9 +85,10 @@ public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQ
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -102,9 +106,10 @@ public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQ
 	 *
 	 * @param numberRows
 	 */
-	public void setNumberRows(Integer numberRows)
+	public J setNumberRows(Integer numberRows)
 	{
 		this.numberRows = numberRows;
+		return (J) this;
 	}
 
 	/**
@@ -122,9 +127,10 @@ public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQ
 	 *
 	 * @param numberColumns
 	 */
-	public void setNumberColumns(Integer numberColumns)
+	public J setNumberColumns(Integer numberColumns)
 	{
 		this.numberColumns = numberColumns;
+		return (J) this;
 	}
 
 	/**
@@ -142,9 +148,10 @@ public class JQPlotLegendRendererPieOptions extends JavaScriptPart implements JQ
 	 *
 	 * @param width
 	 */
-	public void setWidth(Integer width)
+	public J setWidth(Integer width)
 	{
 		this.width = width;
+		return (J) this;
 	}
 
 }

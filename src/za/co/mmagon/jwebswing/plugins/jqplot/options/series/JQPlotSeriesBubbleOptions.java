@@ -21,13 +21,15 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Marc Magon
  * @version 1.0
  * @since 09 Aug 2015
  */
-public class JQPlotSeriesBubbleOptions
-		extends JavaScriptPart
+public class JQPlotSeriesBubbleOptions<J extends JQPlotSeriesBubbleOptions<J>>
+		extends JavaScriptPart<J>
 		implements JQPlotSeriesRenderer
 {
 
@@ -122,9 +124,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -153,9 +158,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param varyBubbleColors
 	 */
-	public void setVaryBubbleColors(boolean varyBubbleColors)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setVaryBubbleColors(boolean varyBubbleColors)
 	{
 		this.varyBubbleColors = varyBubbleColors;
+		return (J) this;
 	}
 
 	/**
@@ -173,9 +181,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param autoscaleBubbles
 	 */
-	public void setAutoscaleBubbles(boolean autoscaleBubbles)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAutoscaleBubbles(boolean autoscaleBubbles)
 	{
 		this.autoscaleBubbles = autoscaleBubbles;
+		return (J) this;
 	}
 
 	/**
@@ -193,9 +204,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param autoscaleMultiplier
 	 */
-	public void setAutoscaleMultiplier(int autoscaleMultiplier)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAutoscaleMultiplier(int autoscaleMultiplier)
 	{
 		this.autoscaleMultiplier = autoscaleMultiplier;
+		return (J) this;
 	}
 
 	/**
@@ -213,9 +227,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param autoscalePointsFactor
 	 */
-	public void setAutoscalePointsFactor(int autoscalePointsFactor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAutoscalePointsFactor(int autoscalePointsFactor)
 	{
 		this.autoscalePointsFactor = autoscalePointsFactor;
+		return (J) this;
 	}
 
 	/**
@@ -233,9 +250,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param escapeHtml
 	 */
-	public void setEscapeHtml(boolean escapeHtml)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEscapeHtml(boolean escapeHtml)
 	{
 		this.escapeHtml = escapeHtml;
+		return (J) this;
 	}
 
 	/**
@@ -253,9 +273,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param highlightMouseOver
 	 */
-	public void setHighlightMouseOver(boolean highlightMouseOver)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightMouseOver(boolean highlightMouseOver)
 	{
 		this.highlightMouseOver = highlightMouseOver;
+		return (J) this;
 	}
 
 	/**
@@ -273,9 +296,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param highlightMouseDown
 	 */
-	public void setHighlightMouseDown(boolean highlightMouseDown)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightMouseDown(boolean highlightMouseDown)
 	{
 		this.highlightMouseDown = highlightMouseDown;
+		return (J) this;
 	}
 
 	/**
@@ -293,9 +319,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param highlightColors
 	 */
-	public void setHighlightColors(String highlightColors)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightColors(String highlightColors)
 	{
 		this.highlightColors = highlightColors;
+		return (J) this;
 	}
 
 	/**
@@ -313,9 +342,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param bubbleAlpha
 	 */
-	public void setBubbleAlpha(double bubbleAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBubbleAlpha(double bubbleAlpha)
 	{
 		this.bubbleAlpha = bubbleAlpha;
+		return (J) this;
 	}
 
 	/**
@@ -333,9 +365,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param highlightAlpha
 	 */
-	public void setHighlightAlpha(double highlightAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightAlpha(double highlightAlpha)
 	{
 		this.highlightAlpha = highlightAlpha;
+		return (J) this;
 	}
 
 	/**
@@ -353,9 +388,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param bubbleGradients
 	 */
-	public void setBubbleGradients(boolean bubbleGradients)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBubbleGradients(boolean bubbleGradients)
 	{
 		this.bubbleGradients = bubbleGradients;
+		return (J) this;
 	}
 
 	/**
@@ -373,9 +411,12 @@ public class JQPlotSeriesBubbleOptions
 	 *
 	 * @param showLabels
 	 */
-	public void setShowLabels(boolean showLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowLabels(boolean showLabels)
 	{
 		this.showLabels = showLabels;
+		return (J) this;
 	}
 
 }

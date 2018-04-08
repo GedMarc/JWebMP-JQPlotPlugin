@@ -24,12 +24,14 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPart & JQPlotTickRenderer>
-		extends JavaScriptPart
+public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPart & JQPlotTickRenderer, J extends JQPlotAxisLabelRendererOptionsCategoryLabels<O, J>>
+		extends JavaScriptPart<J>
 		implements JQPlotAxisLabelRenderer
 {
 
@@ -79,9 +81,12 @@ public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPa
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -99,9 +104,12 @@ public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPa
 	 *
 	 * @param sortMergedLabels
 	 */
-	public void setSortMergedLabels(Boolean sortMergedLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSortMergedLabels(Boolean sortMergedLabels)
 	{
 		this.sortMergedLabels = sortMergedLabels;
+		return (J) this;
 	}
 
 	/**
@@ -119,9 +127,12 @@ public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPa
 	 *
 	 * @param tickRenderer
 	 */
-	public void setTickRenderer(O tickRenderer)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTickRenderer(O tickRenderer)
 	{
 		this.tickRenderer = tickRenderer;
+		return (J) this;
 	}
 
 }

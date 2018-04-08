@@ -26,12 +26,14 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotAxisLabelRendererOptionsCanvasLabels
-		extends JavaScriptPart
+public class JQPlotAxisLabelRendererOptionsCanvasLabels<J extends JQPlotAxisLabelRendererOptionsCanvasLabels<J>>
+		extends JavaScriptPart<J>
 		implements JQPlotAxisLabelRenderer
 {
 
@@ -120,9 +122,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -142,9 +147,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param angle
 	 */
-	public void setAngle(Integer angle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAngle(Integer angle)
 	{
 		this.angle = angle;
+		return (J) this;
 	}
 
 	/**
@@ -164,9 +172,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -186,9 +197,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param showLabel
 	 */
-	public void setShowLabel(Boolean showLabel)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowLabel(Boolean showLabel)
 	{
 		this.showLabel = showLabel;
+		return (J) this;
 	}
 
 	/**
@@ -208,9 +222,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param label
 	 */
-	public void setLabel(String label)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabel(String label)
 	{
 		this.label = label;
+		return (J) this;
 	}
 
 	/**
@@ -230,9 +247,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param fontFamily
 	 */
-	public void setFontFamily(FontFamilies fontFamily)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontFamily(FontFamilies fontFamily)
 	{
 		this.fontFamily = fontFamily;
+		return (J) this;
 	}
 
 	/**
@@ -252,9 +272,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param fontSize
 	 */
-	public void setFontSize(Integer fontSize)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontSize(Integer fontSize)
 	{
 		this.fontSize = fontSize;
+		return (J) this;
 	}
 
 	/**
@@ -274,9 +297,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param fontWeight
 	 */
-	public void setFontWeight(FontWeights fontWeight)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontWeight(FontWeights fontWeight)
 	{
 		this.fontWeight = fontWeight;
+		return (J) this;
 	}
 
 	/**
@@ -296,9 +322,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param fontStretch
 	 */
-	public void setFontStretch(Integer fontStretch)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontStretch(Integer fontStretch)
 	{
 		this.fontStretch = fontStretch;
+		return (J) this;
 	}
 
 	/**
@@ -318,9 +347,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param textColor
 	 */
-	public void setTextColor(ColourHex textColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTextColor(ColourHex textColor)
 	{
 		this.textColor = textColor;
+		return (J) this;
 	}
 
 	/**
@@ -340,9 +372,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param enableFontSupport
 	 */
-	public void setEnableFontSupport(Boolean enableFontSupport)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEnableFontSupport(Boolean enableFontSupport)
 	{
 		this.enableFontSupport = enableFontSupport;
+		return (J) this;
 	}
 
 	/**
@@ -370,9 +405,12 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels
 	 *
 	 * @param pt2px
 	 */
-	public void setPt2px(Double pt2px)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPt2px(Double pt2px)
 	{
 		this.pt2px = pt2px;
+		return (J) this;
 	}
 
 }

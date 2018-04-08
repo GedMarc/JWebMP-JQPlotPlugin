@@ -26,6 +26,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.ticks.JQPlotTickOptionsAxis
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 /**
@@ -33,8 +34,8 @@ import java.util.Set;
  * @version 1.0
  * @since 07 Aug 2015
  */
-public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRenderer>
-		extends JavaScriptPart
+public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRenderer, J extends JQPlotAxisOptions<O, J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -177,9 +178,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -199,9 +203,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param showLabel
 	 */
-	public void setShowLabel(Boolean showLabel)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowLabel(Boolean showLabel)
 	{
 		this.showLabel = showLabel;
+		return (J) this;
 	}
 
 	/**
@@ -221,9 +228,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param autoscale
 	 */
-	public void setAutoscale(Boolean autoscale)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAutoscale(Boolean autoscale)
 	{
 		this.autoscale = autoscale;
+		return (J) this;
 	}
 
 	/**
@@ -243,9 +253,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param min
 	 */
-	public void setMin(Integer min)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMin(Integer min)
 	{
 		this.min = min;
+		return (J) this;
 	}
 
 	/**
@@ -265,9 +278,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param max
 	 */
-	public void setMax(Integer max)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMax(Integer max)
 	{
 		this.max = max;
+		return (J) this;
 	}
 
 	/**
@@ -287,9 +303,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param pad
 	 */
-	public void setPad(Double pad)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPad(Double pad)
 	{
 		this.pad = pad;
+		return (J) this;
 	}
 
 	/**
@@ -310,9 +329,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param ticks
 	 */
-	public void setTicks(Set<String> ticks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTicks(Set<String> ticks)
 	{
 		this.ticks = ticks;
+		return (J) this;
 	}
 
 	/**
@@ -332,9 +354,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param numberTicks
 	 */
-	public void setNumberTicks(Integer numberTicks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setNumberTicks(Integer numberTicks)
 	{
 		this.numberTicks = numberTicks;
+		return (J) this;
 	}
 
 	/**
@@ -354,9 +379,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param tickInterval
 	 */
-	public void setTickInterval(Integer tickInterval)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTickInterval(Integer tickInterval)
 	{
 		this.tickInterval = tickInterval;
+		return (J) this;
 	}
 
 	/**
@@ -376,9 +404,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param showTicks
 	 */
-	public void setShowTicks(Boolean showTicks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTicks(Boolean showTicks)
 	{
 		this.showTicks = showTicks;
+		return (J) this;
 	}
 
 	/**
@@ -398,9 +429,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param showTickMarks
 	 */
-	public void setShowTickMarks(Boolean showTickMarks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTickMarks(Boolean showTickMarks)
 	{
 		this.showTickMarks = showTickMarks;
+		return (J) this;
 	}
 
 	/**
@@ -436,10 +470,11 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * @param tickRendererOptions
 	 * 		The Actual Options Class
 	 */
-	public <O extends JavaScriptPart & JQPlotTickRenderer> void setTickRendererOptions(O tickRendererOptions)
+	public <O extends JavaScriptPart & JQPlotTickRenderer> J setTickRendererOptions(O tickRendererOptions)
 	{
 		tickRenderer = tickRendererOptions.getRenderer();
 		this.tickRendererOptions = tickRendererOptions;
+		return (J) this;
 	}
 
 	/**
@@ -459,9 +494,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param label
 	 */
-	public void setLabel(String label)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabel(String label)
 	{
 		this.label = label;
+		return (J) this;
 	}
 
 	/**
@@ -481,9 +519,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param padMax
 	 */
-	public void setPadMax(Integer padMax)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPadMax(Integer padMax)
 	{
 		this.padMax = padMax;
+		return (J) this;
 	}
 
 	/**
@@ -503,9 +544,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param padMin
 	 */
-	public void setPadMin(Integer padMin)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPadMin(Integer padMin)
 	{
 		this.padMin = padMin;
+		return (J) this;
 	}
 
 	/**
@@ -525,9 +569,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param showMinorTicks
 	 */
-	public void setShowMinorTicks(Boolean showMinorTicks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowMinorTicks(Boolean showMinorTicks)
 	{
 		this.showMinorTicks = showMinorTicks;
+		return (J) this;
 	}
 
 	/**
@@ -547,9 +594,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param useSeriesColor
 	 */
-	public void setUseSeriesColor(Boolean useSeriesColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setUseSeriesColor(Boolean useSeriesColor)
 	{
 		this.useSeriesColor = useSeriesColor;
+		return (J) this;
 	}
 
 	/**
@@ -569,9 +619,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param borderWidth
 	 */
-	public void setBorderWidth(Integer borderWidth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBorderWidth(Integer borderWidth)
 	{
 		this.borderWidth = borderWidth;
+		return (J) this;
 	}
 
 	/**
@@ -591,9 +644,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param borderColor
 	 */
-	public void setBorderColor(ColourHex borderColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBorderColor(ColourHex borderColor)
 	{
 		this.borderColor = borderColor.getValue();
+		return (J) this;
 	}
 
 	/**
@@ -613,9 +669,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param syncTicks
 	 */
-	public void setSyncTicks(Boolean syncTicks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSyncTicks(Boolean syncTicks)
 	{
 		this.syncTicks = syncTicks;
+		return (J) this;
 	}
 
 	/**
@@ -635,9 +694,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param tickSpacing
 	 */
-	public void setTickSpacing(Integer tickSpacing)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTickSpacing(Integer tickSpacing)
 	{
 		this.tickSpacing = tickSpacing;
+		return (J) this;
 	}
 
 	/**
@@ -656,10 +718,13 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param rendererOptions
 	 */
-	public void setRendererOptions(O rendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRendererOptions(O rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
 		renderer = rendererOptions.getRenderer();
+		return (J) this;
 	}
 
 	/**
@@ -701,9 +766,12 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -711,10 +779,13 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 *
 	 * @param labelRendererOptions
 	 */
-	public void setLabelRendererOptions(JQPlotAxisLabelRenderer labelRendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabelRendererOptions(JQPlotAxisLabelRenderer labelRendererOptions)
 	{
 		this.labelRendererOptions = labelRendererOptions;
 		labelRenderer = labelRendererOptions.getRenderer();
+		return (J) this;
 	}
 
 	/**

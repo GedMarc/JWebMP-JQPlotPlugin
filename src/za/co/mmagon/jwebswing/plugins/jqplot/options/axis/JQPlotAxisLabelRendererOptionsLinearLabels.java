@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,13 +23,17 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * The default jqPlot axis renderer, creating a numeric axis.
  *
  * @author GedMarc
  * @since 29 Feb 2016
  */
-public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart implements JQPlotAxisLabelRenderer
+public class JQPlotAxisLabelRendererOptionsLinearLabels<J extends JQPlotAxisLabelRendererOptionsLinearLabels<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotAxisLabelRenderer
 {
 
 	@JsonIgnore
@@ -60,8 +64,10 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	}
 
 	/**
-	 * EXPERIMENTAL!! Use at your own risk! Works only with linear axes and the default tick renderer. Array of [start, stop] points to create a broken axis. Broken axes have a “jump” in them, which
-	 * is an immediate transition from a smaller value to a larger value. Currently, axis ticks MUST be manually assigned if using breakPoints by using the axis ticks array option.
+	 * EXPERIMENTAL!! Use at your own risk! Works only with linear axes and the default tick renderer. Array of [start, stop] points to create a broken axis. Broken axes have a
+	 * “jump” in them, which
+	 * is an immediate transition from a smaller value to a larger value. Currently, axis ticks MUST be manually assigned if using breakPoints by using the axis ticks array
+	 * option.
 	 *
 	 * @return
 	 */
@@ -71,14 +77,19 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	}
 
 	/**
-	 * EXPERIMENTAL!! Use at your own risk! Works only with linear axes and the default tick renderer. Array of [start, stop] points to create a broken axis. Broken axes have a “jump” in them, which
-	 * is an immediate transition from a smaller value to a larger value. Currently, axis ticks MUST be manually assigned if using breakPoints by using the axis ticks array option.
+	 * EXPERIMENTAL!! Use at your own risk! Works only with linear axes and the default tick renderer. Array of [start, stop] points to create a broken axis. Broken axes have a
+	 * “jump” in them, which
+	 * is an immediate transition from a smaller value to a larger value. Currently, axis ticks MUST be manually assigned if using breakPoints by using the axis ticks array
+	 * option.
 	 *
 	 * @param breakPoints
 	 */
-	public void setBreakPoints(String breakPoints)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBreakPoints(String breakPoints)
 	{
 		this.breakPoints = breakPoints;
+		return (J) this;
 	}
 
 	/**
@@ -96,9 +107,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param breakTickLabel
 	 */
-	public void setBreakTickLabel(String breakTickLabel)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBreakTickLabel(String breakTickLabel)
 	{
 		this.breakTickLabel = breakTickLabel;
+		return (J) this;
 	}
 
 	/**
@@ -116,9 +130,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param drawBaseline
 	 */
-	public void setDrawBaseline(Boolean drawBaseline)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDrawBaseline(Boolean drawBaseline)
 	{
 		this.drawBaseline = drawBaseline;
+		return (J) this;
 	}
 
 	/**
@@ -136,9 +153,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param baselineWidth
 	 */
-	public void setBaselineWidth(Integer baselineWidth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBaselineWidth(Integer baselineWidth)
 	{
 		this.baselineWidth = baselineWidth;
+		return (J) this;
 	}
 
 	/**
@@ -156,9 +176,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param baselineColor
 	 */
-	public void setBaselineColor(String baselineColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBaselineColor(String baselineColor)
 	{
 		this.baselineColor = baselineColor;
+		return (J) this;
 	}
 
 	/**
@@ -176,9 +199,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param forceTickAt0
 	 */
-	public void setForceTickAt0(Boolean forceTickAt0)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setForceTickAt0(Boolean forceTickAt0)
 	{
 		this.forceTickAt0 = forceTickAt0;
+		return (J) this;
 	}
 
 	/**
@@ -196,13 +222,17 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param forceTickAt100
 	 */
-	public void setForceTickAt100(Boolean forceTickAt100)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setForceTickAt100(Boolean forceTickAt100)
 	{
 		this.forceTickAt100 = forceTickAt100;
+		return (J) this;
 	}
 
 	/**
-	 * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval. 0 is no inset, 0.5 is one half a tick interval, 1 is a full tick interval,
+	 * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval. 0 is no inset, 0.5 is one half a tick interval, 1 is a
+	 * full tick interval,
 	 * etc.
 	 *
 	 * @return
@@ -213,14 +243,18 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	}
 
 	/**
-	 * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval. 0 is no inset, 0.5 is one half a tick interval, 1 is a full tick interval,
+	 * Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval. 0 is no inset, 0.5 is one half a tick interval, 1 is a
+	 * full tick interval,
 	 * etc.
 	 *
 	 * @param tickInset
 	 */
-	public void setTickInset(Integer tickInset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTickInset(Integer tickInset)
 	{
 		this.tickInset = tickInset;
+		return (J) this;
 	}
 
 	/**
@@ -238,9 +272,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param minorTicks
 	 */
-	public void setMinorTicks(Integer minorTicks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMinorTicks(Integer minorTicks)
 	{
 		this.minorTicks = minorTicks;
+		return (J) this;
 	}
 
 	/**
@@ -258,9 +295,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param alignTicks
 	 */
-	public void setAlignTicks(Boolean alignTicks)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAlignTicks(Boolean alignTicks)
 	{
 		this.alignTicks = alignTicks;
+		return (J) this;
 	}
 
 	@JsonProperty("renderer")
@@ -286,9 +326,12 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels extends JavaScriptPart i
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 }

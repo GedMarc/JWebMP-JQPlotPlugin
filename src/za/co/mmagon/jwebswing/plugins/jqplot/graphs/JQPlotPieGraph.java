@@ -38,7 +38,8 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_COMMNA;
 @ComponentInformation(name = "Pie Graph",
 		description = "A pie graph",
 		url = "http://www.jqplot.com/examples/pieTest.php")
-public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQPlotOptions, J>
+public class JQPlotPieGraph<J extends JQPlotPieGraph<J>>
+		extends JQPlotGraph<JQPlotOptions, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -47,7 +48,8 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 
 	public JQPlotPieGraph()
 	{
-		getOptions().getSeriesDefaults().setRendererOptions(new JQPlotSeriesPieOptions(this));
+		getOptions().getSeriesDefaults()
+		            .setRendererOptions(new JQPlotSeriesPieOptions(this));
 	}
 
 	/**
@@ -69,17 +71,6 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 	}
 
 	/**
-	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
-	 * <p>
-	 */
-	public JQPlotPieSlice addSlice(String name, double values)
-	{
-		JQPlotPieSlice slice = new JQPlotPieSlice(name, values);
-		getPlotSlices().add(slice);
-		return slice;
-	}
-
-	/**
 	 * Returns the plot lines on this graph
 	 *
 	 * @return
@@ -94,6 +85,17 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 	}
 
 	/**
+	 * Each line should consist of data-points in the form of x,y,x,y,x,y,x,y
+	 * <p>
+	 */
+	public JQPlotPieSlice addSlice(String name, double values)
+	{
+		JQPlotPieSlice slice = new JQPlotPieSlice(name, values);
+		getPlotSlices().add(slice);
+		return slice;
+	}
+
+	/**
 	 * 3 Bracket start
 	 *
 	 * @return
@@ -105,8 +107,8 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 		sb.append("[[");
 		for (JQPlotPieSlice plotLine : getPlotSlices())
 		{
-			sb.append(plotLine).append(STRING_COMMNA);
-			sb.append("");
+			sb.append(plotLine)
+			  .append(STRING_COMMNA);
 		}
 		sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 		sb.append("]]");
@@ -116,29 +118,12 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>> extends JQPlotGraph<JQP
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JQPlotPieGraph))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JQPlotPieGraph<?> that = (JQPlotPieGraph<?>) o;
-
-		return getPlotSlices() != null ? getPlotSlices().equals(that.getPlotSlices()) : that.getPlotSlices() == null;
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getPlotSlices() != null ? getPlotSlices().hashCode() : 0);
-		return result;
+		return super.hashCode();
 	}
 }
