@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,23 +28,25 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.YAxisTypes;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @param <O>
  * @param <M>
  *
  * @author mmagon
  */
-public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer, M extends JavaScriptPart & JQPlotMarkerRenderer>
-		extends JavaScriptPart
+public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer, M extends JavaScriptPart & JQPlotMarkerRenderer, J extends JQPlotSeriesOptions<O, M, J>>
+		extends JavaScriptPart<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
-	
+
 	private Boolean fillToZero;
-	
+
 	private String linePattern;
 	/**
 	 * Whether to show this series or not
@@ -149,9 +151,9 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	public JQPlotSeriesOptions(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
-		
+
 	}
-	
+
 	/**
 	 * Whether or not to show a line
 	 * <p>
@@ -162,7 +164,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return showLine;
 	}
-	
+
 	/**
 	 * To show or not show the series
 	 * <p>
@@ -173,7 +175,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return show;
 	}
-	
+
 	/**
 	 * render the data point markers or not.
 	 *
@@ -183,7 +185,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return showMarker;
 	}
-	
+
 	/**
 	 * show shadow or not.
 	 *
@@ -193,7 +195,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return shadow;
 	}
-	
+
 	/**
 	 * Gets the X Axis
 	 *
@@ -203,17 +205,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return xaxis;
 	}
-	
+
 	/**
 	 * Sets the X Axis
 	 *
 	 * @param xaxis
 	 */
-	public void setXaxis(XAxisTypes xaxis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setXaxis(XAxisTypes xaxis)
 	{
 		this.xaxis = xaxis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y Axis
 	 *
@@ -223,17 +228,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return yaxis;
 	}
-	
+
 	/**
 	 * Sets the Y Axis
 	 *
 	 * @param yaxis
 	 */
-	public void setYaxis(YAxisTypes yaxis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setYaxis(YAxisTypes yaxis)
 	{
 		this.yaxis = yaxis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the label for the series
 	 *
@@ -243,17 +251,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return label;
 	}
-	
+
 	/**
 	 * Sets the label for the series
 	 *
 	 * @param label
 	 */
-	public void setLabel(String label)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabel(String label)
 	{
 		this.label = label;
+		return (J) this;
 	}
-	
+
 	/**
 	 * CSS color spec to use for the line. Determined automatically.
 	 *
@@ -263,27 +274,33 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return colors;
 	}
-	
+
 	/**
 	 * CSS color spec to use for the line. Determined automatically.
 	 *
 	 * @param colors
 	 */
-	public void setColors(ColourHex colors)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setColors(ColourHex colors)
 	{
 		this.colors = colors.getValue();
+		return (J) this;
 	}
-	
+
 	/**
 	 * CSS color spec to use for the line. Determined automatically.
 	 *
 	 * @param colors
 	 */
-	public void setColors(String colors)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setColors(String colors)
 	{
 		this.colors = colors;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Width of the line in pixels.
 	 *
@@ -293,17 +310,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return lineWidth;
 	}
-	
+
 	/**
 	 * Width of the line in pixels.
 	 *
 	 * @param lineWidth
 	 */
-	public void setLineWidth(Double lineWidth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLineWidth(Double lineWidth)
 	{
 		this.lineWidth = lineWidth;
+		return (J) this;
 	}
-	
+
 	/**
 	 * angle (degrees) of the shadow, clockwise from x axis.
 	 *
@@ -313,17 +333,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return shadowAngle;
 	}
-	
+
 	/**
 	 * angle (degrees) of the shadow, clockwise from x axis.
 	 *
 	 * @param shadowAngle
 	 */
-	public void setShadowAngle(Integer shadowAngle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAngle(Integer shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
+		return (J) this;
 	}
-	
+
 	/**
 	 * offset from the line of the shadow.
 	 *
@@ -333,17 +356,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return shadowOffset;
 	}
-	
+
 	/**
 	 * offset from the line of the shadow.
 	 *
 	 * @param shadowOffset
 	 */
-	public void setShadowOffset(Double shadowOffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Number of strokes to make when drawing shadow. Each stroke offset by shadowOffset from the last.
 	 *
@@ -353,17 +379,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return shadowDepth;
 	}
-	
+
 	/**
 	 * Number of strokes to make when drawing shadow. Each stroke offset by shadowOffset from the last.
 	 *
 	 * @param shadowDepth
 	 */
-	public void setShadowDepth(Integer shadowDepth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Opacity of the shadow.
 	 *
@@ -373,17 +402,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return shadowAlpha;
 	}
-	
+
 	/**
 	 * Opacity of the shadow.
 	 *
 	 * @param shadowAlpha
 	 */
-	public void setShadowAlpha(Double shadowAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return (J) this;
 	}
-	
+
 	/**
 	 * fill under the line,
 	 *
@@ -393,17 +425,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return fill;
 	}
-	
+
 	/**
 	 * fill under the line,
 	 *
 	 * @param fill
 	 */
-	public void setFill(Boolean fill)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFill(Boolean fill)
 	{
 		this.fill = fill;
+		return (J) this;
 	}
-	
+
 	/**
 	 * stroke a line at top of fill area.
 	 *
@@ -413,17 +448,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return fillAndStroke;
 	}
-	
+
 	/**
 	 * stroke a line at top of fill area.
 	 *
 	 * @param fillAndStroke
 	 */
-	public void setFillAndStroke(Boolean fillAndStroke)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFillAndStroke(Boolean fillAndStroke)
 	{
 		this.fillAndStroke = fillAndStroke;
+		return (J) this;
 	}
-	
+
 	/**
 	 * custom fill color for filled lines (default is line color).
 	 *
@@ -433,27 +471,33 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return fillColor;
 	}
-	
+
 	/**
 	 * custom fill color for filled lines (default is line color).
 	 *
 	 * @param fillColor
 	 */
-	public void setFillColor(ColourHex fillColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFillColor(ColourHex fillColor)
 	{
 		this.fillColor = fillColor.getValue();
+		return (J) this;
 	}
-	
+
 	/**
 	 * custom fill color for filled lines (default is line color).
 	 *
 	 * @param fillColor
 	 */
-	public void setFillColor(String fillColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFillColor(String fillColor)
 	{
 		this.fillColor = fillColor;
+		return (J) this;
 	}
-	
+
 	/**
 	 * custom alpha to apply to fillColor
 	 *
@@ -463,27 +507,33 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return fillAlpha;
 	}
-	
+
 	/**
 	 * custom alpha to apply to fillColor
 	 *
 	 * @param fillAlpha
 	 */
-	public void setFillAlpha(ColourHex fillAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFillAlpha(ColourHex fillAlpha)
 	{
 		this.fillAlpha = fillAlpha.getValue();
+		return (J) this;
 	}
-	
+
 	/**
 	 * custom fill color for filled lines (default is line color).
 	 *
 	 * @param fillAlpha
 	 */
-	public void setFillAlpha(String fillAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFillAlpha(String fillAlpha)
 	{
 		this.fillAlpha = fillAlpha;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the current series renderer name
 	 *
@@ -493,7 +543,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return seriesRenderer;
 	}
-	
+
 	/**
 	 * Get the Series Renderer Options
 	 * <p>
@@ -509,18 +559,44 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 		}
 		return rendererOptions;
 	}
-	
+
 	/**
 	 * Sets the series renderer options
 	 *
 	 * @param rendererOptions
 	 */
-	public void setRendererOptions(O rendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRendererOptions(O rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
-		this.seriesRenderer = rendererOptions.getRenderer();
+		seriesRenderer = rendererOptions.getRenderer();
+		return (J) this;
 	}
-	
+
+	/**
+	 * Gets the linked graph
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
+
+	/**
+	 * Sets the linked graph
+	 *
+	 * @param linkedGraph
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		return (J) this;
+	}
+
 	/**
 	 * Sets the Marker Renderer
 	 *
@@ -530,17 +606,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return markerRenderer;
 	}
-	
+
 	/**
 	 * Set the marker renderer string
 	 *
 	 * @param markerRenderer
 	 */
-	public void setMarkerRenderer(String markerRenderer)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMarkerRenderer(String markerRenderer)
 	{
 		this.markerRenderer = markerRenderer;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Set to use point labels or not
 	 *
@@ -550,21 +629,24 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		if (pointLabels == null)
 		{
-			pointLabels = new JQPlotPointLabelsOptions(this.linkedGraph);
+			pointLabels = new JQPlotPointLabelsOptions(linkedGraph);
 		}
 		return pointLabels;
 	}
-	
+
 	/**
 	 * Set to use point labels
 	 *
 	 * @param pointLabels
 	 */
-	public void setPointLabels(JQPlotPointLabelsOptions pointLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPointLabels(JQPlotPointLabelsOptions pointLabels)
 	{
 		this.pointLabels = pointLabels;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the specified Marker Renderer Options
 	 * <p>
@@ -580,18 +662,21 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 		}
 		return markerRendererOptions;
 	}
-	
+
 	/**
 	 * Sets the Marker Renderer Options
 	 *
 	 * @param markerRendererOptions
 	 */
-	public void setMarkerRendererOptions(M markerRendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMarkerRendererOptions(M markerRendererOptions)
 	{
 		this.markerRendererOptions = markerRendererOptions;
-		this.markerRenderer = markerRendererOptions.getMarkerRenderer();
+		markerRenderer = markerRendererOptions.getMarkerRenderer();
+		return (J) this;
 	}
-	
+
 	/**
 	 * Show series
 	 *
@@ -601,17 +686,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return show;
 	}
-	
+
 	/**
 	 * To show or not show the series
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
-	
+
 	/**
 	 * get Shadow
 	 *
@@ -621,17 +709,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return shadow;
 	}
-	
+
 	/**
 	 * show shadow or not.
 	 *
 	 * @param shadow
 	 */
-	public void setShadow(Boolean shadow)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Is Show Line
 	 *
@@ -641,18 +732,22 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return showLine;
 	}
-	
+
 	/**
 	 * Whether or not to show a line
 	 * <p>
 	 *
-	 * @param showLine Whether to show the line or not
+	 * @param showLine
+	 * 		Whether to show the line or not
 	 */
-	public void setShowLine(Boolean showLine)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowLine(Boolean showLine)
 	{
 		this.showLine = showLine;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Is Show Marker
 	 *
@@ -662,37 +757,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return showMarker;
 	}
-	
+
 	/**
 	 * render the data point markers or not.
 	 *
 	 * @param showMarker
 	 */
-	public void setShowMarker(Boolean showMarker)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowMarker(Boolean showMarker)
 	{
 		this.showMarker = showMarker;
+		return (J) this;
 	}
-	
-	/**
-	 * Gets the linked graph
-	 *
-	 * @return
-	 */
-	public JQPlotGraph getLinkedGraph()
-	{
-		return linkedGraph;
-	}
-	
-	/**
-	 * Sets the linked graph
-	 *
-	 * @param linkedGraph
-	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
-	{
-		this.linkedGraph = linkedGraph;
-	}
-	
+
 	/**
 	 * Gets the fill to zero
 	 *
@@ -702,19 +780,23 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return fillToZero;
 	}
-	
+
 	/**
 	 * Sets the fill to zero
 	 *
 	 * @param fillToZero
 	 */
-	public void setFillToZero(Boolean fillToZero)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFillToZero(Boolean fillToZero)
 	{
 		this.fillToZero = fillToZero;
+		return (J) this;
 	}
-	
+
 	/**
-	 * line pattern ‘dashed’, ‘dotted’, ‘solid’, some combination of ‘-’ and ‘.’ characters such as ‘.-.’ or a numerical array like [draw, skip, draw, skip, ...] such as [1, 10] to draw a dotted line,
+	 * line pattern ‘dashed’, ‘dotted’, ‘solid’, some combination of ‘-’ and ‘.’ characters such as ‘.-.’ or a numerical array like [draw, skip, draw, skip, ...] such as [1, 10] to
+	 * draw a dotted line,
 	 * [1, 10, 20, 10] to draw a dot-dash line, and so on.
 	 *
 	 * @return
@@ -723,16 +805,20 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 	{
 		return linePattern;
 	}
-	
+
 	/**
-	 * line pattern ‘dashed’, ‘dotted’, ‘solid’, some combination of ‘-’ and ‘.’ characters such as ‘.-.’ or a numerical array like [draw, skip, draw, skip, ...] such as [1, 10] to draw a dotted line,
+	 * line pattern ‘dashed’, ‘dotted’, ‘solid’, some combination of ‘-’ and ‘.’ characters such as ‘.-.’ or a numerical array like [draw, skip, draw, skip, ...] such as [1, 10] to
+	 * draw a dotted line,
 	 * [1, 10, 20, 10] to draw a dot-dash line, and so on.
 	 *
 	 * @param linePattern
 	 */
-	public void setLinePattern(String linePattern)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinePattern(String linePattern)
 	{
 		this.linePattern = linePattern;
+		return (J) this;
 	}
-	
+
 }

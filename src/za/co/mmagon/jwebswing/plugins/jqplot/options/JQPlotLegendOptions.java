@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,6 +26,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.legends.JQPlotLegendRendererEnhancedOptions;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,8 @@ import java.util.List;
  * @version 1.0
  * @since 07 Aug 2015
  */
-public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer> extends JavaScriptPart
+public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer, J extends JQPlotLegendOptions<O, J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -161,9 +163,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -183,9 +188,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param location
 	 */
-	public void setLocation(CompassPoints location)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLocation(CompassPoints location)
 	{
 		this.location = location;
+		return (J) this;
 	}
 
 	/**
@@ -201,9 +209,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 * pixel offset of the legend box from the x (or x2) axis.
 	 * <p>
 	 */
-	public void setXoffset(Integer xoffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setXoffset(Integer xoffset)
 	{
 		this.xoffset = xoffset;
+		return (J) this;
 	}
 
 	/**
@@ -219,9 +230,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 * pixel offset of the legend box from the x (or x2) axis.
 	 * <p>
 	 */
-	public void setYoffset(Integer yoffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setYoffset(Integer yoffset)
 	{
 		this.yoffset = yoffset;
+		return (J) this;
 	}
 
 	/**
@@ -245,9 +259,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param labels
 	 */
-	public void setLabels(List<String> labels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabels(List<String> labels)
 	{
 		this.labels = labels;
+		return (J) this;
 	}
 
 	/**
@@ -267,9 +284,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param showLabels
 	 */
-	public void setShowLabels(Boolean showLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowLabels(Boolean showLabels)
 	{
 		this.showLabels = showLabels;
+		return (J) this;
 	}
 
 	/**
@@ -289,13 +309,15 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param showSwatch
 	 */
-	public void setShowSwatch(Boolean showSwatch)
+	public J setShowSwatch(Boolean showSwatch)
 	{
 		this.showSwatch = showSwatch;
+		return (J) this;
 	}
 
 	/**
-	 * ”insideGrid” places legend inside the grid area of the plot “outsideGrid” places the legend outside the grid but inside the plot container, shrinking the grid to accomodate the legend “inside”
+	 * ”insideGrid” places legend inside the grid area of the plot “outsideGrid” places the legend outside the grid but inside the plot container, shrinking the grid to accomodate
+	 * the legend “inside”
 	 * synonym for “insideGrid”,
 	 * <p>
 	 * “outside” places the legend ouside the grid area, but does not shrink the grid which can cause the legend to overflow the plot container.
@@ -318,9 +340,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param placement
 	 */
-	public void setPlacement(String placement)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPlacement(String placement)
 	{
 		this.placement = placement;
+		return (J) this;
 	}
 
 	/**
@@ -340,9 +365,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param border
 	 */
-	public void setBorder(String border)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBorder(String border)
 	{
 		this.border = border;
+		return (J) this;
 	}
 
 	/**
@@ -362,9 +390,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param background
 	 */
-	public void setBackground(String background)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBackground(String background)
 	{
 		this.background = background;
+		return (J) this;
 	}
 
 	/**
@@ -384,9 +415,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param textColor
 	 */
-	public void setTextColor(ColourHex textColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTextColor(ColourHex textColor)
 	{
 		this.textColor = textColor.getValue();
+		return (J) this;
 	}
 
 	/**
@@ -406,9 +440,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param fontFamily
 	 */
-	public void setFontFamily(FontFamilies fontFamily)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontFamily(FontFamilies fontFamily)
 	{
 		this.fontFamily = fontFamily;
+		return (J) this;
 	}
 
 	/**
@@ -428,9 +465,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param fontSize
 	 */
-	public void setFontSize(Integer fontSize)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontSize(Integer fontSize)
 	{
 		this.fontSize = fontSize;
+		return (J) this;
 	}
 
 	/**
@@ -450,9 +490,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param rowSpacing
 	 */
-	public void setRowSpacing(Integer rowSpacing)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRowSpacing(Integer rowSpacing)
 	{
 		this.rowSpacing = rowSpacing;
+		return (J) this;
 	}
 
 	/**
@@ -472,9 +515,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param predraw
 	 */
-	public void setPredraw(Boolean predraw)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPredraw(Boolean predraw)
 	{
 		this.predraw = predraw;
+		return (J) this;
 	}
 
 	/**
@@ -494,9 +540,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param marginTop
 	 */
-	public void setMarginTop(Integer marginTop)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMarginTop(Integer marginTop)
 	{
 		this.marginTop = marginTop;
+		return (J) this;
 	}
 
 	/**
@@ -516,9 +565,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param marginRight
 	 */
-	public void setMarginRight(Integer marginRight)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMarginRight(Integer marginRight)
 	{
 		this.marginRight = marginRight;
+		return (J) this;
 	}
 
 	/**
@@ -538,9 +590,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param marginBottom
 	 */
-	public void setMarginBottom(Integer marginBottom)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMarginBottom(Integer marginBottom)
 	{
 		this.marginBottom = marginBottom;
+		return (J) this;
 	}
 
 	/**
@@ -560,29 +615,12 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 *
 	 * @param marginLeft
 	 */
-	public void setMarginLeft(Integer marginLeft)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMarginLeft(Integer marginLeft)
 	{
 		this.marginLeft = marginLeft;
-	}
-
-	/**
-	 * Gets the linked graph for this legends box
-	 *
-	 * @return
-	 */
-	public JQPlotGraph getLinkedGraph()
-	{
-		return linkedGraph;
-	}
-
-	/**
-	 * Sets the linked graph for this box
-	 *
-	 * @param linkedGraph
-	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
-	{
-		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -602,14 +640,40 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	}
 
 	/**
+	 * Gets the linked graph for this legends box
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
+
+	/**
+	 * Sets the linked graph for this box
+	 *
+	 * @param linkedGraph
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		return (J) this;
+	}
+
+	/**
 	 * Sets legend renderer options
 	 *
 	 * @param rendererOptions
 	 */
-	public void setRendererOptions(O rendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRendererOptions(O rendererOptions)
 	{
-		this.renderer = rendererOptions.getRenderer();
+		renderer = rendererOptions.getRenderer();
 		this.rendererOptions = rendererOptions;
+		return (J) this;
 	}
 
 	/**

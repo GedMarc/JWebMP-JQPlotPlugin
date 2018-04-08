@@ -25,6 +25,8 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotRendererDefault;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Plugin which will highlight data points when they are moused over.
  * <p>
@@ -52,8 +54,8 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotRendererDefa
  *
  * @author mmagon
  */
-public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRenderer>
-		extends JavaScriptPart
+public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRenderer, J extends JQPlotHighlightOptions<O, J>>
+		extends JavaScriptPart<J>
 		implements JQPlotRendererDefault
 {
 
@@ -196,9 +198,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param lineWidthAdjust
 	 * 		The line adjustment width
 	 */
-	public void setLineWidthAdjust(Integer lineWidthAdjust)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLineWidthAdjust(Integer lineWidthAdjust)
 	{
 		this.lineWidthAdjust = lineWidthAdjust;
+		return (J) this;
 	}
 
 	/**
@@ -219,9 +224,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param sizeAdjust
 	 * 		The size to adjust by
 	 */
-	public void setSizeAdjust(Integer sizeAdjust)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSizeAdjust(Integer sizeAdjust)
 	{
 		this.sizeAdjust = sizeAdjust;
+		return (J) this;
 	}
 
 	/**
@@ -253,9 +261,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param tooltipLocation
 	 * 		The location
 	 */
-	public void setTooltipLocation(CompassPoints tooltipLocation)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipLocation(CompassPoints tooltipLocation)
 	{
 		this.tooltipLocation = tooltipLocation;
+		return (J) this;
 	}
 
 	/**
@@ -287,9 +298,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param tooltipFadeSpeed
 	 * 		The fading speed in milliseconds
 	 */
-	public void setTooltipFadeSpeed(Integer tooltipFadeSpeed)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipFadeSpeed(Integer tooltipFadeSpeed)
 	{
 		this.tooltipFadeSpeed = tooltipFadeSpeed;
+		return (J) this;
 	}
 
 	/**
@@ -310,9 +324,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param tooltipOffset
 	 * 		The offest
 	 */
-	public void setTooltipOffset(Integer tooltipOffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipOffset(Integer tooltipOffset)
 	{
 		this.tooltipOffset = tooltipOffset;
+		return (J) this;
 	}
 
 	/**
@@ -332,9 +349,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 *
 	 * @param tooltipAxes
 	 */
-	public void setTooltipAxes(String tooltipAxes)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipAxes(String tooltipAxes)
 	{
 		this.tooltipAxes = tooltipAxes;
+		return (J) this;
 	}
 
 	/**
@@ -366,9 +386,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param tooltipFormatString
 	 * 		The sprintf format for the tooltip
 	 */
-	public void setTooltipFormatString(String tooltipFormatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipFormatString(String tooltipFormatString)
 	{
 		this.tooltipFormatString = tooltipFormatString;
+		return (J) this;
 	}
 
 	/**
@@ -389,9 +412,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param formatString
 	 * 		The HTML to use as a tooltip
 	 */
-	public void setFormatString(String formatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFormatString(String formatString)
 	{
 		this.formatString = formatString;
+		return (J) this;
 	}
 
 	/**
@@ -401,9 +427,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param formatString
 	 * 		The HTML to use as a tooltip
 	 */
-	public void setFormatString(Div formatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFormatString(Div formatString)
 	{
 		this.formatString = formatString.toString(true);
+		return (J) this;
 	}
 
 	/**
@@ -423,9 +452,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 *
 	 * @param yvalues
 	 */
-	public void setYvalues(Integer yvalues)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setYvalues(Integer yvalues)
 	{
 		this.yvalues = yvalues;
+		return (J) this;
 	}
 
 	/**
@@ -455,9 +487,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -479,10 +514,13 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * Sets the marker renderer accordingly
 	 * <p>
 	 */
-	public void setMarkerRendererOptions(O markerRendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMarkerRendererOptions(O markerRendererOptions)
 	{
 		markerRenderer = markerRendererOptions.getMarkerRenderer();
 		this.markerRendererOptions = markerRendererOptions;
+		return (J) this;
 	}
 
 	/**
@@ -512,9 +550,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param showMarker
 	 * 		Show Marker Boolean
 	 */
-	public void setShowMarker(Boolean showMarker)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowMarker(Boolean showMarker)
 	{
 		this.showMarker = showMarker;
+		return (J) this;
 	}
 
 	/**
@@ -534,9 +575,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param showTooltip
 	 * 		To show the tooltip
 	 */
-	public void setShowTooltip(Boolean showTooltip)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTooltip(Boolean showTooltip)
 	{
 		this.showTooltip = showTooltip;
+		return (J) this;
 	}
 
 	/**
@@ -556,9 +600,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param fadeTooltip
 	 * 		True or False
 	 */
-	public void setFadeTooltip(Boolean fadeTooltip)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFadeTooltip(Boolean fadeTooltip)
 	{
 		this.fadeTooltip = fadeTooltip;
+		return (J) this;
 	}
 
 	/**
@@ -578,9 +625,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 * @param useAxesFormatters
 	 * 		True or False
 	 */
-	public void setUseAxesFormatters(Boolean useAxesFormatters)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setUseAxesFormatters(Boolean useAxesFormatters)
 	{
 		this.useAxesFormatters = useAxesFormatters;
+		return (J) this;
 	}
 
 	/**
@@ -599,9 +649,12 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 *
 	 * @param bringSeriesToFront
 	 */
-	public void setBringSeriesToFront(Boolean bringSeriesToFront)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setBringSeriesToFront(Boolean bringSeriesToFront)
 	{
 		this.bringSeriesToFront = bringSeriesToFront;
+		return (J) this;
 	}
 
 	@Override

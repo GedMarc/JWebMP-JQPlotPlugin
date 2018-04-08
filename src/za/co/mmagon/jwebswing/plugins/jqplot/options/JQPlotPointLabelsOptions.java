@@ -21,6 +21,8 @@ import za.co.mmagon.jwebswing.generics.CompassPoints;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,8 +31,8 @@ import java.util.List;
  * @author GedMarc
  * @since 27 Feb 2016
  */
-public class JQPlotPointLabelsOptions
-		extends JavaScriptPart
+public class JQPlotPointLabelsOptions<J extends JQPlotPointLabelsOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -117,9 +119,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -137,9 +142,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param location
 	 */
-	public void setLocation(CompassPoints location)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLocation(CompassPoints location)
 	{
 		this.location = location;
+		return (J) this;
 	}
 
 	/**
@@ -157,9 +165,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param labelsFromSeries
 	 */
-	public void setLabelsFromSeries(Boolean labelsFromSeries)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabelsFromSeries(Boolean labelsFromSeries)
 	{
 		this.labelsFromSeries = labelsFromSeries;
+		return (J) this;
 	}
 
 	/**
@@ -177,9 +188,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param seriesLabelIndex
 	 */
-	public void setSeriesLabelIndex(List seriesLabelIndex)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeriesLabelIndex(List seriesLabelIndex)
 	{
 		this.seriesLabelIndex = seriesLabelIndex;
+		return (J) this;
 	}
 
 	/**
@@ -189,7 +203,12 @@ public class JQPlotPointLabelsOptions
 	 * @return
 	 */
 	public List<String> getLabels()
+
 	{
+		if (labels == null)
+		{
+			labels = new ArrayList<>();
+		}
 		return labels;
 	}
 
@@ -198,9 +217,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param labels
 	 */
-	public void setLabels(List<String> labels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabels(List<String> labels)
 	{
 		this.labels = labels;
+		return (J) this;
 	}
 
 	/**
@@ -218,9 +240,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param stackedValue
 	 */
-	public void setStackedValue(Boolean stackedValue)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStackedValue(Boolean stackedValue)
 	{
 		this.stackedValue = stackedValue;
+		return (J) this;
 	}
 
 	/**
@@ -238,9 +263,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param ypadding
 	 */
-	public void setYpadding(Integer ypadding)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setYpadding(Integer ypadding)
 	{
 		this.ypadding = ypadding;
+		return (J) this;
 	}
 
 	/**
@@ -258,9 +286,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param xpadding
 	 */
-	public void setXpadding(Integer xpadding)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setXpadding(Integer xpadding)
 	{
 		this.xpadding = xpadding;
+		return (J) this;
 	}
 
 	/**
@@ -278,9 +309,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param escapeHTML
 	 */
-	public void setEscapeHTML(Boolean escapeHTML)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEscapeHTML(Boolean escapeHTML)
 	{
 		this.escapeHTML = escapeHTML;
+		return (J) this;
 	}
 
 	/**
@@ -298,9 +332,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param edgeTolerance
 	 */
-	public void setEdgeTolerance(Integer edgeTolerance)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEdgeTolerance(Integer edgeTolerance)
 	{
 		this.edgeTolerance = edgeTolerance;
+		return (J) this;
 	}
 
 	/**
@@ -318,9 +355,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param formatter
 	 */
-	public void setFormatter(String formatter)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFormatter(String formatter)
 	{
 		this.formatter = formatter;
+		return (J) this;
 	}
 
 	/**
@@ -338,9 +378,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param formatString
 	 */
-	public void setFormatString(String formatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFormatString(String formatString)
 	{
 		this.formatString = formatString;
+		return (J) this;
 	}
 
 	/**
@@ -358,9 +401,12 @@ public class JQPlotPointLabelsOptions
 	 *
 	 * @param hideZeros
 	 */
-	public void setHideZeros(Boolean hideZeros)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHideZeros(Boolean hideZeros)
 	{
 		this.hideZeros = hideZeros;
+		return (J) this;
 	}
 
 	/**
@@ -376,9 +422,12 @@ public class JQPlotPointLabelsOptions
 	/*
 	 * Sets the linked graph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 }

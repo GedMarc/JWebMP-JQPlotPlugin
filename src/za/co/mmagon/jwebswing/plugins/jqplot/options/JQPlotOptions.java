@@ -27,6 +27,7 @@ import za.co.mmagon.jwebswing.plugins.jqplot.options.title.JQPlotTitleOptions;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -148,10 +149,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 * @param title
 	 * 		The title object to set
 	 */
-	public void setTitle(JQPlotTitleOptions title)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTitle(JQPlotTitleOptions title)
 	{
 		this.title = title;
-
+		return (J) this;
 	}
 
 	/**
@@ -176,9 +179,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 * @param highlighter
 	 * 		The highlighting to use
 	 */
-	public void setHighlighter(JQPlotHighlightOptions highlighter)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlighter(JQPlotHighlightOptions highlighter)
 	{
 		this.highlighter = highlighter;
+		return (J) this;
 	}
 
 	/**
@@ -202,9 +208,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param cursor
 	 */
-	public void setCursor(JQPlotCursorOptions cursor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCursor(JQPlotCursorOptions cursor)
 	{
 		this.cursor = cursor;
+		return (J) this;
 	}
 
 	/**
@@ -228,9 +237,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param seriesColours
 	 */
-	public void setSeriesColours(List<String> seriesColours)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeriesColours(List<String> seriesColours)
 	{
 		this.seriesColours = seriesColours;
+		return (J) this;
 	}
 
 	/**
@@ -254,9 +266,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param negativeSeriesColours
 	 */
-	public void setNegativeSeriesColours(List<String> negativeSeriesColours)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setNegativeSeriesColours(List<String> negativeSeriesColours)
 	{
 		this.negativeSeriesColours = negativeSeriesColours;
+		return (J) this;
 	}
 
 	/**
@@ -265,7 +280,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @return Null if not applied or is Line Graph
 	 */
-	public <O extends JavaScriptPart & JQPlotSeriesRenderer, M extends JavaScriptPart & JQPlotMarkerRenderer> JQPlotSeriesOptions<O, M> getSeriesDefaults()
+	public <O extends JavaScriptPart & JQPlotSeriesRenderer, M extends JavaScriptPart & JQPlotMarkerRenderer> JQPlotSeriesOptions<O, M, ?> getSeriesDefaults()
 	{
 		if (seriesDefaults == null)
 		{
@@ -280,9 +295,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param seriesDefaults
 	 */
-	public void setSeriesDefaults(JQPlotSeriesOptions seriesDefaults)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeriesDefaults(JQPlotSeriesOptions seriesDefaults)
 	{
 		this.seriesDefaults = seriesDefaults;
+		return (J) this;
 	}
 
 	/**
@@ -306,9 +324,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param series
 	 */
-	public void setSeries(List<JQPlotSeriesOptions> series)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeries(List<JQPlotSeriesOptions> series)
 	{
 		this.series = series;
+		return (J) this;
 	}
 
 	/**
@@ -332,9 +353,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param axesDefaults
 	 */
-	public void setAxesDefaults(JQPlotAxisOptions axesDefaults)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAxesDefaults(JQPlotAxisOptions axesDefaults)
 	{
 		this.axesDefaults = axesDefaults;
+		return (J) this;
 	}
 
 	/**
@@ -352,9 +376,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -378,9 +405,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param legendOptions
 	 */
-	public void setLegendOptions(JQPlotLegendOptions legendOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLegendOptions(JQPlotLegendOptions legendOptions)
 	{
 		this.legendOptions = legendOptions;
+		return (J) this;
 	}
 
 	/**
@@ -404,9 +434,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param gridOptions
 	 */
-	public void setGridOptions(JQPlotGridOptionsCanvasGrid gridOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setGridOptions(JQPlotGridOptionsCanvasGrid gridOptions)
 	{
 		this.gridOptions = gridOptions;
+		return (J) this;
 	}
 
 	@JsonProperty(value = "animate")
@@ -437,9 +470,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param animate
 	 */
-	public void setAnimate(Boolean animate)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAnimate(Boolean animate)
 	{
 		this.animate = animate;
+		return (J) this;
 	}
 
 	/**
@@ -463,9 +499,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param animateReplot
 	 */
-	public void setAnimateReplot(Boolean animateReplot)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAnimateReplot(Boolean animateReplot)
 	{
 		this.animateReplot = animateReplot;
+		return (J) this;
 	}
 
 	/**
@@ -485,9 +524,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param sortData
 	 */
-	public void setSortData(Boolean sortData)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSortData(Boolean sortData)
 	{
 		this.sortData = sortData;
+		return (J) this;
 	}
 
 	/**
@@ -507,9 +549,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param stackSeries
 	 */
-	public void setStackSeries(Boolean stackSeries)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStackSeries(Boolean stackSeries)
 	{
 		this.stackSeries = stackSeries;
+		return (J) this;
 	}
 
 	/**
@@ -529,9 +574,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param captureRightClick
 	 */
-	public void setCaptureRightClick(Boolean captureRightClick)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCaptureRightClick(Boolean captureRightClick)
 	{
 		this.captureRightClick = captureRightClick;
+		return (J) this;
 	}
 
 	/**
@@ -555,9 +603,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @param axes
 	 */
-	public void setAxes(JQPlotAxes axes)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAxes(JQPlotAxes axes)
 	{
 		this.axes = axes;
+		return (J) this;
 	}
 
 }

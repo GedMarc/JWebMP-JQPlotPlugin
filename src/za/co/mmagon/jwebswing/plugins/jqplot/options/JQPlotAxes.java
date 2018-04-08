@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,20 +22,23 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.options.axis.JQPlotAxisOptions;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * The settings for the axes available
  *
  * @author GedMarc
  * @since 28 Feb 2016
  */
-public class JQPlotAxes extends JavaScriptPart
+public class JQPlotAxes<J extends JQPlotAxes<J>>
+		extends JavaScriptPart<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
-	
+
 	@JsonProperty("xaxis")
 	private JQPlotAxisOptions xAxis;
 	@JsonProperty("x2axis")
@@ -60,12 +63,12 @@ public class JQPlotAxes extends JavaScriptPart
 	private JQPlotAxisOptions y9Axis;
 	@JsonProperty("zaxis")
 	private JQPlotAxisOptions zAxis;
-	
+
 	public JQPlotAxes(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
 	}
-	
+
 	/**
 	 * Gets the X Axis Options
 	 *
@@ -79,17 +82,43 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return xAxis;
 	}
-	
+
 	/**
 	 * Sets the X Axis
 	 *
 	 * @param xAxis
 	 */
-	public void setxAxis(JQPlotAxisOptions xAxis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setxAxis(JQPlotAxisOptions xAxis)
 	{
 		this.xAxis = xAxis;
+		return (J) this;
 	}
-	
+
+	/**
+	 * Returns the linked graph with this options
+	 *
+	 * @return
+	 */
+	public JQPlotGraph getLinkedGraph()
+	{
+		return linkedGraph;
+	}
+
+	/**
+	 * Sets the linked graph with this object
+	 *
+	 * @param linkedGraph
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
+	{
+		this.linkedGraph = linkedGraph;
+		return (J) this;
+	}
+
 	/**
 	 * Gets the X 2 Axis
 	 *
@@ -103,17 +132,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return x2Axis;
 	}
-	
+
 	/**
 	 * Sets the X 2 Axis
 	 *
 	 * @param x2Axis
 	 */
-	public void setX2Axis(JQPlotAxisOptions x2Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setX2Axis(JQPlotAxisOptions x2Axis)
 	{
 		this.x2Axis = x2Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y Axis
 	 *
@@ -127,17 +159,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return yAxis;
 	}
-	
+
 	/**
 	 * Sets the Y Axis
 	 *
 	 * @param yAxis
 	 */
-	public void setyAxis(JQPlotAxisOptions yAxis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setyAxis(JQPlotAxisOptions yAxis)
 	{
 		this.yAxis = yAxis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -151,17 +186,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y2Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 2Axis
 	 *
 	 * @param y2Axis
 	 */
-	public void setY2Axis(JQPlotAxisOptions y2Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY2Axis(JQPlotAxisOptions y2Axis)
 	{
 		this.y2Axis = y2Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -175,17 +213,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y3Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 3 Axis
 	 *
 	 * @param y3Axis
 	 */
-	public void setY3Axis(JQPlotAxisOptions y3Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY3Axis(JQPlotAxisOptions y3Axis)
 	{
 		this.y3Axis = y3Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -199,17 +240,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y4Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 3 Axis
 	 *
 	 * @param y4Axis
 	 */
-	public void setY4Axis(JQPlotAxisOptions y4Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY4Axis(JQPlotAxisOptions y4Axis)
 	{
 		this.y4Axis = y4Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -223,17 +267,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y5Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 3 Axis
 	 *
 	 * @param y5Axis
 	 */
-	public void setY5Axis(JQPlotAxisOptions y5Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY5Axis(JQPlotAxisOptions y5Axis)
 	{
 		this.y5Axis = y5Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -247,17 +294,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y6Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 3 Axis
 	 *
 	 * @param y6Axis
 	 */
-	public void setY6Axis(JQPlotAxisOptions y6Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY6Axis(JQPlotAxisOptions y6Axis)
 	{
 		this.y6Axis = y6Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -271,17 +321,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y7Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 3 Axis
 	 *
 	 * @param y7Axis
 	 */
-	public void setY7Axis(JQPlotAxisOptions y7Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY7Axis(JQPlotAxisOptions y7Axis)
 	{
 		this.y7Axis = y7Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -295,17 +348,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y8Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 3 Axis
 	 *
 	 * @param y8Axis
 	 */
-	public void setY8Axis(JQPlotAxisOptions y8Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY8Axis(JQPlotAxisOptions y8Axis)
 	{
 		this.y8Axis = y8Axis;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Gets the Y 2 Axis
 	 *
@@ -319,37 +375,20 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return y9Axis;
 	}
-	
+
 	/**
 	 * Sets the Y 3 Axis
 	 *
 	 * @param y9Axis
 	 */
-	public void setY9Axis(JQPlotAxisOptions y9Axis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setY9Axis(JQPlotAxisOptions y9Axis)
 	{
 		this.y9Axis = y9Axis;
+		return (J) this;
 	}
-	
-	/**
-	 * Returns the linked graph with this options
-	 *
-	 * @return
-	 */
-	public JQPlotGraph getLinkedGraph()
-	{
-		return linkedGraph;
-	}
-	
-	/**
-	 * Sets the linked graph with this object
-	 *
-	 * @param linkedGraph
-	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
-	{
-		this.linkedGraph = linkedGraph;
-	}
-	
+
 	/**
 	 * Gets the Z Axis Options
 	 *
@@ -363,15 +402,18 @@ public class JQPlotAxes extends JavaScriptPart
 		}
 		return zAxis;
 	}
-	
+
 	/**
 	 * Sets the zAxis Options
 	 *
 	 * @param zAxis
 	 */
-	public void setzAxis(JQPlotAxisOptions zAxis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setzAxis(JQPlotAxisOptions zAxis)
 	{
 		this.zAxis = zAxis;
+		return (J) this;
 	}
-	
+
 }

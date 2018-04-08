@@ -21,6 +21,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -30,8 +31,8 @@ import java.util.List;
  * @version 1.0
  * @since 09 Aug 2015
  */
-public class JQPlotSeriesPieOptions
-		extends JavaScriptPart
+public class JQPlotSeriesPieOptions<J extends JQPlotSeriesPieOptions<J>>
+		extends JavaScriptPart<J>
 		implements JQPlotSeriesRenderer
 {
 
@@ -144,9 +145,12 @@ public class JQPlotSeriesPieOptions
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -175,9 +179,12 @@ public class JQPlotSeriesPieOptions
 	 * <p>
 	 * <p>
 	 */
-	public void setDiameter(Integer diameter)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDiameter(Integer diameter)
 	{
 		this.diameter = diameter;
+		return (J) this;
 	}
 
 	/**
@@ -194,9 +201,12 @@ public class JQPlotSeriesPieOptions
 	 * padding between the pie and plot edges, legend, etc.
 	 * <p>
 	 */
-	public void setPadding(Double padding)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPadding(Double padding)
 	{
 		this.padding = padding;
+		return (J) this;
 	}
 
 	/**
@@ -213,9 +223,12 @@ public class JQPlotSeriesPieOptions
 	 * angular spacing between pie slices in degrees.
 	 * <p>
 	 */
-	public void setSliceMargin(Integer sliceMargin)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSliceMargin(Integer sliceMargin)
 	{
 		this.sliceMargin = sliceMargin;
+		return (J) this;
 	}
 
 	/**
@@ -232,9 +245,12 @@ public class JQPlotSeriesPieOptions
 	 * true or false, whether to fil the slices.
 	 * <p>
 	 */
-	public void setFill(Boolean fill)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFill(Boolean fill)
 	{
 		this.fill = fill;
+		return (J) this;
 	}
 
 	/**
@@ -251,9 +267,12 @@ public class JQPlotSeriesPieOptions
 	 * offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
 	 * <p>
 	 */
-	public void setShadowOffset(Integer shadowOffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowOffset(Integer shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return (J) this;
 	}
 
 	/**
@@ -271,9 +290,12 @@ public class JQPlotSeriesPieOptions
 	 * <p>
 	 * <p>
 	 */
-	public void setShadowAlpha(Double shadowAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return (J) this;
 	}
 
 	/**
@@ -290,9 +312,12 @@ public class JQPlotSeriesPieOptions
 	 * number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
 	 * <p>
 	 */
-	public void setShadowDepth(Integer shadowDepth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return (J) this;
 	}
 
 	/**
@@ -309,9 +334,12 @@ public class JQPlotSeriesPieOptions
 	 * True to highlight slice when moused over.
 	 * <p>
 	 */
-	public void setHighlightMouseOver(Boolean highlightMouseOver)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightMouseOver(Boolean highlightMouseOver)
 	{
 		this.highlightMouseOver = highlightMouseOver;
+		return (J) this;
 	}
 
 	/**
@@ -328,9 +356,12 @@ public class JQPlotSeriesPieOptions
 	 * True to highlight when a mouse button is pressed over a slice.
 	 * <p>
 	 */
-	public void setHighlightMouseDown(Boolean highlightMouseDown)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightMouseDown(Boolean highlightMouseDown)
 	{
 		this.highlightMouseDown = highlightMouseDown;
+		return (J) this;
 	}
 
 	/**
@@ -347,9 +378,12 @@ public class JQPlotSeriesPieOptions
 	 * an array of colors to use when highlighting a slice.
 	 * <p>
 	 */
-	public void setHighlightColors(List<String> highlightColors)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setHighlightColors(List<String> highlightColors)
 	{
 		this.highlightColors = highlightColors;
+		return (J) this;
 	}
 
 	/**
@@ -366,9 +400,12 @@ public class JQPlotSeriesPieOptions
 	 * Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
 	 * <p>
 	 */
-	public void setDataLabels(String dataLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabels(String dataLabels)
 	{
 		this.dataLabels = dataLabels;
+		return (J) this;
 	}
 
 	/**
@@ -385,9 +422,12 @@ public class JQPlotSeriesPieOptions
 	 * true to show data labels on slices
 	 * <p>
 	 */
-	public void setShowDataLabels(Boolean showDataLabels)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowDataLabels(Boolean showDataLabels)
 	{
 		this.showDataLabels = showDataLabels;
+		return (J) this;
 	}
 
 	/**
@@ -404,9 +444,12 @@ public class JQPlotSeriesPieOptions
 	 * Format string for data labels. If none, ‘%s’ is used for “label” and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
 	 * <p>
 	 */
-	public void setDataLabelFormatString(String dataLabelFormatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelFormatString(String dataLabelFormatString)
 	{
 		this.dataLabelFormatString = dataLabelFormatString;
+		return (J) this;
 	}
 
 	/**
@@ -423,9 +466,12 @@ public class JQPlotSeriesPieOptions
 	 * Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
 	 * <p>
 	 */
-	public void setDataLabelThreshold(Integer dataLabelThreshold)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelThreshold(Integer dataLabelThreshold)
 	{
 		this.dataLabelThreshold = dataLabelThreshold;
+		return (J) this;
 	}
 
 	/**
@@ -442,9 +488,12 @@ public class JQPlotSeriesPieOptions
 	 * A Multiplier (0-1) of the pie radius which controls position of label on slice.
 	 * <p>
 	 */
-	public void setDataLabelPositionFactor(Double dataLabelPositionFactor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelPositionFactor(Double dataLabelPositionFactor)
 	{
 		this.dataLabelPositionFactor = dataLabelPositionFactor;
+		return (J) this;
 	}
 
 	/**
@@ -461,9 +510,12 @@ public class JQPlotSeriesPieOptions
 	 * Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
 	 * <p>
 	 */
-	public void setDataLabelNudge(Integer dataLabelNudge)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelNudge(Integer dataLabelNudge)
 	{
 		this.dataLabelNudge = dataLabelNudge;
+		return (J) this;
 	}
 
 	/**
@@ -480,9 +532,12 @@ public class JQPlotSeriesPieOptions
 	 * True to center the data label at its position.
 	 * <p>
 	 */
-	public void setDataLabelCenterOn(Boolean dataLabelCenterOn)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataLabelCenterOn(Boolean dataLabelCenterOn)
 	{
 		this.dataLabelCenterOn = dataLabelCenterOn;
+		return (J) this;
 	}
 
 	/**
@@ -499,9 +554,12 @@ public class JQPlotSeriesPieOptions
 	 * Angle to start drawing pie in degrees.
 	 * <p>
 	 */
-	public void setStartAngle(Integer startAngle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStartAngle(Integer startAngle)
 	{
 		this.startAngle = startAngle;
+		return (J) this;
 	}
 
 	/**
@@ -518,9 +576,12 @@ public class JQPlotSeriesPieOptions
 	 * Array for whether the pie chart slice for a data element should be displayed.
 	 * <p>
 	 */
-	public void setShowSlice(List<Boolean> showSlice)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowSlice(List<Boolean> showSlice)
 	{
 		this.showSlice = showSlice;
+		return (J) this;
 	}
 
 }

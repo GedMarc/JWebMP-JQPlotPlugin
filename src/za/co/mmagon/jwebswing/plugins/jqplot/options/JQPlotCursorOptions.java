@@ -24,6 +24,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotRendererDefault;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +35,8 @@ import java.util.List;
  * @since 2014/07/09
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class JQPlotCursorOptions
-		extends JavaScriptPart
+public class JQPlotCursorOptions<J extends JQPlotCursorOptions<J>>
+		extends JavaScriptPart<J>
 		implements JQPlotRendererDefault
 {
 
@@ -168,9 +169,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 	/**
@@ -188,9 +192,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param style
 	 */
-	public void setStyle(Cursors style)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStyle(Cursors style)
 	{
 		this.style = style;
+		return (J) this;
 	}
 
 	/**
@@ -208,9 +215,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -228,9 +238,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showTooltip
 	 */
-	public void setShowTooltip(Boolean showTooltip)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTooltip(Boolean showTooltip)
 	{
 		this.showTooltip = showTooltip;
+		return (J) this;
 	}
 
 	/**
@@ -248,9 +261,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param followMouse
 	 */
-	public void setFollowMouse(Boolean followMouse)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFollowMouse(Boolean followMouse)
 	{
 		this.followMouse = followMouse;
+		return (J) this;
 	}
 
 	/**
@@ -268,9 +284,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param tooltipLocation
 	 */
-	public void setTooltipLocation(String tooltipLocation)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipLocation(String tooltipLocation)
 	{
 		this.tooltipLocation = tooltipLocation;
+		return (J) this;
 	}
 
 	/**
@@ -290,9 +309,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param tooltipOffset
 	 */
-	public void setTooltipOffset(Integer tooltipOffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipOffset(Integer tooltipOffset)
 	{
 		this.tooltipOffset = tooltipOffset;
+		return (J) this;
 	}
 
 	/**
@@ -312,9 +334,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showTooltipGridPosition
 	 */
-	public void setShowTooltipGridPosition(Boolean showTooltipGridPosition)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTooltipGridPosition(Boolean showTooltipGridPosition)
 	{
 		this.showTooltipGridPosition = showTooltipGridPosition;
+		return (J) this;
 	}
 
 	/**
@@ -334,9 +359,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showTooltipUnitPosition
 	 */
-	public void setShowTooltipUnitPosition(Boolean showTooltipUnitPosition)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTooltipUnitPosition(Boolean showTooltipUnitPosition)
 	{
 		this.showTooltipUnitPosition = showTooltipUnitPosition;
+		return (J) this;
 	}
 
 	/**
@@ -356,9 +384,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showTooltipDataPosition
 	 */
-	public void setShowTooltipDataPosition(Boolean showTooltipDataPosition)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTooltipDataPosition(Boolean showTooltipDataPosition)
 	{
 		this.showTooltipDataPosition = showTooltipDataPosition;
+		return (J) this;
 	}
 
 	/**
@@ -378,9 +409,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param tooltipFormatString
 	 */
-	public void setTooltipFormatString(String tooltipFormatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipFormatString(String tooltipFormatString)
 	{
 		this.tooltipFormatString = tooltipFormatString;
+		return (J) this;
 	}
 
 	/**
@@ -400,9 +434,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param useAxesFormatters
 	 */
-	public void setUseAxesFormatters(Boolean useAxesFormatters)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setUseAxesFormatters(Boolean useAxesFormatters)
 	{
 		this.useAxesFormatters = useAxesFormatters;
+		return (J) this;
 	}
 
 	/**
@@ -422,9 +459,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param zoom
 	 */
-	public void setZoom(Boolean zoom)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setZoom(Boolean zoom)
 	{
 		this.zoom = zoom;
+		return (J) this;
 	}
 
 	/**
@@ -444,9 +484,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param looseZoom
 	 */
-	public void setLooseZoom(Boolean looseZoom)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLooseZoom(Boolean looseZoom)
 	{
 		this.looseZoom = looseZoom;
+		return (J) this;
 	}
 
 	/**
@@ -466,9 +509,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param clickReset
 	 */
-	public void setClickReset(Boolean clickReset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setClickReset(Boolean clickReset)
 	{
 		this.clickReset = clickReset;
+		return (J) this;
 	}
 
 	/**
@@ -488,9 +534,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param dblClickReset
 	 */
-	public void setDblClickReset(Boolean dblClickReset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDblClickReset(Boolean dblClickReset)
 	{
 		this.dblClickReset = dblClickReset;
+		return (J) this;
 	}
 
 	/**
@@ -510,9 +559,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showVerticalLine
 	 */
-	public void setShowVerticalLine(Boolean showVerticalLine)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowVerticalLine(Boolean showVerticalLine)
 	{
 		this.showVerticalLine = showVerticalLine;
+		return (J) this;
 	}
 
 	/**
@@ -532,9 +584,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showHorizontalLine
 	 */
-	public void setShowHorizontalLine(Boolean showHorizontalLine)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowHorizontalLine(Boolean showHorizontalLine)
 	{
 		this.showHorizontalLine = showHorizontalLine;
+		return (J) this;
 	}
 
 	/**
@@ -554,9 +609,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param constrainZoomTo
 	 */
-	public void setConstrainZoomTo(String constrainZoomTo)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setConstrainZoomTo(String constrainZoomTo)
 	{
 		this.constrainZoomTo = constrainZoomTo;
+		return (J) this;
 	}
 
 	/**
@@ -576,9 +634,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param intersectionThreshold
 	 */
-	public void setIntersectionThreshold(Integer intersectionThreshold)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setIntersectionThreshold(Integer intersectionThreshold)
 	{
 		this.intersectionThreshold = intersectionThreshold;
+		return (J) this;
 	}
 
 	/**
@@ -598,9 +659,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showCursorLegend
 	 */
-	public void setShowCursorLegend(Boolean showCursorLegend)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowCursorLegend(Boolean showCursorLegend)
 	{
 		this.showCursorLegend = showCursorLegend;
+		return (J) this;
 	}
 
 	/**
@@ -620,9 +684,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param cursorLegendFormatString
 	 */
-	public void setCursorLegendFormatString(String cursorLegendFormatString)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCursorLegendFormatString(String cursorLegendFormatString)
 	{
 		this.cursorLegendFormatString = cursorLegendFormatString;
+		return (J) this;
 	}
 
 	/**
@@ -642,9 +709,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param constrainOutsideZoom
 	 */
-	public void setConstrainOutsideZoom(Boolean constrainOutsideZoom)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setConstrainOutsideZoom(Boolean constrainOutsideZoom)
 	{
 		this.constrainOutsideZoom = constrainOutsideZoom;
+		return (J) this;
 	}
 
 	/**
@@ -664,9 +734,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param showTooltipOutsideZoom
 	 */
-	public void setShowTooltipOutsideZoom(Boolean showTooltipOutsideZoom)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowTooltipOutsideZoom(Boolean showTooltipOutsideZoom)
 	{
 		this.showTooltipOutsideZoom = showTooltipOutsideZoom;
+		return (J) this;
 	}
 
 	@Override
@@ -696,9 +769,12 @@ public class JQPlotCursorOptions
 	 *
 	 * @param tooltipAxisGroups
 	 */
-	public void setTooltipAxisGroups(List<XYObject> tooltipAxisGroups)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltipAxisGroups(List<XYObject> tooltipAxisGroups)
 	{
 		this.tooltipAxisGroups = tooltipAxisGroups;
+		return (J) this;
 	}
 
 }

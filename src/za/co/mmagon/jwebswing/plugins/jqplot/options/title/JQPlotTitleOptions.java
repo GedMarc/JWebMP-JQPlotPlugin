@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,6 +24,8 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTitleRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Handles the text attribute of the JWGraph
  * <p>
@@ -31,12 +33,13 @@ import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotTitleRendere
  * @author mmagon
  * @since 2014/07/09
  */
-public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> extends JavaScriptPart
+public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer, J extends JQPlotTitleOptions<O, J>>
+		extends JavaScriptPart<J>
 {
-	
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
-	
+
 	/**
 	 * text of the text
 	 */
@@ -45,7 +48,7 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	 * Whether or not to show the text
 	 */
 	private Boolean show;
-	
+
 	/**
 	 * CSS font-family spec for the text.
 	 */
@@ -66,22 +69,24 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	 * for creating a DOM element for the text, see $.jqplot.DivTitleRenderer.
 	 */
 	private String renderer;
-	
+
 	private O rendererOptions;
-	
+
 	/**
 	 * Constructs a Title Part for the JWGraph
 	 * <p>
 	 *
-	 * @param title The text to add to the graph
-	 * @param graph The linked graph
+	 * @param title
+	 * 		The text to add to the graph
+	 * @param graph
+	 * 		The linked graph
 	 */
 	public JQPlotTitleOptions(String title, JQPlotGraph graph)
 	{
-		this.text = title;
-		this.linkedGraph = graph;
+		text = title;
+		linkedGraph = graph;
 	}
-	
+
 	/**
 	 * Whether or not to show the text
 	 * <p>
@@ -92,18 +97,21 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	{
 		return show;
 	}
-	
+
 	/**
 	 * Whether or not to show the text
 	 * <p>
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Returns the actual text
 	 * <p>
@@ -114,18 +122,21 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	{
 		return text;
 	}
-	
+
 	/**
 	 * Sets the actual text
 	 * <p>
 	 *
 	 * @param text
 	 */
-	public void setText(String text)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setText(String text)
 	{
 		this.text = text;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Returns the font family
 	 * <p>
@@ -136,18 +147,21 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	{
 		return fontFamily;
 	}
-	
+
 	/**
 	 * Sets the font family
 	 * <p>
 	 *
 	 * @param fontFamily
 	 */
-	public void setFontFamily(FontFamilies fontFamily)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontFamily(FontFamilies fontFamily)
 	{
 		this.fontFamily = fontFamily;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Sets the font size
 	 * <p>
@@ -158,18 +172,21 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	{
 		return fontSize;
 	}
-	
+
 	/**
 	 * Sets the font size
 	 * <p>
 	 *
 	 * @param fontSize
 	 */
-	public void setFontSize(Integer fontSize)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFontSize(Integer fontSize)
 	{
 		this.fontSize = fontSize;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Returns the text alignment
 	 * <p>
@@ -180,18 +197,21 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	{
 		return textAlign;
 	}
-	
+
 	/**
 	 * sets the text alignment
 	 * <p>
 	 *
 	 * @param textAlign
 	 */
-	public void setTextAlign(TextAlignments textAlign)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTextAlign(TextAlignments textAlign)
 	{
 		this.textAlign = textAlign;
+		return (J) this;
 	}
-	
+
 	/**
 	 * Sets the colour of the text
 	 * <p>
@@ -202,18 +222,21 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	{
 		return textColor;
 	}
-	
+
 	/**
 	 * Sets the text colour
 	 * <p>
 	 *
 	 * @param textColor
 	 */
-	public void setTextColor(ColourHex textColor)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTextColor(ColourHex textColor)
 	{
 		this.textColor = textColor.getValue();
+		return (J) this;
 	}
-	
+
 	/**
 	 * Returns the text renderer
 	 * <p>
@@ -224,7 +247,7 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 	{
 		return renderer;
 	}
-	
+
 	/**
 	 * Returns the current renderer options or the default
 	 *
@@ -238,16 +261,19 @@ public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer> 
 		}
 		return rendererOptions;
 	}
-	
+
 	/**
 	 * Sets the renderer options
 	 *
 	 * @param rendererOptions
 	 */
-	public void setRendererOptions(O rendererOptions)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRendererOptions(O rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
-		this.renderer = rendererOptions.getRenderer();
+		renderer = rendererOptions.getRenderer();
+		return (J) this;
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,12 +23,16 @@ import za.co.mmagon.jwebswing.plugins.jqplot.JQPlotGraph;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.MarkerStyles;
 import za.co.mmagon.jwebswing.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * The specific marker options available
  *
  * @author mmagon
  */
-public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerRenderer
+public class JQPlotMarkerOptions<J extends JQPlotMarkerOptions<J>>
+		extends JavaScriptPart<J>
+		implements JQPlotMarkerRenderer
 {
 
 	private static final long serialVersionUID = 1L;
@@ -112,9 +116,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param show
 	 */
-	public void setShow(Boolean show)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShow(Boolean show)
 	{
 		this.show = show;
+		return (J) this;
 	}
 
 	/**
@@ -132,9 +139,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param style
 	 */
-	public void setStyle(MarkerStyles style)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStyle(MarkerStyles style)
 	{
 		this.style = style;
+		return (J) this;
 	}
 
 	/**
@@ -152,9 +162,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param lineWidth
 	 */
-	public void setLineWidth(Integer lineWidth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLineWidth(Integer lineWidth)
 	{
 		this.lineWidth = lineWidth;
+		return (J) this;
 	}
 
 	/**
@@ -172,9 +185,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param size
 	 */
-	public void setSize(Integer size)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSize(Integer size)
 	{
 		this.size = size;
+		return (J) this;
 	}
 
 	/**
@@ -192,9 +208,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param color
 	 */
-	public void setColor(ColourHex color)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setColor(ColourHex color)
 	{
 		this.color = color.getValue();
+		return (J) this;
 	}
 
 	/**
@@ -213,9 +232,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param shadow
 	 */
-	public void setShadow(Boolean shadow)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
+		return (J) this;
 	}
 
 	/**
@@ -233,9 +255,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param shadowAngle
 	 */
-	public void setShadowAngle(Integer shadowAngle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAngle(Integer shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
+		return (J) this;
 	}
 
 	/**
@@ -253,9 +278,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param shadowOffset
 	 */
-	public void setShadowOffset(Integer shadowOffset)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowOffset(Integer shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return (J) this;
 	}
 
 	/**
@@ -273,9 +301,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param shadowDepth
 	 */
-	public void setShadowDepth(Integer shadowDepth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return (J) this;
 	}
 
 	/**
@@ -293,9 +324,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param shadowAlpha
 	 */
-	public void setShadowAlpha(Double shadowAlpha)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return (J) this;
 	}
 
 	@Override
@@ -320,9 +354,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param shadowRenderer
 	 */
-	public void setShadowRenderer(JavaScriptPart shadowRenderer)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShadowRenderer(JavaScriptPart shadowRenderer)
 	{
 		this.shadowRenderer = shadowRenderer;
+		return (J) this;
 	}
 
 	/**
@@ -340,9 +377,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param shapeRenderer
 	 */
-	public void setShapeRenderer(JavaScriptPart shapeRenderer)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShapeRenderer(JavaScriptPart shapeRenderer)
 	{
 		this.shapeRenderer = shapeRenderer;
+		return (J) this;
 	}
 
 	/**
@@ -360,9 +400,12 @@ public class JQPlotMarkerOptions extends JavaScriptPart implements JQPlotMarkerR
 	 *
 	 * @param linkedGraph
 	 */
-	public void setLinkedGraph(JQPlotGraph linkedGraph)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkedGraph(JQPlotGraph linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
+		return (J) this;
 	}
 
 }
