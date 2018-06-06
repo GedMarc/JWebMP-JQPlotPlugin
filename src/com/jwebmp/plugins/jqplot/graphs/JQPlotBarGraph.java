@@ -18,13 +18,13 @@ package com.jwebmp.plugins.jqplot.graphs;
 
 import com.jwebmp.base.servlets.enumarations.Orientation;
 import com.jwebmp.generics.CompassPoints;
+import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.ComponentInformation;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBar;
 import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisLabelRendererOptionsCategoryLabels;
 import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisOptions;
 import com.jwebmp.plugins.jqplot.options.series.JQPlotSeriesBarOptions;
-import za.co.mmagon.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 import java.util.*;
@@ -526,12 +526,6 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	}
 
 	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
 	public boolean equals(Object o)
 	{
 		if (this == o)
@@ -574,6 +568,12 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 			return false;
 		}
 		return getOrientation() == that.getOrientation();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 
 	/**
