@@ -21,7 +21,6 @@ import com.jwebmp.base.html.attributes.NoAttributes;
 import com.jwebmp.base.html.interfaces.DisplayObjectType;
 import com.jwebmp.base.html.interfaces.GlobalChildren;
 import com.jwebmp.base.html.interfaces.NoNewLineBeforeClosingTag;
-import com.jwebmp.base.html.interfaces.children.NoChildren;
 import com.jwebmp.base.servlets.enumarations.ComponentTypes;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.options.JQPlotOptions;
@@ -45,7 +44,7 @@ import java.util.List;
  * @since 2014/07/08
  */
 public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGraph<O, J>>
-		extends Component<NoChildren, NoAttributes, JQPlotGraphFeatures, JQPlotGraphEvents, J>
+		extends Component<GlobalChildren, NoAttributes, JQPlotGraphFeatures, JQPlotGraphEvents, J>
 		implements GlobalChildren, DisplayObjectType, NoNewLineBeforeClosingTag
 {
 
