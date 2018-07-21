@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot;
 
-import com.jwebmp.base.servlets.interfaces.IFeature;
+import com.jwebmp.core.base.servlets.interfaces.IFeature;
 
 /**
  * Defines the features allowed on the JWGraph Object

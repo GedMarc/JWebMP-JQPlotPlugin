@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.graphs.display;
 
-import com.jwebmp.generics.XYObject;
+import com.jwebmp.core.generics.XYObject;
 
 /**
  * A slice of a JQ Plot Pie

@@ -18,9 +18,9 @@ package com.jwebmp.plugins.jqplot.options;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.jwebmp.generics.XYObject;
-import com.jwebmp.htmlbuilder.css.displays.Cursors;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.generics.XYObject;
+import com.jwebmp.core.htmlbuilder.css.displays.Cursors;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotRendererDefault;
 

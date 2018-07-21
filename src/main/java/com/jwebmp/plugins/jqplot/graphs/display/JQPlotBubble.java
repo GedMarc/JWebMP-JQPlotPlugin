@@ -16,11 +16,11 @@
  */
 package com.jwebmp.plugins.jqplot.graphs.display;
 
-import com.jwebmp.utilities.StaticStrings;
+import com.jwebmp.core.utilities.StaticStrings;
 
 import java.io.Serializable;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * A specific bubble for the JQ Plot Library

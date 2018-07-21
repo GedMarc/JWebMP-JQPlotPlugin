@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.graphs.display;
 
-import com.jwebmp.generics.XYObject;
+import com.jwebmp.core.generics.XYObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;

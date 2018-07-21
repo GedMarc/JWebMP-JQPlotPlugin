@@ -17,10 +17,10 @@
 package com.jwebmp.plugins.jqplot.options.title;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jwebmp.htmlbuilder.css.colours.ColourHex;
-import com.jwebmp.htmlbuilder.css.fonts.FontFamilies;
-import com.jwebmp.htmlbuilder.css.text.TextAlignments;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
+import com.jwebmp.core.htmlbuilder.css.fonts.FontFamilies;
+import com.jwebmp.core.htmlbuilder.css.text.TextAlignments;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTitleRenderer;
 

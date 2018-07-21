@@ -17,7 +17,7 @@
 package com.jwebmp.plugins.jqplot.graphs;
 
 import com.fasterxml.jackson.annotation.*;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotDonutGroup;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotPieSlice;

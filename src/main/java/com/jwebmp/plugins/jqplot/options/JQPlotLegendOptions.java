@@ -18,10 +18,10 @@ package com.jwebmp.plugins.jqplot.options;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import com.jwebmp.generics.CompassPoints;
-import com.jwebmp.htmlbuilder.css.colours.ColourHex;
-import com.jwebmp.htmlbuilder.css.fonts.FontFamilies;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.generics.CompassPoints;
+import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
+import com.jwebmp.core.htmlbuilder.css.fonts.FontFamilies;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.options.legends.JQPlotLegendRendererEnhancedOptions;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;

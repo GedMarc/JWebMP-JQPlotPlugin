@@ -19,8 +19,8 @@ package com.jwebmp.plugins.jqplot.options.grid;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import com.jwebmp.htmlbuilder.css.colours.ColourHex;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotGridRenderer;
 

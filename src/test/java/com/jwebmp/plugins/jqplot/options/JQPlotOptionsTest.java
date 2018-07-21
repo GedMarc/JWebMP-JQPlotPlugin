@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.options;
 
-import com.jwebmp.base.servlets.enumarations.Orientation;
+import com.jwebmp.core.base.servlets.enumarations.Orientation;
 import com.jwebmp.plugins.jqplot.graphs.JQPlotBarGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBar;
 import com.jwebmp.plugins.jqplot.options.series.JQPlotSeriesBarOptions;

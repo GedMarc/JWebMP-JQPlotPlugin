@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.jqplot.graphs;
 
-import com.jwebmp.base.servlets.enumarations.Orientation;
-import com.jwebmp.generics.CompassPoints;
+import com.jwebmp.core.base.servlets.enumarations.Orientation;
+import com.jwebmp.core.generics.CompassPoints;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.logger.LogFactory;
-import com.jwebmp.plugins.ComponentInformation;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBar;
 import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisLabelRendererOptionsCategoryLabels;
@@ -31,7 +31,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Constructs a new JQPlotBar Graph default series display

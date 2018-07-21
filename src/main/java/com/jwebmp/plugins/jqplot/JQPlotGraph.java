@@ -16,13 +16,13 @@
  */
 package com.jwebmp.plugins.jqplot;
 
-import com.jwebmp.Component;
-import com.jwebmp.base.html.attributes.NoAttributes;
-import com.jwebmp.base.html.interfaces.DisplayObjectType;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.html.interfaces.NoNewLineBeforeClosingTag;
-import com.jwebmp.base.servlets.enumarations.ComponentTypes;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.DisplayObjectType;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.NoNewLineBeforeClosingTag;
+import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.options.JQPlotOptions;
 
 import java.io.Serializable;

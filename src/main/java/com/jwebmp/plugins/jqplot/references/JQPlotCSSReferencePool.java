@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.references;
 
-import com.jwebmp.base.references.CSSReference;
+import com.jwebmp.core.base.references.CSSReference;
 
 /**
  * References for all the graphing Java Scripts

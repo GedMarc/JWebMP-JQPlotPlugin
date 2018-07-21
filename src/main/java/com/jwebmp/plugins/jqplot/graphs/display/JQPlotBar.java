@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.jqplot.graphs.display;
 
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Represents a single bar

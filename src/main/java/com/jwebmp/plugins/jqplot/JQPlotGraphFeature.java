@@ -16,11 +16,11 @@
  */
 package com.jwebmp.plugins.jqplot;
 
-import com.jwebmp.Feature;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * This is the default implementation of the JQPlot Graph Library

@@ -19,7 +19,7 @@ package com.jwebmp.plugins.jqplot.options.axis;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotAxisRenderer;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;

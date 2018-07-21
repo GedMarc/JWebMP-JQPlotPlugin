@@ -17,8 +17,8 @@
 package com.jwebmp.plugins.jqplot.options;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jwebmp.generics.CompassPoints;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.generics.CompassPoints;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 
 import javax.validation.constraints.NotNull;

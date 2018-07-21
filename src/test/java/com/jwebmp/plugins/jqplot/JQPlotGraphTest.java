@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.jqplot;
 
-import com.jwebmp.Page;
-import com.jwebmp.base.servlets.enumarations.Orientation;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.base.servlets.enumarations.Orientation;
 import com.jwebmp.plugins.jqplot.graphs.JQPlotBarGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBar;
 import org.junit.jupiter.api.Test;

@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.graphs;
 
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBubble;
 import com.jwebmp.plugins.jqplot.options.JQPlotOptions;
@@ -25,7 +25,7 @@ import com.jwebmp.plugins.jqplot.options.series.JQPlotSeriesBubbleOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * The Bubble Graph Renderering for the JQ Plot Library

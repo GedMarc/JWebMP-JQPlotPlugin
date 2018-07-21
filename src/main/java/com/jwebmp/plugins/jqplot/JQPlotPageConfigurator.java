@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.jqplot;
 
-import com.jwebmp.Page;
-import com.jwebmp.PageConfigurator;
-import com.jwebmp.plugins.PluginInformation;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.PageConfigurator;
+import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.plugins.jqplot.references.JQPlotCSSReferencePool;
 import com.jwebmp.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 

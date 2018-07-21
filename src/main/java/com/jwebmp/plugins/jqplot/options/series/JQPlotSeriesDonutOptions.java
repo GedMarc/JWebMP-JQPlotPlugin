@@ -17,7 +17,7 @@
 package com.jwebmp.plugins.jqplot.options.series;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
