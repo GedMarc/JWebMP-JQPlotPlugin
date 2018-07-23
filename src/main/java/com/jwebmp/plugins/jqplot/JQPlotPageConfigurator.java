@@ -17,8 +17,8 @@
 package com.jwebmp.plugins.jqplot;
 
 import com.jwebmp.core.Page;
-import com.jwebmp.core.PageConfigurator;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.jqplot.references.JQPlotCSSReferencePool;
 import com.jwebmp.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
@@ -43,11 +43,8 @@ import com.jwebmp.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 		pluginIconImageUrl = "bower_components/jqplot-jwebswing/jqplot_logo.png",
 		pluginLastUpdatedDate = "2017/03/04")
 public class JQPlotPageConfigurator
-		extends PageConfigurator
+		implements IPageConfigurator
 {
-
-	private static final long serialVersionUID = 1L;
-
 	public JQPlotPageConfigurator()
 	{
 		//Nothing needed

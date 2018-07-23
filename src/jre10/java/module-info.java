@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.jqplot.JQPlotPageConfigurator;
+
 module com.jwebmp.plugins.jqplot {
 	exports com.jwebmp.plugins.jqplot;
 	exports com.jwebmp.plugins.jqplot.parts;
@@ -20,4 +23,7 @@ module com.jwebmp.plugins.jqplot {
 
 	requires java.validation;
 	requires java.logging;
+
+	provides IPageConfigurator with JQPlotPageConfigurator;
+
 }
