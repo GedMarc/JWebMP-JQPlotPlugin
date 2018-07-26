@@ -26,4 +26,14 @@ module com.jwebmp.plugins.jqplot {
 
 	provides IPageConfigurator with JQPlotPageConfigurator;
 
+	opens com.jwebmp.plugins.jqplot to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.parts to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.parts.interfaces to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.options to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.options.axis to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.options.grid to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.options.legends to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.options.series to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.options.ticks to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.options.title to com.fasterxml.jackson.databind,com.jwebmp.core;
 }
