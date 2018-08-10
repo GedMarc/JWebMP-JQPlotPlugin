@@ -22,6 +22,8 @@ import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.jqplot.references.JQPlotCSSReferencePool;
 import com.jwebmp.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @since 27 Feb 2017
@@ -50,6 +52,7 @@ public class JQPlotPageConfigurator
 		//Nothing needed
 	}
 
+	@NotNull
 	@Override
 	public Page configure(Page page)
 	{
