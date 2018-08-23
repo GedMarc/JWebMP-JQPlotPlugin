@@ -17,7 +17,6 @@
 package com.jwebmp.plugins.jqplot;
 
 import com.jwebmp.core.Feature;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 import static com.jwebmp.core.utilities.StaticStrings.*;
@@ -32,8 +31,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * @since 2014/07/08
  */
 public class JQPlotGraphFeature
-		extends Feature<JavaScriptPart, JQPlotGraphFeature>
-		implements JQPlotGraphFeatures, GlobalFeatures
+		extends Feature<JQPlotGraphFeature, JavaScriptPart, JQPlotGraphFeature>
 {
 
 	/**
