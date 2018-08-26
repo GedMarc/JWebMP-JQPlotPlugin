@@ -37,6 +37,7 @@ import java.util.List;
  * @author GedMarc
  * @since 26 Feb 2016
  */
+@SuppressWarnings("MissingClassJavaDoc")
 public class JQPlotOptions<J extends JQPlotOptions<J>>
 		extends JavaScriptPart<J>
 {
@@ -121,6 +122,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 * <p>
 	 *
 	 * @param linkedGraph
+	 * 		A linked graph if required
 	 */
 	public JQPlotOptions(JQPlotGraph linkedGraph)
 	{
