@@ -47,9 +47,39 @@ import javax.validation.constraints.NotNull;
 public class JQPlotPageConfigurator
 		implements IPageConfigurator
 {
+	/**
+	 * If this configurator is enabled
+	 */
+	private static boolean enabled = true;
+
 	public JQPlotPageConfigurator()
 	{
 		//Nothing needed
+	}
+
+	/**
+	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static boolean isEnabled()
+	{
+		return JQPlotPageConfigurator.enabled;
+	}
+
+	/**
+	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @param mustEnable
+	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static void setEnabled(boolean mustEnable)
+	{
+		JQPlotPageConfigurator.enabled = mustEnable;
 	}
 
 	@NotNull
@@ -95,5 +125,11 @@ public class JQPlotPageConfigurator
 			page.addJavaScriptReference(JQPlotJavascriptReferencePool.TrendlineRenderer.getReference());
 		}
 		return page;
+	}
+
+	@Override
+	public boolean enabled()
+	{
+		return JQPlotPageConfigurator.enabled;
 	}
 }
