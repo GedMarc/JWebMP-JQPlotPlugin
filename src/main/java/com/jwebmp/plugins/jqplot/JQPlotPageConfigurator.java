@@ -35,9 +35,9 @@ import javax.validation.constraints.NotNull;
 		pluginDependancyUniqueIDs = "jquery",
 		pluginCategories = "jqplot,jquery,graphs,graphing,plotting",
 		pluginSubtitle = "A Versatile and Expandable jQuery Plotting Plugin!",
-		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-JQMetroPlugin",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-JQMetroPlugin",
 		pluginSourceUrl = "https://sourceforge.net/p/jwebswing/jquery-jqplot/ci/master/tree/",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-JQMetroPlugin/wiki",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-JQMetroPlugin/wiki",
 		pluginOriginalHomepage = "http://www.jqplot.com/",
 		pluginSourceDonateUrl = "http://www.jqplot.com/donate.php",
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/JQPlotPlugin.jar/download",
@@ -45,7 +45,7 @@ import javax.validation.constraints.NotNull;
 		pluginIconImageUrl = "bower_components/jqplot-jwebswing/jqplot_logo.png",
 		pluginLastUpdatedDate = "2017/03/04")
 public class JQPlotPageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<JQPlotPageConfigurator>
 {
 	/**
 	 * If this configurator is enabled
