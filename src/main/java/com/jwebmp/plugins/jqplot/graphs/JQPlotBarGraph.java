@@ -58,7 +58,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	/**
 	 * Version 1
 	 */
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The bar graph options
 	 */
@@ -525,6 +525,12 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	}
 
 	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
+
+	@Override
 	public boolean equals(Object o)
 	{
 		if (this == o)
@@ -567,12 +573,6 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 			return false;
 		}
 		return getOrientation() == that.getOrientation();
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
 	}
 
 	/**

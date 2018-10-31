@@ -35,7 +35,7 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 		implements JQPlotSeriesRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The graph that this is linked to
 	 */

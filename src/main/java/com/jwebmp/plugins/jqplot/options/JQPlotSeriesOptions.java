@@ -40,7 +40,6 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart & JQPlotSeriesRenderer
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;

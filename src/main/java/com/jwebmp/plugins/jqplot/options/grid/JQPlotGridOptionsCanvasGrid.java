@@ -36,7 +36,7 @@ public class JQPlotGridOptionsCanvasGrid<J extends JQPlotGridOptionsCanvasGrid<J
 		implements JQPlotGridRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
 	/**

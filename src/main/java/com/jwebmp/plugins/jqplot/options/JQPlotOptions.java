@@ -45,7 +45,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	/**
 	 * Version 1
 	 */
-	private static final long serialVersionUID = 1L;
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
 	/**

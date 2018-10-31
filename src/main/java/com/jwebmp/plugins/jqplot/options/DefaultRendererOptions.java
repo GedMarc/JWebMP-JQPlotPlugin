@@ -30,7 +30,6 @@ public class DefaultRendererOptions
 		implements JQPlotAxisLabelRenderer
 {
 
-	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;

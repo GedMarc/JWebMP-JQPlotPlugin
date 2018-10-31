@@ -35,7 +35,6 @@ public class JQPlotAxisLabelRendererOptionsCategoryLabels<O extends JavaScriptPa
 		implements JQPlotAxisLabelRenderer
 {
 
-	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;

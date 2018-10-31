@@ -35,7 +35,7 @@ public class JQPlotTickOptionsAxisTick<J extends JQPlotTickOptionsAxisTick<J>>
 		implements JQPlotTickRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * tick mark on the axis.
 	 * One of ‘inside’, ‘outside’, ‘cross’, ‘’ or null.

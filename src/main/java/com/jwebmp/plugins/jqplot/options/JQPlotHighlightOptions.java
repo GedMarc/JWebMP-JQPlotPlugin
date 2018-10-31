@@ -58,9 +58,6 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 		extends JavaScriptPart<J>
 		implements JQPlotRendererDefault
 {
-
-	private static final long serialVersionUID = 1L;
-
 	/**
 	 * true to show the highlight.
 	 */
@@ -142,10 +139,6 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 		this.linkedGraph = linkedGraph;
 	}
 
-	public static long getSerialVersionUID()
-	{
-		return serialVersionUID;
-	}
 
 	/**
 	 * true to show the highlight.
@@ -414,9 +407,9 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setFormatString(Div formatString)
+	public J setFormatString(String formatString)
 	{
-		this.formatString = formatString.toString(true);
+		this.formatString = formatString;
 		return (J) this;
 	}
 
@@ -429,9 +422,9 @@ public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRende
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setFormatString(String formatString)
+	public J setFormatString(Div formatString)
 	{
-		this.formatString = formatString;
+		this.formatString = formatString.toString(true);
 		return (J) this;
 	}
 

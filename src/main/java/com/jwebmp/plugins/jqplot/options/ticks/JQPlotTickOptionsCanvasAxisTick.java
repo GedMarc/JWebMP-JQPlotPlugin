@@ -36,7 +36,7 @@ public class JQPlotTickOptionsCanvasAxisTick<J extends JQPlotTickOptionsCanvasAx
 		implements JQPlotTickRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	@JsonIgnore
 	private final JQPlotGraph linkedGraph;
 	/**

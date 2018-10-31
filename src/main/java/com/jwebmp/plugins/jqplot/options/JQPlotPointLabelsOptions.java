@@ -35,7 +35,6 @@ public class JQPlotPointLabelsOptions<J extends JQPlotPointLabelsOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * show the labels or not.

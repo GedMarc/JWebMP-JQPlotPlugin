@@ -33,7 +33,7 @@ public class JQPlotSeriesBubbleOptions<J extends JQPlotSeriesBubbleOptions<J>>
 		implements JQPlotSeriesRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The graph that this is linked to
 	 */

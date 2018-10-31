@@ -44,7 +44,6 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The legend renderer string

@@ -36,7 +36,7 @@ public class JQPlotSeriesDonutOptions<J extends JQPlotSeriesDonutOptions<J>>
 		implements JQPlotSeriesRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The graph that this is linked to
 	 */

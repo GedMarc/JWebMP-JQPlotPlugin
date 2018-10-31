@@ -72,7 +72,6 @@ public class JQPlotAxisDateRendererOptions<J extends JQPlotAxisDateRendererOptio
 		implements JQPlotAxisRenderer
 {
 
-	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;

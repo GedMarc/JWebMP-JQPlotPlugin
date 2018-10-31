@@ -35,7 +35,6 @@ public class JQPlotMarkerOptions<J extends JQPlotMarkerOptions<J>>
 		implements JQPlotMarkerRenderer
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * whether to show data point markers.

@@ -42,7 +42,7 @@ public class JQPlotBarWaterFallGraph
 	/**
 	 * Version 1
 	 */
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * Constructs a new JQPlotBar Graph default waterfall graph

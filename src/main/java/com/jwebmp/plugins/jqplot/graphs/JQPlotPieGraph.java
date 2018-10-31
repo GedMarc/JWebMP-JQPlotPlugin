@@ -42,7 +42,6 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>>
 		extends JQPlotGraph<JQPlotOptions, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private List<JQPlotPieSlice> plotSlices;
 
@@ -116,14 +115,14 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

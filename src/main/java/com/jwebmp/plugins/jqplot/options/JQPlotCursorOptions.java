@@ -40,7 +40,6 @@ public class JQPlotCursorOptions<J extends JQPlotCursorOptions<J>>
 		implements JQPlotRendererDefault
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * CSS spec for cursor style

@@ -33,7 +33,6 @@ public class JQPlotLine
 		implements JQPlotSeriesItem, Serializable
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private List<XYObject> values;

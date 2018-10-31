@@ -36,7 +36,7 @@ public class JQPlotSeriesBarOptions<J extends JQPlotSeriesBarOptions<J>>
 		implements JQPlotSeriesRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	private Boolean disableStack;
 	/**
 	 * The graph that this is linked to

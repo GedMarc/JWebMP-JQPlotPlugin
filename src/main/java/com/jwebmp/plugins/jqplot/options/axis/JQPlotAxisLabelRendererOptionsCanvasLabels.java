@@ -37,7 +37,7 @@ public class JQPlotAxisLabelRendererOptionsCanvasLabels<J extends JQPlotAxisLabe
 		implements JQPlotAxisLabelRenderer
 {
 
-	private static final long serialVersionUID = 1L;
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
 	/**

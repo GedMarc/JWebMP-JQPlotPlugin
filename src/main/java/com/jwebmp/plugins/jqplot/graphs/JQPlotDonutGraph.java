@@ -46,7 +46,7 @@ import java.util.List;
 public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 		extends JQPlotGraph<JQPlotOptions, J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	@JsonIgnore
 	private JQPlotSeriesDonutOptions donutOptions;
@@ -195,14 +195,14 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

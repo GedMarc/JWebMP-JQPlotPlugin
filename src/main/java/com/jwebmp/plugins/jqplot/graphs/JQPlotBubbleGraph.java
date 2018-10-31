@@ -44,7 +44,6 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>>
 		extends JQPlotGraph<JQPlotOptions, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private List<JQPlotBubble> bubbles;
 	private JQPlotSeriesBubbleOptions bubbleOptions;
@@ -156,14 +155,14 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

@@ -28,7 +28,6 @@ public class JQPlotBar<J extends JQPlotBar<J>>
 		implements JQPlotSeriesItem
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private String xAxisValue;
 	private String categoryValue;

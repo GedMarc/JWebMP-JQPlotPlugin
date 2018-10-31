@@ -38,7 +38,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;
 	/**

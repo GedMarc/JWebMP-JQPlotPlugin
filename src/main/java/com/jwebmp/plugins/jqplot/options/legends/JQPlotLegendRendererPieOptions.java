@@ -34,7 +34,6 @@ public class JQPlotLegendRendererPieOptions<J extends JQPlotLegendRendererPieOpt
 		implements JQPlotLegendPieRenderer
 {
 
-	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;

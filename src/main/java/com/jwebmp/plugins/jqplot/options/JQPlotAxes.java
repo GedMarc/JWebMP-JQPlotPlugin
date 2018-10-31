@@ -34,7 +34,6 @@ public class JQPlotAxes<J extends JQPlotAxes<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	private JQPlotGraph linkedGraph;

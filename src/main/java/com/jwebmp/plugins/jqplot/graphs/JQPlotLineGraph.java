@@ -41,7 +41,6 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 		extends JQPlotGraph<JQPlotOptions, J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	private List<JQPlotLine> plotLines;
 
@@ -131,14 +130,14 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

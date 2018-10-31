@@ -28,7 +28,6 @@ public class JQPlotPieSlice
 		extends XYObject<String, Double>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * A slice of the pie
