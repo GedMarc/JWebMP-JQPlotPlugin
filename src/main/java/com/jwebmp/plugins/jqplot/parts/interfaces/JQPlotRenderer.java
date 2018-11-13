@@ -16,8 +16,6 @@
  */
 package com.jwebmp.plugins.jqplot.parts.interfaces;
 
-import java.io.Serializable;
-
 /**
  * The top level of the renderer's hierarchy
  *
@@ -25,7 +23,6 @@ import java.io.Serializable;
  * @since 26 Feb 2016
  */
 public interface JQPlotRenderer
-		extends Serializable
 {
 
 }

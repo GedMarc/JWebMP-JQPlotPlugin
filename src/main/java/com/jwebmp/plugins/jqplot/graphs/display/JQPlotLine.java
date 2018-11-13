@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
  * @since 29 Feb 2016
  */
 public class JQPlotLine
-		implements JQPlotSeriesItem, Serializable
+		implements JQPlotSeriesItem
 {
 
 

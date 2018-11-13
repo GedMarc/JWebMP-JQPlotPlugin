@@ -56,10 +56,6 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	private static final Logger LOG = LogFactory.getInstance()
 	                                            .getLogger("JQPlotBarGraph");
 	/**
-	 * Version 1
-	 */
-
-	/**
 	 * The bar graph options
 	 */
 	protected JQPlotSeriesBarOptions<?> barGraphOptions = null;

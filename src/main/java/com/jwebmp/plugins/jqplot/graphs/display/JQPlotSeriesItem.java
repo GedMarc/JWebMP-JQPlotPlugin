@@ -16,14 +16,11 @@
  */
 package com.jwebmp.plugins.jqplot.graphs.display;
 
-import java.io.Serializable;
-
 /**
  * @author GedMarc
  * @since 01 Mar 2016
  */
 public interface JQPlotSeriesItem
-		extends Serializable
 {
 
 }
