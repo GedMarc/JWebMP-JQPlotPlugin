@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Marc Magon
+ * Copyright (C) 2017 GedMarc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Some graphs are obviously retricted to a few
  * <p>
  *
- * @author Marc Magon
+ * @author GedMarc
  * @version 1.1 Update to include all 9 axis types with the change to the graph options rendering
  * @since 08 Aug 2015
  */
