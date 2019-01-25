@@ -40,8 +40,6 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 		extends JQPlotGraph<JQPlotOptions, J>
 {
-
-
 	private List<JQPlotLine> plotLines;
 
 	/**
