@@ -1,8 +1,3 @@
-import com.jwebmp.core.services.IPageConfigurator;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
-import com.jwebmp.plugins.jqplot.JQPlotPageConfigurator;
-
 module com.jwebmp.plugins.jqplot {
 	exports com.jwebmp.plugins.jqplot;
 	exports com.jwebmp.plugins.jqplot.parts;
@@ -27,10 +22,10 @@ module com.jwebmp.plugins.jqplot {
 	requires java.logging;
 	requires com.jwebmp.guicedinjection;
 
-	provides IPageConfigurator with JQPlotPageConfigurator;
+	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.jqplot.JQPlotPageConfigurator;
 
-	provides IGuiceScanModuleExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
-	provides IGuiceScanJarExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
 
 	opens com.jwebmp.plugins.jqplot to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.jqplot.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
