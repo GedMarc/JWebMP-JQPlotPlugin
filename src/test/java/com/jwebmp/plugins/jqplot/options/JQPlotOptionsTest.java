@@ -44,7 +44,7 @@ public class JQPlotOptionsTest
 
 		//graph.preRenderTest();
 		//JQPlotOptions o = new JQPlotOptions(new JQPlotBarGraph(Orientation.HORIZONTAL));
-		JQPlotOptions o = graph.getOptions();
+		JQPlotOptions<?> o = graph.getOptions();
 		o.getSeriesDefaults()
 		 .setColors("123");
 		o.setAnimate(true);
