@@ -19,7 +19,7 @@ package com.jwebmp.plugins.jqplot.graphs;
 import com.jwebmp.core.base.servlets.enumarations.Orientation;
 import com.jwebmp.core.generics.CompassPoints;
 import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.logger.LogFactory;
+import com.guicedee.logger.LogFactory;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBar;
 import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisLabelRendererOptionsCategoryLabels;

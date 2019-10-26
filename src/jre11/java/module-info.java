@@ -15,17 +15,17 @@ module com.jwebmp.plugins.jqplot {
 	exports com.jwebmp.plugins.jqplot.references;
 
 	requires com.jwebmp.core;
-	requires com.jwebmp.logmaster;
+	requires com.guicedee.logmaster;
 	requires com.fasterxml.jackson.annotation;
 
 	requires java.validation;
 	requires java.logging;
-	requires com.jwebmp.guicedinjection;
+	requires com.guicedee.guicedinjection;
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.jqplot.JQPlotPageConfigurator;
 
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
 
 	opens com.jwebmp.plugins.jqplot to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.jqplot.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
