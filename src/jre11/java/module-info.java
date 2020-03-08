@@ -25,7 +25,6 @@ module com.jwebmp.plugins.jqplot {
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.jqplot.JQPlotPageConfigurator;
 
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.jqplot.implementations.JQPlotExclusionsModule;
 
 	opens com.jwebmp.plugins.jqplot to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.jqplot.parts to com.fasterxml.jackson.databind, com.jwebmp.core;
