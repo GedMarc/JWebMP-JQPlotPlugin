@@ -31,6 +31,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**

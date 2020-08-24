@@ -19,6 +19,7 @@ package com.jwebmp.plugins.jqplot;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_COMMNA;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**

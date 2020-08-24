@@ -20,6 +20,8 @@ import com.jwebmp.core.utilities.StaticStrings;
 
 import java.io.Serializable;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_COMMNA;
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_DOUBLE_QUOTES;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
@@ -66,7 +68,7 @@ public class JQPlotBubble
 	@Override
 	public String toString()
 	{
-		return "[" + getX().intValue() + STRING_COMMNA + getY().intValue() + STRING_COMMNA + getRadius() + ",\"" + getLabel() + StaticStrings.STRING_DOUBLE_QUOTES + "]";
+		return "[" + getX().intValue() + STRING_COMMNA + getY().intValue() + STRING_COMMNA + getRadius() + ",\"" + getLabel() + STRING_DOUBLE_QUOTES + "]";
 	}
 
 	/**
