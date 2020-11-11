@@ -22,7 +22,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,8 +99,8 @@ public class JQPlotSeriesBarOptions<J extends JQPlotSeriesBarOptions<J>>
 	private List<String> highlightColors;
 	/**
 	 * NOT IMPLEMENTED YET.
-	 * True if this is a horizontal bar plot and x and y values are “transposed”.
-	 * Transposed, or “swapped”, data is required prior to rev.
+	 * True if this is a horizontal bar plot and x and y values are “transposed?.
+	 * Transposed, or “swapped?, data is required prior to rev.
 	 * 894 builds of jqPlot with horizontal bars.
 	 * Allows backward compatability of bar renderer horizontal bars with old style data sets.
 	 */
@@ -444,8 +444,8 @@ public class JQPlotSeriesBarOptions<J extends JQPlotSeriesBarOptions<J>>
 	}
 
 	/**
-	 * NOT IMPLEMENTED YET. True if this is a horizontal bar plot and x and y values are “transposed”.
-	 * Tranposed, or “swapped”, data is required prior to rev. 894 builds of jqPlot with horizontal
+	 * NOT IMPLEMENTED YET. True if this is a horizontal bar plot and x and y values are “transposed?.
+	 * Tranposed, or “swapped?, data is required prior to rev. 894 builds of jqPlot with horizontal
 	 * bars.
 	 * Allows backward compatability of bar renderer horizontal bars with old style data sets.
 	 * <p>
@@ -458,8 +458,8 @@ public class JQPlotSeriesBarOptions<J extends JQPlotSeriesBarOptions<J>>
 	}
 
 	/**
-	 * NOT IMPLEMENTED YET. True if this is a horizontal bar plot and x and y values are “transposed”.
-	 * Tranposed, or “swapped”, data is required prior to rev. 894 builds of jqPlot with horizontal
+	 * NOT IMPLEMENTED YET. True if this is a horizontal bar plot and x and y values are “transposed?.
+	 * Tranposed, or “swapped?, data is required prior to rev. 894 builds of jqPlot with horizontal
 	 * bars.
 	 * Allows backward compatability of bar renderer horizontal bars with old style data sets.
 	 * <p>

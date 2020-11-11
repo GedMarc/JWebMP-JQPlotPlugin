@@ -22,7 +22,7 @@ import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.jqplot.references.JQPlotCSSReferencePool;
 import com.jwebmp.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @author GedMarc

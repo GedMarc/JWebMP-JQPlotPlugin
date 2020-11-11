@@ -23,7 +23,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * The default jqPlot axis renderer, creating a numeric axis.
@@ -50,7 +50,7 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels<J extends JQPlotAxisLabe
 	private Boolean forceTickAt0;//	This will ensure that there is always a tick mark at 0.
 	private Boolean forceTickAt100;//	This will ensure that there is always a tick mark at 100.
 	private Integer tickInset;//	Controls the amount to inset the first and last ticks from the edges of the grid, in multiples of the tick interval.
-	private Integer minorTicks;//	Number of ticks to add between “major” ticks.
+	private Integer minorTicks;//	Number of ticks to add between “major? ticks.
 	private Boolean alignTicks;//	true to align tick marks across opposed axes such as from the y2axis to yaxis.
 
 	/**
@@ -65,7 +65,7 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels<J extends JQPlotAxisLabe
 
 	/**
 	 * EXPERIMENTAL!! Use at your own risk! Works only with linear axes and the default tick renderer. Array of [start, stop] points to create a broken axis. Broken axes have a
-	 * “jump” in them, which
+	 * “jump? in them, which
 	 * is an immediate transition from a smaller value to a larger value. Currently, axis ticks MUST be manually assigned if using breakPoints by using the axis ticks array
 	 * option.
 	 *
@@ -78,7 +78,7 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels<J extends JQPlotAxisLabe
 
 	/**
 	 * EXPERIMENTAL!! Use at your own risk! Works only with linear axes and the default tick renderer. Array of [start, stop] points to create a broken axis. Broken axes have a
-	 * “jump” in them, which
+	 * “jump? in them, which
 	 * is an immediate transition from a smaller value to a larger value. Currently, axis ticks MUST be manually assigned if using breakPoints by using the axis ticks array
 	 * option.
 	 *
@@ -258,7 +258,7 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels<J extends JQPlotAxisLabe
 	}
 
 	/**
-	 * Number of ticks to add between “major” ticks. Major ticks are ticks supplied by user or auto computed. Minor ticks cannot be created by user.
+	 * Number of ticks to add between “major? ticks. Major ticks are ticks supplied by user or auto computed. Minor ticks cannot be created by user.
 	 *
 	 * @return
 	 */
@@ -268,7 +268,7 @@ public class JQPlotAxisLabelRendererOptionsLinearLabels<J extends JQPlotAxisLabe
 	}
 
 	/**
-	 * Number of ticks to add between “major” ticks. Major ticks are ticks supplied by user or auto computed. Minor ticks cannot be created by user.
+	 * Number of ticks to add between “major? ticks. Major ticks are ticks supplied by user or auto computed. Minor ticks cannot be created by user.
 	 *
 	 * @param minorTicks
 	 */

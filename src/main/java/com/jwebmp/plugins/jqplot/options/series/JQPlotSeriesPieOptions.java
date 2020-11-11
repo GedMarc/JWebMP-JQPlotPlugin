@@ -21,7 +21,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -431,7 +431,7 @@ public class JQPlotSeriesPieOptions<J extends JQPlotSeriesPieOptions<J>>
 	}
 
 	/**
-	 * Format string for data labels. If none, ‘%s’ is used for “label” and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
+	 * Format string for data labels. If none, ‘%s’ is used for “label? and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
 	 *
 	 * @return
 	 */
@@ -441,7 +441,7 @@ public class JQPlotSeriesPieOptions<J extends JQPlotSeriesPieOptions<J>>
 	}
 
 	/**
-	 * Format string for data labels. If none, ‘%s’ is used for “label” and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
+	 * Format string for data labels. If none, ‘%s’ is used for “label? and for arrays, ‘%d’ for value and ‘%d%%’ for percentage.
 	 * <p>
 	 */
 	@SuppressWarnings("unchecked")

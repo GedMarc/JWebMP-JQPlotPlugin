@@ -26,7 +26,7 @@ import com.jwebmp.plugins.jqplot.options.ticks.JQPlotTickOptionsAxisTick;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 /**

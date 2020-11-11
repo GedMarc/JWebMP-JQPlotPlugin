@@ -25,7 +25,7 @@ import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotRendererDefault;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Plugin which will highlight data points when they are moused over.
@@ -33,11 +33,11 @@ import javax.validation.constraints.NotNull;
  * To use this plugin, include the js file in your source:
  * <p>
  * <p>
- * A tooltip providing information about the data point is enabled by default. To disable the tooltip, set “showTooltip” to false.
+ * A tooltip providing information about the data point is enabled by default. To disable the tooltip, set “showTooltip? to false.
  * <p>
- * You can control what data is displayed in the tooltip with various options. The “tooltipAxes” option controls whether the x, y or both data values are displayed.
+ * You can control what data is displayed in the tooltip with various options. The “tooltipAxes? option controls whether the x, y or both data values are displayed.
  * <p>
- * Some chart types (e.g. hi-low-close) have more than one y value per data point. To display the additional values in the tooltip, set the “yvalues” option to the desired number
+ * Some chart types (e.g. hi-low-close) have more than one y value per data point. To display the additional values in the tooltip, set the “yvalues? option to the desired number
  * of y values present
  * (3 for a hlc chart).
  * <p>
@@ -45,9 +45,9 @@ import javax.validation.constraints.NotNull;
  * option. This will
  * apply to all values in the tooltip.
  * <p>
- * For more complete control, the “formatString” option can be set. This Allows conplete control over tooltip formatting. Values are passed to the format string in an order
+ * For more complete control, the “formatString? option can be set. This Allows conplete control over tooltip formatting. Values are passed to the format string in an order
  * determined by the
- * “tooltipAxes” and “yvalues” options. So, if you have a hi-low-close chart and you just want to display the hi-low-close values in the tooltip, you could set a formatString
+ * “tooltipAxes? and “yvalues? options. So, if you have a hi-low-close chart and you just want to display the hi-low-close values in the tooltip, you could set a formatString
  * like:
  *
  * @param <O>

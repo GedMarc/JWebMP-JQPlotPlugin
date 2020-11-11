@@ -23,7 +23,7 @@ import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.MarkerStyles;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * The specific marker options available

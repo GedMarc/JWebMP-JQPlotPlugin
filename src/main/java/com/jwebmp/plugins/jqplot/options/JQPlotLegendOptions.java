@@ -26,7 +26,7 @@ import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.options.legends.JQPlotLegendRendererEnhancedOptions;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotLegendRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +43,6 @@ import java.util.List;
 public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer, J extends JQPlotLegendOptions<O, J>>
 		extends JavaScriptPart<J>
 {
-
-
 	/**
 	 * The legend renderer string
 	 */
@@ -86,7 +84,7 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	 */
 	private Boolean showSwatch;
 	/**
-	 * “insideGrid” places legend inside the grid area of the plot.
+	 * “insideGrid? places legend inside the grid area of the plot.
 	 */
 	private String placement;
 	/**
@@ -315,11 +313,11 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	}
 
 	/**
-	 * ”insideGrid” places legend inside the grid area of the plot “outsideGrid” places the legend outside the grid but inside the plot container, shrinking the grid to accomodate
-	 * the legend “inside”
-	 * synonym for “insideGrid”,
+	 * ?insideGrid? places legend inside the grid area of the plot “outsideGrid? places the legend outside the grid but inside the plot container, shrinking the grid to accomodate
+	 * the legend “inside?
+	 * synonym for “insideGrid?,
 	 * <p>
-	 * “outside” places the legend ouside the grid area, but does not shrink the grid which can cause the legend to overflow the plot container.
+	 * “outside? places the legend ouside the grid area, but does not shrink the grid which can cause the legend to overflow the plot container.
 	 * <p>
 	 *
 	 * @return
@@ -330,11 +328,11 @@ public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer
 	}
 
 	/**
-	 * ”insideGrid” places legend inside the grid area of the plot<p>
-	 * “outsideGrid” places the legend outside the grid but inside the plot container, shrinking the grid to accomodate the legend<p>
-	 * “inside” synonym for “insideGrid”,
+	 * ?insideGrid? places legend inside the grid area of the plot<p>
+	 * “outsideGrid? places the legend outside the grid but inside the plot container, shrinking the grid to accomodate the legend<p>
+	 * “inside? synonym for “insideGrid?,
 	 * <p>
-	 * “outside” places the legend ouside the grid area, but does not shrink the grid which can cause the legend to overflow the plot container.<p>
+	 * “outside? places the legend ouside the grid area, but does not shrink the grid which can cause the legend to overflow the plot container.<p>
 	 * <p>
 	 *
 	 * @param placement

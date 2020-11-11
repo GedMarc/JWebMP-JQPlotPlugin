@@ -28,7 +28,7 @@ import com.jwebmp.plugins.jqplot.parts.YAxisTypes;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @param <O>

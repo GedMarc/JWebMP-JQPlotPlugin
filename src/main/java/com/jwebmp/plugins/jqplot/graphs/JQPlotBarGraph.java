@@ -26,7 +26,7 @@ import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisLabelRendererOptionsCate
 import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisOptions;
 import com.jwebmp.plugins.jqplot.options.series.JQPlotSeriesBarOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

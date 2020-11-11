@@ -25,7 +25,7 @@ import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotAxisRenderer;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 import com.jwebmp.plugins.jqplot.references.JQPlotJavascriptReferencePool;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * A plugin for a jqPlot to render an axis as a series of date values. This renderer has no options beyond those supplied by the Axis class. It supplies its own tick formatter, so

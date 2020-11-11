@@ -23,7 +23,7 @@ import com.jwebmp.core.htmlbuilder.css.fonts.FontFamilies;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @author GedMarc

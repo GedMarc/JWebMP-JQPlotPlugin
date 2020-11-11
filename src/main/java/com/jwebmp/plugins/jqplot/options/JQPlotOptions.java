@@ -27,7 +27,7 @@ import com.jwebmp.plugins.jqplot.options.title.JQPlotTitleOptions;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotMarkerRenderer;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +64,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 */
 	private Boolean sortData;
 	/**
-	 * true or false, creates a stack or “mountain” plot.
+	 * true or false, creates a stack or “mountain? plot.
 	 */
 	private Boolean stackSeries;
 	/**
@@ -535,7 +535,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	}
 
 	/**
-	 * true or false, creates a stack or “mountain” plot.
+	 * true or false, creates a stack or “mountain? plot.
 	 * <p>
 	 *
 	 * @return
@@ -546,7 +546,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	}
 
 	/**
-	 * true or false, creates a stack or “mountain” plot.
+	 * true or false, creates a stack or “mountain? plot.
 	 * <p>
 	 *
 	 * @param stackSeries
