@@ -44,19 +44,17 @@ import java.util.List;
 		url = "http://www.jqplot.com/examples/pie-donut-charts.php")
 
 public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
-		extends JQPlotGraph<JQPlotOptions, J>
+		extends JQPlotGraph<JQPlotOptions<?>, J>
 {
-
-
 	@JsonIgnore
-	private JQPlotSeriesDonutOptions donutOptions;
+	private JQPlotSeriesDonutOptions<?> donutOptions;
 
 	@JsonIgnore
 	private JQPlotDonutGroup donutGroup;
 
 	public JQPlotDonutGraph()
 	{
-		donutOptions = new JQPlotSeriesDonutOptions(this);
+		donutOptions = new JQPlotSeriesDonutOptions<>(this);
 		getOptions().getSeriesDefaults()
 		            .setRendererOptions(donutOptions);
 		donutGroup = new JQPlotDonutGroup();
@@ -151,7 +149,7 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 	 *
 	 * @return
 	 */
-	public JQPlotSeriesDonutOptions getDonutOptions()
+	public JQPlotSeriesDonutOptions<?> getDonutOptions()
 	{
 		return donutOptions;
 	}
@@ -161,7 +159,7 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 	 *
 	 * @param donutOptions
 	 */
-	public void setDonutOptions(JQPlotSeriesDonutOptions donutOptions)
+	public void setDonutOptions(JQPlotSeriesDonutOptions<?> donutOptions)
 	{
 		this.donutOptions = donutOptions;
 	}

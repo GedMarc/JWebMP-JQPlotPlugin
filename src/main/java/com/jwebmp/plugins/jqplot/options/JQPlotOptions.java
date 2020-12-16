@@ -47,7 +47,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 */
 
 	@JsonIgnore
-	private JQPlotGraph linkedGraph;
+	private JQPlotGraph<?,?> linkedGraph;
 	/**
 	 * True to animate the series on initial plot draw (renderer dependent).
 	 */
@@ -74,15 +74,15 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	/**
 	 * The Highlighter Plugin Options
 	 */
-	private JQPlotHighlightOptions highlighter;
+	private JQPlotHighlightOptions<?,?> highlighter;
 	/**
 	 * The title options available
 	 */
-	private JQPlotTitleOptions title;
+	private JQPlotTitleOptions<?,?> title;
 	/**
 	 * The cursor options available
 	 */
-	private JQPlotCursorOptions cursor;
+	private JQPlotCursorOptions<?> cursor;
 	/**
 	 * A grouping of colours
 	 */
@@ -94,28 +94,28 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	/**
 	 * The default options for all series
 	 */
-	private JQPlotSeriesOptions seriesDefaults;
+	private JQPlotSeriesOptions<?,?,?> seriesDefaults;
 	/**
 	 * Each series configuration in order of display
 	 */
-	private List<JQPlotSeriesOptions> series;
+	private List<JQPlotSeriesOptions<?,?,?>> series;
 	/**
 	 * An array of all the axis available. Can be up to 9. Example [x,y,z] or [x,y1,x2,y2,y3,y4,y5,y6]
 	 */
-	private JQPlotAxes axes;
+	private JQPlotAxes<?> axes;
 	/**
 	 * The default legendOptions
 	 */
 	@JsonProperty("legend")
-	private JQPlotLegendOptions legendOptions;
+	private JQPlotLegendOptions<?,?> legendOptions;
 	/**
 	 * The grid canvas options
 	 */
-	private JQPlotGridOptionsCanvasGrid gridOptions;
+	private JQPlotGridOptionsCanvasGrid<?> gridOptions;
 	/**
 	 * The default axis configuration
 	 */
-	private JQPlotAxisOptions axesDefaults;
+	private JQPlotAxisOptions<?,?> axesDefaults;
 
 	/**
 	 * The graph options available. This is the complete set
@@ -124,7 +124,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 * @param linkedGraph
 	 * 		A linked graph if required
 	 */
-	public JQPlotOptions(JQPlotGraph linkedGraph)
+	public JQPlotOptions(JQPlotGraph<?,?> linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
 	}
@@ -282,13 +282,13 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @return Null if not applied or is Line Graph
 	 */
-	public <O extends JavaScriptPart & JQPlotSeriesRenderer, M extends JavaScriptPart & JQPlotMarkerRenderer> JQPlotSeriesOptions<O, M, ?> getSeriesDefaults()
+	public <O extends JavaScriptPart<?> & JQPlotSeriesRenderer, M extends JavaScriptPart<?> & JQPlotMarkerRenderer> JQPlotSeriesOptions<O, M, ?> getSeriesDefaults()
 	{
 		if (seriesDefaults == null)
 		{
-			seriesDefaults = new JQPlotSeriesOptions(linkedGraph);
+			seriesDefaults = new JQPlotSeriesOptions<>(linkedGraph);
 		}
-		return seriesDefaults;
+		return (JQPlotSeriesOptions<O, M, ?>) seriesDefaults;
 	}
 
 	/**
@@ -311,7 +311,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 *
 	 * @return
 	 */
-	public List<JQPlotSeriesOptions> getSeries()
+	public List<JQPlotSeriesOptions<?,?,?>> getSeries()
 	{
 		if (series == null)
 		{
@@ -328,7 +328,7 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setSeries(List<JQPlotSeriesOptions> series)
+	public J setSeries(List<JQPlotSeriesOptions<?,?,?>> series)
 	{
 		this.series = series;
 		return (J) this;

@@ -28,7 +28,7 @@ import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTitleRenderer;
  * @since 29 Feb 2016
  */
 public class JQPlotTitleOptionsDivTitle
-		extends JavaScriptPart
+		extends JavaScriptPart<JQPlotTitleOptionsDivTitle>
 		implements JQPlotTitleRenderer
 {
 

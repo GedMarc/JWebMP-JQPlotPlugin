@@ -42,12 +42,12 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		description = "A bubble graph",
 		url = "http://www.jqplot.com/examples/bubbleChart.php")
 public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>>
-		extends JQPlotGraph<JQPlotOptions, J>
+		extends JQPlotGraph<JQPlotOptions<?>, J>
 {
 
 
 	private List<JQPlotBubble> bubbles;
-	private JQPlotSeriesBubbleOptions bubbleOptions;
+	private JQPlotSeriesBubbleOptions<?> bubbleOptions;
 
 	/**
 	 * Creates a new bubble graph
@@ -64,11 +64,11 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>>
 	 *
 	 * @return
 	 */
-	public final JQPlotSeriesBubbleOptions getBubbleOptions()
+	public final JQPlotSeriesBubbleOptions<?> getBubbleOptions()
 	{
 		if (bubbleOptions == null)
 		{
-			bubbleOptions = new JQPlotSeriesBubbleOptions(this);
+			bubbleOptions = new JQPlotSeriesBubbleOptions<>(this);
 		}
 		return bubbleOptions;
 	}
@@ -78,7 +78,7 @@ public class JQPlotBubbleGraph<J extends JQPlotBubbleGraph<J>>
 	 *
 	 * @param bubbleOptions
 	 */
-	public void setBubbleOptions(JQPlotSeriesBubbleOptions bubbleOptions)
+	public void setBubbleOptions(JQPlotSeriesBubbleOptions<?> bubbleOptions)
 	{
 		this.bubbleOptions = bubbleOptions;
 	}

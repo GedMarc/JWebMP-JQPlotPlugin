@@ -19,6 +19,7 @@ package com.jwebmp.plugins.jqplot;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
 import com.jwebmp.core.base.html.interfaces.DisplayObjectType;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.NoNewLineBeforeClosingTag;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
@@ -43,11 +44,10 @@ import java.util.List;
  * 		3.0 2016/02/28 Implementation into Options interface with JavaScriptFunctions as the base
  * @since 2014/07/08
  */
-public abstract class JQPlotGraph<O extends JavaScriptPart, J extends JQPlotGraph<O, J>>
-		extends Component<IComponentHierarchyBase, NoAttributes, JQPlotGraphFeatures, JQPlotGraphEvents, J>
-		implements DisplayObjectType<IComponentHierarchyBase, J>, NoNewLineBeforeClosingTag
+public abstract class JQPlotGraph<O extends JavaScriptPart<?>, J extends JQPlotGraph<O, J>>
+		extends Component<GlobalChildren, NoAttributes, JQPlotGraphFeatures, JQPlotGraphEvents, J>
+		implements DisplayObjectType, NoNewLineBeforeClosingTag
 {
-
 	/**
 	 * Version 2
 	 */

@@ -36,14 +36,8 @@ import java.util.List;
 		description = "A waterfall graph",
 		url = "http://www.jqplot.com/examples/waterfall.php")
 public class JQPlotBarWaterFallGraph
-		extends JQPlotBarGraph
+		extends JQPlotBarGraph<JQPlotBarWaterFallGraph>
 {
-
-	/**
-	 * Version 1
-	 */
-
-
 	/**
 	 * Constructs a new JQPlotBar Graph default waterfall graph
 	 * <p>

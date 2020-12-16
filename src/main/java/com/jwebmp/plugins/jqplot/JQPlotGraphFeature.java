@@ -32,7 +32,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * @since 2014/07/08
  */
 public class JQPlotGraphFeature
-		extends Feature<JQPlotGraphFeature, JavaScriptPart, JQPlotGraphFeature>
+		extends Feature<JQPlotGraphFeature, JavaScriptPart<?>, JQPlotGraphFeature>
 {
 
 	/**
@@ -77,7 +77,7 @@ public class JQPlotGraphFeature
 		sb.append("var ")
 		  .append(getVariableName())
 		  .append(" = ");
-		sb.append(getComponent().getJQueryID())
+		sb.append(getComponent().asBase().getJQueryID())
 		  .append("jqplot(");
 		sb.append(graph.getDataPointRender())
 		  .append(STRING_COMMNA)

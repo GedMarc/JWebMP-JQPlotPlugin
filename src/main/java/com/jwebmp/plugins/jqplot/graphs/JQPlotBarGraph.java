@@ -48,7 +48,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		description = "A bar graph",
 		url = "http://www.jqplot.com/examples/barTest.php")
 public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
-		extends JQPlotGraph<JQPlotSeriesBarOptions, J>
+		extends JQPlotGraph<JQPlotSeriesBarOptions<?>, J>
 {
 
 	/**

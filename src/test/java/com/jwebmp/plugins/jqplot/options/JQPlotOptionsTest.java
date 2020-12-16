@@ -35,7 +35,7 @@ public class JQPlotOptionsTest
 	@Test
 	public void testSomeMethod()
 	{
-		JQPlotBarGraph graph = new JQPlotBarGraph(Orientation.VERTICAL);
+		JQPlotBarGraph<?> graph = new JQPlotBarGraph(Orientation.VERTICAL);
 
 		graph.addBar("meh", 1.0);
 		graph.addBar(new JQPlotBar("1", "Cat 2", 14.0));
@@ -49,7 +49,7 @@ public class JQPlotOptionsTest
 		 .setColors("123");
 		o.setAnimate(true);
 		o.getSeriesDefaults()
-		 .setRendererOptions(new JQPlotSeriesBarOptions(graph));
+		 .setRendererOptions(new JQPlotSeriesBarOptions<>(graph));
 		o.getSeriesDefaults()
 		 .getPointLabels()
 		 .setShow(true);
@@ -61,7 +61,7 @@ public class JQPlotOptionsTest
 	@Test
 	public JQPlotBarGraph multiBar()
 	{
-		JQPlotBarGraph graph = graph = new JQPlotBarGraph(Orientation.VERTICAL);
+		JQPlotBarGraph graph = graph = new JQPlotBarGraph<>(Orientation.VERTICAL);
 		graph.getOptions()
 		     .setAnimate(Boolean.TRUE);
 		graph.getCss()

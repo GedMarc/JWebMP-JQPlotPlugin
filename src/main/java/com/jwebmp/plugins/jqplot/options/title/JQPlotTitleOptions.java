@@ -33,7 +33,7 @@ import jakarta.validation.constraints.NotNull;
  * @author mmagon
  * @since 2014/07/09
  */
-public class JQPlotTitleOptions<O extends JavaScriptPart & JQPlotTitleRenderer, J extends JQPlotTitleOptions<O, J>>
+public class JQPlotTitleOptions<O extends JavaScriptPart<O> & JQPlotTitleRenderer, J extends JQPlotTitleOptions<O, J>>
 		extends JavaScriptPart<J>
 {
 

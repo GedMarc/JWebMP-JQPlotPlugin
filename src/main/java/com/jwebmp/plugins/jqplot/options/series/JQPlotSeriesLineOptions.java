@@ -34,13 +34,11 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 		extends JavaScriptPart<J>
 		implements JQPlotSeriesRenderer
 {
-
-
 	/**
 	 * The graph that this is linked to
 	 */
 	@JsonIgnore
-	private JQPlotGraph linkedGraph;
+	private JQPlotGraph<?,?> linkedGraph;
 	/**
 	 * True to draw a smoothed (interpolated) line through the data points with automatically computed number of smoothing points.
 	 */
@@ -59,7 +57,7 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 	 *
 	 * @param linkedGraph
 	 */
-	public JQPlotSeriesLineOptions(JQPlotGraph linkedGraph)
+	public JQPlotSeriesLineOptions(JQPlotGraph<?,?> linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
 	}
@@ -69,7 +67,7 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 	 *
 	 * @return
 	 */
-	public JQPlotGraph getLinkedGraph()
+	public JQPlotGraph<?,?> getLinkedGraph()
 	{
 		return linkedGraph;
 	}
@@ -81,7 +79,7 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setLinkedGraph(JQPlotGraph linkedGraph)
+	public J setLinkedGraph(JQPlotGraph<?,?> linkedGraph)
 	{
 		this.linkedGraph = linkedGraph;
 		return (J) this;

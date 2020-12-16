@@ -19,6 +19,7 @@ package com.jwebmp.plugins.jqplot.options.series;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
+import com.jwebmp.plugins.jqplot.options.JQPlotOptions;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
 import jakarta.validation.constraints.NotNull;
@@ -32,11 +33,9 @@ import java.util.List;
  * @since 09 Aug 2015
  */
 public class JQPlotSeriesDonutOptions<J extends JQPlotSeriesDonutOptions<J>>
-		extends JavaScriptPart<J>
+		extends JQPlotOptions<J>
 		implements JQPlotSeriesRenderer
 {
-
-
 	/**
 	 * The graph that this is linked to
 	 */
@@ -124,8 +123,9 @@ public class JQPlotSeriesDonutOptions<J extends JQPlotSeriesDonutOptions<J>>
 	 *
 	 * @param linkedGraph
 	 */
-	public JQPlotSeriesDonutOptions(JQPlotGraph linkedGraph)
+	public JQPlotSeriesDonutOptions(JQPlotGraph<?,?> linkedGraph)
 	{
+		super(linkedGraph);
 		this.linkedGraph = linkedGraph;
 	}
 

@@ -28,7 +28,7 @@ import java.util.List;
  * @since 05 Mar 2016
  */
 public class JQPlotDonutGroup
-		extends JavaScriptPart
+		extends JavaScriptPart<JQPlotDonutGroup>
 {
 
 

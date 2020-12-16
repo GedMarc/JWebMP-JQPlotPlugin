@@ -39,7 +39,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		description = "The most basic jqPlot chart takes a series of data and plots a line. No options need to be supplied. Data is passed in as an array of series. A series can be either an array of y values or an array of [x,y] data pairs. If y values only, x values are assigned like 1, 2, 3, ... Note, for this plot you don't need any plugins.",
 		url = "http://www.jqplot.com/examples/line-charts.php")
 public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
-		extends JQPlotGraph<JQPlotOptions, J>
+		extends JQPlotGraph<JQPlotOptions<?>, J>
 {
 	private List<JQPlotLine> plotLines;
 

@@ -54,7 +54,7 @@ import jakarta.validation.constraints.NotNull;
  *
  * @author mmagon
  */
-public class JQPlotHighlightOptions<O extends JavaScriptPart & JQPlotMarkerRenderer, J extends JQPlotHighlightOptions<O, J>>
+public class JQPlotHighlightOptions<O extends JavaScriptPart<O> & JQPlotMarkerRenderer, J extends JQPlotHighlightOptions<O, J>>
 		extends JavaScriptPart<J>
 		implements JQPlotRendererDefault
 {

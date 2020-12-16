@@ -26,7 +26,7 @@ import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
  * @since 29 Feb 2016
  */
 public class DefaultRendererOptions
-		extends JavaScriptPart
+		extends JavaScriptPart<DefaultRendererOptions>
 		implements JQPlotAxisLabelRenderer
 {
 

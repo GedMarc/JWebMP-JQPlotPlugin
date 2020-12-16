@@ -40,7 +40,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		description = "A pie graph",
 		url = "http://www.jqplot.com/examples/pieTest.php")
 public class JQPlotPieGraph<J extends JQPlotPieGraph<J>>
-		extends JQPlotGraph<JQPlotOptions, J>
+		extends JQPlotGraph<JQPlotOptions<?>, J>
 {
 
 
@@ -49,7 +49,7 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>>
 	public JQPlotPieGraph()
 	{
 		getOptions().getSeriesDefaults()
-		            .setRendererOptions(new JQPlotSeriesPieOptions(this));
+		            .setRendererOptions(new JQPlotSeriesPieOptions<>(this));
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>>
 			sb.append(plotLine)
 			  .append(STRING_COMMNA);
 		}
-		sb = sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
+		sb.deleteCharAt(sb.lastIndexOf(STRING_COMMNA));
 		sb.append("]]");
 		return sb;
 	}

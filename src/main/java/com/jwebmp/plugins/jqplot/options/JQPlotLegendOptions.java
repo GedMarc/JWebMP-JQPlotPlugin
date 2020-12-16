@@ -40,7 +40,7 @@ import java.util.List;
  * @version 1.0
  * @since 07 Aug 2015
  */
-public class JQPlotLegendOptions<O extends JavaScriptPart & JQPlotLegendRenderer, J extends JQPlotLegendOptions<O, J>>
+public class JQPlotLegendOptions<O extends JavaScriptPart<O> & JQPlotLegendRenderer, J extends JQPlotLegendOptions<O, J>>
 		extends JavaScriptPart<J>
 {
 	/**
