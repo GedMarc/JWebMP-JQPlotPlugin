@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.jqplot;
 
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.servlets.enumarations.Orientation;
 import com.jwebmp.plugins.jqplot.graphs.JQPlotBarGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBar;
@@ -35,10 +36,10 @@ public class JQPlotGraphTest
 	@Test
 	public void testStructure()
 	{
-		Page p = new Page();
-
+		Page<?> p = new Page();
+		
 		p.getBody()
-		 .add(getNewGraph());
+		 .add(new DivSimple<>().add(getNewGraph()));
 		System.out.println(p.toString(true));
 	}
 
@@ -53,7 +54,7 @@ public class JQPlotGraphTest
 	@Test
 	public void testDefaultOptions()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		p.setID("id");
 		p.getBody()
 		 .setID("body");
@@ -84,7 +85,7 @@ public class JQPlotGraphTest
 		     .getHighlighter()
 		     .setShow(true);
 		p.getBody()
-		 .add(graph);
+		 .add(new DivSimple<>().add(graph));
 
 		System.out.println(p.toString(true));
 	}
@@ -92,7 +93,7 @@ public class JQPlotGraphTest
 	@Test
 	public void getMultipleCategoryBarGraph()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		p.setID("id");
 		p.getBody()
 		 .setID("body");
@@ -128,9 +129,9 @@ public class JQPlotGraphTest
 		graph.getOptions()
 		     .getHighlighter()
 		     .setShow(true);
-
+		
 		p.getBody()
-		 .add(graph);
+		 .add(new DivSimple<>().add(graph));
 
 		System.out.println(p.toString(true));
 
