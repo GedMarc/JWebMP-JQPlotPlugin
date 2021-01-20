@@ -16,9 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.options.grid;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.*;
 import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
@@ -31,6 +29,9 @@ import jakarta.validation.constraints.NotNull;
  * @version 1.0
  * @since 07 Aug 2015
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotGridOptionsCanvasGrid<J extends JQPlotGridOptionsCanvasGrid<J>>
 		extends JavaScriptPart<J>
 		implements JQPlotGridRenderer

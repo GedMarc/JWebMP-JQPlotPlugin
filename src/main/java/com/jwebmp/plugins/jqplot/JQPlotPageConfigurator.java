@@ -53,6 +53,7 @@ import jakarta.validation.constraints.NotNull;
 public class JQPlotPageConfigurator
 		implements IPageConfigurator<JQPlotPageConfigurator>
 {
+	public static boolean includeTrendLines =  false;
 	/**
 	 * If this configurator is enabled
 	 */
@@ -92,43 +93,44 @@ public class JQPlotPageConfigurator
 	@Override
 	 public Page<?> configure(Page<?> page)
 	{
-		if (!page.isConfigured() && enabled())
+		if (enabled())
 		{
-			page.addCssReference(JQPlotCSSReferencePool.GraphCore.getReference());
+			page.getBody().addCssReference(JQPlotCSSReferencePool.GraphCore.getReference());
 
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.GraphCore.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.ExCanvas.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BezierCurveRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BarRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BlockRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.BubbleRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasAxisLabelRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasAxisTickRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasOverlayRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasTextRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CategoryAxisRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CIParserRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.DateAxisRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.DoughnutRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.DraggableRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.EnhancedLegenedRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.EnhancedPieLegenedRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.FunnelRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.HighlightRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.JSON2Renderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.LogAxisRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.MekkoAxisRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.MekkoRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.MeterGaugeRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.Mobile.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.OHLCRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PieRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PointLabelsRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidAxisRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidGridRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidRenderer.getReference());
-			page.addJavaScriptReference(JQPlotJavascriptReferencePool.TrendlineRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.GraphCore.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.ExCanvas.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.BezierCurveRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.BarRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.BlockRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.BubbleRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasAxisLabelRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasAxisTickRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasOverlayRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.CanvasTextRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.CategoryAxisRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.CIParserRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.CursorRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.DateAxisRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.DoughnutRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.DraggableRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.EnhancedLegenedRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.EnhancedPieLegenedRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.FunnelRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.HighlightRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.JSON2Renderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.LogAxisRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.MekkoAxisRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.MekkoRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.MeterGaugeRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.Mobile.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.OHLCRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.PieRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.PointLabelsRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidAxisRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidGridRenderer.getReference());
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.PyramidRenderer.getReference());
+			if(includeTrendLines)
+			page.getBody().addJavaScriptReference(JQPlotJavascriptReferencePool.TrendlineRenderer.getReference());
 		}
 		return page;
 	}

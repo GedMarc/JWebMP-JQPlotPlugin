@@ -16,7 +16,9 @@
  */
 package com.jwebmp.plugins.jqplot.options;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.jwebmp.core.generics.XYObject;
 import com.jwebmp.core.htmlbuilder.css.displays.Cursors;
@@ -34,7 +36,9 @@ import java.util.List;
  * @author mmagon
  * @since 2014/07/09
  */
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotCursorOptions<J extends JQPlotCursorOptions<J>>
 		extends JavaScriptPart<J>
 		implements JQPlotRendererDefault

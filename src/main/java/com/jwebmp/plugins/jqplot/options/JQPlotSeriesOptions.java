@@ -16,9 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.options;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.*;
 import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
@@ -35,6 +33,9 @@ import jakarta.validation.constraints.NotNull;
  * @param <M>
  * @author mmagon
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotSeriesOptions<O extends JavaScriptPart<?> & JQPlotSeriesRenderer,
 		M extends JavaScriptPart<?> & JQPlotMarkerRenderer,
 		J extends JQPlotSeriesOptions<O, M, J>>

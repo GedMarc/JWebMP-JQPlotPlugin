@@ -195,6 +195,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 				JQPlotAxisOptions axis = getOptions().getAxes()
 				                                     .getyAxis();
 				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				if(axis.getTicks() == null)
 				axis.setTicks(getCategoryTickValues());
 				break;
 			}
@@ -203,6 +204,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 				JQPlotAxisOptions axis = getOptions().getAxes()
 				                                     .getxAxis();
 				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				if(axis.getTicks() == null)
 				axis.setTicks(getCategoryTickValues());
 				break;
 			}
@@ -211,6 +213,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 				JQPlotAxisOptions axis = getOptions().getAxes()
 				                                     .getxAxis();
 				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				if(axis.getTicks() == null)
 				axis.setTicks(getCategoryTickValues());
 			}
 		}
@@ -343,7 +346,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	 * @return
 	 */
 	@Override
-	protected StringBuilder getDataPointRender()
+	public StringBuilder getDataPointRender()
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(STRING_SQUARE_BRACE_OPEN);
@@ -618,6 +621,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 				JQPlotAxisOptions axis = getOptions().getAxes()
 				                                     .getyAxis();
 				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				if(axis.getTicks() == null)
 				axis.setTicks(getCategoryTickValues());
 
 				getSeriesDefaultBarOptions().setBarDirection(Orientation.HORIZONTAL);
@@ -646,6 +650,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 				JQPlotAxisOptions axis = getOptions().getAxes()
 				                                     .getxAxis();
 				axis.setRendererOptions(new JQPlotAxisLabelRendererOptionsCategoryLabels(this));
+				if(axis.getTicks() == null)
 				axis.setTicks(getCategoryTickValues());
 
 				getOptions().getAxes()

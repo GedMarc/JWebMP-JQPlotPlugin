@@ -16,9 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.options;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.*;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisOptions;
@@ -38,6 +36,9 @@ import java.util.List;
  * @since 26 Feb 2016
  */
 @SuppressWarnings("MissingClassJavaDoc")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotOptions<J extends JQPlotOptions<J>>
 		extends JavaScriptPart<J>
 {
@@ -86,10 +87,12 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	/**
 	 * A grouping of colours
 	 */
+	@JsonProperty("seriesColors")
 	private List<String> seriesColours;
 	/**
 	 * A grouping of colours
 	 */
+	@JsonProperty("negativeSeriesColors")
 	private List<String> negativeSeriesColours;
 	/**
 	 * The default options for all series

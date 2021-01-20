@@ -16,9 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.options.axis;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.*;
 import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
 import com.jwebmp.core.htmlbuilder.css.fonts.FontFamilies;
 import com.jwebmp.core.htmlbuilder.css.fonts.FontWeights;
@@ -32,6 +30,9 @@ import jakarta.validation.constraints.NotNull;
  * @author GedMarc
  * @since 29 Feb 2016
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotAxisLabelRendererOptionsCanvasLabels<J extends JQPlotAxisLabelRendererOptionsCanvasLabels<J>>
 		extends JavaScriptPart<J>
 		implements JQPlotAxisLabelRenderer

@@ -16,9 +16,7 @@
  */
 package com.jwebmp.plugins.jqplot.options.title;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.*;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTitleRenderer;
@@ -27,6 +25,9 @@ import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTitleRenderer;
  * @author GedMarc
  * @since 29 Feb 2016
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotTitleOptionsDivTitle
 		extends JavaScriptPart<JQPlotTitleOptionsDivTitle>
 		implements JQPlotTitleRenderer

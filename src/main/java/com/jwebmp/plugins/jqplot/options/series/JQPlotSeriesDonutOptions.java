@@ -16,7 +16,9 @@
  */
 package com.jwebmp.plugins.jqplot.options.series;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.options.JQPlotOptions;
@@ -32,6 +34,9 @@ import java.util.List;
  * @version 1.0
  * @since 09 Aug 2015
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotSeriesDonutOptions<J extends JQPlotSeriesDonutOptions<J>>
 		extends JQPlotOptions<J>
 		implements JQPlotSeriesRenderer

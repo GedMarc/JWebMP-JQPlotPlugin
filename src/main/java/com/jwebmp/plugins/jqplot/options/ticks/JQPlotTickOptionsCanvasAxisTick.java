@@ -16,7 +16,9 @@
  */
 package com.jwebmp.plugins.jqplot.options.ticks;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
 import com.jwebmp.core.htmlbuilder.css.fonts.FontFamilies;
@@ -31,6 +33,9 @@ import jakarta.validation.constraints.NotNull;
  * @version 1.0
  * @since 07 Aug 2015
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotTickOptionsCanvasAxisTick<J extends JQPlotTickOptionsCanvasAxisTick<J>>
 		extends JavaScriptPart<J>
 		implements JQPlotTickRenderer
@@ -93,11 +98,11 @@ public class JQPlotTickOptionsCanvasAxisTick<J extends JQPlotTickOptionsCanvasAx
 	/**
 	 * css spec for the font-size css attribute.
 	 */
-	private Integer fontSize;
+	private String fontSize;
 	/**
 	 * css spec for the color attribute.
 	 */
-	private ColourHex textColor;
+	private String textColor;
 	/**
 	 * true to escape HTML entities in the label.
 	 */
@@ -423,7 +428,7 @@ public class JQPlotTickOptionsCanvasAxisTick<J extends JQPlotTickOptionsCanvasAx
 	 *
 	 * @return
 	 */
-	public Integer getFontSize()
+	public String getFontSize()
 	{
 		return fontSize;
 	}
@@ -436,7 +441,7 @@ public class JQPlotTickOptionsCanvasAxisTick<J extends JQPlotTickOptionsCanvasAx
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setFontSize(Integer fontSize)
+	public J setFontSize(String fontSize)
 	{
 		this.fontSize = fontSize;
 		return (J) this;
@@ -448,7 +453,7 @@ public class JQPlotTickOptionsCanvasAxisTick<J extends JQPlotTickOptionsCanvasAx
 	 *
 	 * @return
 	 */
-	public ColourHex getTextColor()
+	public String getTextColor()
 	{
 		return textColor;
 	}
@@ -461,7 +466,7 @@ public class JQPlotTickOptionsCanvasAxisTick<J extends JQPlotTickOptionsCanvasAx
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setTextColor(ColourHex textColor)
+	public J setTextColor(String textColor)
 	{
 		this.textColor = textColor;
 		return (J) this;

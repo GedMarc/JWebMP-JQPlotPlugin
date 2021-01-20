@@ -37,4 +37,6 @@ module com.jwebmp.plugins.jqplot {
 	opens com.jwebmp.plugins.jqplot.options.series to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.jqplot.options.ticks to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.jqplot.options.title to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.graphs to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.jqplot.graphs.display to com.fasterxml.jackson.databind, com.jwebmp.core;
 }

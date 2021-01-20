@@ -16,7 +16,9 @@
  */
 package com.jwebmp.plugins.jqplot.options;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.generics.CompassPoints;
@@ -54,6 +56,9 @@ import jakarta.validation.constraints.NotNull;
  *
  * @author mmagon
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotHighlightOptions<O extends JavaScriptPart<O> & JQPlotMarkerRenderer, J extends JQPlotHighlightOptions<O, J>>
 		extends JavaScriptPart<J>
 		implements JQPlotRendererDefault

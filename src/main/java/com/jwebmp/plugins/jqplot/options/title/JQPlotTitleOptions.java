@@ -16,7 +16,9 @@
  */
 package com.jwebmp.plugins.jqplot.options.title;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jwebmp.core.htmlbuilder.css.colours.ColourHex;
 import com.jwebmp.core.htmlbuilder.css.fonts.FontFamilies;
 import com.jwebmp.core.htmlbuilder.css.text.TextAlignments;
@@ -33,6 +35,9 @@ import jakarta.validation.constraints.NotNull;
  * @author mmagon
  * @since 2014/07/09
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotTitleOptions<O extends JavaScriptPart<O> & JQPlotTitleRenderer, J extends JQPlotTitleOptions<O, J>>
 		extends JavaScriptPart<J>
 {
