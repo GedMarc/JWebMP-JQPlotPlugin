@@ -42,11 +42,9 @@ import java.util.List;
 public class JQPlotOptions<J extends JQPlotOptions<J>>
 		extends JavaScriptPart<J>
 {
-
 	/**
 	 * Version 1
 	 */
-
 	@JsonIgnore
 	private JQPlotGraph<?,?> linkedGraph;
 	/**
@@ -119,6 +117,13 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	 * The default axis configuration
 	 */
 	private JQPlotAxisOptions<?,?> axesDefaults;
+	
+	/**
+	 * A direct string for the canvas object
+	 */
+	@JsonProperty("canvasOverlay")
+	@JsonRawValue
+	private String canvas;
 
 	/**
 	 * The graph options available. This is the complete set
@@ -586,7 +591,28 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 		this.captureRightClick = captureRightClick;
 		return (J) this;
 	}
-
+	
+	/**
+	 * The canvas overlay property
+	 * @return
+	 */
+	public String getCanvas()
+	{
+		return canvas;
+	}
+	
+	/**
+	 * The canvas overlay property
+	 * @param canvas
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public J setCanvas(String canvas)
+	{
+		this.canvas = canvas;
+		return (J) this;
+	}
+	
 	/**
 	 * An array of all the axis available. Can be up to 9. Example [x,y,z] or [x,y1,x2,y2,y3,y4,y5,y6]
 	 * <p>
