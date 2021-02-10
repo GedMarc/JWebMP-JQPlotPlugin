@@ -25,7 +25,8 @@ public enum XAxisTypes
 {
 
 	XAxis,
-	X1Axis;
+	X1Axis,
+	X2Axis;
 
 	XAxisTypes()
 	{

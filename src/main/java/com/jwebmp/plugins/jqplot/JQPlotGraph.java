@@ -30,6 +30,8 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotSeriesItem;
 import com.jwebmp.plugins.jqplot.options.JQPlotOptions;
 import com.jwebmp.plugins.jqplot.options.JQPlotSeriesOptions;
+import com.jwebmp.plugins.jqplot.parts.XAxisTypes;
+import com.jwebmp.plugins.jqplot.parts.YAxisTypes;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -59,6 +61,10 @@ public class JQPlotGraph<O extends JavaScriptPart<?>, J extends JQPlotGraph<O, J
     private JQPlotOptions<?> options;
 
     private List<JQPlotSeriesItem> seriesData = new ArrayList<>();
+
+    private List<JQPlotSeriesItem> x1SeriesData = new ArrayList<>();
+    private List<JQPlotSeriesItem> x2SeriesData = new ArrayList<>();
+
 
     public JQPlotGraph() {
         super(ComponentTypes.Div);
@@ -95,6 +101,12 @@ public class JQPlotGraph<O extends JavaScriptPart<?>, J extends JQPlotGraph<O, J
      */
     public StringBuilder getDataPointRender() {
         try {
+            seriesData.clear();
+            seriesData.addAll(x1SeriesData);
+            if(!x2SeriesData.isEmpty())
+            {
+                seriesData.addAll(x2SeriesData);
+            }
             return new StringBuilder(GuiceContext.get(ObjectBinderKeys.DefaultObjectMapper).writeValueAsString(seriesData));
         } catch (JsonProcessingException e) {
             return new StringBuilder("Failed to construct data renderer " + e.getMessage() + " - " + ExceptionUtils.getStackTrace(e));
@@ -128,18 +140,35 @@ public class JQPlotGraph<O extends JavaScriptPart<?>, J extends JQPlotGraph<O, J
     }
 
     public J addSeries(JQPlotSeriesItem seriesItem, JQPlotSeriesOptions<?, ?, ?> seriesRenderer) {
-        seriesData.add(seriesItem);
+        x1SeriesData.add(seriesItem);
         getOptions().getSeries().add(seriesRenderer);
         return (J) this;
     }
 
-    public List<JQPlotSeriesItem> getSeriesData() {
-        return seriesData;
+    public J addSeriesX2(JQPlotSeriesItem seriesItem, JQPlotSeriesOptions<?, ?, ?> seriesRenderer) {
+        x2SeriesData.add(seriesItem);
+        seriesRenderer.setXaxis(XAxisTypes.X2Axis);
+        seriesRenderer.setYaxis(YAxisTypes.Y2Axis);
+        getOptions().getSeries().add(seriesRenderer);
+        return (J) this;
     }
 
-    public J setSeriesData(List<JQPlotSeriesItem> seriesData) {
-        this.seriesData = seriesData;
-        return (J) this;
+    public List<JQPlotSeriesItem> getX1SeriesData() {
+        return x1SeriesData;
+    }
+
+    public JQPlotGraph<O, J> setX1SeriesData(List<JQPlotSeriesItem> x1SeriesData) {
+        this.x1SeriesData = x1SeriesData;
+        return this;
+    }
+
+    public List<JQPlotSeriesItem> getX2SeriesData() {
+        return x2SeriesData;
+    }
+
+    public JQPlotGraph<O, J> setX2SeriesData(List<JQPlotSeriesItem> x2SeriesData) {
+        this.x2SeriesData = x2SeriesData;
+        return this;
     }
 
     @Override
