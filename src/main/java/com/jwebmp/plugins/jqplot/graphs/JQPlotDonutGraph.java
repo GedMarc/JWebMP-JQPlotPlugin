@@ -170,7 +170,7 @@ public class JQPlotDonutGraph<J extends JQPlotDonutGraph<J>>
 	 * @return
 	 */
 	@Override
-	protected StringBuilder getDataPointRender()
+	public StringBuilder getDataPointRender()
 	{
 		StringBuilder sb = new StringBuilder();
 		String jsonInString;

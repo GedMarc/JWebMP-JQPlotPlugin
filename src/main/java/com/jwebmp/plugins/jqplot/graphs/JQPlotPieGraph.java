@@ -101,7 +101,7 @@ public class JQPlotPieGraph<J extends JQPlotPieGraph<J>>
 	 * @return
 	 */
 	@Override
-	protected StringBuilder getDataPointRender()
+	public StringBuilder getDataPointRender()
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("[[");

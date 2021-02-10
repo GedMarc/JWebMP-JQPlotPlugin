@@ -114,7 +114,7 @@ public class JQPlotLineGraph<J extends JQPlotLineGraph<J>>
 	}
 
 	@Override
-	protected StringBuilder getDataPointRender()
+	public StringBuilder getDataPointRender()
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");

@@ -22,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jwebmp.core.base.servlets.enumarations.Orientation;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
+import com.jwebmp.plugins.jqplot.options.JQPlotMarkerOptions;
+import com.jwebmp.plugins.jqplot.options.JQPlotSeriesOptions;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
 import jakarta.validation.constraints.NotNull;
@@ -37,17 +39,15 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotSeriesBarOptions<J extends JQPlotSeriesBarOptions<J>>
-		extends JavaScriptPart<J>
+		extends JQPlotSeriesOptions<JQPlotSeriesBarOptions<?>, JQPlotMarkerOptions<?>,J>
 		implements JQPlotSeriesRenderer
 {
-
-
 	private Boolean disableStack;
 	/**
 	 * The graph that this is linked to
 	 */
 	@JsonIgnore
-	private JQPlotGraph linkedGraph;
+	private JQPlotGraph<?,?> linkedGraph;
 	private Boolean fillToZero;
 
 	/**
@@ -113,8 +113,9 @@ public class JQPlotSeriesBarOptions<J extends JQPlotSeriesBarOptions<J>>
 
 	private Boolean useNegativeColors;
 
-	public JQPlotSeriesBarOptions(JQPlotGraph linkedGraph)
+	public JQPlotSeriesBarOptions(JQPlotGraph<?,?> linkedGraph)
 	{
+		super(linkedGraph);
 		this.linkedGraph = linkedGraph;
 	}
 

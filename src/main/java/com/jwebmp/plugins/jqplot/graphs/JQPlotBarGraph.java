@@ -67,7 +67,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	/**
 	 * The category or tick values
 	 */
-	private Set<String> categoryTickValues;
+	private List<String> categoryTickValues;
 	/**
 	 * Each of the separate bar groups to be applied
 	 */
@@ -120,11 +120,11 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	 *
 	 * @return
 	 */
-	public Set<String> getCategoryTickValues()
+	public List<String> getCategoryTickValues()
 	{
 		if (categoryTickValues == null)
 		{
-			categoryTickValues = new LinkedHashSet<>();
+			categoryTickValues = new ArrayList<>();
 		}
 
 		return categoryTickValues;

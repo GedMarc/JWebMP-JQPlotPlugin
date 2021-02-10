@@ -25,6 +25,8 @@ import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotAxisLabelRenderer;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotTickRenderer;
 
 import jakarta.validation.constraints.NotNull;
+
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -70,7 +72,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * axis range so that data points don't fall on the edges of the axis. a 1D [val1, val2, ...], or 2D [[val, label], [val, label], ...]
 	 */
 	@JsonIgnore
-	private Set<String> ticks;
+	private List<String> ticks;
 	/**
 	 * array of ticks to use. Computed automatically.
 	 */
@@ -319,7 +321,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 * @return
 	 */
 	@JsonProperty("ticks")
-	public Set<String> getTicks()
+	public List<String> getTicks()
 	{
 		return ticks;
 	}
@@ -332,7 +334,7 @@ public class JQPlotAxisOptions<O extends JavaScriptPart & JQPlotAxisLabelRendere
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setTicks(Set<String> ticks)
+	public J setTicks(List<String> ticks)
 	{
 		this.ticks = ticks;
 		return (J) this;

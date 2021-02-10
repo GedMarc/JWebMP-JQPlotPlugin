@@ -86,7 +86,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart<?> & JQPlotSeriesRende
 	/**
 	 * Number of strokes to make when drawing shadow. Each stroke offset by shadowOffset from the last.
 	 */
-	private Integer shadowDepth;
+	private Double shadowDepth;
 	/**
 	 * Opacity of the shadow.
 	 */
@@ -374,7 +374,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart<?> & JQPlotSeriesRende
 	 *
 	 * @return
 	 */
-	public Integer getShadowDepth()
+	public Double getShadowDepth()
 	{
 		return shadowDepth;
 	}
@@ -386,7 +386,7 @@ public class JQPlotSeriesOptions<O extends JavaScriptPart<?> & JQPlotSeriesRende
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setShadowDepth(Integer shadowDepth)
+	public J setShadowDepth(Double shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
 		return (J) this;

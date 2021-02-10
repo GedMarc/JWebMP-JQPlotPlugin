@@ -21,6 +21,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
+import com.jwebmp.plugins.jqplot.options.JQPlotMarkerOptions;
+import com.jwebmp.plugins.jqplot.options.JQPlotSeriesOptions;
 import com.jwebmp.plugins.jqplot.parts.interfaces.JQPlotSeriesRenderer;
 
 import jakarta.validation.constraints.NotNull;
@@ -36,7 +38,7 @@ import jakarta.validation.constraints.NotNull;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
-		extends JavaScriptPart<J>
+		extends JQPlotSeriesOptions<JQPlotSeriesLineOptions<?>, JQPlotMarkerOptions<?>,J>
 		implements JQPlotSeriesRenderer
 {
 	/**
@@ -64,6 +66,7 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 	 */
 	public JQPlotSeriesLineOptions(JQPlotGraph<?,?> linkedGraph)
 	{
+		super(linkedGraph);
 		this.linkedGraph = linkedGraph;
 	}
 
