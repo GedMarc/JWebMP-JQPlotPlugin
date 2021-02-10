@@ -41,6 +41,7 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 		extends JQPlotSeriesOptions<JQPlotSeriesLineOptions<?>, JQPlotMarkerOptions<?>,J>
 		implements JQPlotSeriesRenderer
 {
+	private Boolean disableStack;
 	/**
 	 * The graph that this is linked to
 	 */
@@ -196,4 +197,12 @@ public class JQPlotSeriesLineOptions<J extends JQPlotSeriesLineOptions<J>>
 		return (J) this;
 	}
 
+	public Boolean getDisableStack() {
+		return disableStack;
+	}
+
+	public JQPlotSeriesLineOptions<J> setDisableStack(Boolean disableStack) {
+		this.disableStack = disableStack;
+		return this;
+	}
 }
