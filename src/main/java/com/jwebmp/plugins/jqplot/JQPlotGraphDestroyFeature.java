@@ -19,9 +19,6 @@ package com.jwebmp.plugins.jqplot;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_COMMNA;
-import static com.jwebmp.core.utilities.StaticStrings.*;
-
 /**
  * This is the default implementation of the JQPlot Graph Library
  *
@@ -31,22 +28,19 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * 2016/02/26 Update to the feature for 1.0.9 and updates to the JavaScript Engine
  * @since 2014/07/08
  */
-public class JQPlotGraphFeature
-		extends Feature<JQPlotGraphFeature, JavaScriptPart<?>, JQPlotGraphFeature>
+public class JQPlotGraphDestroyFeature
+		extends Feature<JQPlotGraphDestroyFeature, JavaScriptPart<?>, JQPlotGraphDestroyFeature>
 {
-	
 	/**
 	 * The graph this feature is linked to
 	 */
 	private JQPlotGraph graph;
 	
-	public JQPlotGraphFeature(JQPlotGraph forGraph)
+	public JQPlotGraphDestroyFeature(JQPlotGraph forGraph)
 	{
 		super("JWGraphFeature");
 		setComponent(forGraph);
 		graph = forGraph;
-//		forGraph.getPage()
-//		        .addVariable(getVariableName());
 	}
 	
 	public String getVariableName()
@@ -69,36 +63,18 @@ public class JQPlotGraphFeature
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		getGraph().addVariable(getVariableName());
-		StringBuilder sb = new StringBuilder();
-		
-		addQuery("$.jqplot.config.enablePlugins = true;" + getNewLine());
-		
-		sb.append("if(jw.jqplots === undefined)" +
-		          "jw.jqplots={};" +
-		          "" +
-		          "" +
-		          "jw.jqplots.")
-		  .append(getVariableName())
-		  .append(" = ");
-		sb.append(getComponent().asBase()
-		                        .getJQueryID())
-		  .append("jqplot(");
-		sb.append(graph.getDataPointRender())
-		  .append(STRING_COMMNA)
-		  .append(getNewLine());
-		sb.append(getOptions());
-		sb.append(");")
-		  .append(getNewLine());
-		addQuery(sb.toString());
-		
-		
-		addQuery("$(window).resize(function() {" +
-						"if (jw.jqplots." + getVariableName() + ".data(\"jqplot\"))" +
-						"jw.jqplots." + getVariableName() + ".data(\"jqplot\").replot();" +
-					//	sb.toString() +
-						"});"
-		        );
+		addQuery("if(!jw.jqplots){jw.jqplots={};}" +
+		         "if(jw.jqplots." + graph.getID() + " !== null){" +
+		         "if (jw.jqplots." + graph.getID() + ".data(\"jqplot\") !== null) {" +
+		         //     "alert('destroying jqplot');" +
+		         "try{jw.jqplots." + graph.getID() + ".data(\"jqplot\").destroy();" +
+		         "}catch(err){}" +
+		         "finally{" +
+		         "jw.jqplots." + graph.getID() + " = null;" +
+		         "}" +
+		         "   }" +
+		         "}"
+		);
 	}
 	
 	/**
