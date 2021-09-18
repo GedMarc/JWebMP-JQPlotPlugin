@@ -16,11 +16,11 @@
  */
 package com.jwebmp.plugins.jqplot;
 
+import com.google.common.base.Strings;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_COMMNA;
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * This is the default implementation of the JQPlot Graph Library
@@ -34,6 +34,8 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 public class JQPlotGraphFeature
 		extends Feature<JQPlotGraphFeature, JavaScriptPart<?>, JQPlotGraphFeature>
 {
+	
+	private String dataUrl;
 	
 	/**
 	 * The graph this feature is linked to
@@ -80,11 +82,14 @@ public class JQPlotGraphFeature
 		          "" +
 		          "jw.jqplots.")
 		  .append(getVariableName())
-		  .append(" = ");
-		sb.append(getComponent().asBase()
-		                        .getJQueryID())
-		  .append("jqplot(");
-		sb.append(graph.getDataPointRender())
+		  .append(" = $.");
+		/*sb.append(getComponent().asBase()
+		                        .getJQueryID())*/
+		  sb.append("jqplot(");
+		
+		sb.append("'" + graph.getID() + "',");
+		
+		sb.append(Strings.isNullOrEmpty(dataUrl) ? graph.getDataPointRender() : "'" + dataUrl + "'")
 		  .append(STRING_COMMNA)
 		  .append(getNewLine());
 		sb.append(getOptions());
@@ -94,11 +99,11 @@ public class JQPlotGraphFeature
 		
 		
 		addQuery("$(window).resize(function() {" +
-						"if (jw.jqplots." + getVariableName() + ".data(\"jqplot\"))" +
-						"jw.jqplots." + getVariableName() + ".data(\"jqplot\").replot();" +
-					//	sb.toString() +
-						"});"
-		        );
+		         "if (jw.jqplots." + getVariableName() + ".data(\"jqplot\"))" +
+		         "jw.jqplots." + getVariableName() + ".data(\"jqplot\").replot();" +
+		         //	sb.toString() +
+		         "});"
+		);
 	}
 	
 	/**
@@ -119,5 +124,27 @@ public class JQPlotGraphFeature
 	public void setGraph(JQPlotGraph graph)
 	{
 		this.graph = graph;
+	}
+	
+	/**
+	 * A data url to use in place of the data render option
+	 *
+	 * @return
+	 */
+	public String getDataUrl()
+	{
+		return dataUrl;
+	}
+	
+	/**
+	 * A data url to use in place of the data render option
+	 *
+	 * @param dataUrl
+	 * @return
+	 */
+	public JQPlotGraphFeature setDataUrl(String dataUrl)
+	{
+		this.dataUrl = dataUrl;
+		return this;
 	}
 }

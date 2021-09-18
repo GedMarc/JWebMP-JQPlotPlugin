@@ -124,6 +124,10 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 	@JsonProperty("canvasOverlay")
 	@JsonRawValue
 	private String canvas;
+	
+	@JsonProperty("dataRenderer")
+	@JsonRawValue
+	private String dataRenderer;
 
 	/**
 	 * The graph options available. This is the complete set
@@ -641,5 +645,16 @@ public class JQPlotOptions<J extends JQPlotOptions<J>>
 		this.axes = axes;
 		return (J) this;
 	}
-
+	
+	public String getDataRenderer()
+	{
+		return dataRenderer;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public J setDataRenderer(String dataRenderer)
+	{
+		this.dataRenderer = dataRenderer;
+		return  (J)this;
+	}
 }
