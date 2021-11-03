@@ -10,7 +10,7 @@
     <groupId>com.jwebmp.plugins.graphing</groupId>
     <artifactId>jwebmp-jqplot</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>JQPlot Plugin</name>
     <description>The JWebSwing implementation for JQPlot Plugin</description>
     <url>https://github.com/GedMarc/JWebSwing-JQPlotPlugin</url>
