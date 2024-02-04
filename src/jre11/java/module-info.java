@@ -17,7 +17,7 @@ module com.jwebmp.plugins.jqplot {
 	exports com.jwebmp.plugins.jqplot.references;
 
 	requires com.jwebmp.core;
-	requires com.guicedee.logmaster;
+	
 	
 	requires com.google.common;
 

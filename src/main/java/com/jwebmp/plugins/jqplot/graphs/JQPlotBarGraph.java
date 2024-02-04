@@ -19,7 +19,7 @@ package com.jwebmp.plugins.jqplot.graphs;
 import com.jwebmp.core.base.servlets.enumarations.Orientation;
 import com.jwebmp.core.generics.CompassPoints;
 import com.jwebmp.core.plugins.ComponentInformation;
-import com.guicedee.logger.LogFactory;
+
 import com.jwebmp.plugins.jqplot.JQPlotGraph;
 import com.jwebmp.plugins.jqplot.graphs.display.JQPlotBar;
 import com.jwebmp.plugins.jqplot.options.axis.JQPlotAxisLabelRendererOptionsCategoryLabels;
@@ -31,7 +31,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
@@ -54,8 +54,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 	/**
 	 * The logger for the swing Servlet
 	 */
-	private static final Logger LOG = LogFactory.getInstance()
-	                                            .getLogger("JQPlotBarGraph");
+	
 	/**
 	 * The bar graph options
 	 */
@@ -474,7 +473,7 @@ public class JQPlotBarGraph<J extends JQPlotBarGraph<J>>
 						}
 						catch (Exception e)
 						{
-							LOG.log(Level.WARNING, "Unable to generate data", e);
+							log.log(Level.WARNING, "Unable to generate data", e);
 							valuesPerRow[j] = "";
 						}
 						break;

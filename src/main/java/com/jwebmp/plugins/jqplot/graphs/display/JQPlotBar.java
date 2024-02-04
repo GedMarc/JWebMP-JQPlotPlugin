@@ -18,7 +18,7 @@ package com.jwebmp.plugins.jqplot.graphs.display;
 
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_COMMNA;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_COMMNA;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**

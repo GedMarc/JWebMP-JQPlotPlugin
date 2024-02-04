@@ -25,7 +25,7 @@ import com.jwebmp.plugins.jqplot.options.series.JQPlotSeriesPieOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_COMMNA;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_COMMNA;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
